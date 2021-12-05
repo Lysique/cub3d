@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 13:17:02 by tamighi           #+#    #+#              #
-#    Updated: 2021/12/04 17:32:55 by tamighi          ###   ########.fr        #
+#    Updated: 2021/12/05 13:08:26 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 OBJDIR	= objs
 MLX_DIR = mlx
 
-SOURCES	= main.c cub3d.c error_manager.c free_manager.c
+SOURCES	= print_my_struct.c main.c cub3d.c error_manager.c free_manager.c
 SRCDIR 	= srcs
 SRCS 	= $(addprefix $(SRCDIR)/, $(SOURCES))
 OBJS	= $(addprefix $(OBJDIR)/, $(SOURCES:.c=.o))
 
-STRUCT		= file_reading.c game_struct_init.c add_texture_paths.c get_next_line.c utils.c
+STRUCT		= file_reading.c game_struct_init.c add_texture_paths.c add_map.c get_next_line.c utils.c
 STRUCT_DIR 	= srcs/struct_init
 STRUCT_SRCS = $(addprefix $(STRUCT_DIR)/, $(STRUCT))
 STRUCT_OBJS	= $(addprefix $(OBJDIR)/, $(STRUCT:.c=.o))

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   print_my_struct.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 12:41:04 by tamighi           #+#    #+#             */
-/*   Updated: 2021/12/05 13:18:34 by tamighi          ###   ########.fr       */
+/*   Created: 2021/12/05 13:04:27 by tamighi           #+#    #+#             */
+/*   Updated: 2021/12/05 13:10:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	cub3d(int argc, char **argv)
+void	print_my_struct(t_game *game)
 {
-	t_game	game;
-
-	if (argc != 2)
-		error_manager(&game, 1);
-	game_struct_init(argv, &game);
-//	print_my_struct(&game);
-	error_manager(&game, 0);
-	return (0);
+	printf("North : %sSouth : %sWest : %sEast : %sceiling : %sfloor : %s\n", game->north_texture, game->south_texture, game->west_texture, game->east_texture, game->ceiling_texture, game->floor_texture);
+	int	i = 0;
+	printf("Map :\n");
+	while (game->map[i])
+		printf("%s", game->map[i++]);
+	printf("\n");
 }

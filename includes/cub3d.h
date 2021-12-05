@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 11:03:57 by tamighi           #+#    #+#             */
-/*   Updated: 2021/12/05 11:25:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/12/05 13:18:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ typedef struct s_game {
 
 // SRCS FILES
 
+void	print_my_struct(t_game *game);
+
 int		cub3d(int argc, char **argv);
 void	error_manager(t_game *game, int error);
 int		free_manager(t_game *game, int free_nb);
 
 // STRUCT_INIT FILES
 
+void	game_struct_init(char **argv, t_game *game);
 void	file_reading(char **argv, t_game *game);
-void	game_struct_init(int fd, t_game *game);
-int		add_texture_paths(int fd, t_game *game);
-int		add_map(int fd, t_game *game);
+int		add_texture_paths(t_game *game);
+int		add_map(t_game *game);
 
 int		ft_strcmp(char *s1, char *s2);
 char	*skip_spaces(char *line, void *ptr, t_game *game);

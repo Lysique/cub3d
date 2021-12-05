@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:08:25 by tamighi           #+#    #+#             */
-/*   Updated: 2021/12/05 11:27:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/12/05 13:20:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	game_variables_init(t_game *game)
 	game->floor_texture = 0;
 }
 
-void	game_struct_init(int fd, t_game *game)
+void	game_struct_init(char **argv, t_game *game)
 {
+	file_reading(argv, game);
 	game_variables_init(game);
-	if (add_texture_paths(fd, game) == -1)
+	if (add_texture_paths(game) == -1)
 		error_manager(game, game->error);
-	if (add_map(fd, game) == -1)
+	if (add_map(game) == -1)
 		error_manager(game, game->error);
 }

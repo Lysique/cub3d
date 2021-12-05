@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 13:03:13 by tamighi           #+#    #+#             */
-/*   Updated: 2021/12/05 10:31:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/12/05 13:16:37 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,4 @@ void	file_reading(char **argv, t_game *game)
 	game->fd = open(argv[1], O_RDONLY);
 	if (game->fd == -1)
 		error_manager(game, 3);
-	game_struct_init(game->fd, game);
 }

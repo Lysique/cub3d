@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 15:58:56 by tamighi           #+#    #+#             */
-/*   Updated: 2021/12/05 11:27:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2021/12/05 13:21:12 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	texture_to_struct(t_game *game, char *line)
 	return (1);
 }
 
-int	add_texture_paths(int fd, t_game *game)
+int	add_texture_paths(t_game *game)
 {
 	char	*line;
 	int		check;
 
 	game->error = 4;
-	line = get_next_line(fd, game);
+	line = get_next_line(game->fd, game);
 	while (line)
 	{
 		check = texture_to_struct(game, line);
@@ -63,7 +63,7 @@ int	add_texture_paths(int fd, t_game *game)
 			return (-1);
 		else if (check == 0)
 			return (0);
-		line = get_next_line(fd, game);
+		line = get_next_line(game->fd, game);
 	}
 	return (-1);
 }
