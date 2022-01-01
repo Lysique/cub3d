@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:32:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 13:45:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 15:22:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(int argc, char **argv)
 	}
 	else if (argc > 2)
 	{
-		my_write("Error\nTo many arguments.\nPlease enter only one file as argument.\n");
+		my_write("Error\nTo many arguments.\n");
+		my_write("Please enter only one file as argument.\n");
 		return (1);
 	}
 	cub3d(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 14:25:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 15:20:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	add_texture_to_struct(char *line, t_cub *cub)
 	int	i;
 
 	i = 0;
-	if ((++i && ft_strcmp("NO ", line)) || (++i && ft_strcmp("SO ", line)) ||
-		(++i && ft_strcmp("WE ", line)) || (++i && ft_strcmp("EA ", line)))
+	if ((++i && ft_strcmp("NO ", line)) || (++i && ft_strcmp("SO ", line))
+		|| (++i && ft_strcmp("WE ", line)) || (++i && ft_strcmp("EA ", line)))
 		return (add_img(line, cub, i));
 	else if ((++i && ft_strcmp("F ", line)) || (++i && ft_strcmp("C ", line)))
 		return (add_rgb(line, cub, i));
