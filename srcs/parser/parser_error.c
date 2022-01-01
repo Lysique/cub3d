@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 11:42:15 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 13:48:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	destroy_imgs(t_cub *cub)
 
 void	parser_error(t_cub *cub, int error)
 {
-	(void)cub;
+	mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
 	if (error == 1)
-		wr_and_ex("Error while opening the file.\n", 1);
+		wr_and_ex("Error\nCouldn't open the file.\n", 1);
 	else if (error == 2)
 	{
 		destroy_imgs(cub);
-		wr_and_ex("Error while parsing textures\n", 1);
+		wr_and_ex("Error\nTexture initialisation didn't work properly.\n", 1);
 	}
 }

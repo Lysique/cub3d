@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:57:46 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 11:42:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 13:17:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ char	*add_buff(char *line, char buf)
 		i = 0;
 	while (line && line[++i])
 		new[i] = line[i];
-	new[i++] = buf;
+	if (buf != '\n')
+		new[i++] = buf;
 	new[i] = '\0';
 	if (line)
 		free(line);
