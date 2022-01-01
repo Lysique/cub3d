@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 10:06:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 16:53:00 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 void	cub3d(char *argument);
 
 void	parser(char *argument, t_cub *cub);
+int		key_hook(int key, void *param);
 
 #endif

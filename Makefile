@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/01 16:23:22 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/01 17:30:34 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ MLX_DIR = mlx/
 INCLUDES = includes/
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
-C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS)
-C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS)
+C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS)
+C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS)
 
 ##### SRCS FILES ######
 
@@ -50,6 +50,16 @@ PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
 
 $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+
+##### KEY_HOOK FILES ######
+
+KEY_HOOK_FILES = key_hook.c
+KEY_HOOK_DIR = srcs/key_hook/
+KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
+KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
+
+$(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 ##### RULES #####

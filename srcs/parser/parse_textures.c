@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:40:42 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 13:44:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 17:02:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	are_all_textures_set(t_cub *cub)
 	return (1);
 }
 
-void	assign_textures(t_cub *cub, int fd)
+int	assign_textures(t_cub *cub, int fd)
 {
 	char	*line;
 
@@ -46,15 +46,17 @@ void	assign_textures(t_cub *cub, int fd)
 		{
 			if (line)
 				free(line);
-			close(fd);
-			parser_error(cub, 2);
+			return (-1);
 		}
 		free(line);
 	}
+	return (1);
 }
 
-void	parse_textures(t_cub *cub, int fd)
+int	parse_textures(t_cub *cub, int fd)
 {
 	init_textures(cub);
-	assign_textures(cub, fd);
+	if (assign_textures(cub, fd) == -1)
+		return (-1);
+	return (1);
 }

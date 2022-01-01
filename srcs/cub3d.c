@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 15:27:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 16:47:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	cub3d(char *argument)
 
 	mlx_variables_init(&mlx, &cub);
 	parser(argument, &cub);
+	mlx_key_hook(cub.mlx.win, key_hook, (void *)&cub);
 	mlx_loop(cub.mlx.mlx);
 }
