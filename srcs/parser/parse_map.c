@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 14:00:05 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 15:15:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 16:22:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,5 @@ void	map_to_struct(t_cub *cub, int fd)
 void	parse_map(t_cub *cub, int fd)
 {
 	map_to_struct(cub, fd);
+	map_checker(cub);
 }

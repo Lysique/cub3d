@@ -6,11 +6,12 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 13:38:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 15:27:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
+#include "../includes/parser.h"
 
 void	mlx_variables_init(t_mlx *mlx, t_cub *cub)
 {
