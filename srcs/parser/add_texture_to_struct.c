@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 13:41:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 14:25:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*go_to_path(char *line)
 	i = 0;
 	while (line[i] != ' ' && line[i])
 		i++;
-	while (line[i] == ' ' || line[i] == '	')
+	while (line[i] == ' ')
 		i++;
 	return (&line[i]);
 }
@@ -57,7 +57,7 @@ int	add_texture_to_struct(char *line, t_cub *cub)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != ' ' || line[i] != '	')
+		if (line[i] != ' ')
 			return (-1);
 	}
 	return (1);

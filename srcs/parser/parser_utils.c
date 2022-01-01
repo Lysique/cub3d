@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:57:46 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 13:17:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/01 15:13:08 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*add_buff(char *line, char buf)
 	i = 0;
 	while (line && line[i])
 		i++;
-	new = malloc(i + 2);
+	new = malloc(i + 3);
 	if (!new)
 	{
 		my_write("Memory allocation error.\n");
@@ -52,7 +52,7 @@ char	*get_next_line(int fd)
 	while (ret && buf != '\n')
 	{
 		ret = read(fd, &buf, 1);
-		if (ret < 0)
+		if (ret <= 0)
 			return (line);
 		line = add_buff(line, buf);
 		if (!line)

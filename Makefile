@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/01 13:12:38 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/01 15:05:01 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_error.c parse_textures.c parser_utils.c add_texture_to_struct.c
+PARSER_FILES = parser.c parser_error.c parse_textures.c parser_utils.c add_texture_to_struct.c parse_map.c
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
