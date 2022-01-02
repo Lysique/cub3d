@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 12:24:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 12:31:02 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	mlx_variables_init(t_mlx *mlx, t_cub *cub)
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		wr_and_ex("Error\nMlx init did not work properly.\n", 1);
-	mlx->win = mlx_new_window(mlx->mlx, 1920, 1080, "cub3d");
+	mlx->win = mlx_new_window(mlx->mlx, WIN_W, WIN_H, "cub3d");
 	if (!mlx->win)
 		wr_and_ex("Error\nFailed to create window.\n", 1);
 	cub->mlx = *mlx;

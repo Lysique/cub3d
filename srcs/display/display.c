@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:17:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 10:14:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 12:32:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void	display(t_cub *cub)
 {
 	ray_casting(cub);
+	display_map(cub);
 }

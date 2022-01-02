@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 12:23:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 17:09:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	player_data(char c, t_player *player, int i, int j)
 		player->view = 90;
 	else if (c == 'W')
 		player->view = 270;
-	player->x = i + 0.5;
-	player->y = j + 0.5;
+	player->x = i * UNIT + UNIT / 2;
+	player->y = j * UNIT + UNIT / 2;
 }
 
 void	player_init(t_cub *cub, t_player *player)
@@ -41,7 +41,7 @@ void	player_init(t_cub *cub, t_player *player)
 			{
 				player_data(cub->map[j][i], player, i, j);
 				cub->map[j][i] = 0;
-				cub->player = player;
+				cub->player = *player;
 				return ;
 			}
 		}

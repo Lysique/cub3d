@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/02 12:27:44 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/02 12:50:39 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c
 
 ##### DISPLAY FILES ######
 
-DISPLAY_FILES = display.c ray_casting.c
+DISPLAY_FILES = display.c ray_casting.c display_map.c
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
 DISPLAY_OBJS = $(addprefix $(OBJDIR)display_, $(DISPLAY_FILES:.c=.o))
