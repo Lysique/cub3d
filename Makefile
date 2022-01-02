@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/02 10:14:48 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/02 12:27:44 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
 
-$(OBJDIR)KEY_HOOK_%.o: $(KEY_HOOK_DIR)%.c
+$(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 ##### RULES #####
