@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 11:42:37 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 09:23:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,17 @@ typedef struct s_img {
 	int		h;
 }				t_img;
 
+typedef struct s_player {
+	float	x;
+	float	y;
+	int		view;
+}				t_player;
+
 typedef struct s_cub {
-	char	**map;
-	t_mlx	mlx;
-	t_img	textures[6];
+	char		**map;
+	t_player	*player;
+	t_mlx		mlx;
+	t_img		textures[6];
 }				t_cub;
 
 void	my_write(char *str);
