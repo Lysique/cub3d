@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 15:20:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 09:13:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ char	*go_to_path(char *line)
 	int	i;
 
 	i = 0;
-	while (line[i] != ' ' && line[i])
+	while (line[i] != ' ')
 		i++;
-	while (line[i] == ' ')
-		i++;
+	i++;
 	return (&line[i]);
 }
 

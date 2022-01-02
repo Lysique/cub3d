@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:22:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 17:38:07 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/02 09:13:37 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,38 @@ int	is_player_char(char c)
 	return (0);
 }
 
-int	map_checker(t_cub *cub)
+int	check_map_elements(char **map)
 {
 	int		i;
 	int		j;
-	char	**map;
 	int		p;
 
 	i = -1;
 	j = -1;
 	p = 0;
-	map = cub->map;
+	while (map[++j])
+	{
+		while (map[j][++i])
+		{
+			if (is_player_char(map[j][i]) && p++)
+				return (-1);
+			if (!is_char_allowed_on_map(map[j][i]))
+				return (-1);
+		}
+		i = -1;
+	}
+	if (!p)
+		return (-1);
+	return (1);
+}
+
+int	check_open_map(char **map)
+{
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
 	while (map[++j])
 	{
 		while (map[j][++i])
@@ -47,14 +68,15 @@ int	map_checker(t_cub *cub)
 				|| map[j - 1][i] == ' ' || map[j][i - 1] == ' '
 				|| map[j + 1][i] == ' ' || map[j][i + 1] == ' '))
 				return (-1);
-			if (is_player_char(map[j][i]) && p++)
-				return (-1);
-			if (!is_char_allowed_on_map(map[j][i]))
-				return (-1);
 		}
 		i = -1;
 	}
-	if (!p)
+	return (1);
+}
+
+int	map_checker(t_cub *cub)
+{
+	if (check_open_map(cub->map) == -1 || check_map_elements(cub->map) == -1)
 		return (-1);
 	return (1);
 }

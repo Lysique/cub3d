@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/01 17:30:34 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/02 09:06:12 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = $(addprefix $(OBJDIR)srcs_, $(SRCS_FILES:.c=.o))
 
 $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c
+	$(MK_OBJDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 ##### GLOBAL FILES ######
@@ -66,7 +67,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c
 
 all: $(NAME)
 
-$(NAME): $(MK_OBJDIR) $(C_OBJS)
+$(NAME): $(C_OBJS)
 	make -C $(MLX_DIR)
 	$(CC) $(MLX_FLAGS) -I $(INCLUDES) $(C_FILES) -o $(NAME)
 
