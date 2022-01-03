@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 12:52:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:41:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_player {
 
 typedef struct s_cub {
 	char		**map;
+	t_img		display;
 	t_player	player;
 	t_mlx		mlx;
 	t_img		textures[6];

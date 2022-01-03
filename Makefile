@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/03 13:16:01 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/03 14:34:56 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c
 
 ##### LOOP_HOOK FILES ######
 
-LOOP_HOOK_FILES = loop_hook.c
+LOOP_HOOK_FILES = loop_hook.c move_manager.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))

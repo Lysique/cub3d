@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 12:28:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:45:14 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,10 @@ void	display_map(t_cub *cub)
 {
 	int		y;
 	int		x;
-	t_img	img;
 
 	y = cub->player.y - UNIT * 5;
 	x = cub->player.x - UNIT * 5;
-	img.img = mlx_new_image(cub->mlx.mlx, MINI, MINI);
-	if (!img.img)
-		free_and_exit(cub, "Error\nImage could not be created.", 1);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.sizel, &img.endian);
-	magic_map_displayer(cub, x, y, img);
+	magic_map_displayer(cub, x, y, cub->display);
 	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
-		img.img, 0, WIN_H - MINI);
-	mlx_destroy_image(cub->mlx.mlx, img.img);
+		cub->display.img, 0, WIN_H - MINI);
 }
