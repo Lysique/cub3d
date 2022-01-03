@@ -6,27 +6,27 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 08:27:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:38:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-void	player_data(char c, t_player *player, int i, int j)
+void	player_data(char c, t_cub *cub, int i, int j)
 {
 	if (c == 'S')
-		player->view = 180;
+		cub->player.view = 180;
 	else if (c == 'N')
-		player->view = 0;
+		cub->player.view = 0;
 	else if (c == 'E')
-		player->view = 90;
+		cub->player.view = 90;
 	else if (c == 'W')
-		player->view = 270;
-	player->x = i * UNIT + UNIT / 2;
-	player->y = j * UNIT + UNIT / 2;
+		cub->player.view = 270;
+	cub->player.x = i * UNIT + UNIT / 2;
+	cub->player.y = j * UNIT + UNIT / 2;
 }
 
-void	player_init(t_cub *cub, t_player *player)
+void	player_init(t_cub *cub)
 {
 	int	i;
 	int	j;
@@ -39,9 +39,8 @@ void	player_init(t_cub *cub, t_player *player)
 		{
 			if (is_player_char(cub->map[j][i]))
 			{
-				player_data(cub->map[j][i], player, i, j);
+				player_data(cub->map[j][i], cub, i, j);
 				cub->map[j][i] = '0';
-				cub->player = *player;
 				return ;
 			}
 		}
@@ -49,7 +48,7 @@ void	player_init(t_cub *cub, t_player *player)
 	}
 }
 
-void	parser(char *argument, t_cub *cub, t_player *player)
+void	parser(char *argument, t_cub *cub)
 {
 	int	fd;
 
@@ -67,5 +66,5 @@ void	parser(char *argument, t_cub *cub, t_player *player)
 		parser_error(cub, 3);
 	}
 	close(fd);
-	player_init(cub, player);
+	player_init(cub);
 }
