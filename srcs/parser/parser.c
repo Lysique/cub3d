@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 15:38:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 16:25:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	player_data(char c, t_cub *cub, int i, int j)
 {
 	if (c == 'S')
-		cub->player.view = 180;
+		cub->player.angle = PI;
 	else if (c == 'N')
-		cub->player.view = 0;
+		cub->player.angle = 2 * PI;
 	else if (c == 'E')
-		cub->player.view = 90;
+		cub->player.angle = 0.5 * PI;
 	else if (c == 'W')
-		cub->player.view = 270;
+		cub->player.angle = 1.5 * PI;
 	cub->player.x = i * UNIT + UNIT / 2;
 	cub->player.y = j * UNIT + UNIT / 2;
 }

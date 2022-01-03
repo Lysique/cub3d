@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 14:45:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:53:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	put_pixel_map(t_img img, int x, int y, char c)
 {
-	if (x > MINI / 2 - 5 && x < MINI / 2 + 5
-		&& y > MINI / 2 - 5 && y < MINI / 2 + 5)
-		put_my_pixel(img, x, y, 0x00E82CB5);
-	else if (c == '1')
+	if (c == '1')
 		put_my_pixel(img, x, y, 0x00000000);
 	else if (c == '0')
 		put_my_pixel(img, x, y, 0x0000FF00);
@@ -82,6 +79,4 @@ void	display_map(t_cub *cub)
 	y = cub->player.y - UNIT * 5;
 	x = cub->player.x - UNIT * 5;
 	magic_map_displayer(cub, x, y, cub->display);
-	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
-		cub->display.img, 0, WIN_H - MINI);
 }
