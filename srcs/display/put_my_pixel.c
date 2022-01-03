@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   put_my_pixel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 10:17:16 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/03 11:09:53 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/03 11:13:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/key_hook.h"
+#include "../../includes/display.h"
 
-int	key_hook(int key, void *param)
+void	put_my_pixel(t_img img, int x, int y, int color)
 {
-	t_cub *cub;
+	char	*dst;
 
-	cub = (t_cub *)param;
-	if (key == 53)
-		free_and_exit(cub, "Exit\n", 0);
-	return (0);
+	dst = img.addr + (y * img.sizel + x * (img.bpp / 8));
+	*(unsigned int *)dst = color;
 }

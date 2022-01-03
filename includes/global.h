@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 10:14:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 12:52:51 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <mlx.h>
+
+typedef struct s_key {
+	int	w;
+	int	s;
+	int	a;
+	int	d;
+	int	right;
+	int	left;
+}				t_key;
 
 typedef struct s_mlx {
 	void	*mlx;
@@ -44,11 +53,12 @@ typedef struct s_cub {
 	t_player	player;
 	t_mlx		mlx;
 	t_img		textures[6];
+	t_key		key;
 }				t_cub;
 
 # define WIN_H 1080
 # define WIN_W 1920
-# define MINI 300 
+# define MINI 300
 # define UNIT MINI 
 
 void	my_write(char *str);

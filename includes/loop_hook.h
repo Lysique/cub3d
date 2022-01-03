@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.h                                          :+:      :+:    :+:   */
+/*   loop_hook.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 11:12:47 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/03 13:31:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DISPLAY_H
-# define DISPLAY_H
+#ifndef LOOP_HOOK_H
+# define LOOP_HOOK_H
 
 # include "global.h"
 
-void	ray_casting(t_cub *cub);
+# define DISTANCE (UNIT / 5)
+
 void	display_map(t_cub *cub);
-void	put_my_pixel(t_img img, int x, int y, int color);
 
 #endif

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.h                                          :+:      :+:    :+:   */
+/*   key_release.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 11:12:47 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/03 13:01:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DISPLAY_H
-# define DISPLAY_H
+#include "../../includes/key_hook.h"
 
-# include "global.h"
+int	key_release(int key, void *param)
+{
+	t_cub *cub;
 
-void	ray_casting(t_cub *cub);
-void	display_map(t_cub *cub);
-void	put_my_pixel(t_img img, int x, int y, int color);
-
-#endif
+	cub = (t_cub *)param;
+	if (key == 2)
+		cub->key.d = 0;
+	else if (key == 0)
+		cub->key.a = 0;
+	else if (key == 1)
+		cub->key.s = 0;
+	else if (key == 13)
+		cub->key.w = 0;
+	return (0);
+}

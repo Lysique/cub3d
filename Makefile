@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/03 10:17:45 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/03 13:16:01 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ MLX_DIR = mlx/
 INCLUDES = includes/
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
-C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS)
-C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
+C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS) $(LOOP_HOOK_OBJS)
+C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS) $(LOOP_HOOK_SRCS)
 
 ##### SRCS FILES ######
 
@@ -55,7 +55,7 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c
 
 ##### DISPLAY FILES ######
 
-DISPLAY_FILES = display.c ray_casting.c display_map.c
+DISPLAY_FILES = display.c ray_casting.c display_map.c put_my_pixel.c
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
 DISPLAY_OBJS = $(addprefix $(OBJDIR)display_, $(DISPLAY_FILES:.c=.o))
@@ -65,12 +65,23 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c
 
 ##### KEY_HOOK FILES ######
 
-KEY_HOOK_FILES = key_hook.c
+KEY_HOOK_FILES = key_press.c key_release.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
 
 $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+
+##### LOOP_HOOK FILES ######
+
+LOOP_HOOK_FILES = loop_hook.c
+LOOP_HOOK_DIR = srcs/loop_hook/
+LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
+LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))
+
+$(OBJDIR)loop_hook_%.o: $(LOOP_HOOK_DIR)%.c
+	$(MK_OBJDIR)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 ##### RULES #####
