@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 17:09:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 08:46:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ typedef struct s_cub {
 
 # define WIN_H 1080
 # define WIN_W 1920
-# define UNIT 1000
-# define MINI_H 400 
-# define MINI_W 400 
+# define MINI 300 
+# define UNIT MINI 
 
 void	my_write(char *str);
 void	wr_and_ex(char *str, int ex);

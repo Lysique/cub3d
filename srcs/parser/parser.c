@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 17:09:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 08:27:59 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	player_init(t_cub *cub, t_player *player)
 			if (is_player_char(cub->map[j][i]))
 			{
 				player_data(cub->map[j][i], player, i, j);
-				cub->map[j][i] = 0;
+				cub->map[j][i] = '0';
 				cub->player = *player;
 				return ;
 			}
