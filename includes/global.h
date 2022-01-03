@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 08:46:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 09:50:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_mlx {
 typedef struct s_img {
 	void	*img;
 	char	*addr;
+	int		bpp;
+	int		sizel;
+	int		endian;
 	int		w;
 	int		h;
 }				t_img;
