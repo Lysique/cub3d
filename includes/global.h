@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 09:50:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 10:14:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ typedef struct s_cub {
 
 void	my_write(char *str);
 void	wr_and_ex(char *str, int ex);
+void	free_and_exit(t_cub *cub, char *msg, int error);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 10:04:00 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 10:16:02 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_my_pixel(char c, int x, int y, t_img img)
 		color = 0x00FC7462;
 	else
 		color = 0;
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	blackhole_display(t_cub *cub, int x, int y, t_img img)
@@ -78,7 +78,8 @@ void	magic_displayer(t_cub *cub, int x, int y, t_img img)
 		blackhole_display(cub, x, y, img);
 		y += (1 * UNIT) / (MINI / 10);
 	}
-	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win, img.img, 0, WIN_H - MINI);
+	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
+		img.img, 0, WIN_H - MINI);
 }
 
 void	display_map(t_cub *cub)
@@ -91,7 +92,7 @@ void	display_map(t_cub *cub)
 	x = cub->player.x - UNIT * 5;
 	img.img = mlx_new_image(cub->mlx.mlx, MINI, MINI);
 	if (!img.img)
-		exit(0);
+		free_and_exit(cub, "Error\nImage could not be created.", 1);
 	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.sizel, &img.endian);
 	magic_displayer(cub, x, y, img);
 	mlx_destroy_image(cub->mlx.mlx, img.img);

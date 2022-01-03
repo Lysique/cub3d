@@ -6,7 +6,7 @@
 #    By: tamighi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/02 12:50:39 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/03 10:17:45 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c
 
 ##### GLOBAL FILES ######
 
-GLOBAL_FILES = my_write.c wr_and_ex.c
+GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
