@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_manager.c                                     :+:      :+:    :+:   */
+/*   key_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 14:32:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:03:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,20 @@ void	move_manager(t_cub *cub)
 		&& cub->map[(y - limit) / UNIT][(x - limit + DISTANCE) / UNIT] != '1')
 		cub->player.y -= cub->key.w * DISTANCE;
 	display(cub);
+}
+
+void	rotate_manager(t_cub *cub)
+{
+	cub->player.view += ROTATE * cub->key.right;
+	cub->player.view -= ROTATE * cub->key.left;
+	if (cub->player.view >= 360)
+		cub->player.view = 0;
+	else if (cub->player.view < 0)
+		cub->player.view = 360 - ROTATE;
+}
+
+void	key_manager(t_cub *cub)
+{
+	move_manager(cub);
+	rotate_manager(cub);
 }

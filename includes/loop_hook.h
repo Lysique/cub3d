@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 14:34:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:01:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include "global.h"
 
 # define DISTANCE (UNIT / 10)
+# define ROTATE 10
 
 void	display(t_cub *cub);
-void	move_manager(t_cub *cub);
+void	key_manager(t_cub *cub);
 
 #endif

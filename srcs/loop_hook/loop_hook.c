@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 14:32:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:55:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int	loop_hook(t_cub *cub)
 	if (++i == 100000)
 		i = 1;
 	if (i % 500 == 0)
-		move_manager(cub);
+		key_manager(cub);
 	return (0);
 }

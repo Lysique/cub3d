@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 13:00:38 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:50:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ int	key_press(int key, void *param)
 		cub->key.s = 1;
 	else if (key == 13)
 		cub->key.w = 1;
+	else if (key == 123)
+		cub->key.left = 1;
+	else if (key == 124)
+		cub->key.right = 1;
 	return (0);
 }

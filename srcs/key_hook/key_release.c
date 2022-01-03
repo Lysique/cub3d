@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 13:01:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:51:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,9 @@ int	key_release(int key, void *param)
 		cub->key.s = 0;
 	else if (key == 13)
 		cub->key.w = 0;
+	else if (key == 123)
+		cub->key.left = 0;
+	else if (key == 124)
+		cub->key.right = 0;
 	return (0);
 }
