@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 16:24:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/04 13:32:27 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@ typedef struct s_img {
 }				t_img;
 
 typedef struct s_player {
-	int		x;
-	int		y;
+	float	x;
+	float	y;
 	float	angle;
-	int		view;
 }				t_player;
 
 typedef struct s_cub {
@@ -61,7 +60,6 @@ typedef struct s_cub {
 # define WIN_H 1080
 # define WIN_W 1920
 # define MINI 300
-# define UNIT MINI 
 # define PI 3.14159265359
 
 void	my_write(char *str);
