@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:09:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/04 13:13:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*go_to_path(char *line)
 
 	i = 0;
 	j = 0;
-	while (line[i] != ' ' || line[i] == '	')
+	while (line[i] != ' ' && line[i] != '	')
 		i++;
 	while (line[i] == ' ' || line[i] == '	')
 		i++;
@@ -31,7 +31,6 @@ char	*go_to_path(char *line)
 	while (line[i] && line[i] != ' ' && line[i] != '	')
 		path[j++] = line[i++];
 	path[j] = '\0';
-	printf("%s|\n", path);
 	return (path);
 }
 
@@ -61,10 +60,10 @@ int	add_texture_to_struct(char *line, t_cub *cub)
 	int	i;
 
 	i = 0;
-	if ((++i && ft_strcmp("NO ", line)) || (++i && ft_strcmp("SO ", line))
-		|| (++i && ft_strcmp("WE ", line)) || (++i && ft_strcmp("EA ", line)))
+	if ((++i && ft_strcmp("NO", line)) || (++i && ft_strcmp("SO", line))
+		|| (++i && ft_strcmp("WE", line)) || (++i && ft_strcmp("EA", line)))
 		return (add_img(line, cub, i));
-	else if ((++i && ft_strcmp("F ", line)) || (++i && ft_strcmp("C ", line)))
+	else if ((++i && ft_strcmp("F", line)) || (++i && ft_strcmp("C", line)))
 		return (add_rgb(line, cub, i));
 	i = 0;
 	while (line[i])
