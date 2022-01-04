@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   srcs.h                                             :+:      :+:    :+:   */
+/*   mouse_press.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 09:42:03 by tuytters         ###   ########.fr       */
+/*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/04 09:41:40 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SRCS_H
-# define SRCS_H
+#include "../../includes/key_hook.h"
 
-# include "global.h"
-# include <stdio.h>
+int	mouse_press(void *param)
+{
+	t_cub *cub;
 
-void	cub3d(char *argument);
-
-void	parser(char *argument, t_cub *cub);
-void	display(t_cub *cub);
-int		key_press(int key, void *param);
-int		key_release(int key, void *param);
-int		mouse_press(void *param);
-int		loop_hook(t_cub *cub);
-
-#endif
+	cub = (t_cub *)param;
+	free_and_exit(cub, "Exit\n", 0);
+	return(0);
+}

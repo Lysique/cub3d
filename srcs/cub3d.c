@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 15:36:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/04 10:56:19 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	cub3d(char *argument)
 	display(&cub);
 	mlx_hook(cub.mlx.win, 2, 0, key_press, &cub);
 	mlx_hook(cub.mlx.win, 3, 0, key_release, &cub);
+	mlx_hook(cub.mlx.win, 17, 0, mouse_press, &cub);
 	mlx_loop_hook(cub.mlx.mlx, loop_hook, &cub);
 	mlx_loop(cub.mlx.mlx);
 }
