@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_texture_to_struct.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:13:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/04 13:28:32 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*go_to_path(char *line)
 
 	i = 0;
 	j = 0;
-	while (line[i] != ' ' && line[i] != '	')
+	while (line[i] && line[i] != ' ' && line[i] != '	')
 		i++;
 	while (line[i] == ' ' || line[i] == '	')
 		i++;
