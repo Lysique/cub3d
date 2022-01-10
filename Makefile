@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/04 11:27:41 by tuytters         ###   ########.fr        #
+#    Updated: 2022/01/10 14:24:36 by tuytters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 ##### LOOP_HOOK FILES ######
 
-LOOP_HOOK_FILES = loop_hook.c key_manager.c
+LOOP_HOOK_FILES = loop_hook.c key_manager.c key_init.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))
@@ -96,7 +96,7 @@ all: $(NAME)
 
 $(NAME): $(C_OBJS)
 	make -C $(MLX_DIR)
-	$(CC) $(MLX_FLAGS) -I $(INCLUDES) $(C_FILES) -o $(NAME)
+	$(CC) $(MLX_FLAGS) -I $(INCLUDES) $(C_FILES) $(CFLAGS) -o $(NAME)
 
 mk_objdir:
 	mkdir -p $(OBJDIR)

@@ -24,19 +24,37 @@ void	move_manager(t_cub *cub)
 	if (cub->map[(int)y][(int)(x + limit)] != '1'
 		&& cub->map[(int)(y + limit - DISTANCE)][(int)(x + limit)] != '1'
 		&& cub->map[(int)(y - limit + DISTANCE)][(int)(x + limit)] != '1')
-		cub->player.x += cub->key.d * DISTANCE;
+		{
+			// printf("d =%f %f\n", y + limit - DISTANCE, x + limit);
+			// printf("d =%f %f\n", y - limit + DISTANCE, x + limit);
+			cub->player.x += cub->key.d * DISTANCE;
+		}
 	if (cub->map[(int)y][(int)(x - limit)] != '1'
 		&& cub->map[(int)(y + limit - DISTANCE)][(int)(x - limit)] != '1'
 		&& cub->map[(int)(y - limit + DISTANCE)][(int)(x - limit)] != '1')
-		cub->player.x -= cub->key.a * DISTANCE;
+		{
+			// printf("a =%f %f\n", y + limit - DISTANCE, x - limit);
+			// printf("a =%f %f\n", y - limit + DISTANCE, x - limit);
+			cub->player.x -= cub->key.a * DISTANCE;
+		}
 	if (cub->map[(int)(y + limit)][(int)x] != '1'
 		&& cub->map[(int)(y + limit)][(int)(x + limit - DISTANCE)] != '1'
 		&& cub->map[(int)(y + limit)][(int)(x - limit + DISTANCE)] != '1')
-		cub->player.y += cub->key.s * DISTANCE;
+		{
+			// printf("s =%f %f\n", y + limit, x + limit - DISTANCE);
+			// printf("s =%f %f\n", y + limit, x - limit + DISTANCE);
+			cub->player.y += cub->key.s * DISTANCE;
+		}
 	if (cub->map[(int)(y - limit)][(int)x] != '1'
 		&& cub->map[(int)(y - limit)][(int)(x + limit - DISTANCE)] != '1'
 		&& cub->map[(int)(y - limit)][(int)(x - limit + DISTANCE)] != '1')
-		cub->player.y -= cub->key.w * DISTANCE;
+		{
+			// printf("w =%f %f\n", y - limit, x + limit - DISTANCE);
+			// printf("w =%f %f\n", y - limit, x - limit + DISTANCE);
+			cub->player.y -= cub->key.w * DISTANCE;
+		}
+	// printf("ply =%f\n", cub->player.y);
+	// printf("plx =%f\n", cub->player.x);
 	display(cub);
 }
 

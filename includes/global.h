@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/06 09:52:38 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/10 14:07:10 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <math.h>
 # include <mlx.h>
 
 typedef struct s_key {
@@ -48,6 +49,11 @@ typedef struct s_player {
 	float	angle;
 }				t_player;
 
+typedef struct s_line {
+	float	pente;
+}				t_line;
+
+
 typedef struct s_cub {
 	char		**map;
 	t_img		display;
@@ -55,6 +61,7 @@ typedef struct s_cub {
 	t_mlx		mlx;
 	t_img		textures[6];
 	t_key		key;
+	t_line		line;
 }				t_cub;
 
 # define WIN_H 1080

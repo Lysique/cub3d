@@ -6,12 +6,13 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:52:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/10 14:25:52 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
 #include "../includes/parser.h"
+#include "../includes/loop_hook.h"
 
 void	mlx_variables_init(t_cub *cub)
 {
@@ -42,6 +43,7 @@ void	cub3d(char *argument)
 {
 	t_cub		cub;
 
+	key_init(&cub);
 	mlx_variables_init(&cub);
 	parser(argument, &cub);
 	keys_img_init(&cub);

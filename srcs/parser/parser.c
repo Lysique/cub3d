@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:33:22 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/10 14:27:41 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	player_data(char c, t_cub *cub, int i, int j)
 {
 	if (c == 'S')
-		cub->player.angle = PI;
+		cub->player.angle = PI / 2.;
 	else if (c == 'N')
-		cub->player.angle = 2 * PI;
+		cub->player.angle = 3 * PI / 2.;
 	else if (c == 'E')
-		cub->player.angle = 0.5 * PI;
+		cub->player.angle = 0;
 	else if (c == 'W')
-		cub->player.angle = 1.5 * PI;
+		cub->player.angle = PI;
 	cub->player.x = i + 0.5;
 	cub->player.y = j + 0.5;
 }
