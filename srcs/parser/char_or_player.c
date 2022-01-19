@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 08:32:23 by tuytters          #+#    #+#             */
-/*   Updated: 2022/01/12 09:11:58 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/19 09:54:41 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	is_char_allowed_on_map(char c, int i, int j)
 	return (0);
 }
 
-int	is_player_char(char c, int check)
+int	is_player_char(char c, int check, int i, int j)
 {
 	if (check == 1 && (c == 'S' || c == 'N' || c == 'W' || c == 'E'))
 	{
-		printf("Error\nToo many players on the map.\n");
+		printf("Error\nToo many players on Map[%d][%d].\n", j, i);
 		return (-1);
 	}
 	else if (c == 'S' || c == 'N' || c == 'W' || c == 'E')

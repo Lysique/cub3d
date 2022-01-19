@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 08:51:21 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/19 09:51:11 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	destroy_imgs(t_cub *cub);
 
 int		ft_strcmp(char *texture, char *line);
 char	*get_next_line(int fd);
-int		is_player_char(char c, int check);
+int		is_player_char(char c, int check, int i, int j);
 int		is_char_allowed_on_map(char c, int i, int j);
 
 #endif

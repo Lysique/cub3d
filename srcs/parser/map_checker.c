@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:22:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 09:41:33 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/19 09:51:51 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_map_elements(t_cub *cub)
 	{
 		while (cub->map[j][++i])
 		{
-			if (is_player_char(cub->map[j][i], p) && p++)
+			if (is_player_char(cub->map[j][i], p, i, j) && p++)
 				return (-1);
 			if (!is_char_allowed_on_map(cub->map[j][i], i, j))
 				return (-1);
@@ -69,7 +69,7 @@ int	check_open_map(t_cub *cub)
 	{
 		while (map[j][++i])
 		{
-			if ((map[j][i] == '0' || is_player_char(map[j][i], 0)))
+			if ((map[j][i] == '0' || is_player_char(map[j][i], 0, i , j)))
 				if (check_open_detail(i, j, cub) == -1)
 					return (-1);
 		}
