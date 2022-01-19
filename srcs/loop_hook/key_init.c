@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   key_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 09:17:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/06 10:19:22 by tuytters         ###   ########.fr       */
+/*   Created: 2022/01/10 14:21:16 by tuytters          #+#    #+#             */
+/*   Updated: 2022/01/12 09:35:27 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/display.h"
+#include "../../includes/loop_hook.h"
 
-void	display(t_cub *cub)
+void	key_init(t_cub *cub)
 {
-	ray_casting(cub);
-	display_map(cub);
-	display_char(cub, cub->display);
-	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
-		cub->display.img, 0, WIN_H - MINI);
+	cub->key.d = 0;
+	cub->key.a = 0;
+	cub->key.s = 0;
+	cub->key.w = 0;
+	cub->key.left = 0;
+	cub->key.right = 0;
 }

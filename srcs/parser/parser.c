@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 16:25:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/19 09:50:44 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	player_data(char c, t_cub *cub, int i, int j)
 {
 	if (c == 'S')
-		cub->player.angle = PI;
+		cub->player.angle = PI / 2.;
 	else if (c == 'N')
-		cub->player.angle = 2 * PI;
+		cub->player.angle = 3 * PI / 2.;
 	else if (c == 'E')
-		cub->player.angle = 0.5 * PI;
+		cub->player.angle = 0;
 	else if (c == 'W')
-		cub->player.angle = 1.5 * PI;
-	cub->player.x = i * UNIT + UNIT / 2;
-	cub->player.y = j * UNIT + UNIT / 2;
+		cub->player.angle = PI;
+	cub->player.x = i + 0.5;
+	cub->player.y = j + 0.5;
 }
 
 void	player_init(t_cub *cub)
@@ -37,7 +37,7 @@ void	player_init(t_cub *cub)
 	{
 		while (cub->map[j][++i])
 		{
-			if (is_player_char(cub->map[j][i]))
+			if (is_player_char(cub->map[j][i], 0, i, j))
 			{
 				player_data(cub->map[j][i], cub, i, j);
 				cub->map[j][i] = '0';
@@ -54,9 +54,13 @@ void	parser(char *argument, t_cub *cub)
 
 	fd = open(argument, O_RDONLY);
 	if (fd == -1)
+	{
+		printf("Error\nCouldn't open the file.\n");
 		parser_error(cub, 1);
+	}
 	if (parse_textures(cub, fd) == -1)
 	{
+		printf("Error\nTexture initialisation didn't work properly.\n");
 		close(fd);
 		parser_error(cub, 2);
 	}

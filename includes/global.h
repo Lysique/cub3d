@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 16:24:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/12 09:37:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <math.h>
 # include <mlx.h>
 
 typedef struct s_key {
@@ -43,11 +44,14 @@ typedef struct s_img {
 }				t_img;
 
 typedef struct s_player {
-	int		x;
-	int		y;
+	float	x;
+	float	y;
 	float	angle;
-	int		view;
 }				t_player;
+
+typedef struct s_line {
+	float	pente;
+}				t_line;
 
 typedef struct s_cub {
 	char		**map;
@@ -56,12 +60,12 @@ typedef struct s_cub {
 	t_mlx		mlx;
 	t_img		textures[6];
 	t_key		key;
+	t_line		line;
 }				t_cub;
 
 # define WIN_H 1080
 # define WIN_W 1920
 # define MINI 300
-# define UNIT MINI 
 # define PI 3.14159265359
 
 void	my_write(char *str);

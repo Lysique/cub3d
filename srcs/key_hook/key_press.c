@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/03 14:50:40 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/12 09:36:11 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	key_press(int key, void *param)
 {
-	t_cub *cub;
+	t_cub	*cub;
 
 	cub = (t_cub *)param;
 	if (key == 53)
 		free_and_exit(cub, "Exit\n", 0);
-	if (key == 2)
+	else if (key == 2)
 		cub->key.d = 1;
 	else if (key == 0)
 		cub->key.a = 1;

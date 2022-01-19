@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/02 12:24:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/19 09:51:11 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int		parse_textures(t_cub *cub, int fd);
 int		add_texture_to_struct(char *line, t_cub *cub);
 int		parse_map(t_cub *cub, int fd);
 int		map_checker(t_cub *cub);
+void	free_my_arr(char **arr);
+void	destroy_imgs(t_cub *cub);
 
 int		ft_strcmp(char *texture, char *line);
 char	*get_next_line(int fd);
-int		is_player_char(char c);
+int		is_player_char(char c, int check, int i, int j);
+int		is_char_allowed_on_map(char c, int i, int j);
 
 #endif
