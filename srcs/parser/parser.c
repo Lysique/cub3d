@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/10 14:27:41 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/12 09:34:04 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	player_init(t_cub *cub)
 	{
 		while (cub->map[j][++i])
 		{
-			if (is_player_char(cub->map[j][i]))
+			if (is_player_char(cub->map[j][i], 0))
 			{
 				player_data(cub->map[j][i], cub, i, j);
 				cub->map[j][i] = '0';
@@ -54,9 +54,13 @@ void	parser(char *argument, t_cub *cub)
 
 	fd = open(argument, O_RDONLY);
 	if (fd == -1)
+	{
+		printf("Error\nCouldn't open the file.\n");
 		parser_error(cub, 1);
+	}
 	if (parse_textures(cub, fd) == -1)
 	{
+		printf("Error\nTexture initialisation didn't work properly.\n");
 		close(fd);
 		parser_error(cub, 2);
 	}

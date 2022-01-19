@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/07 10:42:33 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/12 09:36:11 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_press(int key, void *param)
 {
-	t_cub *cub;
+	t_cub	*cub;
 
 	cub = (t_cub *)param;
 	if (key == 53)

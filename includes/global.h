@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/10 14:07:10 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/12 09:37:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_player {
 typedef struct s_line {
 	float	pente;
 }				t_line;
-
 
 typedef struct s_cub {
 	char		**map;

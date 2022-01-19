@@ -3,31 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:22:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 12:52:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/12 09:41:33 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-int	is_char_allowed_on_map(char c)
-{
-	if (c == ' ' || c == '1' || c == '0' || c == 'N'
-		|| c == 'S' || c == 'E' || c == 'W')
-		return (1);
-	return (0);
-}
-
-int	is_player_char(char c)
-{
-	if (c == 'S' || c == 'N' || c == 'W' || c == 'E')
-		return (1);
-	return (0);
-}
-
-int	check_map_elements(char **map)
+int	check_map_elements(t_cub *cub)
 {
 	int		i;
 	int		j;
@@ -36,39 +21,57 @@ int	check_map_elements(char **map)
 	i = -1;
 	j = -1;
 	p = 0;
-	while (map[++j])
+	while (cub->map[++j])
 	{
-		while (map[j][++i])
+		while (cub->map[j][++i])
 		{
-			if (is_player_char(map[j][i]) && p++)
+			if (is_player_char(cub->map[j][i], p) && p++)
 				return (-1);
-			if (!is_char_allowed_on_map(map[j][i]))
+			if (!is_char_allowed_on_map(cub->map[j][i], i, j))
 				return (-1);
 		}
 		i = -1;
 	}
 	if (!p)
+	{
+		printf("Error\nNo player on the map.\n");
 		return (-1);
+	}
 	return (1);
 }
 
-int	check_open_map(char **map)
+int	check_open_detail(int i, int j, t_cub *cub)
+{
+	char	**map;
+
+	map = cub->map;
+	if (j == 0 || i == 0 || !map[j + 1] || !map[j][i + 1]
+				|| map[j - 1][i] == ' ' || map[j][i - 1] == ' '
+				|| map[j + 1][i] == ' ' || map[j][i + 1] == ' '
+				|| !map[j - 1][i] || !map[j + 1][i])
+	{
+		printf("Error\nMap[%d][%d] wrong. The map is perforated.\n", j, i);
+		return (-1);
+	}
+	return (1);
+}
+
+int	check_open_map(t_cub *cub)
 {
 	int		i;
 	int		j;
+	char	**map;
 
+	map = cub->map;
 	i = -1;
 	j = -1;
 	while (map[++j])
 	{
 		while (map[j][++i])
 		{
-			if ((map[j][i] == '0' || is_player_char(map[j][i]))
-				&& (j == 0 || i == 0 || !map[j + 1] || !map[j][i + 1]
-				|| map[j - 1][i] == ' ' || map[j][i - 1] == ' '
-				|| map[j + 1][i] == ' ' || map[j][i + 1] == ' '
-				|| !map[j - 1][i] || !map[j + 1][i]))
-				return (-1);
+			if ((map[j][i] == '0' || is_player_char(map[j][i], 0)))
+				if (check_open_detail(i, j, cub) == -1)
+					return (-1);
 		}
 		i = -1;
 	}
@@ -77,7 +80,7 @@ int	check_open_map(char **map)
 
 int	map_checker(t_cub *cub)
 {
-	if (check_open_map(cub->map) == -1 || check_map_elements(cub->map) == -1)
+	if (check_open_map(cub) == -1 || check_map_elements(cub) == -1)
 		return (-1);
 	return (1);
 }

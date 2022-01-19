@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/10 14:25:52 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/12 09:36:24 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	keys_img_init(t_cub *cub)
 	if (!cub->display.img)
 		free_and_exit(cub, "Error\nImage could not be created.", 1);
 	cub->display.addr = mlx_get_data_addr(cub->display.img,
-		&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
+			&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
 }
 
 void	cub3d(char *argument)
