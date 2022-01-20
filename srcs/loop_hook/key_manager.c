@@ -16,11 +16,9 @@ void	move_manager(t_cub *cub)
 {
 	int		x;
 	int		y;
-	float	limit;
 
 	x = cub->player.x;
 	y = cub->player.y;
-	limit = 0.35;
 	if (cub->key.w == 1 && cub->map[(int)(cub->player.y + sin(cub->player.angle) * DISTANCE)]
 		[(int)(cub->player.x + cos(cub->player.angle) * DISTANCE)] != '1')
 		{
@@ -29,7 +27,8 @@ void	move_manager(t_cub *cub)
 			cub->player.x += cos(cub->player.angle) * SPEED;
 			cub->player.y += sin(cub->player.angle) * SPEED;
 		}
-	if (cub->key.a == 1)
+	if (cub->key.a == 1 && cub->map[(int)(cub->player.y - sin(cub->player.angle + MIDPI) * DISTANCE)]
+		[(int)(cub->player.x - cos(cub->player.angle + MIDPI) * DISTANCE)] != '1')
 		{
 			// printf("w =%f %f\n", y - limit, x + limit - DISTANCE);
 			// printf("w =%f %f\n", y - limit, x - limit + DISTANCE);
@@ -44,7 +43,8 @@ void	move_manager(t_cub *cub)
 			cub->player.x -= cos(cub->player.angle) * SPEED;
 			cub->player.y -= sin(cub->player.angle) * SPEED;
 		}
-	if (cub->key.d == 1)
+	if (cub->key.d == 1 && cub->map[(int)(cub->player.y - sin(cub->player.angle - MIDPI) * DISTANCE)]
+		[(int)(cub->player.x - cos(cub->player.angle - MIDPI) * DISTANCE)] != '1')
 		{
 			// printf("w =%f %f\n", y - limit, x + limit - DISTANCE);
 			// printf("w =%f %f\n", y - limit, x - limit + DISTANCE);
