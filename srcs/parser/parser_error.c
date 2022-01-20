@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 09:34:46 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:23:38 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	parser_error(t_cub *cub, int error)
 		{
 			free_my_arr(cub->map);
 			error--;
-			// wr_and_ex("Error\nMap initialisation didn't work properly.\n", 1);
 		}
 	}
 	exit(1);
