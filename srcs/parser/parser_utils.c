@@ -6,11 +6,18 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:57:46 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 17:43:43 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/20 13:52:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
+
+int	cub3d_isspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '	')
+		return (1);
+	return (0);
+}
 
 char	*add_buff(char *line, char buf)
 {
@@ -23,15 +30,12 @@ char	*add_buff(char *line, char buf)
 	new = malloc(i + 3);
 	if (!new)
 	{
-		my_write("Memory allocation error.\n");
 		if (line)
 			free(line);
 		return (0);
 	}
 	i = -1;
-	if (!line)
-		i = 0;
-	while (line && line[++i])
+	while ((++i || line) && line[i])
 		new[i] = line[i];
 	if (buf != '\n')
 		new[i++] = buf;
@@ -41,7 +45,7 @@ char	*add_buff(char *line, char buf)
 	return (new);
 }
 
-char	*get_next_line(int fd)
+char	*cub3d_get_next_line(t_cub *cub, char **arr, int fd)
 {
 	int		ret;
 	char	*line;
@@ -56,12 +60,15 @@ char	*get_next_line(int fd)
 			return (line);
 		line = add_buff(line, buf);
 		if (!line)
-			return (0);
+		{
+			close(fd);
+			parser_error(cub, arr, 1);
+		}
 	}
 	return (line);
 }
 
-int	ft_strcmp(char *texture, char *line)
+int	cub3d_strcmp(char *texture, char *line)
 {
 	int	i;
 

@@ -2,10 +2,10 @@ NO ./sprites/Brick1.xpm
 SO ./sprites/Brick2.xpm
 WE ./sprites/Brick3.xpm
 EA ./sprites/Brick4.xpm
-		
+
 		  	
-F ./sprites/Brick5.xpm
-C 	./sprites/Brick6.xpm		
+F ./sprites/Brick5.xpm  
+C ./sprites/Brick6.xpm
 
 11111111
 100000001

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 17:44:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/11 10:03:43 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/20 10:57:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,24 @@ int	map_to_struct(t_cub *cub, int fd)
 {
 	char	*line;
 
-	line = get_next_line(fd);
+//	line = get_next_line(fd);
+	line = 0;
+	(void)fd;
 	while (line && line[0] == '\0')
 	{
 		free(line);
-		line = get_next_line(fd);
+//		line = get_next_line(fd);
 	}
 	while (line && line[0] != '\0')
 	{
 		if (add_line_to_map(cub, line) == -1)
 			return (-1);
-		line = get_next_line(fd);
+//		line = get_next_line(fd);
 	}
 	while (line && line[0] == '\0')
 	{
 		free(line);
-		line = get_next_line(fd);
+//		line = get_next_line(fd);
 	}
 	if (line || !cub->map)
 		return (-1);
