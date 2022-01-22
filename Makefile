@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/22 15:09:29 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/22 16:34:33 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_free.c parser_error.c fd_to_arr.c parse_file.c parser_utils.c add_texture_to_struct.c map_checker.c player_init.c
+PARSER_FILES = parser.c parser_free.c parser_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))

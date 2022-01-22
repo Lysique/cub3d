@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_texture_to_struct.c                            :+:      :+:    :+:   */
+/*   parse_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 13:56:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:37:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-void	textures_check_line(char *line)
+int	are_all_textures_set(t_img *textures)
 {
 	int	i;
 
 	i = 0;
-	while (cub3d_isspace(line[i]))
+	while (i < 6)
+	{
+		if (!textures[i].img)
+			return (0);
 		i++;
-	if (line[i])
-		parser_error(FORMAT_TEXTURE, line);
+	}
+	return (1);
 }
 
 char	*go_to_path(char *line, int i)
@@ -64,15 +67,18 @@ void	add_texture(char *line, t_cub *cub, int index)
 	add_img(line, cub, index);
 }
 
-void	add_texture_to_struct(t_cub *cub, char *line)
+char	**parse_textures(t_parser *p, char **file)
 {
 	int	index;
 
-	if (!line)
-		parser_error(MISSING_TEXTURE, 0);
-	index = is_texture_line(line);
-	if (index == -1)
-		textures_check_line(line);
-	else 
-		add_texture(line, cub, index);
+	while (!are_all_textures_set(p->cub->textures))
+	{
+		index = is_texture_line(*file);
+		if (index == -1 && !is_line_empty(*file))
+			parser_error(FORMAT_TEXTURE, *file);
+		else if (index != -1)
+			add_texture(*file, p->cub, index);
+		file++;
+	}
+	return (file);
 }

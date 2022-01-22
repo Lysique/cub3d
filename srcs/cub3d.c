@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 12:36:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 15:35:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	cub3d(char *argument)
 
 	structure_init(&cub);
 	parser(argument, &cub);
+	wr_and_ex("OK\n", 0);
 	display(&cub);
 	mlx_hook(cub.mlx.win, 2, 0, key_press, &cub);
 	mlx_hook(cub.mlx.win, 3, 0, key_release, &cub);

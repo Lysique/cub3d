@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:54:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 14:16:40 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:39:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	texture_error(int error, char *line)
 	else if (error == DUPL_TEXTURE)
 		my_write("Texture duplicates.\n");
 	else if (error == FORMAT_TEXTURE)
-		my_write("Bad line format.\n");
+		my_write("Bad line format or missing textures.\n");
 	else if (error == MISSING_FILE_NAME)
 		my_write("Missing xpm file name.\n");
 	else if (error == MISSING_SPACE)
@@ -95,6 +95,8 @@ void	parser_error(int error, void *ptr)
 		open_file_error();
 	else if (error == MALLOC_ERROR)
 		my_write("Memory didn't allocate properly.\n");
+	else if (error == EMPTY_FILE)
+		my_write("File is empty.\n");
 	else if (error / NB_ERRORS == TEXTURE_ERROR)
 		texture_error(error, (char *)ptr);
 	else if (error / NB_ERRORS == MAP_ERROR)
