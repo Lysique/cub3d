@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:57:46 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 13:52:38 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 15:13:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*add_buff(char *line, char buf)
 	{
 		if (line)
 			free(line);
-		return (0);
+		parser_error(MALLOC_ERROR, 0);
 	}
 	i = -1;
 	while ((++i || line) && line[i])
@@ -45,7 +45,7 @@ char	*add_buff(char *line, char buf)
 	return (new);
 }
 
-char	*cub3d_get_next_line(t_cub *cub, char **arr, int fd)
+char	*cub3d_get_next_line(int fd)
 {
 	int		ret;
 	char	*line;
@@ -53,31 +53,55 @@ char	*cub3d_get_next_line(t_cub *cub, char **arr, int fd)
 
 	ret = 1;
 	line = 0;
-	while (ret && buf != '\n')
+	buf = 0;
+	while (buf != '\n')
 	{
 		ret = read(fd, &buf, 1);
 		if (ret <= 0)
 			return (line);
 		line = add_buff(line, buf);
 		if (!line)
-		{
-			close(fd);
-			parser_error(cub, arr, 1);
-		}
+			return (0);
 	}
 	return (line);
 }
 
-int	cub3d_strcmp(char *texture, char *line)
+char	*cub3d_cpy(char *str, void *ptr)
 {
-	int	i;
+	char	*new;
+	int		i;
 
 	i = 0;
-	while (texture[i])
-	{
-		if (line[i] != texture[i])
-			return (0);
+	while (str[i])
 		i++;
+	new = malloc(i + 1);
+	if (!new)
+	{
+		if (ptr)
+			free(ptr);
+		parser_error(MALLOC_ERROR, 0);
 	}
-	return (1);
+	i = -1;
+	while (str[++i])
+		new[i] = str[i];
+	new[i] = '\0';
+	return (new);
+}
+
+int	is_texture_line(char *line)
+{
+	if (line[0] == 'F')
+		return (F);
+	else if (line[0] == 'C')
+		return (C);
+	else if (line[0] == 'N' && line[1] == 'O')
+		return (NO);
+	else if (line[0] == 'S' && line[1] == 'O')
+		return (SO);
+	else if (line[0] == 'W' && line[1] == 'E')
+		return (WE);
+	else if (line[0] == 'E' && line[1] == 'A')
+		return (EA);
+	else
+		return (-1);
 }

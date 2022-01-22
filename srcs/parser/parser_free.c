@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 13:49:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 14:58:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	free_my_arr(char **arr)
 	free(arr);
 }
 
-void	parser_free(t_cub *cub, char **file)
+void	parser_free(t_parser *p)
 {
-	free_my_arr(file);
-	destroy_textures(cub);
-	free_my_arr(cub->map);
-	mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
+	if (p->fd != -1)
+		close(p->fd);
+	free_my_arr(p->file);
+	free_my_arr(p->cub->map);
+	destroy_textures(p->cub);
+	mlx_destroy_window(p->cub->mlx.mlx, p->cub->mlx.win);
 }

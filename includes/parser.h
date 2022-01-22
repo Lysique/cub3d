@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 13:42:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 15:12:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,57 @@
 # include <sys/uio.h>
 # include <errno.h>
 
-char	**fd_to_arr(t_cub *cub, int fd);
-void	parse_textures(t_cub *cub, char **file);
+# define NB_ERRORS 10
 
-int		add_texture_to_struct(t_cub *cub, char *line);
-int		parse_map(t_cub *cub, int fd);
-int		map_checker(t_cub *cub);
-void	destroy_imgs(t_cub *cub);
+# define MALLOC_ERROR 1
+# define OPEN_ERROR 2
 
-int		cub3d_strcmp(char *texture, char *line);
-char	*cub3d_get_next_line(t_cub *cub, char **arr, int fd);
-int		cub3d_isspace(char c);
-int		is_player_char(char c, int check, int i, int j);
-int		is_char_allowed_on_map(char c, int i, int j);
+# define TEXTURE_ERROR 3
+# define MISSING_TEXTURE TEXTURE_ERROR * NB_ERRORS + 1
+# define DUPL_TEXTURE TEXTURE_ERROR * NB_ERRORS + 2
+# define FORMAT_TEXTURE TEXTURE_ERROR * NB_ERRORS + 3
+# define MISSING_FILE_NAME TEXTURE_ERROR * NB_ERRORS + 4
+# define MISSING_SPACE TEXTURE_ERROR * NB_ERRORS + 5
+# define XPM_ERROR TEXTURE_ERROR * NB_ERRORS + 6
 
-void	parser_free(t_cub *cub, char **file);
+# define MAP_ERROR 4
+# define MISSING_NL MAP_ERROR * NB_ERRORS + 1
+# define MISSING_MAP MAP_ERROR * NB_ERRORS + 2
+# define UNKNOWN_CHAR MAP_ERROR * NB_ERRORS + 3
+# define OPEN_MAP MAP_ERROR * NB_ERRORS + 4
+# define MULT_PLAYER MAP_ERROR * NB_ERRORS + 5
+# define NO_PLAYER MAP_ERROR * NB_ERRORS + 6
 
-void	parser_error(t_cub *cub, char **file, int error);
-int		texture_error(int error, char *line);
+typedef struct	s_parser {
+	t_cub	*cub;
+	char	**file;
+	int		fd;
+	void	*ptr;
+}			t_parser;
+
+typedef struct s_coord {
+	int	i;
+	int	j;
+}				t_coord;
+
+t_parser	*set_parser_ptr(t_parser *ptr);
+void		fd_to_arr(t_parser *p);
+void		parse_file(t_parser *p);
+void		player_init(t_cub *cub);
+
+void		parse_textures(t_parser *p);
+void		add_texture_to_struct(t_cub *cub, char *line);
+
+void		parse_map(t_parser *p);
+void		map_checker(char **map);
+
+int			is_texture_line(char *line);
+char		*cub3d_get_next_line(int fd);
+int			cub3d_isspace(char c);
+char		*cub3d_cpy(char *line, void, *ptr);
+
+void		parser_error(int error, void *ptr);
+void		parser_free(t_parser *p);
+void		free_my_arr(char **arr);
 
 #endif

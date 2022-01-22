@@ -6,11 +6,13 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:48:25 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 09:48:49 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 15:09:56 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
+
+int	is_player_char(char c);
 
 void	player_data(char c, t_cub *cub, int i, int j)
 {
@@ -37,7 +39,7 @@ void	player_init(t_cub *cub)
 	{
 		while (cub->map[j][++i])
 		{
-			if (is_player_char(cub->map[j][i], 0, i, j))
+			if (is_player_char(cub->map[j][i]))
 			{
 				player_data(cub->map[j][i], cub, i, j);
 				cub->map[j][i] = '0';

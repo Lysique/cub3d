@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 10:14:02 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 12:10:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 13:49:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**add_line_to_arr(char **arr, char *line)
 		i++;
 	new = malloc(sizeof(char *) * (i + 2));
 	if (!new)
-		return (0);
+		parser_error(MALLOC_ERROR, 0);
 	i = -1;
 	while ((++i || arr) && arr[i])
 		new[i] = arr[i];
@@ -33,23 +33,15 @@ char	**add_line_to_arr(char **arr, char *line)
 	return (new);
 }
 
-char	**fd_to_arr(t_cub *cub, int fd)
+void	fd_to_arr(t_parser *p)
 {
-	char	**arr;
 	char	*line;
 
-	arr = 0;
-	line = cub3d_get_next_line(cub, arr, fd);
+	p->file = 0;
+	line = cub3d_get_next_line(p->fd);
 	while (line)
 	{
-		arr = add_line_to_arr(arr, line);
-		if (!arr)
-		{
-			close(fd);
-			parser_error(cub, arr, 1);
-		}
-		line = cub3d_get_next_line(cub, arr, fd);
+		p->file = add_line_to_arr(p->file, line);
+		line = cub3d_get_next_line(p->fd);
 	}
-	close(fd);
-	return (arr);
 }
