@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:54:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:39:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:47:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	parser_error(int error, void *ptr)
 		my_write("Memory didn't allocate properly.\n");
 	else if (error == EMPTY_FILE)
 		my_write("File is empty.\n");
+	else if (error == FILE_NOT_ENDED)
+		my_write("No characters are allowed after map assignement.\n");
 	else if (error / NB_ERRORS == TEXTURE_ERROR)
 		texture_error(error, (char *)ptr);
 	else if (error / NB_ERRORS == MAP_ERROR)

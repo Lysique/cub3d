@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:39:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:48:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define MALLOC_ERROR 1
 # define OPEN_ERROR 2
 # define EMPTY_FILE 3
+# define FILE_NOT_ENDED 4
 
 # define TEXTURE_ERROR 1
 # define MISSING_TEXTURE TEXTURE_ERROR * NB_ERRORS + 1

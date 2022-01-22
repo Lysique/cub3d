@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:40:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:49:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ void	parse_file(t_parser *p)
 		parser_error(EMPTY_FILE, 0);
 	file = parse_textures(p, file);
 	file = parse_map(p, file);
+	while (*file)
+	{
+		if (!is_line_empty(*(file++)))
+			parser_error(FILE_NOT_ENDED, 0);
+	}
 }
 
 void	parser(char *argument, t_cub *cub)
@@ -51,7 +56,6 @@ void	parser(char *argument, t_cub *cub)
 	fd_to_arr(&p);
 	parse_file(&p);
 	player_init(p.cub);
-	parser_error(1000, 0);
 	close(p.fd);
 	free_my_arr(p.file);
 }
