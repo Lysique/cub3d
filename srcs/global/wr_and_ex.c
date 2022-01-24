@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:26:53 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/01 15:26:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 09:02:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	wr_and_ex(char *msg, int ex)
 {
-	my_write(msg);
+	if(msg)
+		my_write(msg);
 	exit(ex);
 }

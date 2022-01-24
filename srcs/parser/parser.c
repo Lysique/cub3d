@@ -6,69 +6,56 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/21 09:09:27 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/24 09:21:56 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-void	player_data(char c, t_cub *cub, int i, int j)
+t_parser	*set_parser_ptr(t_parser *ptr)
 {
-	if (c == 'S')
-		cub->player.angle = PI / 2.;
-	else if (c == 'N')
-		cub->player.angle = 3 * PI / 2.;
-	else if (c == 'E')
-		cub->player.angle = 0;
-	else if (c == 'W')
-		cub->player.angle = PI;
-	cub->player.x = i + 0.5;
-	cub->player.y = j + 0.5;
+	static t_parser	*p = 0;
+
+	if (!p)
+		p = ptr;
+	return (p);
 }
 
-void	player_init(t_cub *cub)
+void	parser_init(t_parser *p, t_cub *cub)
 {
-	int	i;
-	int	j;
+	p->cub = cub;
+	p->file = 0;
+	p->ptr = 0;
+	set_parser_ptr(p);
+}
 
-	i = -1;
-	j = -1;
-	while (cub->map[++j])
+void	parse_file(t_parser *p)
+{
+	char	**file;
+
+	file = p->file;
+	if (!file)
+		parser_error(EMPTY_FILE, 0);
+	file = parse_textures(p, file);
+	file = parse_map(p, file);
+	while (*file)
 	{
-		while (cub->map[j][++i])
-		{
-			if (is_player_char(cub->map[j][i], 0, i, j))
-			{
-				player_data(cub->map[j][i], cub, i, j);
-				cub->map[j][i] = '0';
-				return ;
-			}
-		}
-		i = -1;
+		if (!is_line_empty(*(file++)))
+			parser_error(FILE_NOT_ENDED, 0);
 	}
 }
 
 void	parser(char *argument, t_cub *cub)
 {
-	int	fd;
+	t_parser	p;
 
-	fd = open(argument, O_RDONLY);
-	if (fd == -1)
-	{
-		printf("Error\nCouldn't open the file.\n");
-		parser_error(cub, 1);
-	}
-	if (parse_textures(cub, fd) == -1)
-	{
-		printf("Error\nTexture initialisation didn't work properly.\n");
-		close(fd);
-		parser_error(cub, 2);
-	}
-	if (parse_map(cub, fd) == -1)
-	{
-		close(fd);
-		parser_error(cub, 3);
-	}
-	close(fd);
-	player_init(cub);
+	parser_init(&p, cub);
+	p.fd = open(argument, O_RDONLY);
+	if (p.fd == -1)
+		parser_error(OPEN_ERROR, 0);
+	fd_to_arr(&p);
+	parse_file(&p);
+	player_init(p.cub);
+	close(p.fd);
+	free_my_arr(p.file);
 }

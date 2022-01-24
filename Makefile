@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/12 08:34:17 by tuytters         ###   ########.fr        #
+#    Updated: 2022/01/24 08:48:27 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 
 ##### SRCS FILES ######
 
-SRCS_FILES = main.c cub3d.c
+SRCS_FILES = main.c cub3d.c structure_init.c
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = $(addprefix $(OBJDIR)srcs_, $(SRCS_FILES:.c=.o))
@@ -47,7 +47,7 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_error.c parse_textures.c parser_utils.c add_texture_to_struct.c parse_map.c map_checker.c char_or_player.c
+PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))

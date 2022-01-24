@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_write.c                                         :+:      :+:    :+:   */
+/*   parser_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 08:54:15 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 10:07:22 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/22 16:25:51 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/global.h"
+#include "../../includes/parser.h"
 
-void	my_write(char *str)
+int	is_player_char(char c)
+{
+	if (c == 'S' || c == 'N' || c == 'W' || c == 'E')
+		return (1);
+	return (0);
+}
+
+int	is_known_char(char c)
+{
+	if (c == ' ' || c == '1' || c == '0'
+		|| is_player_char(c))
+		return (1);
+	return (0);
+}
+
+int	is_line_empty(char *line)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
+	while (line[i])
+		if (!cub3d_isspace(line[i++]))
+			return (0);
+	return (1);
 }

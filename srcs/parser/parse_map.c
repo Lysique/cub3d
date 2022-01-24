@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 17:44:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/11 10:03:43 by tuytters         ###   ########.fr       */
+/*   Created: 2022/01/01 16:22:35 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/24 08:41:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,55 +22,30 @@ int	add_line_to_map(t_cub *cub, char *line)
 		i++;
 	new = malloc(sizeof(char *) * (i + 2));
 	if (!new)
-	{
-		if (line)
-			free(line);
-		my_write("Memory allocation error.\n");
-		return (-1);
-	}
+		parser_error(MALLOC_ERROR, 0);
 	i = -1;
 	while ((++i || cub->map) && cub->map[i])
 		new[i] = cub->map[i];
-	new[i++] = line;
-	new[i] = 0;
+	new[i] = cub3d_cpy(line, new);
+	new[++i] = 0;
 	if (cub->map)
 		free(cub->map);
 	cub->map = new;
 	return (1);
 }
 
-int	map_to_struct(t_cub *cub, int fd)
+char	**parse_map(t_parser *p, char **file)
 {
-	char	*line;
-
-	line = get_next_line(fd);
-	while (line && line[0] == '\0')
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	while (line && line[0] != '\0')
-	{
-		if (add_line_to_map(cub, line) == -1)
-			return (-1);
-		line = get_next_line(fd);
-	}
-	while (line && line[0] == '\0')
-	{
-		free(line);
-		line = get_next_line(fd);
-	}
-	if (line || !cub->map)
-		return (-1);
-	return (1);
-}
-
-int	parse_map(t_cub *cub, int fd)
-{
-	cub->map = 0;
-	if (map_to_struct(cub, fd) == -1 || !cub->map)
-		return (-1);
-	if (map_checker(cub) == -1)
-		return (-1);
-	return (1);
+	if (!*file)
+		parser_error(MISSING_MAP, 0);
+	if (!is_line_empty(*file))
+		parser_error(MISSING_NL, 0);
+	while (is_line_empty(*file))
+		file++;
+	while (*file && !is_line_empty(*file))
+		add_line_to_map(p->cub, *(file++));
+	if (!p->cub->map)
+		parser_error(MISSING_MAP, 0);
+	map_checker(p->cub->map);
+	return (file);
 }

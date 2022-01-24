@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 15:15:14 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/24 09:23:31 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <math.h>
 # include <mlx.h>
+# include <stdarg.h>
 
 typedef struct s_key {
 	int	w;
@@ -68,6 +69,13 @@ typedef struct s_cub {
 # define MINI 300
 # define PI 3.14159265359
 # define MIDPI 1.570796326795
+
+# define F 0
+# define C 1
+# define NO 2
+# define SO 3
+# define WE 4
+# define EA 5
 
 void	my_write(char *str);
 void	wr_and_ex(char *str, int ex);
