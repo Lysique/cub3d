@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/11 10:28:10 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/21 09:42:15 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "global.h"
 
-# define DISTANCE 0.1
+# define DISTANCE 0.3
+# define SPEED 0.1
 # define ROTATE 0.1
 
 void	display(t_cub *cub);

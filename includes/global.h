@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 13:16:42 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 09:23:31 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_cub {
 # define WIN_W 1920
 # define MINI 300
 # define PI 3.14159265359
+# define MIDPI 1.570796326795
 
 # define F 0
 # define C 1
