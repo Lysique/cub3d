@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 12:27:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 09:10:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	keys_init(t_cub *cub)
 	cub->key.w = 0;
 	cub->key.s = 0;
 	cub->key.a = 0;
-	cub->key.s = 0;
+	cub->key.d = 0;
 	cub->key.right = 0;
 	cub->key.left = 0;
 }

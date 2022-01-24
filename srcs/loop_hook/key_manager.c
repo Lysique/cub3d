@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:42:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 09:10:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	move_manager(t_cub *cub)
 	x = cub->player.x;
 	y = cub->player.y;
 	limit = 0.35;
-	if (cub->map[(int)y][(int)(x + limit)] != '1'
+	if (cub->key.d && cub->map[(int)y][(int)(x + limit)] != '1'
 		&& cub->map[(int)(y + limit - DISTANCE)][(int)(x + limit)] != '1'
 		&& cub->map[(int)(y - limit + DISTANCE)][(int)(x + limit)] != '1')
 		{
@@ -29,7 +29,7 @@ void	move_manager(t_cub *cub)
 			// printf("d =%f %f\n", y - limit + DISTANCE, x + limit);
 			cub->player.x += cub->key.d * DISTANCE;
 		}
-	if (cub->map[(int)y][(int)(x - limit)] != '1'
+	if (cub->key.a && cub->map[(int)y][(int)(x - limit)] != '1'
 		&& cub->map[(int)(y + limit - DISTANCE)][(int)(x - limit)] != '1'
 		&& cub->map[(int)(y - limit + DISTANCE)][(int)(x - limit)] != '1')
 		{
@@ -37,7 +37,7 @@ void	move_manager(t_cub *cub)
 			// printf("a =%f %f\n", y - limit + DISTANCE, x - limit);
 			cub->player.x -= cub->key.a * DISTANCE;
 		}
-	if (cub->map[(int)(y + limit)][(int)x] != '1'
+	if (cub->key.s && cub->map[(int)(y + limit)][(int)x] != '1'
 		&& cub->map[(int)(y + limit)][(int)(x + limit - DISTANCE)] != '1'
 		&& cub->map[(int)(y + limit)][(int)(x - limit + DISTANCE)] != '1')
 		{
@@ -45,7 +45,7 @@ void	move_manager(t_cub *cub)
 			// printf("s =%f %f\n", y + limit, x - limit + DISTANCE);
 			cub->player.y += cub->key.s * DISTANCE;
 		}
-	if (cub->map[(int)(y - limit)][(int)x] != '1'
+	if (cub->key.w && cub->map[(int)(y - limit)][(int)x] != '1'
 		&& cub->map[(int)(y - limit)][(int)(x + limit - DISTANCE)] != '1'
 		&& cub->map[(int)(y - limit)][(int)(x - limit + DISTANCE)] != '1')
 		{

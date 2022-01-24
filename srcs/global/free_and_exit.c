@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:11:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 12:40:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 09:00:13 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	free_and_exit(t_cub *cub, char *msg, int error)
 	i = 0;
 	while (i < 6)
 		mlx_destroy_image(cub->mlx.mlx, cub->textures[i++].img);
-	free(cub->display.addr);
 	mlx_destroy_image(cub->mlx.mlx, cub->display.img);
 	mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
 	wr_and_ex(msg, error);
