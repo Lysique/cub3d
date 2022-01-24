@@ -3,60 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   parse_textures.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 10:40:42 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 13:09:49 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/22 16:37:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-void	init_textures(t_cub *cub)
-{
-	int	i;
-
-	i = 0;
-	while (i < 6)
-		cub->textures[i++].img = 0;
-}
-
-int	are_all_textures_set(t_cub *cub)
+int	are_all_textures_set(t_img *textures)
 {
 	int	i;
 
 	i = 0;
 	while (i < 6)
 	{
-		if (!cub->textures[i].img)
+		if (!textures[i].img)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	assign_textures(t_cub *cub, int fd)
+char	*go_to_path(char *line, int i)
 {
-	char	*line;
+	int	j;
 
-	while (are_all_textures_set(cub) == 0)
-	{
-		line = get_next_line(fd);
-		if (!line || add_texture_to_struct(line, cub) == -1)
-		{
-			if (line)
-				free(line);
-			return (-1);
-		}
-		free(line);
-	}
-	return (1);
+	if (!line[i])
+		parser_error(MISSING_FILE_NAME, line);
+	else if (!cub3d_isspace(line[i]))
+		parser_error(MISSING_SPACE, line);
+	while (cub3d_isspace(line[i]))
+		i++;
+	if (!line[i])
+		parser_error(MISSING_FILE_NAME, line);
+	j = i;
+	while (!cub3d_isspace(line[j]) && line[j])
+		j++;
+	line[j] = '\0';
+	return (&line[i]);
 }
 
-int	parse_textures(t_cub *cub, int fd)
+void	add_img(char *line, t_cub *cub, int index)
 {
-	init_textures(cub);
-	if (assign_textures(cub, fd) == -1)
-		return (-1);
-	return (1);
+	t_img	img;
+
+	img = cub->textures[index];
+	if (index == F || index == C)
+		line = go_to_path(line, 1);
+	else
+		line = go_to_path(line, 2);
+	img.img = mlx_xpm_file_to_image(cub->mlx.mlx, line, &img.w, &img.h);
+	if (!img.img)
+		parser_error(XPM_ERROR, line);
+	cub->textures[index] = img;
+}
+
+void	add_texture(char *line, t_cub *cub, int index)
+{
+	if (cub->textures[index].img)
+		parser_error(DUPL_TEXTURE, line);
+	add_img(line, cub, index);
+}
+
+char	**parse_textures(t_parser *p, char **file)
+{
+	int	index;
+
+	while (!are_all_textures_set(p->cub->textures))
+	{
+		index = is_texture_line(*file);
+		if (index == -1 && !is_line_empty(*file))
+			parser_error(FORMAT_TEXTURE, *file);
+		else if (index != -1)
+			add_texture(*file, p->cub, index);
+		file++;
+	}
+	return (file);
 }

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_and_exit.c                                    :+:      :+:    :+:   */
+/*   parser_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:11:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 12:40:06 by tamighi          ###   ########.fr       */
+/*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
+/*   Updated: 2022/01/22 16:25:51 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/global.h"
+#include "../../includes/parser.h"
 
-void	free_and_exit(t_cub *cub, char *msg, int error)
+int	is_player_char(char c)
+{
+	if (c == 'S' || c == 'N' || c == 'W' || c == 'E')
+		return (1);
+	return (0);
+}
+
+int	is_known_char(char c)
+{
+	if (c == ' ' || c == '1' || c == '0'
+		|| is_player_char(c))
+		return (1);
+	return (0);
+}
+
+int	is_line_empty(char *line)
 {
 	int	i;
 
 	i = 0;
-	while (cub->map[i])
-		free(cub->map[i++]);
-	free(cub->map);
-	i = 0;
-	while (i < 6)
-		mlx_destroy_image(cub->mlx.mlx, cub->textures[i++].img);
-	free(cub->display.addr);
-	mlx_destroy_image(cub->mlx.mlx, cub->display.img);
-	mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
-	wr_and_ex(msg, error);
+	while (line[i])
+		if (!cub3d_isspace(line[i++]))
+			return (0);
+	return (1);
 }

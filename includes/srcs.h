@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/04 09:42:03 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:36:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 
 void	cub3d(char *argument);
+void	structure_init(t_cub *cub);
 
 void	parser(char *argument, t_cub *cub);
 void	display(t_cub *cub);
