@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:48:40 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 08:51:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,10 @@ typedef struct s_coord {
 
 t_parser	*set_parser_ptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
-void		player_init(t_cub *cub);
 char		**parse_textures(t_parser *p, char **file);
 char		**parse_map(t_parser *p, char **file);
-
-
+void		map_checker(char **map);
+void		player_init(t_cub *cub);
 
 int			is_texture_line(char *line);
 char		*cub3d_get_next_line(int fd);
@@ -72,6 +71,9 @@ int			is_player_char(char c);
 int			is_known_char(char c);
 
 void		parser_error(int error, void *ptr);
+void		map_error(int error, char **map, t_coord *c);
+void		texture_error(int error, char *line);
+
 void		parser_free(t_parser *p);
 void		free_my_arr(char **arr);
 
