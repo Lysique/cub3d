@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/21 09:35:56 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:07:22 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_draw_0(float ax, float ay, float by, t_img img)
 {
-	if (by > 150)
+	if (by < 150)
 		while (ay <= 170)
 			put_my_pixel(img, ax, ay++, 0xFF0000);
-	else if (by < 150)
+	else if (by > 150)
 		while (ay >= 130)
 			put_my_pixel(img, ax, ay--, 0xFF0000);
 }
@@ -44,13 +44,14 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	by = sin(cub->player.angle) * 20 + ay;
 	d = 0;
 	cub->line.pente = (by - ay) / (bx - ax);
+	printf("%f\n",bx);
 	if (bx > 149 && bx < 151)
 		ft_draw_0(ax, ay, by, img);
 	else
 	{
-		while (ft_dist(ax, ay, ax + d, ax + d * cub->line.pente) <= 20)
+		while (ft_dist(ax, ay, ax - d, ax - d * cub->line.pente) <= 20)
 		{
-			put_my_pixel(img, ax + d, ay + d * cub->line.pente, 0xFF0000);
+			put_my_pixel(img, ax - d, ay - d * cub->line.pente, 0xFF0000);
 			if (ax > bx)
 				d -= .1;
 			else
