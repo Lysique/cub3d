@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 15:18:29 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 10:22:03 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	put_pixel_map(t_img img, int x, int y, char c)
 		put_my_pixel(img, x, y, 0x00000000);
 	else if (c == '0')
 		put_my_pixel(img, x, y, 0x0000FF00);
+	else if (c == ' ')
+		put_my_pixel(img, x, y, 0x00FC7462);
 }
 
 void	blackhole_display(t_cub *cub, float x, float y, t_img img)

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 09:23:31 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 08:33:49 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ typedef struct s_img {
 	int		h;
 }				t_img;
 
+typedef struct s_hit {
+	float	x;
+	float	y;
+	float	cote;
+}				t_hit;
+
 typedef struct s_player {
 	float	x;
 	float	y;
@@ -62,6 +68,7 @@ typedef struct s_cub {
 	t_img		textures[6];
 	t_key		key;
 	t_line		line;
+	t_hit		hit;
 }				t_cub;
 
 # define WIN_H 1080

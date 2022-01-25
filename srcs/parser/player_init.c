@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:48:25 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 15:09:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/25 12:56:05 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	is_player_char(char c);
 void	player_data(char c, t_cub *cub, int i, int j)
 {
 	if (c == 'S')
-		cub->player.angle = PI / 2.;
-	else if (c == 'N')
 		cub->player.angle = 3 * PI / 2.;
+	else if (c == 'N')
+		cub->player.angle = PI / 2.;
 	else if (c == 'E')
 		cub->player.angle = 0;
 	else if (c == 'W')
