@@ -6,52 +6,52 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/21 09:35:56 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:26:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	ft_draw_0(float ax, float ay, float by, t_img img)
+void	ft_draw_0(float by, t_img img)
 {
-	if (by > 150)
+	int	ay;
+
+	ay = MINI_PX / 2;
+	if (by > MINI_PX / 2)
 		while (ay <= 170)
-			put_my_pixel(img, ax, ay++, 0xFF0000);
-	else if (by < 150)
-		while (ay >= 130)
-			put_my_pixel(img, ax, ay--, 0xFF0000);
+			put_my_pixel(img, MINI_PX / 2, ay++, RED);
+	else if (by < MINI_PX / 2)
+		while (ay >= MINI_PX / 2 - 20)
+			put_my_pixel(img, MINI_PX / 2, ay--, RED);
 }
 
-float	ft_dist(float ax, float ay, float bx, float by)
+float	ft_dist(float bx, float by)
 {
-	const float	dy = by - ay;
-	const float	dx = bx - ax;
+	const float	dy = by - MINI_PX / 2;
+	const float	dx = bx - MINI_PX / 2;
 
 	return (sqrtf(dy * dy + dx * dx));
 }
 
 void	ft_draw_line(t_img img, t_cub *cub)
 {
-	float	ax;
-	float	ay;
 	float	bx;
 	float	by;
 	float	d;
+	float	pente;
 
-	ax = 150;
-	ay = 150;
-	bx = cos(cub->player.angle) * 20 + ax;
-	by = sin(cub->player.angle) * 20 + ay;
+	bx = cos(cub->player.angle) * 20 + MINI_PX / 2;
+	by = sin(cub->player.angle) * 20 + MINI_PX / 2;
 	d = 0;
-	cub->line.pente = (by - ay) / (bx - ax);
-	if (bx > 149 && bx < 151)
-		ft_draw_0(ax, ay, by, img);
+	pente = (by - MINI_PX / 2) / (bx - MINI_PX / 2);
+	if (bx > MINI_PX / 2 - 1 && bx < MINI_PX / 2 + 1)
+		ft_draw_0(by, img);
 	else
 	{
-		while (ft_dist(ax, ay, ax + d, ax + d * cub->line.pente) <= 20)
+		while (ft_dist(MINI_PX / 2 + d, MINI_PX / 2 + d * pente) <= 20)
 		{
-			put_my_pixel(img, ax + d, ay + d * cub->line.pente, 0xFF0000);
-			if (ax > bx)
+			put_my_pixel(img, MINI_PX / 2 + d, MINI_PX / 2 + d * pente, RED);
+			if (MINI_PX / 2 > bx)
 				d -= .1;
 			else
 				d += .1;
@@ -64,15 +64,14 @@ void	display_char(t_cub *cub, t_img img)
 	int	pix_x;
 	int	pix_y;
 
-	pix_y = 145;
-	while (pix_y < 155)
+	pix_y = MINI_PX / 2 - 5;
+	while (pix_y < MINI_PX / 2 + 5)
 	{
-		pix_x = 145;
-		while (pix_x < 155)
-		{
-			put_my_pixel(img, pix_x++, pix_y, 0x000000FF);
-		}
+		pix_x = MINI_PX / 2 - 5;
+		while (pix_x < MINI_PX / 2 + 5)
+			put_my_pixel(img, pix_x++, pix_y, BLUE);
 		pix_y++;
 	}
-	ft_draw_line(img, cub);
+	(void)cub;
+//	ft_draw_line(img, cub);
 }

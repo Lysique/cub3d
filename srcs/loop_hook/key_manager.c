@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 09:10:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/24 11:17:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	move_manager(t_cub *cub)
 {
-	printf("%f %f\n", cub->player.x, cub->player.y);
 	if (cub->key.w == 1 && cub->map[(int)(cub->player.y 
 		+ sin(cub->player.angle) * DISTANCE)]
 		[(int)(cub->player.x + cos(cub->player.angle) * DISTANCE)] != '1')

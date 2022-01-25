@@ -6,46 +6,39 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/19 08:32:03 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:41:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-// float	ft_distance_p_inter(t_cub *cub, float angle)
-// {
-// 	float	result;
-// 	char	**map;
-// 	int		i;
-// 	int		j;
-
-// 	map = cub->map;
-// 	i = cub->player.x;
-// 	j = cub->player.y;
-// 	while ()
-// 	result = 
-// 	return (result);
-// }
-
-float	ft_angle(t_cub *cub, int i)
+float	ft_dist2(float bx, float by)
 {
-	const float	adj = 0.5;
-	const float	opp = i / 1920. - 0.5;
+	const float	dy = by;
+	const float	dx = bx;
 
-	return (atan(opp / adj) + cub->player.angle);
+	return (sqrtf(dy * dy + dx * dx));
 }
 
 void	ray_casting(t_cub *cub)
 {
-	int		i;
-	float	angle;
-	// float	dist_p_inter;
+	float	bx;
+	float	by;
+	float	d;
+	float	pente;
 
-	i = 0;
-	while (i < 1920)
+	bx = cos(cub->player.angle);
+	by = sin(cub->player.angle);
+	d = 0;
+	pente = by / bx;
+	if (bx < 0.05 && bx > 0.05 * -1)
+		return ;
+	while (ft_dist2(d, d * pente) <= 20)
 	{
-		angle = ft_angle(cub, i);
-		// dist_p_inter = ft_distance_p_inter(cub, angle);
-		i++;
+		put_my_pixel(cub->display, MINI_PX / 2 + d, MINI_PX / 2 + d * pente, RED);
+		if (bx > 0)
+			d -= .1;
+		else
+			d += .1;
 	}
 }
