@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 17:04:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 14:22:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,19 @@ typedef struct s_ray {
 	float	delta_y;
 	float	dir_x;
 	float	dir_y;
+	float	ray_r;
+	float	wall_dist;
+	float	camera_x;
+	int		pix_x;
+	int		draw_start;
+	int		draw_end;
+	int		line_h;
+	int		hit;
+	int		side;
 	int		step_x;
 	int		step_y;
 	int		map_x;
 	int		map_y;
-	float	ray_r;
 }			t_ray;
 
 void	ray_casting(t_cub *cub);

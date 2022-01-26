@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/26 14:19:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:41:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	move_manager(t_cub *cub)
 
 void	rotate_manager(t_cub *cub)
 {
-	cub->player.angle += ROTATE * cub->key.right;
-	cub->player.angle -= ROTATE * cub->key.left;
+	cub->player.angle -= ROTATE * cub->key.right;
+	cub->player.angle += ROTATE * cub->key.left;
 	if (cub->player.angle > 2 * PI)
 		cub->player.angle = 0;
 	else if (cub->player.angle < 0)

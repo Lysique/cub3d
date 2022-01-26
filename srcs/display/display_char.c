@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/26 08:10:42 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:43:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	float	d;
 	float	pente;
 
-	bx = cos(cub->player.angle) * 20 + MINI_PX / 2;
+	bx = cos(cub->player.angle)  * -1 * 20 + MINI_PX / 2;
 	by = sin(cub->player.angle) * 20 + MINI_PX / 2;
 	d = 0;
 	pente = (by - MINI_PX / 2) / (bx - MINI_PX / 2);
