@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/26 15:41:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 15:51:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	key_move(float valcos, float valsin, t_cub *cub)
 void	move_manager(t_cub *cub)
 {
 	if (cub->key.w == 1)
-		key_move(cub->player.angle + PI, cub->player.angle * -1, cub);
+		key_move(cub->player.angle, cub->player.angle * -1, cub);
 	if (cub->key.s == 1)
-		key_move(cub->player.angle, cub->player.angle, cub);
+		key_move(cub->player.angle + PI, cub->player.angle, cub);
 	if (cub->key.a == 1)
-		key_move(cub->player.angle + MIDPI, cub->player.angle + MIDPI, cub);
+		key_move(cub->player.angle + MIDPI, cub->player.angle - MIDPI, cub);
 	if (cub->key.d == 1)
-		key_move(cub->player.angle - MIDPI, cub->player.angle - MIDPI, cub);
+		key_move(cub->player.angle - MIDPI, cub->player.angle + MIDPI, cub);
 	display(cub);
 }
 
