@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 15:17:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/25 17:04:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,20 @@
 # define SPACE_COLOR ORANGE
 # define WALL_COLOR BLACK
 # define IN_COLOR GREEN
+
+typedef struct s_ray {
+	float	side_x;
+	float	side_y;
+	float	delta_x;
+	float	delta_y;
+	float	dir_x;
+	float	dir_y;
+	int		step_x;
+	int		step_y;
+	int		map_x;
+	int		map_y;
+	float	ray_r;
+}			t_ray;
 
 void	ray_casting(t_cub *cub);
 void	display_map(t_cub *cub);

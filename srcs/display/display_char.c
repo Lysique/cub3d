@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 13:49:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 08:10:42 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	ft_draw_0(float by, t_img img)
 
 	ay = MINI_PX / 2;
 	if (by < MINI_PX / 2)
-		while (ay <= MINI_PX + 20)
-			put_my_pixel(img, MINI_PX / 2, ay++, 0xFF0000);
+		while (ay <= MINI_PX / 2 + 20)
+			put_my_pixel(img, MINI_PX / 2, ay++, RED);
 	else if (by > MINI_PX / 2)
 		while (ay >= MINI_PX / 2 - 20)
-			put_my_pixel(img, MINI_PX / 2, ay--, 0xFF0000);
+			put_my_pixel(img, MINI_PX / 2, ay--, RED);
 }
 
 float	ft_dist(float bx, float by)
@@ -44,13 +44,13 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	by = sin(cub->player.angle) * 20 + MINI_PX / 2;
 	d = 0;
 	pente = (by - MINI_PX / 2) / (bx - MINI_PX / 2);
-	if (bx > MINI_PX / 2 + 1 && bx < MINI_PX / 2 + 1)
+	if (bx < MINI_PX / 2 + 1 && bx > MINI_PX / 2 - 1)
 		ft_draw_0(by, img);
 	else
 	{
 		while (ft_dist(MINI_PX / 2  - d, MINI_PX / 2 - d * pente) <= 20)
 		{
-			put_my_pixel(img, MINI_PX / 2 - d, MINI_PX / 2 - d * pente, 0xFF0000);
+			put_my_pixel(img, MINI_PX / 2 - d, MINI_PX / 2 - d * pente, RED);
 			if (MINI_PX / 2 > bx)
 				d -= .1;
 			else
