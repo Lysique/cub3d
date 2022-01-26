@@ -6,13 +6,11 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:48:25 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 12:56:05 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:28:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
-
-int	is_player_char(char c);
 
 void	player_data(char c, t_cub *cub, int i, int j)
 {

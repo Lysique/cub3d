@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 10:13:17 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:28:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define DISTANCE 0.25
 # define SPEED 0.1
-# define ROTATE 0.1
+# define ROTATE 0.2
 
 void	display(t_cub *cub);
 void	key_manager(t_cub *cub);
