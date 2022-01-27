@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/27 09:33:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/27 13:04:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
 # define RED 0x00FF0000
+# define WHITE 0x00FFFFFF
 
 # define OUT_COLOR ORANGE
 # define SPACE_COLOR ORANGE
@@ -41,19 +42,21 @@ typedef struct s_ray {
 	float	delta_y;
 	float	dir_x;
 	float	dir_y;
+	float	plane_x;
+	float	plane_y;
 	float	ray_r;
 	float	wall_dist;
-	float	camera_x;
+	float	camera_r;
+	int		step_x;
+	int		step_y;
+	int		map_x;
+	int		map_y;
 	int		pix_x;
 	int		draw_start;
 	int		draw_end;
 	int		line_h;
 	int		hit;
 	int		side;
-	int		step_x;
-	int		step_y;
-	int		map_x;
-	int		map_y;
 }			t_ray;
 
 void	ray_casting(t_cub *cub);

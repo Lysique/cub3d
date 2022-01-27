@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/27 09:50:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/27 13:21:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ void	draw_ray_line(t_cub *cub, t_ray *r)
 	y = 1;
 	if (r->side == WE_EA)
 	{
-//		if (r->step_y == 1)
+		if (r->step_x == 1)
 			color = RED;
-//		else
-//			color = 0x00770000;
+		else
+			color = 0x00770000;
 	}
 	else if (r->side == SO_NO)
 	{
-//		if (r->step_x == -1)
+		if (r->step_y == -1)
 			color = GREEN;
-//		else
-//			color = 0x00007700;
+		else
+			color = 0x00007700;
 	}
 	while (y < r->draw_start)
-		put_my_pixel(cub->display, y++, r->pix_x, BLUE);
+		put_my_pixel(cub->display, y++, r->pix_x, BLACK);
 	while (r->draw_start < r->draw_end && y++)
 		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
 	while (y < WIN_H)
-		put_my_pixel(cub->display, y++, r->pix_x, BLUE);
+		put_my_pixel(cub->display, y++, r->pix_x, WHITE);
 }
 
 void	draw_ray(t_ray *r, t_cub *cub)
@@ -47,8 +47,8 @@ void	draw_ray(t_ray *r, t_cub *cub)
 	if (r->draw_start < 0)
 		r->draw_start = 0;
 	r->draw_end = r->line_h / 2 + WIN_H / 2;
-	if (r->draw_start >= WIN_H)
-		r->draw_start = WIN_H - 1;
+	if (r->draw_end >= WIN_H)
+		r->draw_end = WIN_H - 1;
 	draw_ray_line(cub, r);
 }
 
@@ -77,6 +77,7 @@ void	hit_wall_check(t_ray *r, t_cub *cub)
 		r->wall_dist = r->side_x - r->delta_x;
 	else
 		r->wall_dist = r->side_y - r->delta_y;
+//	printf("%f\n", r->wall_dist);
 }
 
 void	side_init(t_ray *r, t_player p)
@@ -89,34 +90,37 @@ void	side_init(t_ray *r, t_player p)
 	else
 	{
 		r->step_x = 1;
-		r->side_x = (float)(p.x + 1 - r->map_x) * r->delta_x;
+		r->side_x = (float)(p.x - 1 - r->map_x) * (r->delta_x * -1);
 	}
 	if (r->dir_y > 0)
 	{
 		r->step_y = -1;
-		r->side_y = (float)(p.y - r->map_y) * r->delta_y;
+		r->side_y = (float)(p.y - r->map_y) * r->delta_y ;
 	}
 	else
 	{
 		r->step_y = 1;
-		r->side_y = (float)(p.y + 1 - r->map_y) * r->delta_y;
+		r->side_y = (float)(p.y - 1 - r->map_y) * (r->delta_y * -1);
 	}
-//	printf("delta_x %f, delta_y %f, side_x %f, side_y %f\n", r->delta_x, r->delta_y, r->side_x, r->side_y);
+//	if (r->pix_x % 50 == 0)
+//		printf("delta_x %f, delta_y %f, side_x %f, side_y %f\n", r->delta_x, r->delta_y, r->side_x, r->side_y);
 }
 
 void	ray_init(t_ray *r, t_player p)
 {
-	r->camera_x = 2 * r->pix_x / WIN_W - 1;
-	r->camera_x = 0;
+	r->camera_r = (float)(r->pix_x * 2) / WIN_W - 1;
 	r->ray_r = p.angle;
+	r->plane_x = 0.66 * sin(r->ray_r);
+	r->plane_y = -0.66 * cos(r->ray_r);
 	r->hit = 0;
-	r->dir_x = cos(p.angle);
-	r->dir_y = sin(p.angle); //* (0.66 + r->camera_x);
+	r->dir_x = cos(r->ray_r) + r->camera_r * r->plane_x;
+	r->dir_y = sin(r->ray_r) + r->camera_r * r->plane_y;
 	r->delta_x = fabsf(1 / r->dir_x);
 	r->delta_y = fabsf(1 / r->dir_y);
 	r->map_x = (int)p.x;
 	r->map_y = (int)p.y;
-	printf("Rad : %f, r_dirx : %f, r_diry : %f\n", p.angle, r->dir_x, r->dir_y);
+//	if (r->pix_x % 50 == 0)
+//		printf("Rad : %f, r_dirx : %f, r_diry : %f\n", p.angle, r->dir_x, r->dir_y);
 }
 
 void	ray_casting(t_cub *cub)
@@ -124,6 +128,7 @@ void	ray_casting(t_cub *cub)
 	t_ray		r;
 
 	r.pix_x = 1;
+//	printf("XXX\n\n");
 	while (r.pix_x < WIN_W)
 	{
 		ray_init(&r, cub->player);
