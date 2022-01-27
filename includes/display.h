@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/26 17:23:38 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/27 09:33:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # define MINI_SIZE 10
 # define MIDMINI MINI_SIZE / 2
 # define PX_INDEX_CONV 1 / (MINI_PX / MINI_SIZE)
+
+# define SO_NO 1
+# define WE_EA 0
 
 # define ORANGE 0x00FC7462
 # define BLACK 0x00000000
