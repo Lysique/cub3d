@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 16:28:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/27 13:21:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "global.h"
 
-# define DISTANCE 0.25
+# define DISTANCE 0.4
 # define SPEED 0.1
 # define ROTATE 0.2
 
