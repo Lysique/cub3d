@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 17:04:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 17:23:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # define MINI_PX 300
 # define MINI_SIZE 10
+# define MIDMINI MINI_SIZE / 2
 # define PX_INDEX_CONV 1 / (MINI_PX / MINI_SIZE)
 
 # define ORANGE 0x00FC7462
@@ -37,11 +38,19 @@ typedef struct s_ray {
 	float	delta_y;
 	float	dir_x;
 	float	dir_y;
+	float	ray_r;
+	float	wall_dist;
+	float	camera_x;
+	int		pix_x;
+	int		draw_start;
+	int		draw_end;
+	int		line_h;
+	int		hit;
+	int		side;
 	int		step_x;
 	int		step_y;
 	int		map_x;
 	int		map_y;
-	float	ray_r;
 }			t_ray;
 
 void	ray_casting(t_cub *cub);
