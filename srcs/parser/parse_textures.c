@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 12:45:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:37:29 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/27 09:28:02 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	add_img(char *line, t_cub *cub, int index)
 	img.img = mlx_xpm_file_to_image(cub->mlx.mlx, line, &img.w, &img.h);
 	if (!img.img)
 		parser_error(XPM_ERROR, line);
+	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.sizel, &img.endian);
 	cub->textures[index] = img;
 }
 

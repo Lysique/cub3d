@@ -6,13 +6,13 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:09:53 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 13:27:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/26 17:16:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	put_my_pixel(t_img img, int x, int y, int color)
+void	put_my_pixel(t_img img, int y, int x, int color)
 {
 	char	*dst;
 
