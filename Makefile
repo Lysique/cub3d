@@ -6,13 +6,15 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/29 12:42:02 by tamighi          ###   ########.fr        #
+#    Updated: 2022/01/29 13:10:50 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+SANITIZEFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+NORMALFLAGS = -Wall -Wextra -Werror
+CFLAGS = $(NORMALFLAGS)
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 OBJDIR = objs/
 MLX_DIR = mlx/

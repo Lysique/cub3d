@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 09:10:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 13:10:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	textures_img_init(t_cub *cub)
 		return (-1);
 	cub->display.addr = mlx_get_data_addr(cub->display.img,
 			&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
-	if (!cub->display.addr)
-		return (-1);
 	return (0);
 }
 
@@ -54,8 +52,6 @@ void	structure_init(t_cub *cub)
 	mlx_variables_init(cub);
 	if (textures_img_init(cub) == -1)
 	{
-		if (cub->display.img)
-			mlx_destroy_image(cub->mlx.mlx, cub->display.img);
 		mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
 		wr_and_ex("Error\nImage initialisation failed.\n", 1);
 	}
