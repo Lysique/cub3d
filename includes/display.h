@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/27 13:04:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 11:40:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 
 # define MINI_PX 300
 # define MINI_SIZE 10
-# define MIDMINI MINI_SIZE / 2
-# define PX_INDEX_CONV 1 / (MINI_PX / MINI_SIZE)
+
+		/* MIDMINI = MINI_SIZE / 2 */
+
+# define MIDMINI 5
+		/* PX_INDEX_CONV = 1 / (MINI_PX / MINI_SIZE) */
+
+# define PX_INDEX_CONV 0.03333333
 
 # define SO_NO 1
 # define WE_EA 0
 
-# define ORANGE 0x00FC7462
-# define BLACK 0x00000000
-# define GREEN 0x0000FF00
-# define BLUE 0x000000FF
-# define RED 0x00FF0000
-# define WHITE 0x00FFFFFF
+		/* MINIMAP COLORS */
 
 # define OUT_COLOR ORANGE
 # define SPACE_COLOR ORANGE

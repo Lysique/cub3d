@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/25 13:28:32 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 10:29:14 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <mlx.h>
 # include <stdarg.h>
+# include "define.h"
 
 typedef struct s_key {
 	int	w;
@@ -65,18 +66,6 @@ typedef struct s_cub {
 	t_key		key;
 	t_hit		hit;
 }				t_cub;
-
-# define WIN_H 1080
-# define WIN_W 1920
-# define PI 3.14159265359
-# define MIDPI 1.570796326795
-
-# define F 0
-# define C 1
-# define NO 2
-# define SO 3
-# define WE 4
-# define EA 5
 
 void	my_write(char *str);
 void	wr_and_ex(char *str, int ex);
