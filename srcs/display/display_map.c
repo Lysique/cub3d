@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/26 17:31:42 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 13:10:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	magic_map_displayer(t_cub *cub, float y, float x)
 {
 	int	pix_y;
 
-	pix_y = WIN_H - MINI_PX;
+	pix_y = WIN_H - MINI_PX - 1;
 	put_out_background(cub->display);
 	while (y < 0)
 	{
