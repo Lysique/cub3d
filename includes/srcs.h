@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/20 12:36:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 12:41:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	cub3d(char *argument);
 void	structure_init(t_cub *cub);
 
 void	parser(char *argument, t_cub *cub);
-void	display(t_cub *cub);
 int		key_press(int key, void *param);
 int		key_release(int key, void *param);
 int		mouse_press(void *param);
