@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/30 12:09:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/30 15:30:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,16 @@ typedef struct s_ray {
 	float	wall_x;
 	float	tex_step;
 	float	tex_pos;
-	int		tex;
+	float	ray_dirx0;
+	float	ray_dirx1;
+	float	ray_diry0;
+	float	ray_diry1;
+	float	pos_z;
+	float	row_dist;
+	float	fstep_x;
+	float	fstep_y;
+	float	floor_x;
+	float	floor_y;
 	int		step_x;
 	int		step_y;
 	int		map_x;
@@ -63,9 +72,16 @@ typedef struct s_ray {
 	int		line_h;
 	int		hit;
 	int		side;
+	int		tex;
+	int		p;
+	int		cell_x;
+	int		cell_y;
+	int		f_c_x;
+	int		f_c_y;
 }			t_ray;
 
 void	ray_casting(t_cub *cub);
+void	f_c_casting(t_cub *cub, t_ray *r);
 void	draw_ray(t_ray *r, t_cub *cub);
 
 void	display_map(t_cub *cub);
