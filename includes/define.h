@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/29 14:39:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/30 12:49:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 /*		GAME_SPEED : THE LESS = THE FASTER
 
  		NUMBER OF TIMES THE PROGRAMS NEEDS TO ENTER LOOP_HOOK BEFORE
- 		THE OTHER FUNCTIONS */
+ 		THE OTHER FUNCTIONS. 100 is recommended. */
 
 # define GAME_SPEED 100
 
@@ -35,7 +35,7 @@
  		GAME_SPEED MODIFY THE NUMBER OF TIMES THE PROGRAMES DISPLAYS
  		AND ENTER THE FUNCTIONS. THIS MIGHT SLOW THE TIMES IT ENTERS
  		THE LOOP_HOOK, THERE IS THUS NO PROPER CALCULS FOR SPEED
- 		AND ROTATE */
+ 		AND ROTATE. 0.08 is recommended.*/
 
 # define SPEED 0.08
 # define ROTATE 0.08
