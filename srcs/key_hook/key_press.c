@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 09:36:11 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/01/29 12:49:26 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	key_press(int key, void *param)
 
 	cub = (t_cub *)param;
 	if (key == 53)
-		free_and_exit(cub, "Exit\n", 0);
+		free_and_exit((t_cub *)param, "Exit\n", 0);
 	else if (key == 2)
 		cub->key.d = 1;
 	else if (key == 0)

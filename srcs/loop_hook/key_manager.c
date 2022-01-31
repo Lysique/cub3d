@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/27 10:07:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/29 12:28:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	hitbox(float x ,float y, t_cub *cub)
 
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
-	if (sin(valsin) < 0 && cub->map[(int)(cub->player.y - DISTANCE)][(int)cub->player.x] != '1')
+	if (sin(valsin) < 0 && cub->map[(int)(cub->player.y - HITBOX)][(int)cub->player.x] != '1')
 		cub->player.y += sin(valsin) * SPEED;
-	else if (sin(valsin) > 0 && cub->map[(int)(cub->player.y + DISTANCE)][(int)cub->player.x] != '1')
+	else if (sin(valsin) > 0 && cub->map[(int)(cub->player.y + HITBOX)][(int)cub->player.x] != '1')
 		cub->player.y += sin(valsin) * SPEED;
-	if (cos(valcos) > 0 && cub->map[(int)cub->player.y][(int)(cub->player.x + DISTANCE)] != '1')
+	if (cos(valcos) > 0 && cub->map[(int)cub->player.y][(int)(cub->player.x + HITBOX)] != '1')
 		cub->player.x += cos(valcos) * SPEED;
-	else if (cos(valcos) < 0 && cub->map[(int)cub->player.y][(int)(cub->player.x - DISTANCE)] != '1')
+	else if (cos(valcos) < 0 && cub->map[(int)cub->player.y][(int)(cub->player.x - HITBOX)] != '1')
 		cub->player.x += cos(valcos) * SPEED;
 }
 
@@ -41,13 +41,12 @@ void	move_manager(t_cub *cub)
 		key_move(cub->player.angle + MIDPI, cub->player.angle - MIDPI, cub);
 	if (cub->key.d == 1)
 		key_move(cub->player.angle - MIDPI, cub->player.angle + MIDPI, cub);
-	display(cub);
 }
 
 void	rotate_manager(t_cub *cub)
 {
-	cub->player.angle -= ROTATE * cub->key.right;
-	cub->player.angle += ROTATE * cub->key.left;
+	cub->player.angle -= (float)cub->key.right * ROTATE;
+	cub->player.angle += (float)cub->key.left * ROTATE;
 	if (cub->player.angle > 2 * PI)
 		cub->player.angle -= 2 * PI;
 	else if (cub->player.angle < 0)

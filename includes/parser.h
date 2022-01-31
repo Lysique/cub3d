@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 08:51:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/31 11:36:28 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/uio.h>
 # include <errno.h>
 
+/*######## PARSER_ERROR DEFINE ########*/
+
 # define NB_ERRORS 10
 
 # define MALLOC_ERROR 1
@@ -26,21 +28,26 @@
 # define EMPTY_FILE 3
 # define FILE_NOT_ENDED 4
 
+/*		ERROR = {TYPE_ERROR}_ERROR * NB_ERRORS + X
+ 
+		X = NTH ERROR OF TYPE {TYPE_ERROR}. SHOULD NOT EXCEED NB_ERRORS.
+ 		TYPE ERRORS : [TEXTURE_ERROR; MAP_ERROR]*/
+
 # define TEXTURE_ERROR 1
-# define MISSING_TEXTURE TEXTURE_ERROR * NB_ERRORS + 1
-# define DUPL_TEXTURE TEXTURE_ERROR * NB_ERRORS + 2
-# define FORMAT_TEXTURE TEXTURE_ERROR * NB_ERRORS + 3
-# define MISSING_FILE_NAME TEXTURE_ERROR * NB_ERRORS + 4
-# define MISSING_SPACE TEXTURE_ERROR * NB_ERRORS + 5
-# define XPM_ERROR TEXTURE_ERROR * NB_ERRORS + 6
+# define MISSING_TEXTURE 11
+# define DUPL_TEXTURE 12
+# define FORMAT_TEXTURE 13
+# define MISSING_FILE_NAME 14
+# define MISSING_SPACE 15
+# define XPM_ERROR 16
 
 # define MAP_ERROR 2
-# define MISSING_NL TEXTURE_ERROR * NB_ERRORS + 1
-# define MISSING_MAP MAP_ERROR * NB_ERRORS + 2
-# define UNKNOWN_CHAR MAP_ERROR * NB_ERRORS + 3
-# define OPEN_MAP MAP_ERROR * NB_ERRORS + 4
-# define MULT_PLAYER MAP_ERROR * NB_ERRORS + 5
-# define NO_PLAYER MAP_ERROR * NB_ERRORS + 6
+# define MISSING_NL 21
+# define MISSING_MAP 22
+# define UNKNOWN_CHAR 23
+# define OPEN_MAP 24
+# define MULT_PLAYER 25
+# define NO_PLAYER 26
 
 typedef struct	s_parser {
 	t_cub	*cub;
