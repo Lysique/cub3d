@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/30 14:43:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/31 13:47:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	draw_walls(t_cub *cub, t_ray *r)
 
 	while (r->draw_start < r->draw_end)
 	{
-		r->tex_y = (int)r->tex_pos & (cub->textures[r->tex].h - 1);
+		r->tex_y = (int)r->tex_pos;
 		r->tex_pos += r->tex_step;
 		dst = cub->textures[r->tex].addr +
 			(r->tex_y * cub->textures[r->tex].sizel + r->tex_x
