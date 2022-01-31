@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 13:47:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/31 15:16:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  		NUMBER OF TIMES THE PROGRAMS NEEDS TO ENTER LOOP_HOOK BEFORE
  		THE OTHER FUNCTIONS. 300 IS RECOMMENDED. */
 
-# define GAME_SPEED 300
+# define GAME_SPEED 10
 
 /*		PLAYER SPEED && PLAYER ROTATE_SPEED ; DEPEND ON GAME_SPEED.
 
@@ -37,8 +37,8 @@
  		THE LOOP_HOOK, THERE IS THUS NO PROPER CALCULS FOR SPEED
  		AND ROTATE. 0.12 FOR ROTATE AND 0.14 FOR SPEED ARE RECOMMENDED.*/
 
-# define SPEED 0.14
-# define ROTATE 0.12
+# define SPEED 0.1
+# define ROTATE 0.1
 
 		/* TEXTURES INDEXES */
 
