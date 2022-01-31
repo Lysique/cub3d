@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/30 16:27:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/01/31 14:45:27 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  		NUMBER OF TIMES THE PROGRAMS NEEDS TO ENTER LOOP_HOOK BEFORE
  		THE OTHER FUNCTIONS. 300 IS RECOMMENDED. */
 
-# define GAME_SPEED 300
+# define GAME_SPEED 1
 
 /*		PLAYER SPEED && PLAYER ROTATE_SPEED ; DEPEND ON GAME_SPEED.
 
@@ -37,8 +37,8 @@
  		THE LOOP_HOOK, THERE IS THUS NO PROPER CALCULS FOR SPEED
  		AND ROTATE. 0.12 FOR ROTATE AND 0.14 FOR SPEED ARE RECOMMENDED.*/
 
-# define SPEED 0.14
-# define ROTATE 0.12
+# define SPEED 0.08
+# define ROTATE 0.08
 
 		/* TEXTURES INDEXES */
 
@@ -57,5 +57,6 @@
 # define BLUE 0x000000FF
 # define RED 0x00FF0000
 # define WHITE 0x00FFFFFF
+# define TRANSP 0x80FFFFFF
 
 #endif
