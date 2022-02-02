@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 15:32:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/02 12:57:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ void		texture_error(int error, char *line);
 
 void		parser_free(t_parser *p);
 void		free_my_arr(char **arr);
+
+void		put_my_pixel(t_img img, int y, int x, int color);
 
 #endif

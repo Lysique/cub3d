@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 16:07:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/02 15:59:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,24 @@ void	add_img(char *texture, t_cub *cub, int index)
 	cub->textures[index] = img;
 }
 
-int	add_rgb_part(char *texture, int *i, int *color, int commas)
+int	add_rgb_part(char *texture, int *i, unsigned int *color, int commas)
 {
-	int	color_num;
+	unsigned int	color_num;
 
 	color_num = 0;
-	while (texture[*i] && texture[*i] != ',' && !ft_isspace(texture[*i]))
+	if (!texture[*i] || texture[*i] == ',' || cub3d_isspace(texture[*i]))
+		return (-1);
+	while (texture[*i] && texture[*i] != ',' && !cub3d_isspace(texture[*i]))
 	{
-		if ((texture[*i] < 0 || texture[*i] > 9))
+		color_num *= 10;
+		if ((texture[*i] < '0' || texture[*i] > '9'))
 			return (-1);
 		color_num += texture[*i] - '0';
+		if (color_num > 255)
+			return (-1);
 		(*i)++;
 	}
-	if (texture[*i] == ',')
+	if (texture[*i] == ',' && commas < 2)
 		(*i)++;
 	if (commas == 0)
 		*color += color_num * 256 * 256;
@@ -46,20 +51,32 @@ int	add_rgb_part(char *texture, int *i, int *color, int commas)
 		*color += color_num;
 	return (0);
 }
+
 void	add_rgb(char *texture, t_cub *cub, int index)
 {
 	unsigned int	color;
 	int				i;
 	int				commas;
+	t_img			img;
 
 	color = 0;
 	i = 0;
 	commas = 0;
-	while (texture[i] && !ft_isspace(texture[i]))
+	while (texture[i] && !cub3d_isspace(texture[i]))
 	{
-		if (add_rgb_part(texture, &i, commas) == -1)
+		if (commas == 3)
 			return ;
+		if (add_rgb_part(texture, &i, &color, commas) == -1)
+			return ;
+		commas++;
 	}
+	img.img = mlx_new_image(cub->mlx.mlx, 1, 1);
+	img.h = 1;
+	img.w = 1;
+	img.addr = mlx_get_data_addr(img.img,
+			&img.bpp, &img.sizel, &img.endian);
+	put_my_pixel(img, 0, 0, color);
+	cub->textures[index] = img;
 }
 
 void	add_texture(char *texture, t_cub *cub, int index)
@@ -68,4 +85,3 @@ void	add_texture(char *texture, t_cub *cub, int index)
 	if (!cub->textures[index].img)
 		add_img(texture, cub, index);
 }
-
