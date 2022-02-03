@@ -12,12 +12,12 @@
 
 #include "../../includes/loop_hook.h"
 
-void	hitbox(float x ,float y, t_cub *cub)
-{
-	cub->hit.x = x - 1 / 6.;
-	cub->hit.y = y - 1 / 6.;
-	cub->hit.cote = 1 / 3.;
-}
+// void	hitbox(float x ,float y, t_cub *cub)
+// {
+// 	cub->hit.x = x - 1 / 6.;
+// 	cub->hit.y = y - 1 / 6.;
+// 	cub->hit.cote = 1 / 3.;
+// }
 
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
