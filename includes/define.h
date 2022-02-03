@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 14:45:27 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/03 08:42:05 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 
 # define SPEED 0.08
 # define ROTATE 0.08
+# define SENSI_MOUSE 0.0001
 
 		/* TEXTURES INDEXES */
 

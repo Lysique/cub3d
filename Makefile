@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/30 15:12:28 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/03 08:45:25 by tuytters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 ##### KEY_HOOK FILES ######
 
-KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c
+KEY_HOOK_FILES = key_press.c key_release.c mouse.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))

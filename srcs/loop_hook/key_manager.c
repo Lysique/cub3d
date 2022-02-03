@@ -51,6 +51,7 @@ void	rotate_manager(t_cub *cub)
 		cub->player.angle -= 2 * PI;
 	else if (cub->player.angle < 0)
 		cub->player.angle += 2 * PI;
+	cub->player.angle -= SENSI_MOUSE * (cub->mouse.x - WIN_W / 2);
 }
 
 void	key_manager(t_cub *cub)

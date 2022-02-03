@@ -6,10 +6,11 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 09:35:51 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/02 14:50:13 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../mlx/mlx.h"
 #include "../../includes/key_hook.h"
 
 int	mouse_press(void *param)
@@ -18,5 +19,35 @@ int	mouse_press(void *param)
 
 	cub = (t_cub *)param;
 	free_and_exit(cub, "Exit\n", 0);
+	return (0);
+}
+
+float	angle(float angle)
+{
+	if (angle < 0)
+		return (angle + 2.0 * PI);
+	else if (angle > 2.0 * PI)
+		return (angle - 2.0 * PI);
+	return (angle);
+}
+
+int	mouse_move(int x,int y, void *param)
+{
+	t_cub	*cub;
+	// int		dist;
+
+	cub = (t_cub *)param;
+	(void)y;
+
+	// mlx_mouse_move(cub->mlx.win, WIN_W / 2, WIN_H / 2);
+	// if (cub->mouse.x)
+	// {
+	// 	dist = x - cub->mouse.x;
+	// 	cub->player.angle -= dist * 0.20 * (PI / 180.);
+	// 	cub->player.angle = angle(cub->player.angle);
+	if (x > WIN_W / 3 + WIN_W / 8 && x < WIN_W / 3 * 2 - WIN_W / 8)
+		cub->mouse.x = WIN_W / 2;
+	else
+		cub->mouse.x = x;
 	return (0);
 }

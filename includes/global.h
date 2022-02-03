@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 11:36:31 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:14:27 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
-# include <mlx.h>
+# include "../mlx/mlx.h"
 # include <stdarg.h>
 # include "define.h"
 
@@ -29,6 +29,10 @@ typedef struct s_key {
 	int	right;
 	int	left;
 }				t_key;
+
+typedef struct s_mouse {
+	int	x;
+}				t_mouse;
 
 typedef struct s_mlx {
 	void	*mlx;
@@ -62,6 +66,7 @@ typedef struct s_cub {
 	t_img		display;
 	t_player	player;
 	t_mlx		mlx;
+	t_mouse		mouse;
 	t_img		textures[6];
 	t_key		key;
 	t_hit		hit;

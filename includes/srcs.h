@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/29 12:41:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/02 11:53:18 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	parser(char *argument, t_cub *cub);
 int		key_press(int key, void *param);
 int		key_release(int key, void *param);
 int		mouse_press(void *param);
+int		mouse_move(int x, int y, void *param);
 int		loop_hook(t_cub *cub);
 
 #endif

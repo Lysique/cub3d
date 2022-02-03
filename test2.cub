@@ -1,11 +1,11 @@
-NO ./sprites/mur/1.xpm
+NO ./sprites/mur/mur_1.xpm
 SO ./sprites/mur/mur_2.xpm
 WE ./sprites/mur/mur_3.xpm
 
 EA ./sprites/mur/mur_4.xpm
 		  	
-F ./sprites/mur/Brick1.xpm  
-C ./sprites/mur/Brick3.xpm
+F ./sprites/sol/sol_1.xpm  
+C ./sprites/sol/sol_2.xpm
 
 11111111
 100000001
