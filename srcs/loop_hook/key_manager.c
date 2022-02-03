@@ -21,14 +21,18 @@
 
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
-	if (sin(valsin) < 0 && cub->map[(int)(cub->player.y - HITBOX)][(int)cub->player.x] != '1')
-		cub->player.y += sin(valsin) * SPEED;
-	else if (sin(valsin) > 0 && cub->map[(int)(cub->player.y + HITBOX)][(int)cub->player.x] != '1')
-		cub->player.y += sin(valsin) * SPEED;
-	if (cos(valcos) > 0 && cub->map[(int)cub->player.y][(int)(cub->player.x + HITBOX)] != '1')
-		cub->player.x += cos(valcos) * SPEED;
-	else if (cos(valcos) < 0 && cub->map[(int)cub->player.y][(int)(cub->player.x - HITBOX)] != '1')
-		cub->player.x += cos(valcos) * SPEED;
+	if (sin(valsin) < 0 && cub->map[(int)
+			(cub->player.y - HITBOX)][(int)cub->player.x] != '1')
+			cub->player.y += sin(valsin) * SPEED;
+	else if (sin(valsin) > 0 && cub->map[(int)
+			(cub->player.y + HITBOX)][(int)cub->player.x] != '1')
+			cub->player.y += sin(valsin) * SPEED;
+	if (cos(valcos) > 0 && cub->map[(int)cub->player.y]
+		[(int)(cub->player.x + HITBOX)] != '1')
+			cub->player.x += cos(valcos) * SPEED;
+	else if (cos(valcos) < 0 && cub->map[(int)cub->player.y]
+		[(int)(cub->player.x - HITBOX)] != '1')
+			cub->player.x += cos(valcos) * SPEED;
 }
 
 void	move_manager(t_cub *cub)

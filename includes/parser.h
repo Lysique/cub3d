@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 11:36:28 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/03 12:22:54 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define MULT_PLAYER 25
 # define NO_PLAYER 26
 
-typedef struct	s_parser {
+typedef struct s_parser {
 	t_cub	*cub;
 	char	**file;
 	int		fd;

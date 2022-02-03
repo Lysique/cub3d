@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 09:53:45 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/03 12:22:07 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 void	display(t_cub *cub);
 void	key_manager(t_cub *cub);
 void	key_init(t_cub *cub);
-void	key_w(t_cub *cub);
-void	key_s(t_cub *cub);
-void	key_a(t_cub *cub);
-void	key_d(t_cub *cub);
 void	hitbox(float x, float y, t_cub *cub);
 
 #endif

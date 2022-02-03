@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/27 09:59:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/03 12:10:00 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	{
 		while (ft_dist(d, d * pente) <= 20)
 		{
-			put_my_pixel(img, WIN_H - MINI_PX / 2 - d * pente, MINI_PX / 2 + d, RED);
+			put_my_pixel(img, WIN_H - MINI_PX / 2 - d
+				* pente, MINI_PX / 2 + d, RED);
 			if (0 > bx)
 				d -= .1;
 			else
