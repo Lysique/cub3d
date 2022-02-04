@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:37:07 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 08:52:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/03 13:34:19 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	texture_error(int error, char *line)
 		my_write("Missing xpm file name.\n");
 	else if (error == MISSING_SPACE)
 		my_write("Missing space between texture id and image name.\n");
+	else if (error == MUSIC_NOT_FOUND)
+		my_write("Music file does not exist.\n");
 	else if (XPM_ERROR)
 		my_write("Path to XPM image invalid.\n");
 	if (line)

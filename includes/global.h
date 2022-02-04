@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 12:14:27 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:28:29 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_player {
 
 typedef struct s_cub {
 	char		**map;
+	char		*music_file;
 	t_img		display;
 	t_player	player;
 	t_mlx		mlx;
@@ -75,5 +76,6 @@ typedef struct s_cub {
 void	my_write(char *str);
 void	wr_and_ex(char *str, int ex);
 void	free_and_exit(t_cub *cub, char *msg, int error);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

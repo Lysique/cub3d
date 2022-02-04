@@ -7,6 +7,8 @@ EA ./sprites/mur/mur4.xpm
 F ./sprites/sol/sol12.xpm  
 C ./sprites/sol/sol20.xpm
 
+M ./music/son_ambiance.mp3
+
 11111111
 100000001
 1000N011

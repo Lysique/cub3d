@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/03 12:22:54 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:54:41 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define MISSING_FILE_NAME 14
 # define MISSING_SPACE 15
 # define XPM_ERROR 16
+# define MUSIC_NOT_FOUND 17
 
 # define MAP_ERROR 2
 # define MISSING_NL 21
@@ -64,11 +65,13 @@ typedef struct s_coord {
 t_parser	*set_parser_ptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
 char		**parse_textures(t_parser *p, char **file);
+char		**parse_music(t_parser *p, char **file);
 char		**parse_map(t_parser *p, char **file);
 void		map_checker(char **map);
 void		player_init(t_cub *cub);
 
 int			is_texture_line(char *line);
+char		*go_to_path(char *line, int i);
 char		*cub3d_get_next_line(int fd);
 int			cub3d_isspace(char c);
 char		*cub3d_cpy(char *line, void *ptr);
