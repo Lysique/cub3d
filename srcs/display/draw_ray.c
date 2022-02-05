@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 13:13:28 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/05 14:48:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 void	draw_walls(t_cub *cub, t_ray *r)
 {
 	int		color;
-	char	*dst;
 
 	while (r->draw_start < r->draw_end)
 	{
 		r->tex_y = (int)r->tex_pos;
-		r->tex_pos += r->tex_step;
-		dst = cub->textures[r->tex].addr
-			+ (r->tex_y * cub->textures[r->tex].sizel + r->tex_x
-				* (cub->textures[r->tex].bpp / 8));
-		color = *(unsigned int *)dst;
+		r->tex_pos += r->tex_stepy;
+		color = get_texture_color(cub->textures[r->tex], r->tex_x, r->tex_y);
 		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
 	}
 }
@@ -44,16 +40,16 @@ void	init_draywing_variables(t_ray *r, t_cub *cub)
 		r->wall_x = cub->player.y + r->wall_dist * (r->dir_y * -1);
 	r->wall_x -= floor(r->wall_x);
 	if (r->side == SO_NO && r->step_y == -1)
-		r->tex = NO;
-	else if (r->side == SO_NO)
 		r->tex = SO;
+	else if (r->side == SO_NO)
+		r->tex = NO;
 	else if (r->side == WE_EA && r->step_x == 1)
-		r->tex = EA;
-	else
 		r->tex = WE;
+	else
+		r->tex = EA;
 	r->tex_x = (int)(r->wall_x * (float)cub->textures[r->tex].w);
-	r->tex_step = (float)cub->textures[r->tex].h / r->line_h;
-	r->tex_pos = (r->draw_start - WIN_H / 2 + r->line_h / 2) * r->tex_step;
+	r->tex_stepy = (float)cub->textures[r->tex].h / r->line_h;
+	r->tex_pos = (r->draw_start - WIN_H / 2 + r->line_h / 2) * r->tex_stepy;
 }
 
 void	draw_ray(t_ray *r, t_cub *cub)
