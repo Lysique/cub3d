@@ -66,6 +66,7 @@ t_parser	*set_parser_ptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
 char		**parse_textures(t_parser *p, char **file);
 char		**parse_music(t_parser *p, char **file);
+void		add_texture(char *texture, t_cub *cub, int index);
 char		**parse_map(t_parser *p, char **file);
 void		map_checker(char **map);
 void		player_init(t_cub *cub);
@@ -86,5 +87,7 @@ void		texture_error(int error, char *line);
 
 void		parser_free(t_parser *p);
 void		free_my_arr(char **arr);
+
+void		put_my_pixel(t_img img, int y, int x, int color);
 
 #endif

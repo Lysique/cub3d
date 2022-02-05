@@ -42,43 +42,34 @@ char	*go_to_path(char *line, int i)
 	while (!cub3d_isspace(line[j]) && line[j])
 		j++;
 	line[j] = '\0';
+	while (line[j] && line[++j])
+		if (!cub3d_isspace(line[j]))
+			parser_error(XPM_ERROR, &line[i]);
 	return (&line[i]);
-}
-
-void	add_img(char *line, t_cub *cub, int index)
-{
-	t_img	img;
-
-	img = cub->textures[index];
-	if (index == F || index == C)
-		line = go_to_path(line, 1);
-	else
-		line = go_to_path(line, 2);
-	img.img = mlx_xpm_file_to_image(cub->mlx.mlx, line, &img.w, &img.h);
-	if (!img.img)
-		parser_error(XPM_ERROR, line);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.sizel, &img.endian);
-	cub->textures[index] = img;
-}
-
-void	add_texture(char *line, t_cub *cub, int index)
-{
-	if (cub->textures[index].img)
-		parser_error(DUPL_TEXTURE, line);
-	add_img(line, cub, index);
 }
 
 char	**parse_textures(t_parser *p, char **file)
 {
-	int	index;
+	int		index;
+	char	*line;
 
 	while (!are_all_textures_set(p->cub->textures))
 	{
+		if (!*file)
+			parser_error(MISSING_TEXTURE, 0);
 		index = is_texture_line(*file);
 		if (index == -1 && !is_line_empty(*file))
 			parser_error(FORMAT_TEXTURE, *file);
-		else if (index != -1)
-			add_texture(*file, p->cub, index);
+		else if (index == -1 && file++)
+			continue ;
+		if (p->cub->textures[index].img)
+			parser_error(DUPL_TEXTURE, line);
+		line = *file;
+		if (index == F || index == C)
+			line = go_to_path(line, 1);
+		else
+			line = go_to_path(line, 2);
+		add_texture(line, p->cub, index);
 		file++;
 	}
 	return (file);
