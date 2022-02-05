@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/30 15:35:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/05 14:56:02 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	ray_casting(t_cub *cub)
 	t_ray		r;
 
 	r.pix_x = 1;
-	ray_init(&r, cub->player);
 	f_c_casting(cub, &r);
 	while (r.pix_x < WIN_W)
 	{

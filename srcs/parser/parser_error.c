@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 09:21:48 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:52:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	parser_error(int error, void *ptr)
 		map_error(error, p->cub->map, (t_coord *)ptr);
 	parser_free(p);
 	my_write("\n");
-	wr_and_ex(0, 1);
+	wr_and_ex("Exit\n", 1);
 }

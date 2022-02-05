@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/29 13:10:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/05 13:11:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_pixel_map(t_img img, int pix_y, int pix_x, char c)
 		put_my_pixel(img, pix_y, pix_x, WALL_COLOR);
 	else if (c == '0')
 		put_my_pixel(img, pix_y, pix_x, IN_COLOR);
-	else if (c == ' ') 
+	else if (c == ' ')
 		put_my_pixel(img, pix_y, pix_x, SPACE_COLOR);
 }
 

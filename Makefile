@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/01/30 15:12:28 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/05 13:22:48 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c
+PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c add_texture.c
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
@@ -83,7 +83,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 ##### LOOP_HOOK FILES ######
 
-LOOP_HOOK_FILES = loop_hook.c key_manager.c key_init.c key_move.c
+LOOP_HOOK_FILES = loop_hook.c key_manager.c key_init.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))
