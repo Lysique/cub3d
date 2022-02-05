@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/31 15:16:32 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/05 13:13:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	draw_walls(t_cub *cub, t_ray *r)
 	{
 		r->tex_y = (int)r->tex_pos;
 		r->tex_pos += r->tex_step;
-		dst = cub->textures[r->tex].addr +
-			(r->tex_y * cub->textures[r->tex].sizel + r->tex_x
-			 * (cub->textures[r->tex].bpp / 8));
+		dst = cub->textures[r->tex].addr
+			+ (r->tex_y * cub->textures[r->tex].sizel + r->tex_x
+				* (cub->textures[r->tex].bpp / 8));
 		color = *(unsigned int *)dst;
 		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
 	}
