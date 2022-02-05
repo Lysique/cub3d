@@ -12,6 +12,23 @@
 
 #include "../../includes/loop_hook.h"
 
+void	music_manager(t_cub *cub)
+{
+	static int	i;
+	static int	j;
+
+	if (cub->key.w == 1 || cub->key.s == 1
+		|| cub->key.a == 1 || cub->key.d == 1)
+	{
+		if (!(i % 5) && j % 2)
+			system("afplay -v 0.5 -t 2 music/bruit_pas1.mp3 &>/dev/null &");
+		else if (!(i % 5) && !(j % 2))
+			system("afplay -v 0.5 -t 2 bonus/sounds/step2.mp3 &>/dev/null &");
+		i++;
+		j++;
+	}
+}
+
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
 	float	y;
@@ -49,10 +66,12 @@ void	rotate_manager(t_cub *cub)
 		cub->player.angle -= 2 * PI;
 	else if (cub->player.angle < 0)
 		cub->player.angle += 2 * PI;
+	cub->player.angle -= SENSI_MOUSE * (cub->mouse.x - WIN_W / 2);
 }
 
 void	key_manager(t_cub *cub)
 {
 	move_manager(cub);
 	rotate_manager(cub);
+	music_manager(cub);
 }

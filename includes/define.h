@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
 /*   Updated: 2022/02/05 14:11:53 by tamighi          ###   ########.fr       */
@@ -27,8 +27,9 @@
 
  		0.1 FOR ROTATE AND 0.1 FOR SPEED ARE RECOMMENDED.*/
 
-# define SPEED 0.1
-# define ROTATE 0.1
+# define SPEED 0.08
+# define ROTATE 0.08
+# define SENSI_MOUSE 0.00009
 
 		/* TEXTURES INDEXES */
 
@@ -47,5 +48,6 @@
 # define BLUE 0x000000FF
 # define RED 0x00FF0000
 # define WHITE 0x00FFFFFF
+# define TRANSP 0x80FFFFFF
 
 #endif

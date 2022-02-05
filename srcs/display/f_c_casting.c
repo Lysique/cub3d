@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   f_c_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:39:19 by tamighi           #+#    #+#             */
 /*   Updated: 2022/02/05 14:55:35 by tamighi          ###   ########.fr       */

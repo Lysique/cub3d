@@ -50,8 +50,8 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	{
 		while (ft_dist(d, d * pente) <= 20)
 		{
-			put_my_pixel(img, WIN_H - MINI_PX / 2 - d * pente,
-				MINI_PX / 2 + d, RED);
+			put_my_pixel(img, WIN_H - MINI_PX / 2 - d
+				* pente, MINI_PX / 2 + d, RED);
 			if (0 > bx)
 				d -= .1;
 			else

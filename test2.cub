@@ -1,11 +1,13 @@
-NO ./sprites/Brick1.xpm
-SO ./sprites/Brick2.xpm
-WE ./sprites/Brick3.xpm
+NO ./sprites/mur/mur1.xpm
+SO ./sprites/mur/mur2.xpm
+WE ./sprites/mur/mur3.xpm
 
-EA ./sprites/Brick4.xpm
+EA ./sprites/mur/mur4.xpm
 		  	
-F ./sprites/Brick5.xpm  
-C ./sprites/Brick6.xpm
+F ./sprites/sol/sol12.xpm  
+C ./sprites/sol/sol20.xpm
+
+M ./music/son_ambiance.mp3
 
 11111111
 100000001

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   wr_and_ex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:26:53 by tamighi           #+#    #+#             */
 /*   Updated: 2022/02/05 13:15:12 by tamighi          ###   ########.fr       */
@@ -16,5 +16,5 @@ void	wr_and_ex(char *msg, int ex)
 {
 	if (msg)
 		my_write(msg);
-	exit(ex);
+	exit (ex);
 }

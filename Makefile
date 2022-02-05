@@ -39,7 +39,7 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 
 ##### GLOBAL FILES ######
 
-GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c
+GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c utils.c
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
@@ -50,7 +50,7 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c add_texture.c
+PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c add_texture.c parse_music.c
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
@@ -72,7 +72,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 ##### KEY_HOOK FILES ######
 
-KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c
+KEY_HOOK_FILES = key_press.c key_release.c mouse.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
