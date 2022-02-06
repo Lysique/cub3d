@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_manager.c                                     :+:      :+:    :+:   */
+/*   player_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 13:22:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:26:19 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	music_manager(t_cub *cub)
 {
-	static int	i;
-	static int	j;
+	static int	i = 0;
+	static int	j = 0;
 
 	if (cub->key.w == 1 || cub->key.s == 1
 		|| cub->key.a == 1 || cub->key.d == 1)
@@ -31,19 +31,19 @@ void	music_manager(t_cub *cub)
 
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
-	float	y;
-	float	x;
+	float			y;
+	float			x;
 
 	y = cub->player.y;
 	x = cub->player.x;
 	if (sin(valsin) < 0 && cub->map[(int)(y - HITBOX)][(int)x] != '1')
-		cub->player.y += sin(valsin) * SPEED;
+		cub->player.y += sin(valsin) * SPEED * cub->time;
 	else if (sin(valsin) > 0 && cub->map[(int)(y + HITBOX)][(int)x] != '1')
-		cub->player.y += sin(valsin) * SPEED;
+		cub->player.y += sin(valsin) * SPEED * cub->time;
 	if (cos(valcos) > 0 && cub->map[(int)y][(int)(x + HITBOX)] != '1')
-		cub->player.x += cos(valcos) * SPEED;
+		cub->player.x += cos(valcos) * SPEED * cub->time;
 	else if (cos(valcos) < 0 && cub->map[(int)y][(int)(x - HITBOX)] != '1')
-		cub->player.x += cos(valcos) * SPEED;
+		cub->player.x += cos(valcos) * SPEED * cub->time;
 }
 
 void	move_manager(t_cub *cub)
@@ -60,8 +60,8 @@ void	move_manager(t_cub *cub)
 
 void	rotate_manager(t_cub *cub)
 {
-	cub->player.angle -= (float)cub->key.right * ROTATE;
-	cub->player.angle += (float)cub->key.left * ROTATE;
+	cub->player.angle -= (float)cub->key.right * ROTATE * cub->time;
+	cub->player.angle += (float)cub->key.left * ROTATE * cub->time;
 	if (cub->player.angle > 2 * PI)
 		cub->player.angle -= 2 * PI;
 	else if (cub->player.angle < 0)
@@ -69,9 +69,15 @@ void	rotate_manager(t_cub *cub)
 	cub->player.angle -= SENSI_MOUSE * (cub->mouse.x - WIN_W / 2);
 }
 
-void	key_manager(t_cub *cub)
+void	player_manager(t_cub *cub)
 {
+	static t_time	time = 0;
+
+	if (time == 0)
+		time = get_time();
+	cub->time = get_time() - time;
 	move_manager(cub);
 	rotate_manager(cub);
 	music_manager(cub);
+	time = get_time();
 }

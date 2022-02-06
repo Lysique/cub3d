@@ -6,13 +6,13 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/04 13:10:30 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/06 14:31:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-t_parser	*set_parser_ptr(t_parser *ptr)
+t_parser	*set_parserptr(t_parser *ptr)
 {
 	static t_parser	*p = 0;
 
@@ -26,7 +26,7 @@ void	parser_init(t_parser *p, t_cub *cub)
 	p->cub = cub;
 	p->file = 0;
 	p->ptr = 0;
-	set_parser_ptr(p);
+	set_parserptr(p);
 }
 
 void	parse_file(t_parser *p)
@@ -51,7 +51,7 @@ void	parser(char *argument, t_cub *cub)
 	t_parser	p;
 
 	parser_init(&p, cub);
-	p.fd = open(argument, O_RDONLY);
+	p.fd = open(argument, O_RDWR);
 	if (p.fd == -1)
 		parser_error(OPEN_ERROR, 0);
 	fd_to_arr(&p);

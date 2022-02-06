@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 13:23:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/05 17:14:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define HITBOX 0.3
 
 void	display(t_cub *cub);
-void	key_manager(t_cub *cub);
-void	key_init(t_cub *cub);
+void	player_manager(t_cub *cub);
 
 #endif

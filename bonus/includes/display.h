@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:51:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 11:24:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ typedef struct s_ray {
 	int		side;
 	int		tex;
 	int		p;
-	int	cell_x;
-	int	cell_y;
-	float pos_z;
 }			t_ray;
 
 void			ray_casting(t_cub *cub);

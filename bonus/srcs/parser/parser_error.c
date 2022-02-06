@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 15:52:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:33:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	open_file_error(void)
 		my_write("Requested access to the file is not allowed.\n");
 	else if (errno == ENOENT)
 		my_write("The file does not exist.\n");
+	else if (errno == EISDIR)
+		my_write("Argument is a directory. A file is needed.\n");
 	else
 		my_write("Unknown error while opening the file.\n");
 }
@@ -26,7 +28,7 @@ void	parser_error(int error, void *ptr)
 {
 	t_parser	*p;
 
-	p = set_parser_ptr(0);
+	p = set_parserptr(0);
 	my_write("Error\n");
 	if (error == OPEN_ERROR)
 		open_file_error();
@@ -35,12 +37,11 @@ void	parser_error(int error, void *ptr)
 	else if (error == EMPTY_FILE)
 		my_write("File is empty.\n");
 	else if (error == FILE_NOT_ENDED)
-		my_write("No characters are allowed after map assignement.\n");
+		my_write("Unnecessary characters in the end of the file.\n");
 	else if (error / NB_ERRORS == TEXTURE_ERROR)
 		texture_error(error, (char *)ptr);
 	else if (error / NB_ERRORS == MAP_ERROR)
 		map_error(error, p->cub->map, (t_coord *)ptr);
 	parser_free(p);
-	my_write("\n");
-	wr_and_ex("Exit\n", 1);
+	error_manager(HANDLED);
 }

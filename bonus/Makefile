@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/05 13:22:48 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/06 14:50:44 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 
 ##### SRCS FILES ######
 
-SRCS_FILES = main.c cub3d.c structure_init.c
+SRCS_FILES = main.c cub3d.c structure_init.c imgs_creator.c
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = $(addprefix $(OBJDIR)srcs_, $(SRCS_FILES:.c=.o))
@@ -39,7 +39,7 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 
 ##### GLOBAL FILES ######
 
-GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c utils.c
+GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c utils.c get_time.c set_cubptr.c error_manager.c
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
@@ -83,7 +83,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 ##### LOOP_HOOK FILES ######
 
-LOOP_HOOK_FILES = loop_hook.c key_manager.c key_init.c
+LOOP_HOOK_FILES = loop_hook.c player_manager.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))

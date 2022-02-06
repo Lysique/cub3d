@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop_hook.c                                        :+:      :+:    :+:   */
+/*   set_cubptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 17:13:23 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/06 13:22:30 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/06 13:23:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/loop_hook.h"
+#include "../../includes/global.h"
 
-int	loop_hook(t_cub *cub)
+t_cub *set_cubptr(t_cub *cub)
 {
-	player_manager(cub);
-	display(cub);
-	return (0);
+	static t_cub	*ptr = 0;
+
+	if (!ptr)
+		ptr = cub;
+	return (ptr);
 }

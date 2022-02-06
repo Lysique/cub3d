@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/04 12:54:41 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/06 14:15:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 
 /*######## PARSER_ERROR DEFINE ########*/
 
-# define NB_ERRORS 10
+# define NB_ERRORS 100
 
-# define MALLOC_ERROR 1
-# define OPEN_ERROR 2
+# define OPEN_ERROR 1
+# define MALLOC_ERROR 2
 # define EMPTY_FILE 3
 # define FILE_NOT_ENDED 4
 
@@ -34,21 +34,21 @@
  		TYPE ERRORS : [TEXTURE_ERROR; MAP_ERROR]*/
 
 # define TEXTURE_ERROR 1
-# define MISSING_TEXTURE 11
-# define DUPL_TEXTURE 12
-# define FORMAT_TEXTURE 13
-# define MISSING_FILE_NAME 14
-# define MISSING_SPACE 15
-# define XPM_ERROR 16
-# define MUSIC_NOT_FOUND 17
+# define MISSING_TEXTURE 101
+# define DUPL_TEXTURE 102
+# define FORMAT_TEXTURE 103
+# define MISSING_FILE_NAME 104
+# define MISSING_SPACE 105
+# define XPM_ERROR 106
+# define MUSIC_NOT_FOUND 107
 
 # define MAP_ERROR 2
-# define MISSING_NL 21
-# define MISSING_MAP 22
-# define UNKNOWN_CHAR 23
-# define OPEN_MAP 24
-# define MULT_PLAYER 25
-# define NO_PLAYER 26
+# define MISSING_NL 201
+# define MISSING_MAP 202
+# define UNKNOWN_CHAR 203
+# define OPEN_MAP 204
+# define MULT_PLAYER 205
+# define NO_PLAYER 206
 
 typedef struct s_parser {
 	t_cub	*cub;
@@ -62,7 +62,7 @@ typedef struct s_coord {
 	int	j;
 }				t_coord;
 
-t_parser	*set_parser_ptr(t_parser *ptr);
+t_parser	*set_parserptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
 char		**parse_textures(t_parser *p, char **file);
 char		**parse_music(t_parser *p, char **file);
