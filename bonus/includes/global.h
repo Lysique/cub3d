@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:13:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:51:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void		wr_and_ex(char *str, int ex);
 t_cub		*set_cubptr(t_cub *ptr);
 void		error_manager(int error);
 
-char		*ft_strjoin(char const *s1, char const *s2);
 int			ft_strlen(const char *s);
 t_time		get_time(void);
 

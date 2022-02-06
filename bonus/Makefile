@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/06 13:24:02 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/06 14:50:44 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 
 ##### GLOBAL FILES ######
 
-GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c ft_strjoin.c get_time.c set_cubptr.c error_manager.c
+GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c utils.c get_time.c set_cubptr.c error_manager.c
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
