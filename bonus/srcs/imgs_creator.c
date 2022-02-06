@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:17:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 14:58:00 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	create_img(char *text, int nb_imgs, t_img *imgs, t_cub *cub)
 		free(path);
 		if (!imgs[i].img)
 			error_manager(IMG_ERROR);
+		imgs[i].addr = mlx_get_data_addr(imgs[i].img, &imgs[i].bpp,
+			&imgs[i].sizel, &imgs[i].endian);
 		i++;
 	}
 	imgs[i].img = 0;
