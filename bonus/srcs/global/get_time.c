@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_init.c                                         :+:      :+:    :+:   */
+/*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 14:21:16 by tuytters          #+#    #+#             */
-/*   Updated: 2022/02/02 14:31:32 by tuytters         ###   ########.fr       */
+/*   Created: 2022/02/05 16:27:39 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/06 11:28:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/loop_hook.h"
+#include "../../includes/global.h"
 
-void	key_init(t_cub *cub)
+t_time	get_time(void)
 {
-	cub->key.d = 0;
-	cub->key.a = 0;
-	cub->key.s = 0;
-	cub->key.w = 0;
-	cub->key.left = 0;
-	cub->key.right = 0;
-	cub->mouse.x = WIN_W / 2;
+	struct timeval	tv;
+	t_time			time;
+
+	gettimeofday(&tv, 0);
+	time = tv.tv_usec / 1000;
+	time += tv.tv_sec * 1000;
+	return (time);
 }

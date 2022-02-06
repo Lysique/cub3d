@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/04 12:28:29 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/06 14:13:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include "../mlx/mlx.h"
 # include <stdarg.h>
 # include "define.h"
+# include <sys/time.h>
+
+typedef unsigned int	t_time;
 
 typedef struct s_key {
 	int	w;
@@ -49,12 +52,6 @@ typedef struct s_img {
 	int		h;
 }				t_img;
 
-typedef struct s_hit {
-	float	x;
-	float	y;
-	float	cote;
-}				t_hit;
-
 typedef struct s_player {
 	float	x;
 	float	y;
@@ -64,18 +61,27 @@ typedef struct s_player {
 typedef struct s_cub {
 	char		**map;
 	char		*music_file;
-	t_img		display;
 	t_player	player;
-	t_mlx		mlx;
-	t_mouse		mouse;
-	t_img		textures[6];
 	t_key		key;
-	t_hit		hit;
+	t_mouse		mouse;
+	t_time		time;
+	t_img		display;
+	t_img		sprites[NB_SPR][MAX_SPR + 1];
+	t_img		textures[7];
+	t_mlx		mlx;
 }				t_cub;
 
-void	my_write(char *str);
-void	wr_and_ex(char *str, int ex);
-void	free_and_exit(t_cub *cub, char *msg, int error);
-char	*ft_strjoin(char const *s1, char const *s2);
+void		my_write(char *str);
+void		wr_and_ex(char *str, int ex);
+
+t_cub		*set_cubptr(t_cub *ptr);
+void		error_manager(int error);
+
+char		*ft_strjoin(char const *s1, char const *s2);
+int			ft_strlen(const char *s);
+t_time		get_time(void);
+
+void		free_my_arr(char **arr);
+void		free_and_exit(t_cub *cub, int error);
 
 #endif

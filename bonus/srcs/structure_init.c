@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/04 11:05:50 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/06 14:04:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	mlx_variables_init(t_cub *cub)
 {
 	cub->mlx.mlx = mlx_init();
 	if (!cub->mlx.mlx)
-		wr_and_ex("Error\nMlx init did not work properly.\n", 1);
+		error_manager(MLX_ERROR);
 	cub->mlx.win = mlx_new_window(cub->mlx.mlx, WIN_W, WIN_H, "cub3d");
 	if (!cub->mlx.win)
-		wr_and_ex("Error\nFailed to create window.\n", 1);
+		error_manager(MLX_ERROR);
 }
 
 void	keys_init(t_cub *cub)
@@ -30,31 +30,36 @@ void	keys_init(t_cub *cub)
 	cub->key.d = 0;
 	cub->key.right = 0;
 	cub->key.left = 0;
+	cub->mouse.x = WIN_W / 2;
 }
 
-int	textures_img_init(t_cub *cub)
+void	imgs_init(t_cub *cub)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (i < 6)
-		cub->textures[i++].img = 0;
-	cub->display.img = mlx_new_image(cub->mlx.mlx, WIN_W, WIN_H);
-	if (!cub->display.img)
-		return (-1);
-	cub->display.addr = mlx_get_data_addr(cub->display.img,
-			&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
-	return (0);
+	i = 7;
+	j = 0;
+	cub->display.img = 0;
+	while (i != 0)
+		cub->textures[--i].img = 0;
+	while (i < NB_SPR)
+	{
+		while (j < MAX_SPR)
+			cub->sprites[i][j++].img = 0;
+		j = 0;
+		i++;
+	}
 }
 
 void	structure_init(t_cub *cub)
 {
-	mlx_variables_init(cub);
-	if (textures_img_init(cub) == -1)
-	{
-		mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
-		wr_and_ex("Error\nImage initialisation failed.\n", 1);
-	}
+	set_cubptr(cub);
 	keys_init(cub);
 	cub->map = 0;
+	imgs_init(cub);
+	cub->mlx.mlx = 0;
+	cub->mlx.win = 0;
+	mlx_variables_init(cub);
+	imgs_creator(cub);
 }

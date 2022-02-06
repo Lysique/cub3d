@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 11:53:18 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/06 12:52:27 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 void	cub3d(char *argument);
 void	structure_init(t_cub *cub);
+void	imgs_creator(t_cub *cub);
 
 void	parser(char *argument, t_cub *cub);
 int		key_press(int key, void *param);
