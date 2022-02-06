@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:45:29 by tuytters          #+#    #+#             */
-/*   Updated: 2022/02/06 14:52:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 15:20:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,30 @@ char	*music_join(char *play, char *file, char *end)
 	return (str);
 }
 
-void	music_play(t_cub *cub)
+void	music_play(char *music_file)
 {
 	char	*str;
 
-	str = music_join("afplay ", cub->music_file, " &>/dev/null &");
+	str = music_join("afplay ", music_file, " &>/dev/null &");
 	system(str);
 	free(str);
 }
 
-char	**parse_music(t_parser *p, char **file)
+char	**parse_music(char **file)
 {
+	char	*music_file;
+
 	if (!*file)
 		parser_error(MISSING_MAP, 0);
 	if (!is_line_empty(*file))
 		parser_error(MISSING_NL, 0);
 	while (is_line_empty(*file))
 		file++;
-	p->cub->music_file = *file;
-	p->cub->music_file = go_to_path(p->cub->music_file, 1);
-	if (access(p->cub->music_file, F_OK) < 0)
+	music_file = *file;
+	music_file = go_to_path(music_file, 1);
+	if (access(music_file, F_OK) < 0)
 		parser_error(MUSIC_NOT_FOUND, *file);
 	file++;
-	music_play(p->cub);
+	music_play(music_file);
 	return (file);
 }
