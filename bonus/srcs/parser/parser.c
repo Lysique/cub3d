@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:31:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 15:21:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	parse_file(t_parser *p)
 	if (!file)
 		parser_error(EMPTY_FILE, 0);
 	file = parse_textures(p, file);
-	file = parse_music(p, file);
+	file = parse_music(file);
 	file = parse_map(p, file);
 	while (*file)
 	{

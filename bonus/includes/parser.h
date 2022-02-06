@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:15:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/06 15:21:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_coord {
 t_parser	*set_parserptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
 char		**parse_textures(t_parser *p, char **file);
-char		**parse_music(t_parser *p, char **file);
+char		**parse_music(char **file);
 void		add_texture(char *texture, t_cub *cub, int index);
 char		**parse_map(t_parser *p, char **file);
 void		map_checker(char **map);
