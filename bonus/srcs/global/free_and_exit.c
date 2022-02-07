@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:11:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:13:13 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 13:11:27 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,18 @@ void	free_all_imgs(t_cub *cub)
 		mlx_destroy_image(cub->mlx.mlx, cub->display.img);
 }
 
+void	free_rest_of_struct(t_cub *cub)
+{
+	if (cub->doors)
+		free(cub->doors);
+}
+
 void	free_and_exit(t_cub *cub, int error)
 {
 	system("killall afplay");
 	free_my_arr(cub->map);
 	free_all_imgs(cub);
+	free_rest_of_struct(cub);
 	if (cub->mlx.mlx && cub->mlx.win)
 		mlx_destroy_window(cub->mlx.mlx, cub->mlx.win);
 	exit(error);

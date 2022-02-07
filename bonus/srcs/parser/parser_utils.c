@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:57:46 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/04 13:09:44 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:26:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ char	*cub3d_get_next_line(int fd)
 		if (ret <= 0)
 			return (line);
 		line = add_buff(line, buf);
-		if (!line)
-			return (0);
 	}
 	return (line);
 }

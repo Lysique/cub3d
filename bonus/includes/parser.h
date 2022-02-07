@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 15:21:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 13:09:15 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@
 # define MISSING_FILE_NAME 104
 # define MISSING_SPACE 105
 # define XPM_ERROR 106
-# define MUSIC_NOT_FOUND 107
 
 # define MAP_ERROR 2
 # define MISSING_NL 201
@@ -65,11 +64,11 @@ typedef struct s_coord {
 t_parser	*set_parserptr(t_parser *ptr);
 void		fd_to_arr(t_parser *p);
 char		**parse_textures(t_parser *p, char **file);
-char		**parse_music(char **file);
 void		add_texture(char *texture, t_cub *cub, int index);
 char		**parse_map(t_parser *p, char **file);
 void		map_checker(char **map);
 void		player_init(t_cub *cub);
+void		doors_init(t_cub *cub);
 
 int			is_texture_line(char *line);
 char		*go_to_path(char *line, int i);
@@ -78,8 +77,10 @@ int			cub3d_isspace(char c);
 char		*cub3d_cpy(char *line, void *ptr);
 
 int			is_line_empty(char *line);
+int			is_door_char(char c);
 int			is_player_char(char c);
 int			is_known_char(char c);
+int			is_close_char(char c);
 
 void		parser_error(int error, void *ptr);
 void		map_error(int error, char **map, t_coord *c);

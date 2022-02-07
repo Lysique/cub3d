@@ -6,11 +6,18 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:04:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 11:12:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
+
+void	music_init(void)
+{
+	if (access("music/son_ambiance.mp3", F_OK) < 0)
+		error_manager(MUSIC_NOT_FOUND);
+	system("afplay music/son_ambiance.mp3 &>/dev/null &");
+}
 
 void	mlx_variables_init(t_cub *cub)
 {
@@ -22,7 +29,7 @@ void	mlx_variables_init(t_cub *cub)
 		error_manager(MLX_ERROR);
 }
 
-void	keys_init(t_cub *cub)
+void	var_init(t_cub *cub)
 {
 	cub->key.w = 0;
 	cub->key.s = 0;
@@ -31,6 +38,10 @@ void	keys_init(t_cub *cub)
 	cub->key.right = 0;
 	cub->key.left = 0;
 	cub->mouse.x = WIN_W / 2;
+	cub->map = 0;
+	cub->mlx.mlx = 0;
+	cub->mlx.win = 0;
+	cub->doors = 0;
 }
 
 void	imgs_init(t_cub *cub)
@@ -55,11 +66,9 @@ void	imgs_init(t_cub *cub)
 void	structure_init(t_cub *cub)
 {
 	set_cubptr(cub);
-	keys_init(cub);
-	cub->map = 0;
+	var_init(cub);
 	imgs_init(cub);
-	cub->mlx.mlx = 0;
-	cub->mlx.win = 0;
+	music_init();
 	mlx_variables_init(cub);
 	imgs_creator(cub);
 }

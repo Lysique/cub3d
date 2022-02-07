@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 14:33:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 13:15:22 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	parser_error(int error, void *ptr)
 		texture_error(error, (char *)ptr);
 	else if (error / NB_ERRORS == MAP_ERROR)
 		map_error(error, p->cub->map, (t_coord *)ptr);
+	my_write("\nExit\n");
 	parser_free(p);
 	error_manager(HANDLED);
 }

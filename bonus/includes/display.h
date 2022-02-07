@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 11:24:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 13:35:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 # define DISPLAY_H
 
 # include "global.h"
-
-# define MINI_PX 300
-# define MINI_SIZE 10
-
-		/* MIDMINI = MINI_SIZE / 2 */
-
-# define MIDMINI 5
-		/* PX_INDEX_CONV = 1 / (MINI_PX / MINI_SIZE) */
-
-# define PX_INDEX_CONV 0.03333333
-
-# define SO_NO 1
-# define WE_EA 0
-
-		/* MINIMAP COLORS */
-
-# define OUT_COLOR ORANGE
-# define SPACE_COLOR ORANGE
-# define WALL_COLOR BLACK
-# define IN_COLOR GREEN
 
 typedef struct s_ray {
 	float	side_x;
@@ -68,8 +48,8 @@ typedef struct s_ray {
 	int		line_h;
 	int		hit;
 	int		side;
-	int		tex;
 	int		p;
+	t_img	tex;
 }			t_ray;
 
 void			ray_casting(t_cub *cub);

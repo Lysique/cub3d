@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:56:02 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:40:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ void	hit_wall_check(t_ray *r, t_cub *cub)
 		}
 		if (cub->map[r->map_y][r->map_x] == '1')
 			r->hit = 1;
+	//	hit_checker(r, cub);
 	}
-	if (r->side == WE_EA)
-		r->wall_dist = r->side_x - r->delta_x;
-	else
-		r->wall_dist = r->side_y - r->delta_y;
 }
 
 void	side_init(t_ray *r, t_player p)
@@ -86,6 +83,7 @@ void	ray_casting(t_cub *cub)
 	{
 		ray_init(&r, cub->player);
 		side_init(&r, cub->player);
+		count_nb_cast(&r, cub->player);
 		hit_wall_check(&r, cub);
 		draw_ray(&r, cub);
 		r.pix_x++;
