@@ -6,13 +6,13 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:22:30 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 13:23:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:30:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/global.h"
 
-t_cub *set_cubptr(t_cub *cub)
+t_cub	*set_cubptr(t_cub *cub)
 {
 	static t_cub	*ptr = 0;
 

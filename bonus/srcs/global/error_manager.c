@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:20:05 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 13:14:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:29:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	error_writer(int error)
 		my_write("Couldn't create the game images.\n");
 	else if (error == MUSIC_NOT_FOUND)
 		my_write("Sounds are missing in music folder\n");
-	my_write("\nExit\n"); 
+	my_write("\nExit\n");
 }
 
 void	error_manager(int error)
 {
-	t_cub *cub;
+	t_cub	*cub;
 
 	cub = set_cubptr(0);
 	if (error == EXOK)
