@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 15:22:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:11:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_key {
 	int	d;
 	int	right;
 	int	left;
+	int	door_p;
+	int	door_r;
 }				t_key;
 
 typedef struct s_mouse {
@@ -58,9 +60,20 @@ typedef struct s_player {
 	float	angle;
 }				t_player;
 
+typedef struct s_door {
+	int		y;
+	int		x;
+	int		open;
+	int		is_moving;
+	int		sprite;
+	int		nb_sprites;
+	t_time	time;
+}				t_door;
+
 typedef struct s_cub {
 	char		**map;
 	t_player	player;
+	t_door		*doors;
 	t_key		key;
 	t_mouse		mouse;
 	t_time		time;
@@ -81,5 +94,7 @@ t_time		get_time(void);
 
 void		free_my_arr(char **arr);
 void		free_and_exit(t_cub *cub, int error);
+
+int			is_close_char(char c);
 
 #endif

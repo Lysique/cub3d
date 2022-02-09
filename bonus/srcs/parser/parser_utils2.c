@@ -6,24 +6,39 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:25:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 11:56:30 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
+int	is_door_char(char c)
+{
+	if (c == '2' || c == '3')
+		return (c);
+	return (0);
+}
+
 int	is_player_char(char c)
 {
 	if (c == 'S' || c == 'N' || c == 'W' || c == 'E')
-		return (1);
+		return (c);
 	return (0);
 }
 
 int	is_known_char(char c)
 {
 	if (c == ' ' || c == '1' || c == '0'
-		|| is_player_char(c))
-		return (1);
+		|| is_player_char(c) || c == '2'
+		|| c == '3')
+		return (c);
+	return (0);
+}
+
+int	is_close_char(char c)
+{
+	if (c == '1')
+		return (c);
 	return (0);
 }
 

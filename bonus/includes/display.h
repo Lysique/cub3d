@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/06 11:24:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:40:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 # define DISPLAY_H
 
 # include "global.h"
-
-# define MINI_PX 300
-# define MINI_SIZE 10
-
-		/* MIDMINI = MINI_SIZE / 2 */
-
-# define MIDMINI 5
-		/* PX_INDEX_CONV = 1 / (MINI_PX / MINI_SIZE) */
-
-# define PX_INDEX_CONV 0.03333333
-
-# define SO_NO 1
-# define WE_EA 0
-
-		/* MINIMAP COLORS */
-
-# define OUT_COLOR ORANGE
-# define SPACE_COLOR ORANGE
-# define WALL_COLOR BLACK
-# define IN_COLOR GREEN
 
 typedef struct s_ray {
 	float	side_x;
@@ -68,18 +48,24 @@ typedef struct s_ray {
 	int		line_h;
 	int		hit;
 	int		side;
-	int		tex;
 	int		p;
+	t_img	tex;
 }			t_ray;
 
 void			ray_casting(t_cub *cub);
 void			f_c_casting(t_cub *cub, t_ray *r);
 void			draw_ray(t_ray *r, t_cub *cub);
+void			ray_cast_doors(t_ray *r, t_cub *cub);
+void			hit_wall_check(t_ray *r, t_cub *cub);
 
 void			display_map(t_cub *cub);
 void			display_char(t_cub *cub, t_img img);
 
-void			put_my_pixel(t_img img, int x, int y, int color);
-unsigned int	get_texture_color(t_img text, int x, int y);
+void			put_my_pixel(t_img img, int y, int x, unsigned int color);
+unsigned int	get_texture_color(t_img text, int y, int x);
+int				is_door(t_door *d, int y, int x);
+int				is_raycast_end(t_cub *cub, int y, int x);
+
+int		get_door_index(t_door *d, int y, int x);
 
 #endif

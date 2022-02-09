@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:41:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/24 08:47:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/07 10:36:37 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ void	map_checker(char **map)
 		{
 			if (!is_known_char(map[j][i]))
 				map_error_caller(UNKNOWN_CHAR, i, j);
-			if (map[j][i] == '0' || (is_player_char(map[j][i]) && ++p))
+			if (is_player_char(map[j][i]))
+				if (++p > 1)
+					map_error_caller(MULT_PLAYER, i, j);
+			if (!is_close_char(map[j][i]))
 				if (check_open_map(map, i, j))
 					map_error_caller(OPEN_MAP, i, j);
-			if (p > 1)
-				map_error_caller(MULT_PLAYER, i, j);
 		}
 		i = -1;
 	}

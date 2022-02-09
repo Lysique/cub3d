@@ -6,11 +6,20 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:56:02 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:34:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
+
+void	ray_cast_doors(t_ray *r, t_cub *cub)
+{
+	t_ray	r2;
+
+	r2 = *r;
+	hit_wall_check(r, cub);
+	draw_ray(&r2, cub);
+}
 
 void	hit_wall_check(t_ray *r, t_cub *cub)
 {
@@ -28,13 +37,15 @@ void	hit_wall_check(t_ray *r, t_cub *cub)
 			r->map_x += r->step_x;
 			r->side = WE_EA;
 		}
-		if (cub->map[r->map_y][r->map_x] == '1')
+		if (is_raycast_end(cub, r->map_y, r->map_x))
 			r->hit = 1;
+		else if (is_door(cub->doors, r->map_y, r->map_x))
+		{
+			ray_cast_doors(r, cub);
+			return ;
+		}
 	}
-	if (r->side == WE_EA)
-		r->wall_dist = r->side_x - r->delta_x;
-	else
-		r->wall_dist = r->side_y - r->delta_y;
+	draw_ray(r, cub);
 }
 
 void	side_init(t_ray *r, t_player p)
@@ -87,7 +98,6 @@ void	ray_casting(t_cub *cub)
 		ray_init(&r, cub->player);
 		side_init(&r, cub->player);
 		hit_wall_check(&r, cub);
-		draw_ray(&r, cub);
 		r.pix_x++;
 	}
 }

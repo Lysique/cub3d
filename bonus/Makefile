@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/06 14:50:44 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/08 16:11:50 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 
 ##### SRCS FILES ######
 
-SRCS_FILES = main.c cub3d.c structure_init.c imgs_creator.c
+SRCS_FILES = main.c cub3d.c structure_init.c \
+			 imgs_creator.c
+
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = $(addprefix $(OBJDIR)srcs_, $(SRCS_FILES:.c=.o))
@@ -39,7 +41,9 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 
 ##### GLOBAL FILES ######
 
-GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c utils.c get_time.c set_cubptr.c error_manager.c
+GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
+			   utils.c set_cubptr.c error_manager.c
+
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
@@ -50,7 +54,12 @@ $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 
 ##### PARSER FILES ######
 
-PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c texture_error.c fd_to_arr.c parse_map.c parse_textures.c player_init.c parser_utils.c parser_utils2.c add_texture.c parse_music.c
+PARSER_FILES = parser.c parser_free.c parser_error.c \
+			   map_error.c map_checker.c texture_error.c\
+			   fd_to_arr.c parse_map.c parse_textures.c \
+			   player_init.c parser_utils.c parser_utils2.c \
+			   add_texture.c doors_init.c
+
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
@@ -61,7 +70,10 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
 
 ##### DISPLAY FILES ######
 
-DISPLAY_FILES = display.c ray_casting.c f_c_casting.c draw_ray.c display_map.c put_my_pixel.c display_char.c
+DISPLAY_FILES = display.c ray_casting.c f_c_casting.c \
+				draw_ray.c display_map.c display_char.c \
+				display_utils.c
+
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
 DISPLAY_OBJS = $(addprefix $(OBJDIR)display_, $(DISPLAY_FILES:.c=.o))
@@ -83,7 +95,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 ##### LOOP_HOOK FILES ######
 
-LOOP_HOOK_FILES = loop_hook.c player_manager.c
+LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c loop_hook_utils.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))
