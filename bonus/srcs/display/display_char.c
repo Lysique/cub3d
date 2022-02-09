@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 13:11:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:37:14 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	by = sin(cub->player.angle);
 	d = 0;
 	pente = by / bx;
-	if (bx < (float)0.005 && bx > (float)(0.005 * -1))
+	if (bx < 0.05 && bx > -0.05)
 		ft_draw_0(by, img);
 	else
 	{
