@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:12:29 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:19:26 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,12 @@ int	key_press(int key, void *param)
 		cub->key.door_r = 0;
 		cub->key.door_p = 1;
 	}
+	else if (key == K_UP)
+	{
+		cub->key.shoot_r = 0;
+		cub->key.shoot_p = 1;
+	}
+	else if (key == K_SHIFT)
+		cub->key.swap_gun = 1;
 	return (0);
 }

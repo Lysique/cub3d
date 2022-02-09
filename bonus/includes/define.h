@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/08 11:03:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:19:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 2
+# define NB_SPR 4
 # define MAX_SPR 6
 
 		/* SPRITES INDEXES */
 
 # define LIFE 0
 # define DOOR 1
+# define SHOTGUN 2
+# define MACHINEGUN 3
 
 		/* ERRORS */
 
@@ -73,7 +75,7 @@
 
 /*######## DISPLAY_DEFINE ########*/
 
-# define MINI_PX 300
+# define MINI_PX 200
 # define MINI_SIZE 10
 
 		/* MIDMINI = MINI_SIZE / 2 */
@@ -81,7 +83,7 @@
 # define MIDMINI 5
 		/* PX_INDEX_CONV = 1 / (MINI_PX / MINI_SIZE) */
 
-# define PX_INDEX_CONV 0.033333
+# define PX_INDEX_CONV 0.05
 
 # define SO_NO 1
 # define WE_EA 0
@@ -96,12 +98,18 @@
 /*######## KEYS_DEFINE ########*/
 
 # define K_ESC 53
+
 # define K_D 2
 # define K_A 0
 # define K_S 1
 # define K_W 13
+
 # define K_LEFT 123
 # define K_RIGHT 124
+# define K_UP 126
+# define K_DOWN 125
+
+# define K_SHIFT 258
 
 # define K_SPACE 49
 

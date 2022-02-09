@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:12:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 12:34:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	key_release(int key, void *param)
 		cub->key.right = 0;
 	else if (key == K_SPACE)
 		cub->key.door_r = 1;
+	else if (key == K_UP)
+		cub->key.shoot_r = 1;
 	return (0);
 }

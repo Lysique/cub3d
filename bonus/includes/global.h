@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:11:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:27:22 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ typedef struct s_key {
 	int	left;
 	int	door_p;
 	int	door_r;
+	int	shoot_p;
+	int	shoot_r;
+	int	reload_p;
+	int	reload_r;
+	int	swap_gun;
 }				t_key;
 
 typedef struct s_mouse {
@@ -70,10 +75,22 @@ typedef struct s_door {
 	t_time	time;
 }				t_door;
 
+typedef struct s_gun {
+	int		sprite;
+	int		shooting;
+	int		reloading;
+	int		nb_spr_shoot;
+	int		nb_sprites;
+	int		bullets;
+	t_time	time;
+}				t_gun;
+
 typedef struct s_cub {
 	char		**map;
+	int			gun_type;
 	t_player	player;
 	t_door		*doors;
+	t_gun		gun[2];
 	t_key		key;
 	t_mouse		mouse;
 	t_time		time;

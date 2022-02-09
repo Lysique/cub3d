@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:28:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 12:58:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,6 @@ void	imgs_creator(t_cub *cub)
 			&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
 	create_img("sprites/life/barre_eclair", 6, cub->sprites[LIFE], cub);
 	create_img("sprites/door/door", 4, cub->sprites[DOOR], cub);
+	create_img("sprites/pompe/pompe", 2, cub->sprites[SHOTGUN], cub);
+	create_img("sprites/mitrailleuse/mitrailleuse", 3, cub->sprites[MACHINEGUN], cub);
 }
