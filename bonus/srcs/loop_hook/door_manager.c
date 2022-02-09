@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:33:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 11:17:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	animate_door(t_door *d, t_time time)
 {
 	d->time += time;
-	if (d->time / 1000 > 1)
+	if (d->time / 100 > 1)
 	{
-		d->time -= 1000;
+		d->time -= 100;
 		d->sprite += d->is_moving;
 	}
 	if ((d->sprite == 0 && d->is_moving == -1)
@@ -92,6 +92,7 @@ void	door_manager(t_cub *cub)
 	if (time == 0)
 		time = get_time();
 	cub->time = get_time() - time;
+	time = get_time();
 	ft_gardian_of_the_keys(cub);
 	door_animation_manager(cub);
 }

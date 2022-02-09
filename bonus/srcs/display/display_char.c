@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:37:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:41:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,13 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	}
 }
 
-void	display_char(t_cub *cub, t_img img)
+void	display_char(t_cub *cub)
 {
-	int	pix_x;
-	int	pix_y;
+	int		pix_x;
+	int		pix_y;
+	t_img	img;
 
+	img = cub->display;
 	pix_y = WIN_H - MINI_PX / 2 - 5;
 	while (pix_y < WIN_H - MINI_PX / 2 + 5)
 	{
