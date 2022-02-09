@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 11:46:44 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 14:33:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:12:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ void	add_door(t_cub *cub, char c, int j, int i)
 	cub->doors[k].x = i;
 	cub->doors[k].y = j;
 	if (c == '2')
+	{
+		cub->doors[k].sprite = 0;
 		cub->doors[k].open = 0;
+	}
 	else if (c == '3')
+	{
+		cub->doors[k].sprite = 3;
 		cub->doors[k].open = 1;
-	cub->doors[k].is_opening = 0;
-	cub->doors[k].went_through = 0;
+	}
+	cub->doors[k].is_moving = 0;
+	cub->doors[k].nb_sprites = 4;
+	cub->doors[k].time = 0;
 	cub->map[j][i] = '1';
 	cub->doors[++k].open = -1;
 }

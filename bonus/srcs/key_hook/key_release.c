@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/12 09:36:01 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/09 09:12:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@ int	key_release(int key, void *param)
 	t_cub	*cub;
 
 	cub = (t_cub *)param;
-	if (key == 2)
+	if (key == K_D)
 		cub->key.d = 0;
-	else if (key == 0)
+	else if (key == K_A)
 		cub->key.a = 0;
-	else if (key == 1)
+	else if (key == K_S)
 		cub->key.s = 0;
-	else if (key == 13)
+	else if (key == K_W)
 		cub->key.w = 0;
-	else if (key == 123)
+	else if (key == K_LEFT)
 		cub->key.left = 0;
-	else if (key == 124)
+	else if (key == K_RIGHT)
 		cub->key.right = 0;
+	else if (key == K_SPACE)
+		cub->key.door_r = 1;
 	return (0);
 }

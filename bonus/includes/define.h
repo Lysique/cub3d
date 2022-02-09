@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 11:05:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 11:03:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,17 @@
 # define SPACE_COLOR ORANGE
 # define WALL_COLOR BLACK
 # define IN_COLOR GREEN
+
+/*######## KEYS_DEFINE ########*/
+
+# define K_ESC 53
+# define K_D 2
+# define K_A 0
+# define K_S 1
+# define K_W 13
+# define K_LEFT 123
+# define K_RIGHT 124
+
+# define K_SPACE 49
 
 #endif

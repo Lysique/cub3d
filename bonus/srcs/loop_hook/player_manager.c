@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 13:36:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 12:59:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,17 @@ void	key_move(float valcos, float valsin, t_cub *cub)
 
 	y = cub->player.y;
 	x = cub->player.x;
-	if (sin(valsin) < 0 && !is_close_char(cub->map[(int)(y - HITBOX)][(int)x]))
+	if (sin(valsin) < 0 && check_direction(cub,
+			(int)(y - HITBOX), (int)x))
 		cub->player.y += sin(valsin) * SPEED * cub->time;
-	else if (sin(valsin) > 0 && !is_close_char(cub->map[(int)(y + HITBOX)][(int)x]))
+	else if (sin(valsin) > 0 && check_direction(cub,
+			(int)(y + HITBOX), (int)x))
 		cub->player.y += sin(valsin) * SPEED * cub->time;
-	if (cos(valcos) > 0 && !is_close_char(cub->map[(int)y][(int)(x + HITBOX)]))
+	if (cos(valcos) > 0 && check_direction(cub,
+			(int)y, (int)(x + HITBOX)))
 		cub->player.x += cos(valcos) * SPEED * cub->time;
-	else if (cos(valcos) < 0 && !is_close_char(cub->map[(int)y][(int)(x - HITBOX)]))
+	else if (cos(valcos) < 0 && check_direction(cub,
+			(int)y, (int)(x - HITBOX)))
 		cub->player.x += cos(valcos) * SPEED * cub->time;
 }
 

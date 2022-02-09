@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 14:30:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:11:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_key {
 	int	d;
 	int	right;
 	int	left;
+	int	door_p;
+	int	door_r;
 }				t_key;
 
 typedef struct s_mouse {
@@ -59,11 +61,13 @@ typedef struct s_player {
 }				t_player;
 
 typedef struct s_door {
-	int	y;
-	int	x;
-	int	open;
-	int	is_opening;
-	int	went_through;
+	int		y;
+	int		x;
+	int		open;
+	int		is_moving;
+	int		sprite;
+	int		nb_sprites;
+	t_time	time;
 }				t_door;
 
 typedef struct s_cub {

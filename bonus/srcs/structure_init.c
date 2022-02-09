@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 11:12:29 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:12:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	music_init(void)
 {
 	if (access("music/son_ambiance.mp3", F_OK) < 0)
 		error_manager(MUSIC_NOT_FOUND);
-	system("afplay music/son_ambiance.mp3 &>/dev/null &");
+//	system("afplay music/son_ambiance.mp3 &>/dev/null &");
 }
 
 void	mlx_variables_init(t_cub *cub)
@@ -37,6 +37,8 @@ void	var_init(t_cub *cub)
 	cub->key.d = 0;
 	cub->key.right = 0;
 	cub->key.left = 0;
+	cub->key.door_r = 1;
+	cub->key.door_p = 0;
 	cub->mouse.x = WIN_W / 2;
 	cub->map = 0;
 	cub->mlx.mlx = 0;

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 10:59:40 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 09:20:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	draw_walls(t_cub *cub, t_ray *r)
 {
-	int		color;
+	unsigned int	color;
 
 	while (r->draw_start < r->draw_end)
 	{
 		r->tex_y = (int)r->tex_pos;
 		r->tex_pos += r->tex_stepy;
-		color = get_texture_color(r->tex, r->tex_x, r->tex_y);
-		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
+		color = get_texture_color(r->tex, r->tex_y, r->tex_x);
+		if (color != 0xFF000000)
+			put_my_pixel(cub->display, r->draw_start, r->pix_x, color);
+		r->draw_start++;
 	}
 }
 
@@ -48,9 +50,19 @@ void	init_draywing_variables(t_ray *r, t_cub *cub)
 	r->tex_pos = (r->draw_start - WIN_H / 2 + r->line_h / 2) * r->tex_stepy;
 }
 
+void	get_door_texture(t_ray *r, t_cub *cub)
+{
+	int	i;
+
+	i = get_door_index(cub->doors, r->map_y, r->map_x);
+	r->tex = cub->sprites[DOOR][cub->doors[i].sprite];
+}
+
 void	init_texture(t_ray *r, t_cub *cub)
 {
-	if (r->side == SO_NO && r->step_y == -1)
+	if (is_door(cub->doors, r->map_y, r->map_x))
+		get_door_texture(r, cub);
+	else if (r->side == SO_NO && r->step_y == -1)
 		r->tex = cub->textures[SO];
 	else if (r->side == SO_NO)
 		r->tex = cub->textures[NO];

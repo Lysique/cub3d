@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:39:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:55:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/08 10:46:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	draw_f_c(t_cub *cub, t_ray *r, int y)
 		r->map_y = (int)r->floor_y;
 		r->tex_x = (int)(cub->textures[C].w * (r->floor_x - r->map_x));
 		r->tex_y = (int)(cub->textures[C].h * (r->floor_y - r->map_y));
-		color = get_texture_color(cub->textures[C], r->tex_x, r->tex_y);
+		color = get_texture_color(cub->textures[C], r->tex_y, r->tex_x);
 		put_my_pixel(cub->display, y, x, color);
 		r->tex_x = (int)(cub->textures[F].w * (r->floor_x - r->map_x));
 		r->tex_y = (int)(cub->textures[F].h * (r->floor_y - r->map_y));
-		color = get_texture_color(cub->textures[F], r->tex_x, r->tex_y);
+		color = get_texture_color(cub->textures[F], r->tex_y, r->tex_x);
 		put_my_pixel(cub->display, WIN_H - y - 1, x, color);
 		r->floor_x += r->tex_stepx;
 		r->floor_y += r->tex_stepy;
