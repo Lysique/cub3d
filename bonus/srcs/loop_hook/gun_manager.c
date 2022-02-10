@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gun_manager.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 14:44:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 13:26:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	machingun_shot(t_cub *cub, t_gun *gun)
 	{
 		gun->time -= 70;
 		gun->bullets--;
+		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
 	}
 	if (cub->key.shoot_r == 1 || gun->bullets == 0)
 	{
@@ -49,6 +50,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	{
 		gun->shooting = 1;
 		gun->sprite += 1;
+		system("afplay -v 1 music/pompe_feu.mp3 &>/dev/null &");
 	}
 	else if (gun->time / 100 > 1 && gun->sprite != 0)
 		gun->sprite -= 1;
@@ -73,6 +75,7 @@ void	swap_gun(t_cub *cub)
 	gun->sprite = 0;
 	gun->time = 0;
 	gun->shooting = 0;
+	system("afplay -v 0.2 music/change_arme.mp3 &>/dev/null &");
 	if (cub->gun_type == 0)
 		cub->gun_type = 1;
 	else
@@ -90,14 +93,19 @@ void	reload_gun(t_cub *cub)
 	{
 		gun->sprite = gun->nb_spr_shoot + 1;
 		gun->reloading = 1;
+		if (cub->gun_type == 0)
+			system("afplay -v 0.5 music/recharge_pompe.mp3 &>/dev/null &");
+		else
+			system("afplay -v 0.5 music/mitrailleuse_rech1.mp3 &>/dev/null &");
 	}
 	else if (gun->time / 150 > 1)
 	{
 		gun->time -= 100;
 		gun->sprite += gun->reloading;
+		if (cub->gun_type == 1 && gun->sprite == 4)
+				system("afplay -v 0.5 music/mitrailleuse_rech2.mp3 &>/dev/null &");
 		if (gun->sprite == gun->nb_sprites)
 		{
-
 			if (cub->gun_type == 0)
 				gun->bullets = 2;
 			else

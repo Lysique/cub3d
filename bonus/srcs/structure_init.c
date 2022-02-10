@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:54:01 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 11:21:16 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	music_init(void)
 {
 	if (access("music/son_ambiance.mp3", F_OK) < 0)
 		error_manager(MUSIC_NOT_FOUND);
-//	system("afplay music/son_ambiance.mp3 &>/dev/null &");
+	system("afplay music/son_ambiance.mp3 &>/dev/null &");
 }
 
 void	mlx_variables_init(t_cub *cub)
