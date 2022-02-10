@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:20:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 09:52:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	draw_walls(t_cub *cub, t_ray *r)
 		r->tex_y = (int)r->tex_pos;
 		r->tex_pos += r->tex_stepy;
 		color = get_texture_color(r->tex, r->tex_y, r->tex_x);
-		if (color != 0xFF000000)
-			put_my_pixel(cub->display, r->draw_start, r->pix_x, color);
+		put_my_pixel(cub->display, r->draw_start, r->pix_x, color);
 		r->draw_start++;
 	}
 }

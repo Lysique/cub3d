@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 10:30:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:05:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 # define LOOP_HOOK_H
 
 # include "global.h"
-
-		/* COLLISION WITH WALLS */
-
-# define HITBOX 0.3
-
-		/* DISTANCE OF DOOR OPENING OR CLOSING 
-		   
-		   CAREFULL TO NOT PUT TOO FAR OR TOO CLOSE */
-
-# define DOOR_REACH 1.7
 
 void	display(t_cub *cub);
 

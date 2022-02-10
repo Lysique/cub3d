@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 11:57:23 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:38:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 void	music_manager(t_cub *cub)
 {
-	static int	i = 0;
-	static int	j = 0;
+	static t_time	time = 0;
+	static int		i = 0;
 
 	if (cub->key.w == 1 || cub->key.s == 1
 		|| cub->key.a == 1 || cub->key.d == 1)
 	{
-		if (!(i % 5) && j % 2)
-			system("afplay -v 0.2 -t 2 music/bruit_pas1.mp3 &>/dev/null &");
-		else if (!(i % 5) && !(j % 2))
-			system("afplay -v 0.2 -t 2 bonus/sounds/step2.mp3 &>/dev/null &");
-		i++;
-		j++;
+		time += cub->time;
+		if (time / STEP_SOUND_FRAME > 1 && i % 2)
+			system("afplay -v 0.5 -t 2 music/bruit_pas1.mp3 &>/dev/null &");
+		else if (time / STEP_SOUND_FRAME > 1)
+		{
+			i = 0;
+			system("afplay -v 0.5 -t 2 bonus/sounds/step2.mp3 &>/dev/null &");
+		}
+		if (time / STEP_SOUND_FRAME > 1 && ++i)
+			time -= STEP_SOUND_FRAME;
 	}
 }
 
@@ -64,24 +68,20 @@ void	move_manager(t_cub *cub)
 
 void	rotate_manager(t_cub *cub)
 {
-	cub->player.angle -= (float)cub->key.right * ROTATE * cub->time;
-	cub->player.angle += (float)cub->key.left * ROTATE * cub->time;
+	if (cub->key.right)
+		cub->player.angle -= ROTATE * cub->time;
+	if (cub->key.left)
+		cub->player.angle += ROTATE * cub->time;
 	if (cub->player.angle > 2 * PI)
 		cub->player.angle -= 2 * PI;
 	else if (cub->player.angle < 0)
 		cub->player.angle += 2 * PI;
-	cub->player.angle -= SENSI_MOUSE * (cub->mouse.x - WIN_W / 2);
+	cub->player.angle -= SENSI_MOUSE * cub->time * (cub->mouse.x - WIN_W / 2);
 }
 
 void	player_manager(t_cub *cub)
 {
-	static t_time	time = 0;
-
-	if (time == 0)
-		time = get_time();
-	cub->time = get_time() - time;
 	move_manager(cub);
 	rotate_manager(cub);
 	music_manager(cub);
-	time = get_time();
 }

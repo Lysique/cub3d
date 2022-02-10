@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 11:13:19 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:44:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	animate_door(t_door *d, t_time time)
 {
 	d->time += time;
-	if (d->time / 100 > 1)
+	if (d->time / DOOR_FRAME > 1)
 	{
-		d->time -= 100;
+		d->time -= DOOR_FRAME;
 		d->sprite += d->is_moving;
 	}
 	if ((d->sprite == 0 && d->is_moving == -1)
@@ -49,7 +49,7 @@ int	looking_for_door(t_cub *cub)
 	float	k;
 	int		i;
 
-	k = 1.1;
+	k = 0.3;
 	i = -1;
 	ang = cub->player.angle;
 	while (i == -1 && k < DOOR_REACH)
@@ -66,8 +66,6 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 {
 	int		i;
 
-	if (cub->key.door_p != 1)
-		return ;
 	i = looking_for_door(cub);
 	if (i != -1 && cub->doors[i].is_moving == 0)
 	{
@@ -89,12 +87,7 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 
 void	door_manager(t_cub *cub)
 {
-	static t_time	time = 0;
-
-	if (time == 0)
-		time = get_time();
-	cub->time = get_time() - time;
-	time = get_time();
-	ft_gardian_of_the_keys(cub);
+	if (cub->key.door_p == 1)
+		ft_gardian_of_the_keys(cub);
 	door_animation_manager(cub);
 }
