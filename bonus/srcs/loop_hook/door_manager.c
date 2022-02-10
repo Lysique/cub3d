@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   door_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
 /*   Updated: 2022/02/10 15:44:23 by tamighi          ###   ########.fr       */
@@ -73,11 +73,13 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 		{
 			cub->doors[i].open = 1;
 			cub->doors[i].is_moving = 1;
+			system("afplay -v 0.5 music/ouverture_ascenseur.mp3 &>/dev/null &");
 		}
 		else
 		{
 			cub->doors[i].open = 0;
 			cub->doors[i].is_moving = -1;
+			system("afplay -v 0.5 music/fermeture_ascenseur.mp3 &>/dev/null &");
 		}
 	}
 	cub->key.door_p = 0;

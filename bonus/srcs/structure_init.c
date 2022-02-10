@@ -16,7 +16,7 @@ void	music_init(void)
 {
 	if (access("music/son_ambiance.mp3", F_OK) < 0)
 		error_manager(MUSIC_NOT_FOUND);
-//	system("afplay music/son_ambiance.mp3 &>/dev/null &");
+	system("afplay music/son_ambiance.mp3 &>/dev/null &");
 }
 
 void	mlx_variables_init(t_cub *cub)
