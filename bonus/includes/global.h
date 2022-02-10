@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:44:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:47:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ typedef struct s_door {
 
 typedef struct s_gun {
 	int		sprite;
-	int		shooting;
-	int		reloading;
+	int		action;
 	int		nb_spr_shoot;
 	int		nb_sprites;
+	int		max_bullets;
 	int		bullets;
 	t_time	time;
 }				t_gun;
