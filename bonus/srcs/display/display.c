@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:17:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:41:22 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:05:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	display(t_cub *cub)
 {
 	ray_casting(cub);
+	display_menu(cub);
 	display_map(cub);
 	display_char(cub);
 	display_gun(cub);

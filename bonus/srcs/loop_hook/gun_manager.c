@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:31:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:44:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,31 @@ void	reload_gun(t_cub *cub)
 {
 	t_gun	*gun;
 
-	gun = &cub->gun[gun_type];
+	gun = &cub->gun[cub->gun_type];
+	gun->time += cub->time;
+	if (gun->reloading == 0)
+	{
+		gun->sprite = gun->nb_spr_shoot + 1;
+		gun->reloading = 1;
+	}
+	else if (gun->time / 150 > 1)
+	{
+		gun->time -= 100;
+		gun->sprite += gun->reloading;
+		if (gun->sprite == gun->nb_sprites)
+		{
+
+			if (cub->gun_type == 0)
+				gun->bullets = 2;
+			else
+				gun->bullets = 50;
+			gun->reloading = 0;
+			cub->key.reload = 0;
+			gun->sprite = 0;
+			cub->key.shoot_p = 0;
+			cub->key.swap_gun = 0;
+		}
+	}
 }
 
 void	gun_manager(t_cub *cub)

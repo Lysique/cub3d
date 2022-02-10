@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:19:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:33:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 4
-# define MAX_SPR 6
+# define NB_SPR 5
+# define MAX_SPR 13
 
 		/* SPRITES INDEXES */
 
@@ -54,6 +54,7 @@
 # define DOOR 1
 # define SHOTGUN 2
 # define MACHINEGUN 3
+# define MENUBAR 4
 
 		/* ERRORS */
 
@@ -77,6 +78,7 @@
 
 # define MINI_PX 200
 # define MINI_SIZE 10
+# define MENUBAR_H 200
 
 		/* MIDMINI = MINI_SIZE / 2 */
 
@@ -84,6 +86,8 @@
 		/* PX_INDEX_CONV = 1 / (MINI_PX / MINI_SIZE) */
 
 # define PX_INDEX_CONV 0.05
+
+# define PIX_SPACE 20
 
 # define SO_NO 1
 # define WE_EA 0

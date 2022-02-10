@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/07 08:31:32 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:43:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	map_elements_display(int pix_y, float y, float x, t_cub *cub)
 {
 	int	pix_x;
 
-	pix_x = 0;
+	pix_x = PIX_SPACE;
 	while (x < 0 && ++pix_x)
 		x += (float)PX_INDEX_CONV;
-	while (cub->map[(int)y][(int)x] && pix_x < MINI_PX)
+	while (cub->map[(int)y][(int)x] && pix_x < MINI_PX + PIX_SPACE)
 	{
 		put_pixel_map(cub->display, pix_y, pix_x++, cub->map[(int)y][(int)x]);
 		x += (float)PX_INDEX_CONV;
@@ -41,13 +41,12 @@ void	put_out_background(t_img img)
 	int	pix_x;
 	int	pix_y;
 
-	pix_x = -1;
-	pix_y = WIN_H - MINI_PX - 1;
-	while (++pix_y < WIN_H)
+	pix_y = WIN_H - (MINI_PX + PIX_SPACE);
+	while (++pix_y < WIN_H - PIX_SPACE)
 	{
-		while (++pix_x < MINI_PX)
+		pix_x = PIX_SPACE - 1;
+		while (++pix_x < MINI_PX + PIX_SPACE)
 			put_my_pixel(img, pix_y, pix_x, OUT_COLOR);
-		pix_x = -1;
 	}
 }
 
@@ -55,7 +54,7 @@ void	magic_map_displayer(t_cub *cub, float y, float x)
 {
 	int	pix_y;
 
-	pix_y = WIN_H - MINI_PX - 1;
+	pix_y = WIN_H - (MINI_PX + PIX_SPACE);
 	put_out_background(cub->display);
 	while (y < 0)
 	{
