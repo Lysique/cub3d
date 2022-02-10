@@ -6,11 +6,53 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 15:43:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 08:38:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
+
+void	ft_draw_line(t_img img, t_cub *cub)
+{
+	float	bx;
+	float	by;
+	float	d;
+	float	pente;
+
+	bx = cos(cub->player.angle);
+	by = sin(cub->player.angle);
+	d = 0;
+	if (bx < 0.05 && bx > -0.05)
+		bx = 0.05;
+	pente = by / bx;
+	while (sqrtf(((d * pente) * (d * pente)) + d * d) <= 20)
+	{
+		put_my_pixel(img, (WIN_H - MINI_PX / 2 - d
+			* pente) - PIX_SPACE, (MINI_PX / 2 + d) + PIX_SPACE, RED);
+		if (0 > bx)
+			d -= .1;
+		else
+			d += .1;
+	}
+}
+
+void	display_char(t_cub *cub)
+{
+	int		pix_x;
+	int		pix_y;
+	t_img	img;
+
+	img = cub->display;
+	pix_y = (WIN_H - MINI_PX / 2 - 5) - PIX_SPACE;
+	while (pix_y < (WIN_H - MINI_PX / 2 + 5) - PIX_SPACE)
+	{
+		pix_x = (MINI_PX / 2 - 5) + PIX_SPACE;
+		while (pix_x < (MINI_PX / 2 + 5) + PIX_SPACE)
+			put_my_pixel(img, pix_y, pix_x++, BLUE);
+		pix_y++;
+	}
+	ft_draw_line(img, cub);
+}
 
 void	put_pixel_map(t_img img, int pix_y, int pix_x, char c)
 {
@@ -36,26 +78,30 @@ void	map_elements_display(int pix_y, float y, float x, t_cub *cub)
 	}
 }
 
-void	put_out_background(t_img img)
+void	put_out_background(t_img img, int px_start_y, int px_start_x)
 {
-	int	pix_x;
 	int	pix_y;
+	int	pix_x;
 
-	pix_y = WIN_H - (MINI_PX + PIX_SPACE);
-	while (++pix_y < WIN_H - PIX_SPACE)
+	pix_y = px_start_y;
+	while (++pix_y < px_start_y + MINI_PX)
 	{
-		pix_x = PIX_SPACE - 1;
-		while (++pix_x < MINI_PX + PIX_SPACE)
+		pix_x = px_start_x - 1;
+		while (++pix_x < px_start_x + MINI_PX)
 			put_my_pixel(img, pix_y, pix_x, OUT_COLOR);
 	}
 }
 
-void	magic_map_displayer(t_cub *cub, float y, float x)
+void	magic_map_displayer(t_cub *cub, int	px_start_y, int px_start_x)
 {
-	int	pix_y;
+	float	y;
+	float	x;
+	int		pix_y;
 
-	pix_y = WIN_H - (MINI_PX + PIX_SPACE);
-	put_out_background(cub->display);
+	y = cub->player.y - MIDMINI;
+	x = cub->player.x - MIDMINI;
+	pix_y = px_start_y;
+	put_out_background(cub->display, px_start_y, px_start_x);
 	while (y < 0)
 	{
 		y += (float)PX_INDEX_CONV;
@@ -71,10 +117,10 @@ void	magic_map_displayer(t_cub *cub, float y, float x)
 
 void	display_map(t_cub *cub)
 {
-	float	y;
-	float	x;
+	int		px_start_y;
+	int		px_start_x;
 
-	y = cub->player.y - MIDMINI;
-	x = cub->player.x - MIDMINI;
-	magic_map_displayer(cub, y, x);
+	px_start_y = WIN_H - (MINI_PX + PIX_SPACE);
+	px_start_x = PIX_SPACE;
+	magic_map_displayer(cub, px_start_y, px_start_x);
 }

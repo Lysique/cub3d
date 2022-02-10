@@ -6,32 +6,11 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 15:52:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 08:12:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
-
-void	ft_draw_0(float by, t_img img)
-{
-	int	ay;
-
-	ay = WIN_H - MINI_PX / 2;
-	if (by < 0)
-		while (ay <= WIN_H - MINI_PX / 2 + 20)
-			put_my_pixel(img, ay++, MINI_PX / 2, RED);
-	else if (by > 0)
-		while (ay >= WIN_H - MINI_PX / 2 - 20)
-			put_my_pixel(img, ay--, MINI_PX / 2, RED);
-}
-
-float	ft_dist(float bx, float by)
-{
-	const float	dy = by;
-	const float	dx = bx;
-
-	return (sqrtf(dy * dy + dx * dx));
-}
 
 void	ft_draw_line(t_img img, t_cub *cub)
 {
@@ -43,20 +22,17 @@ void	ft_draw_line(t_img img, t_cub *cub)
 	bx = cos(cub->player.angle);
 	by = sin(cub->player.angle);
 	d = 0;
-	pente = by / bx;
 	if (bx < 0.05 && bx > -0.05)
-		ft_draw_0(by, img);
-	else
+		bx = 0.05;
+	pente = by / bx;
+	while (sqrtf(((d * pente) * (d * pente)) + d * d) <= 20)
 	{
-		while (ft_dist(d, d * pente) <= 20)
-		{
-			put_my_pixel(img, WIN_H - MINI_PX / 2 - d
-				* pente + PIX_SPACE, MINI_PX / 2 + d, RED);
-			if (0 > bx)
-				d -= .1;
-			else
-				d += .1;
-		}
+		put_my_pixel(img, WIN_H - MINI_PX / 2 - d
+			* pente + PIX_SPACE, MINI_PX / 2 + d, RED);
+		if (0 > bx)
+			d -= .1;
+		else
+			d += .1;
 	}
 }
 
