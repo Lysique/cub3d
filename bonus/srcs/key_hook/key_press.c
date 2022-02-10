@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:19:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:45:15 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ int	key_press(int key, void *param)
 	}
 	else if (key == K_SHIFT)
 		cub->key.swap_gun = 1;
+	else if (key == K_DOWN)
+		cub->key.reload = 1;
 	return (0);
 }

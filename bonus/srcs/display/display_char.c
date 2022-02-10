@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:53:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 09:41:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:52:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_draw_line(t_img img, t_cub *cub)
 		while (ft_dist(d, d * pente) <= 20)
 		{
 			put_my_pixel(img, WIN_H - MINI_PX / 2 - d
-				* pente, MINI_PX / 2 + d, RED);
+				* pente + PIX_SPACE, MINI_PX / 2 + d, RED);
 			if (0 > bx)
 				d -= .1;
 			else
@@ -67,8 +67,8 @@ void	display_char(t_cub *cub)
 	t_img	img;
 
 	img = cub->display;
-	pix_y = WIN_H - MINI_PX / 2 - 5;
-	while (pix_y < WIN_H - MINI_PX / 2 + 5)
+	pix_y = WIN_H - MINI_PX / 2 - 5 + PIX_SPACE;
+	while (pix_y < WIN_H - MINI_PX / 2 + 5 + PIX_SPACE)
 	{
 		pix_x = MINI_PX / 2 - 5;
 		while (pix_x < MINI_PX / 2 + 5)

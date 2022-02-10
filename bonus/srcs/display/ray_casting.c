@@ -6,23 +6,16 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/08 16:34:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 08:01:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	ray_cast_doors(t_ray *r, t_cub *cub)
+void	hit_wall_check(t_ray *r, t_cub *cub)
 {
 	t_ray	r2;
 
-	r2 = *r;
-	hit_wall_check(r, cub);
-	draw_ray(&r2, cub);
-}
-
-void	hit_wall_check(t_ray *r, t_cub *cub)
-{
 	while (r->hit == 0)
 	{
 		if (r->side_y < r->side_x)
@@ -41,8 +34,9 @@ void	hit_wall_check(t_ray *r, t_cub *cub)
 			r->hit = 1;
 		else if (is_door(cub->doors, r->map_y, r->map_x))
 		{
-			ray_cast_doors(r, cub);
-			return ;
+			r2 = *r;
+			r->hit = 1;
+			hit_wall_check(&r2, cub);
 		}
 	}
 	draw_ray(r, cub);

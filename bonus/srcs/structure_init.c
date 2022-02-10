@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:28:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:54:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	var_init(t_cub *cub)
 	cub->key.left = 0;
 	cub->key.door_r = 1;
 	cub->key.door_p = 0;
-	cub->key.reload_r = 1;
-	cub->key.reload_p = 0;
+	cub->key.reload = 0;
 	cub->key.shoot_r = 1;
 	cub->key.shoot_p = 0;
 	cub->key.swap_gun = 0;
@@ -53,12 +52,14 @@ void	var_init(t_cub *cub)
 	cub->gun[0].sprite = 0;
 	cub->gun[0].bullets = 2;
 	cub->gun[0].nb_sprites = 12;
+	cub->gun[0].nb_spr_shoot = 1;
 	cub->gun[0].time = 0;
 	cub->gun[0].shooting = 0;
 	cub->gun[0].reloading = 0;
 	cub->gun[1].sprite = 0;
 	cub->gun[1].bullets = 50;
 	cub->gun[1].nb_sprites = 13;
+	cub->gun[1].nb_spr_shoot = 2;
 	cub->gun[1].shooting = 0;
 	cub->gun[1].reloading = 0;
 }

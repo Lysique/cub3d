@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:55:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/08 16:40:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/09 15:00:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	put_my_pixel(t_img img, int y, int x, unsigned int color)
 {
 	char	*dst;
 
+	if (color == 0xFF000000)
+		return ;
 	dst = img.addr + (y * img.sizel + x * (img.bpp / 8));
 	*(unsigned int *)dst = color;
 }

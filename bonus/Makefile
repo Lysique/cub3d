@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/09 10:30:09 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/09 14:29:07 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
 
 DISPLAY_FILES = display.c ray_casting.c f_c_casting.c \
 				draw_ray.c display_map.c display_char.c \
-				display_utils.c display_gun.c
+				display_utils.c display_gun.c display_menu.c
 
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
