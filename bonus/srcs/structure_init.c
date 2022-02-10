@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 13:54:01 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/10 16:33:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ void	var_init(t_cub *cub)
 	cub->doors = 0;
 	cub->gun[0].sprite = 0;
 	cub->gun[0].bullets = 2;
+	cub->gun[0].max_bullets = 2;
 	cub->gun[0].nb_sprites = 12;
 	cub->gun[0].nb_spr_shoot = 1;
 	cub->gun[0].time = 0;
-	cub->gun[0].shooting = 0;
-	cub->gun[0].reloading = 0;
+	cub->gun[0].action = FREE_GUN;
 	cub->gun[1].sprite = 0;
 	cub->gun[1].bullets = 50;
+	cub->gun[1].max_bullets = 50;
 	cub->gun[1].nb_sprites = 13;
 	cub->gun[1].nb_spr_shoot = 2;
-	cub->gun[1].shooting = 0;
-	cub->gun[1].reloading = 0;
+	cub->gun[1].action = FREE_GUN;
 }
 
 void	imgs_init(t_cub *cub)

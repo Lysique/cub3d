@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/10 08:24:18 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/10 12:05:19 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
 ##### DISPLAY FILES ######
 
 DISPLAY_FILES = display.c ray_casting.c f_c_casting.c \
-				draw_ray.c display_map.c \
+				draw_ray.c display_map.c display_char.c \
 				display_utils.c display_gun.c display_menu.c
 
 DISPLAY_DIR = srcs/display/
