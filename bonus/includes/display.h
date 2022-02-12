@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 14:29:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 13:13:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ typedef struct s_ray {
 	float	row_dist;
 	float	floor_x;
 	float	floor_y;
+	float	tex_x;
+	float	tex_y;
 	int		step_x;
 	int		step_y;
 	int		map_x;
 	int		map_y;
-	int		tex_x;
-	int		tex_y;
 	int		pix_x;
 	int		draw_start;
 	int		draw_end;
@@ -67,6 +67,7 @@ void			put_my_pixel(t_img img, int y, int x, unsigned int color);
 unsigned int	get_texture_color(t_img text, int y, int x);
 int				is_door(t_door *d, int y, int x);
 int				is_raycast_end(t_cub *cub, int y, int x);
+void			optimisation_pixel_put(t_img img, int y, int x, unsigned int color);
 
 int		get_door_index(t_door *d, int y, int x);
 

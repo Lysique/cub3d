@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 11:13:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 12:36:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	if (gun->status == GS_FREE && (cub->key.shoot_r == 1 || gun->bullets == 0))
 	{
 		cub->key.shoot_p = 0;
+		cub->action = FREE_GUN;
 		gun->time = 0;
 	}
 	else if (gun->status == GS_FREE)
@@ -52,7 +53,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 		gun->sprite = 1;
 		gun->bullets--;
 	}
-	if (gun->status == GS_SHOT && gun->time / SHOTGUN_SPEED > 0)
+	else if (gun->status == GS_SHOT && gun->time / SHOTGUN_SPEED > 0)
 	{
 		gun->status = GS_WAIT;
 		gun->time -= SHOTGUN_SPEED;
@@ -62,7 +63,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	{
 		gun->status = GS_FREE;
 		cub->action = FREE_GUN;
-		gun->time -= SHOTGUN_WAIT_TIME;
+		gun->time = 0;
 	}
 }
 

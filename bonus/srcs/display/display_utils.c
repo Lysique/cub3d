@@ -6,11 +6,25 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:55:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 15:00:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 13:17:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
+
+void	optimisation_pixel_put(t_img img, int y, int x, unsigned int color)
+{
+	int	i;
+	int	j;
+
+	i = OPTIMISATION;
+	while (i--)
+	{
+		j = OPTIMISATION;
+		while (j--)
+			put_my_pixel(img, y + i, x + j, color);
+	}
+}
 
 int	is_door(t_door *d, int y, int x)
 {	

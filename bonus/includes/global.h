@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 10:39:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 11:31:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void		error_manager(int error);
 
 int			ft_strlen(const char *s);
 t_time		get_time(void);
+t_time		get_microtime(void);
 
 void		free_my_arr(char **arr);
 void		free_and_exit(t_cub *cub, int error);

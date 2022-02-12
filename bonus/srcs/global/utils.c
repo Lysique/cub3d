@@ -6,11 +6,19 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:55:47 by tuytters          #+#    #+#             */
-/*   Updated: 2022/02/07 10:18:12 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 11:32:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/global.h"
+
+t_time	get_microtime(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, 0);
+	return (tv.tv_usec);
+}
 
 t_time	get_time(void)
 {

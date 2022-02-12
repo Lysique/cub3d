@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 15:44:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 13:20:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	looking_for_door(t_cub *cub)
 	float	k;
 	int		i;
 
-	k = 0.3;
+	k = 1;
 	i = -1;
 	ang = cub->player.angle;
 	while (i == -1 && k < DOOR_REACH)

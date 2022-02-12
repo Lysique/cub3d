@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 11:11:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 13:30:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,21 @@ void	ray_init(t_ray *r, t_player p)
 void	ray_casting(t_cub *cub)
 {
 	t_ray		r;
+//	static t_time		time = 0;
 
 	r.pix_x = 0;
+//	printf("AFTER RAYCAST : %u\n", get_time() - time);
+//	time = get_time();
 	f_c_casting(cub, &r);
-	while (r.pix_x < WIN_W)
+//	printf("FLOOR/CEILING CAST : %u\n", get_time() - time);
+//	time = get_time();
+	while (r.pix_x < WIN_W - (OPTIMISATION - 1))
 	{
 		ray_init(&r, cub->player);
 		side_init(&r, cub->player);
 		hit_wall_check(&r, cub);
-		r.pix_x++;
+		r.pix_x+= OPTIMISATION;
 	}
+//	printf("WALL CAST : %u\n", get_time() - time);
+//	time = get_time();
 }
