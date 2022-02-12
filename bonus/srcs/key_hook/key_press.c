@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 14:19:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 09:57:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	key_press2(int key, t_cub *cub)
 {
-	if (key == K_UP)
+	if (key == K_UP && cub->key.shoot_r == 1)
 	{
 		cub->key.shoot_r = 0;
 		cub->key.shoot_p = 1;

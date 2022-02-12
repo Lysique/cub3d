@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 17:27:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 11:08:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,11 +122,19 @@
 		 */
 
 # define RELOAD_GUN_SPEED 150
-
 # define SWAP_GUN_BREAK 200
+
+		/* SHOT GUN */
 
 # define SHOTGUN_SPEED 100
 # define SHOTGUN_WAIT_TIME 500
+
+# define GS_FREE 0
+# define GS_SHOT 1
+# define GS_WAIT 2
+# define GS_RELOAD 3
+
+		/* MACHIN GUN */
 
 # define MACHINGUN_SPEED 70
 
