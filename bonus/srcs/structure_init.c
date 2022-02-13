@@ -6,18 +6,11 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 16:33:01 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:42:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
-
-void	music_init(void)
-{
-	if (access("music/son_ambiance.mp3", F_OK) < 0)
-		error_manager(MUSIC_NOT_FOUND);
-	system("afplay music/son_ambiance.mp3 &>/dev/null &");
-}
 
 void	mlx_variables_init(t_cub *cub)
 {
@@ -27,6 +20,23 @@ void	mlx_variables_init(t_cub *cub)
 	cub->mlx.win = mlx_new_window(cub->mlx.mlx, WIN_W, WIN_H, "cub3d");
 	if (!cub->mlx.win)
 		error_manager(MLX_ERROR);
+}
+
+void	gun_init(t_cub *cub)
+{
+	cub->gun[0].sprite = 0;
+	cub->gun[0].bullets = SG_BULLETS;
+	cub->gun[0].max_bullets = SG_BULLETS;
+	cub->gun[0].nb_sprites = 12;
+	cub->gun[0].nb_spr_shoot = 1;
+	cub->gun[0].time = 0;
+	cub->gun[0].status = GS_FREE;
+	cub->gun[1].sprite = 0;
+	cub->gun[1].bullets = MG_BULLETS;
+	cub->gun[1].max_bullets = MG_BULLETS;
+	cub->gun[1].nb_sprites = 13;
+	cub->gun[1].nb_spr_shoot = 2;
+	cub->gun[1].status = GS_FREE;
 }
 
 void	var_init(t_cub *cub)
@@ -49,19 +59,8 @@ void	var_init(t_cub *cub)
 	cub->mlx.mlx = 0;
 	cub->mlx.win = 0;
 	cub->doors = 0;
-	cub->gun[0].sprite = 0;
-	cub->gun[0].bullets = 2;
-	cub->gun[0].max_bullets = 2;
-	cub->gun[0].nb_sprites = 12;
-	cub->gun[0].nb_spr_shoot = 1;
-	cub->gun[0].time = 0;
-	cub->gun[0].action = FREE_GUN;
-	cub->gun[1].sprite = 0;
-	cub->gun[1].bullets = 50;
-	cub->gun[1].max_bullets = 50;
-	cub->gun[1].nb_sprites = 13;
-	cub->gun[1].nb_spr_shoot = 2;
-	cub->gun[1].action = FREE_GUN;
+	cub->action = FREE_GUN;
+	gun_init(cub);
 }
 
 void	imgs_init(t_cub *cub)
@@ -88,7 +87,9 @@ void	structure_init(t_cub *cub)
 	set_cubptr(cub);
 	var_init(cub);
 	imgs_init(cub);
-	music_init();
+	if (access("music/son_ambiance.mp3", F_OK) < 0)
+		error_manager(MUSIC_NOT_FOUND);
+//	system("afplay music/son_ambiance.mp3 &>/dev/null &");
 	mlx_variables_init(cub);
 	imgs_creator(cub);
 }

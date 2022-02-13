@@ -6,16 +6,23 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 11:11:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:40:12 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	hit_wall_check(t_ray *r, t_cub *cub)
+void	draw_door(t_ray *r, t_cub *cub)
 {
 	t_ray	r2;
 
+	r2 = *r;
+	r->hit = 1;
+	hit_wall_check(&r2, cub);
+}
+
+void	hit_wall_check(t_ray *r, t_cub *cub)
+{
 	while (r->hit == 0)
 	{
 		if (r->side_y < r->side_x)
@@ -33,11 +40,7 @@ void	hit_wall_check(t_ray *r, t_cub *cub)
 		if (is_raycast_end(cub, r->map_y, r->map_x))
 			r->hit = 1;
 		else if (is_door(cub->doors, r->map_y, r->map_x))
-		{
-			r2 = *r;
-			r->hit = 1;
-			hit_wall_check(&r2, cub);
-		}
+			draw_door(r, cub);
 	}
 	draw_ray(r, cub);
 }
@@ -69,9 +72,6 @@ void	side_init(t_ray *r, t_player p)
 void	ray_init(t_ray *r, t_player p)
 {
 	r->camera_r = (float)(r->pix_x * 2) / WIN_W - 1;
-	r->ray_r = p.angle;
-	r->plane_x = 0.66 * sin(r->ray_r);
-	r->plane_y = -0.66 * cos(r->ray_r);
 	r->hit = 0;
 	r->dir_x = cos(r->ray_r) + r->camera_r * r->plane_x;
 	r->dir_y = sin(r->ray_r) + r->camera_r * r->plane_y;
@@ -87,11 +87,11 @@ void	ray_casting(t_cub *cub)
 
 	r.pix_x = 0;
 	f_c_casting(cub, &r);
-	while (r.pix_x < WIN_W)
+	while (r.pix_x < WIN_W - (OPTIMISATION - 1))
 	{
 		ray_init(&r, cub->player);
 		side_init(&r, cub->player);
 		hit_wall_check(&r, cub);
-		r.pix_x++;
+		r.pix_x += OPTIMISATION;
 	}
 }

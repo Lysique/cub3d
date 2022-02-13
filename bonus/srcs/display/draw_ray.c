@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 09:52:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:37:56 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	draw_walls(t_cub *cub, t_ray *r)
 {
 	unsigned int	color;
 
-	while (r->draw_start < r->draw_end)
+	while (r->draw_start < r->draw_end - (OPTIMISATION - 1))
 	{
-		r->tex_y = (int)r->tex_pos;
-		r->tex_pos += r->tex_stepy;
-		color = get_texture_color(r->tex, r->tex_y, r->tex_x);
-		put_my_pixel(cub->display, r->draw_start, r->pix_x, color);
-		r->draw_start++;
+		r->tex_y += r->tex_stepy;
+		color = get_texture_color(r->tex, (int)r->tex_y, (int)r->tex_x);
+		optimisation_pixel_put(cub->display, r->draw_start, r->pix_x, color);
+		r->draw_start += OPTIMISATION;
 	}
 }
 
@@ -37,16 +36,17 @@ void	init_draywing_variables(t_ray *r, t_cub *cub)
 	if (r->draw_start < 0)
 		r->draw_start = 0;
 	r->draw_end = r->line_h / 2 + WIN_H / 2;
-	if (r->draw_end >= WIN_H)
-		r->draw_end = WIN_H - 1;
+	if (r->draw_end > WIN_H)
+		r->draw_end = WIN_H;
 	if (r->side == SO_NO)
 		r->wall_x = cub->player.x + r->wall_dist * r->dir_x;
 	else
 		r->wall_x = cub->player.y + r->wall_dist * (r->dir_y * -1);
 	r->wall_x -= floor(r->wall_x);
-	r->tex_x = (int)(r->wall_x * (float)r->tex.w);
+	r->tex_x = r->wall_x * (float)r->tex.w;
 	r->tex_stepy = (float)r->tex.h / r->line_h;
-	r->tex_pos = (r->draw_start - WIN_H / 2 + r->line_h / 2) * r->tex_stepy;
+	r->tex_y = (r->draw_start - WIN_H / 2 + r->line_h / 2) * r->tex_stepy;
+	r->tex_stepy *= OPTIMISATION;
 }
 
 void	get_door_texture(t_ray *r, t_cub *cub)

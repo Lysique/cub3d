@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/09 14:43:13 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:41:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,12 @@ void	imgs_creator(t_cub *cub)
 		error_manager(IMG_ERROR);
 	cub->display.addr = mlx_get_data_addr(cub->display.img,
 			&cub->display.bpp, &cub->display.sizel, &cub->display.endian);
+	cub->display.w = WIN_W;
+	cub->display.h = WIN_H;
 	create_img("sprites/life/barre_eclair", 6, cub->sprites[LIFE], cub);
 	create_img("sprites/door/door", 4, cub->sprites[DOOR], cub);
 	create_img("sprites/pompe/pompe", 12, cub->sprites[SHOTGUN], cub);
-	create_img("sprites/mitrailleuse/mitrailleuse", 13, cub->sprites[MACHINEGUN], cub);
+	create_img("sprites/mitrailleuse/mitrailleuse", 13,
+		cub->sprites[MACHINEGUN], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MENUBAR], cub);
 }

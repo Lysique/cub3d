@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 16:47:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/12 11:31:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_door {
 
 typedef struct s_gun {
 	int		sprite;
-	int		action;
+	int		status;
 	int		nb_spr_shoot;
 	int		nb_sprites;
 	int		max_bullets;
@@ -87,6 +87,7 @@ typedef struct s_gun {
 typedef struct s_cub {
 	char		**map;
 	int			gun_type;
+	int			action;
 	t_player	player;
 	t_door		*doors;
 	t_gun		gun[2];
@@ -107,6 +108,7 @@ void		error_manager(int error);
 
 int			ft_strlen(const char *s);
 t_time		get_time(void);
+t_time		get_microtime(void);
 
 void		free_my_arr(char **arr);
 void		free_and_exit(t_cub *cub, int error);
