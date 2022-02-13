@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 13:29:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:25:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define WIN_W 1920
 
 # define OPTIMISATION 2
+
+# define SG_BULLETS 2
+# define MG_BULLETS 50
 
 		/* TEXTURES INDEXES */
 
@@ -138,7 +141,7 @@
 
 		/* MACHIN GUN */
 
-# define MACHINGUN_SPEED 70
+# define MACHINGUN_SPEED 100
 
 		/* UTILS LOOP_HOOK */
 
@@ -296,5 +299,6 @@
 # define OPEN_MAP 204
 # define MULT_PLAYER 205
 # define NO_PLAYER 206
+# define DOOR_ERROR 207
 
 #endif

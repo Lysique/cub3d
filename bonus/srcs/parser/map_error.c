@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:34:10 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 13:12:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:10:19 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	map_error(int error, char **map, t_coord *c)
 		my_write("No player on the map.\n");
 	else if (error == MULT_PLAYER)
 		my_write("Too many players on the map.\n");
+	else if (error == DOOR_ERROR)
+		my_write("Bad door emplacement.\n");
 	if (c)
 		draw_map_error(map, c);
 }

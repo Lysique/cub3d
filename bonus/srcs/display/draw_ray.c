@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 13:22:00 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:37:56 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	get_door_texture(t_ray *r, t_cub *cub)
 void	init_texture(t_ray *r, t_cub *cub)
 {
 	if (is_door(cub->doors, r->map_y, r->map_x))
-		r->tex = cub->sprites[DOOR][cub->doors[get_door_index(cub->doors, r->map_y, r->map_x)].sprite];
+		get_door_texture(r, cub);
 	else if (r->side == SO_NO && r->step_y == -1)
 		r->tex = cub->textures[SO];
 	else if (r->side == SO_NO)

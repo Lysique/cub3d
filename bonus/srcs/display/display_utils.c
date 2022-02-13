@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:55:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 13:17:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 15:54:08 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ unsigned int	get_texture_color(t_img text, int y, int x)
 	char			*dst;
 	unsigned int	color;
 
+	if (y < 0 || x < 0 || y >= text.h || x >= text.w)
+		return (0xFF000000);
 	dst = text.addr + (y * text.sizel + x * (text.bpp / 8));
 	color = *(unsigned int *)dst;
 	return (color);
