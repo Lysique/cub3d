@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 10:40:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 09:17:37 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		key_press(int key, void *param);
 int		key_release(int key, void *param);
 int		mouse_press(void *param);
 int		mouse_move(int x, int y, void *param);
+int		mouse_clik(int key, void *param);
 int		loop_hook(t_cub *cub);
 
 #endif
