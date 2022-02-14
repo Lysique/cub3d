@@ -6,11 +6,10 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:26:12 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/14 09:53:26 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../mlx/mlx.h"
 #include "../../includes/key_hook.h"
 
 int	mouse_press(void *param)
@@ -44,19 +43,21 @@ int	mouse_move(int x, int y, void *param)
 	return (0);
 }
 
-// int	mouse_clik(int x, int y, void *param)
-// {
-// 	t_cub	*cub;
+int	mouse_clik(int key, int x, int y, void *param)
+{
+	t_cub	*cub;
 
-// 	cub = (t_cub *)param;
-// 	if (key == 1 && cub->key.shoot_r == 1)
-// 	{
-// 		cub->key.shoot_r = 0;
-// 		cub->key.shoot_p = 1;
-// 	}
-// 	else if (key == 4 || key == 5)
-// 		cub->key.swap_gun = 1;
-// 	else if (key == 2)
-// 		cub->key.reload = 1;
-// 	return (0);
-// }
+	cub = (t_cub *)param;
+	(void) x;
+	(void) y;
+	if (key == 1 && cub->key.shoot_r == 1)
+	{
+		cub->key.shoot_r = 0;
+		cub->key.shoot_p = 1;
+	}
+	else if (key == 3 || key == 4 || key == 5)
+		cub->key.swap_gun = 1;
+	else if (key == 2)
+		cub->key.reload = 1;
+	return (0);
+}

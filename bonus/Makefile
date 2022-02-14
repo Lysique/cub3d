@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/14 09:24:19 by tuytters         ###   ########.fr        #
+#    Updated: 2022/02/14 09:52:17 by tuytters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c
+			 imgs_creator.c variables_init.c
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
@@ -58,7 +58,8 @@ PARSER_FILES = parser.c parser_free.c parser_error.c \
 			   map_error.c map_checker.c texture_error.c\
 			   fd_to_arr.c parse_map.c parse_textures.c \
 			   player_init.c parser_utils.c parser_utils2.c \
-			   add_texture.c doors_init.c
+			   add_texture.c doors_init.c parser_utils3.c \
+			   ennemy_init.c
 
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
@@ -84,7 +85,8 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 ##### KEY_HOOK FILES ######
 
-KEY_HOOK_FILES = key_press.c key_release.c mouse.c
+KEY_HOOK_FILES = key_press.c key_release.c mouse.c \
+				 mouse_release.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
@@ -96,7 +98,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 ##### LOOP_HOOK FILES ######
 
 LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
-				  loop_hook_utils.c gun_manager.c #shoot_manager.c
+				  loop_hook_utils.c gun_manager.c shoot_manager.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:24:16 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/14 09:28:07 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	gun_manager(t_cub *cub)
 {
 	if (cub->action == FREE_GUN)
 		gun_action_checker(cub, cub->gun[cub->gun_type]);
-	// if (cub->action == SHOOTING)
-	// 	shoot_manager(cub, &cub->gun[cub->gun_type]);
+	if (cub->action == SHOOTING)
+		shoot_manager(cub, &cub->gun[cub->gun_type]);
 	else if (cub->action == RELOADING)
 		reload_gun(cub, &cub->gun[cub->gun_type]);
 	else if (cub->action == SWAPPING_GUN)

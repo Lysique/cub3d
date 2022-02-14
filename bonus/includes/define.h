@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:25:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 09:33:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define SG_BULLETS 2
 # define MG_BULLETS 50
 
+/*#################### TEXTURES INDEXES ####################*/
+
 		/* TEXTURES INDEXES */
 
 # define F 0
@@ -37,6 +39,15 @@
 # define WE 4
 # define EA 5
 
+		/* SPRITES INDEXES */
+
+# define LIFE 0
+# define DOOR 1
+# define SHOTGUN 2
+# define MACHINEGUN 3
+# define MENUBAR 4
+# define NAKED_EN 5
+
 		/* NB_SPRITES 
 		   
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
@@ -45,33 +56,14 @@
 # define NB_SPR 5
 # define MAX_SPR 13
 
-		/* SPRITES INDEXES */
+/*#################### ENNEMY SETTINGS ####################*/
 
-# define LIFE 0
-# define DOOR 1
-# define SHOTGUN 2
-# define MACHINEGUN 3
-# define MENUBAR 4
 
-		/* ERRORS */
+		/* ENNEMIES ACTION */
 
-# define EXOK 0
-# define HANDLED 1
-# define MALLOC_ERROR 2
-# define IMG_ERROR 3
-# define MLX_ERROR 4
-# define MUSIC_NOT_FOUND 5
+# define E_STILL 1
 
-		/* COLORS */
-
-# define ORANGE 0x00FC7462
-# define BLACK 0x00000000
-# define GREEN 0x0000FF00
-# define BLUE 0x000000FF
-# define RED 0x00FF0000
-# define WHITE 0x00FFFFFF
-
-/*#################### LOOP_HOOK DEFINE ####################*/
+/*#################### PLAYER SETTINGS ####################*/
 
 		/* HITBOXS
 		 *
@@ -85,11 +77,6 @@
 		 *
 		 * HITBOX : 0.3 / DOOR_REACH : 1.7
 		 */
-
-# define HITBOX 0.3
-
-# define DOOR_REACH 1.7
-
 		/* MOVING SPEED
 		 *
 		 * Note : These values are multiplied by cub->time (time in ms between 2 loop_hooks).
@@ -104,51 +91,66 @@
 		 *
 		 * 	SPEED : 0.0015 / ROTATE : 0.0015 / SENSI_MOUSE : 0.0000015
 		 */
-
-# define SPEED 0.0015
-
-# define ROTATE 0.0015
-
-# define SENSI_MOUSE 0.0000015
-
 		/* FRAME SPEED
 		 *
 		 * STEP_SOUND_FRAME : Time in ms between each step sound.
 		 *
-		 * DOOR_FRAME : Time in ms between each door sprite.
 		 */
+
+# define HITBOX 0.3
+# define DOOR_REACH 1.7
+
+# define SPEED 0.0015
+# define ROTATE 0.0015
+# define SENSI_MOUSE 0.0000015
 
 # define STEP_SOUND_FRAME 300
 
-# define DOOR_FRAME 100
-
-		/* GUN VARIABLES
-		 *
-		 */
-
-# define RELOAD_GUN_SPEED 150
-# define SWAP_GUN_BREAK 200
-
-		/* SHOT GUN */
-
-# define SHOTGUN_SPEED 100
-# define SHOTGUN_WAIT_TIME 500
-
-# define GS_FREE 0
-# define GS_SHOT 1
-# define GS_WAIT 2
-# define GS_RELOAD 3
-
-		/* MACHIN GUN */
-
-# define MACHINGUN_SPEED 100
-
-		/* UTILS LOOP_HOOK */
+		/* PLAYER ACTION */
 
 # define FREE_GUN 0
 # define RELOADING 1
 # define SWAPPING_GUN 2
 # define SHOOTING 3
+
+/*#################### DOOR DEFINE ####################*/
+
+		/* FRAME SPEED
+		 *
+		 * DOOR_FRAME : Time in ms between each door sprite.
+		 */
+
+# define DOOR_FRAME 100
+
+/*#################### GUN DEFINE ####################*/
+
+		 /* SHARED DEFINE
+		  *
+		  * RELOAD_GUN_SPEED : Time between each reload frame in ms.
+		  * 
+		  * SWAP_GUN_BREAK : Time break after swapping gun.
+		 */
+
+# define RELOAD_GUN_SPEED 150
+# define SWAP_GUN_BREAK 200
+
+		/* SHOT GUN
+		 */
+
+# define SHOTGUN_SPEED 100
+# define SHOTGUN_WAIT_TIME 500
+
+		/* MACHIN GUN 
+		 */
+
+# define MACHINGUN_SPEED 60
+
+		/* GUN ACTION */
+
+# define GS_FREE 0
+# define GS_SHOT 1
+# define GS_WAIT 2
+# define GS_RELOAD 3
 
 /*#################### DISPLAY DEFINE ####################*/
 
@@ -171,19 +173,6 @@
 		 *
 		 * PX_X/Y : 200 / SIZE_X/Y : 10 / PX_SPACE_X/Y : 20 / INDEX_CONV_X/Y : 0.05
 		 */
-
-# define MINI_PX_X 200
-# define MINI_PX_Y 200
-
-# define MINI_SIZE_X 10
-# define MINI_SIZE_Y 10
-
-# define MINI_PX_SPACE_X 20
-# define MINI_PX_SPACE_Y 20
-
-# define PX_INDEX_CONV_X 0.05
-# define PX_INDEX_CONV_Y 0.05
-
 		/* MINIMAP CHARACTER
 		 *
 		 * CHAR_SIZE : Size of the square representing the character in the minimap in pixel.
@@ -198,13 +187,6 @@
 		 *
 		 * SIZE : 10 / LINE SIZE : 20
 		 */
-
-# define CHAR_SIZE 10
-# define CHAR_LINE_SIZE 20
- 
-# define CHAR_COLOR BLUE
-# define CHAR_LINE_COLOR RED
-
 		/* MENUBAR 
 		 *
 		 * MENUBAR_H/W : The size of the menubar in pixel. 
@@ -215,13 +197,6 @@
 		 *
 		 * H : 200 / W : 1690 / START_X : 230 / START_Y : 880 
 		 */
-
-# define MENUBAR_H 200
-# define MENUBAR_W 1690
-
-# define MENUBAR_START_X 230
-# define MENUBAR_START_Y 880
-
 		/*GUN PLACEMENT
 		 *
 		 * POS_GUN_X : The x pixel of the middle of the image
@@ -233,6 +208,30 @@
 		 *
 		 * POS_X : 960 / POS_Y : 880 / SIZE_X/Y : 2
 		 */
+
+# define MINI_PX_X 200
+# define MINI_PX_Y 200
+
+# define MINI_SIZE_X 10
+# define MINI_SIZE_Y 10
+
+# define MINI_PX_SPACE_X 20
+# define MINI_PX_SPACE_Y 20
+
+# define PX_INDEX_CONV_X 0.05
+# define PX_INDEX_CONV_Y 0.05
+
+# define CHAR_SIZE 10
+# define CHAR_LINE_SIZE 20
+ 
+# define CHAR_COLOR BLUE
+# define CHAR_LINE_COLOR RED
+
+# define MENUBAR_H 200
+# define MENUBAR_W 1690
+
+# define MENUBAR_START_X 230
+# define MENUBAR_START_Y 880
 
 # define POS_GUN_X 960
 # define POS_GUN_Y 880
@@ -247,7 +246,7 @@
 # define WALL_COLOR BLACK
 # define IN_COLOR GREEN
 
-		/* UTILS DEFINES */
+		/* DISPLAY UTILS DEFINES */
 
 # define SO_NO 1
 # define WE_EA 0
@@ -269,6 +268,24 @@
 # define K_SHIFT 258
 
 # define K_SPACE 49
+
+/*#################### COLORS ####################*/
+
+# define ORANGE 0x00FC7462
+# define BLACK 0x00000000
+# define GREEN 0x0000FF00
+# define BLUE 0x000000FF
+# define RED 0x00FF0000
+# define WHITE 0x00FFFFFF
+
+/*#################### GLOBAL ERRORS ####################*/
+
+# define EXOK 0
+# define HANDLED 1
+# define MALLOC_ERROR 2
+# define IMG_ERROR 3
+# define MLX_ERROR 4
+# define MUSIC_NOT_FOUND 5
 
 /*#################### PARSER_ERROR DEFINE #####################*/
 
