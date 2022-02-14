@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:46:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:30:52 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/14 10:31:50 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	{
 		gun->status = GS_FREE;
 		cub->action = FREE_GUN;
-		cub->key.shoot_p = 0;
 		gun->time = 0;
 		if (cub->key.shoot_r == 1)
 			cub->key.shoot_p = 0;

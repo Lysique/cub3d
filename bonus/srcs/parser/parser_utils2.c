@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 17:01:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:05:42 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	is_player_char(char c)
 int	is_known_char(char c)
 {
 	if (c == ' ' || c == '1' || c == '0'
-		|| is_player_char(c) || c == '2'
-		|| c == '3' || is_ennemy_char(c))
+		|| is_player_char(c) || is_door_char(c)
+		 || is_ennemy_char(c))
 		return (c);
 	return (0);
 }

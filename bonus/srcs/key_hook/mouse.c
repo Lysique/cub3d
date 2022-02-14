@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:53:26 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/14 10:50:19 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	mouse_move(int x, int y, void *param)
 	return (0);
 }
 
-int	mouse_clik(int key, int x, int y, void *param)
+int	mouse_click(int key, int x, int y, void *param)
 {
 	t_cub	*cub;
 

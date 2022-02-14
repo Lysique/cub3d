@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 17:05:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:06:45 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_parser {
 	t_cub	*cub;
 	char	**file;
 	int		fd;
-	void	*ptr;
 }			t_parser;
 
 typedef struct s_coord {
