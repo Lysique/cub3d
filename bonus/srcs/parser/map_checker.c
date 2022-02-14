@@ -6,20 +6,11 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:41:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:40:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 16:58:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
-
-void	map_error_caller(int error, int i, int j)
-{
-	t_coord	coord;
-
-	coord.i = i;
-	coord.j = j;
-	parser_error(error, &coord);
-}
 
 int	check_open_map(char **map, int i, int j)
 {
