@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 11:31:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:24:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,19 @@ typedef struct s_mlx {
 	void	*win;
 }				t_mlx;
 
+typedef struct s_en {
+	float	x;
+	float	y;
+	float	angle;
+	int		sprite;
+	int		type;
+	int		action;
+}				t_en;
+
 typedef struct s_img {
 	void	*img;
 	char	*addr;
-	int		bpp;
+	int		 bpp;
 	int		sizel;
 	int		endian;
 	int		w;
@@ -89,6 +98,7 @@ typedef struct s_cub {
 	int			gun_type;
 	int			action;
 	t_player	player;
+	t_en		*en;
 	t_door		*doors;
 	t_gun		gun[2];
 	t_key		key;

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 13:08:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:05:30 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char		**parse_map(t_parser *p, char **file);
 void		map_checker(char **map);
 void		player_init(t_cub *cub);
 void		doors_init(t_cub *cub);
+void		ennemy_init(t_cub *cub);
 
 int			is_texture_line(char *line);
 char		*go_to_path(char *line, int i);
@@ -52,8 +53,11 @@ int			is_player_char(char c);
 int			is_known_char(char c);
 int			is_close_char(char c);
 
+int			is_ennemy_char(char c);
+
 void		parser_error(int error, void *ptr);
 void		map_error(int error, char **map, t_coord *c);
+void		map_error_caller(int error, int i, int j);
 void		texture_error(int error, char *line);
 
 void		parser_free(t_parser *p);

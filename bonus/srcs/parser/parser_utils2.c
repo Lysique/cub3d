@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 14:16:24 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:01:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ int	is_known_char(char c)
 {
 	if (c == ' ' || c == '1' || c == '0'
 		|| is_player_char(c) || c == '2'
-		|| c == '3')
+		|| c == '3' || is_ennemy_char(c))
 		return (c);
 	return (0);
 }
 
 int	is_close_char(char c)
 {
-	if (c == '2' || is_player_char(c) || c == '3' || c == '0')
+	if (c == '2' || is_player_char(c) || c == '3' || c == '0'
+		|| is_ennemy_char(c))
 		return (0);
 	return (1);
 }
