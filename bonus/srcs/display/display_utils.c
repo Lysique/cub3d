@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:55:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 15:54:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 15:41:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,29 @@ int	is_door(t_door *d, int y, int x)
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+int	is_ennemy(t_en *en, int y, int x)
+{	
+	int	i;
+
+	i = 0;
+	while (en[i].action != -1)
+	{
+		if ((int)en[i].x == x && (int)en[i].y == y)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int	is_element_before_wall(t_cub *cub, int y, int x)
+{
+	if (is_door(cub->doors, y, x))
+		return (1);
+	else if (is_ennemy(cub->en, y, x) != -1)
+		return (1);
 	return (0);
 }
 

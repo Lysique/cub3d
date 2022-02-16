@@ -6,43 +6,42 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:40:12 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 17:51:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	draw_door(t_ray *r, t_cub *cub)
+void	recursive_check(t_ray *r, t_cub *cub)
 {
 	t_ray	r2;
 
 	r2 = *r;
-	r->hit = 1;
 	hit_wall_check(&r2, cub);
+	if (is_door(cub->doors, r->map_y, r->map_x))
+		draw_ray(r, cub);
+	if (is_ennemy(cub->en, r->map_y, r->map_x) != -1)
+		ray_cast_ennemy(r, cub);
 }
 
 void	hit_wall_check(t_ray *r, t_cub *cub)
 {
-	while (r->hit == 0)
+	if (r->side_y < r->side_x)
 	{
-		if (r->side_y < r->side_x)
-		{
-			r->side_y += r->delta_y;
-			r->map_y += r->step_y;
-			r->side = SO_NO;
-		}
-		else
-		{
-			r->side_x += r->delta_x;
-			r->map_x += r->step_x;
-			r->side = WE_EA;
-		}
-		if (is_raycast_end(cub, r->map_y, r->map_x))
-			r->hit = 1;
-		else if (is_door(cub->doors, r->map_y, r->map_x))
-			draw_door(r, cub);
+		r->side_y += r->delta_y;
+		r->map_y += r->step_y;
+		r->side = SO_NO;
 	}
-	draw_ray(r, cub);
+	else
+	{
+		r->side_x += r->delta_x;
+		r->map_x += r->step_x;
+		r->side = WE_EA;
+	}
+	if (is_raycast_end(cub, r->map_y, r->map_x))
+		draw_ray(r, cub);
+	else
+		recursive_check(r, cub);
 }
 
 void	side_init(t_ray *r, t_player p)
@@ -71,6 +70,9 @@ void	side_init(t_ray *r, t_player p)
 
 void	ray_init(t_ray *r, t_player p)
 {
+	r->ray_r = p.angle;
+	r->plane_x = 0.66 * sin(r->ray_r);
+	r->plane_y = -0.66 * cos(r->ray_r);
 	r->camera_r = (float)(r->pix_x * 2) / WIN_W - 1;
 	r->hit = 0;
 	r->dir_x = cos(r->ray_r) + r->camera_r * r->plane_x;
@@ -83,10 +85,9 @@ void	ray_init(t_ray *r, t_player p)
 
 void	ray_casting(t_cub *cub)
 {
-	t_ray		r;
+	t_ray	r;
 
 	r.pix_x = 0;
-	f_c_casting(cub, &r);
 	while (r.pix_x < WIN_W - (OPTIMISATION - 1))
 	{
 		ray_init(&r, cub->player);
@@ -94,4 +95,10 @@ void	ray_casting(t_cub *cub)
 		hit_wall_check(&r, cub);
 		r.pix_x += OPTIMISATION;
 	}
+}
+
+void	view_casting(t_cub *cub)
+{
+	f_c_casting(cub);
+	ray_casting(cub);
 }

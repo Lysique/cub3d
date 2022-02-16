@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 13:13:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 13:44:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ typedef struct s_ray {
 	t_img	tex;
 }			t_ray;
 
-void			ray_casting(t_cub *cub);
-void			f_c_casting(t_cub *cub, t_ray *r);
+void			view_casting(t_cub *cub);
+void			f_c_casting(t_cub *cub);
 void			draw_ray(t_ray *r, t_cub *cub);
 void			ray_cast_doors(t_ray *r, t_cub *cub);
 void			hit_wall_check(t_ray *r, t_cub *cub);
+void			ray_cast_ennemy(t_ray *r, t_cub *cub);
 
 void			display_map(t_cub *cub);
 void			display_char(t_cub *cub);
@@ -66,9 +67,12 @@ void			display_menu(t_cub *cub);
 void			put_my_pixel(t_img img, int y, int x, unsigned int color);
 unsigned int	get_texture_color(t_img text, int y, int x);
 int				is_door(t_door *d, int y, int x);
+int				is_ennemy(t_en *en, int y, int x);
+int				is_element_before_wall(t_cub *cub, int y, int x);
 int				is_raycast_end(t_cub *cub, int y, int x);
 void			optimisation_pixel_put(t_img img, int y, int x, unsigned int color);
 
 int		get_door_index(t_door *d, int y, int x);
+int		get_ennemy_index(t_en *en, int y, int x);
 
 #endif

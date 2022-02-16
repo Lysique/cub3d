@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 17:24:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 13:31:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 # include <sys/time.h>
 
 typedef unsigned int	t_time;
+
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		 bpp;
+	int		sizel;
+	int		endian;
+	int		w;
+	int		h;
+}				t_img;
 
 typedef struct s_key {
 	int	w;
@@ -51,21 +61,16 @@ typedef struct s_mlx {
 typedef struct s_en {
 	float	x;
 	float	y;
+	float	hbox;
 	float	angle;
+	t_img	img;
 	int		sprite;
+	int		nb_sprites;
+	int		nb_runspr;
 	int		type;
 	int		action;
+	int		life;
 }				t_en;
-
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		 bpp;
-	int		sizel;
-	int		endian;
-	int		w;
-	int		h;
-}				t_img;
 
 typedef struct s_player {
 	float	x;

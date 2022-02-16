@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:39:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:34:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 13:41:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,17 @@ void	f_c_casting_init(t_cub *cub, t_ray *r, int y)
 	r->floor_y = cub->player.y + r->row_dist * r->dir_y;
 }
 
-void	f_c_casting(t_cub *cub, t_ray *r)
+void	f_c_casting(t_cub *cub)
 {
-	int	y;
+	int		y;
+	t_ray	r;
 
 	y = 0;
+	r.pix_x = 0;
 	while (y < WIN_H / 2 - (OPTIMISATION - 1))
 	{
-		f_c_casting_init(cub, r, y);
-		draw_f_c(cub, r, y);
+		f_c_casting_init(cub, &r, y);
+		draw_f_c(cub, &r, y);
 		y += OPTIMISATION;
 	}
 }
