@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:27:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:39:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,6 @@
 # include <sys/time.h>
 
 typedef unsigned int	t_time;
-
-typedef struct	s_map {
-	char	c;
-	int		g_cost;
-	int		h_cost;
-	int		f_cost;
-}				t_map;
 
 typedef struct s_img {
 	void	*img;
@@ -126,7 +119,6 @@ typedef struct s_gun {
 
 typedef struct s_cub {
 	char		**map;
-	t_map		**map_t;
 	int			gun_type;
 	int			action;
 	t_player	player;
