@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/17 09:58:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:50:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	add_ennemy(t_cub *cub, char c, int j, int i)
 	cub->en[k].nb_runspr = ENNU_NBRUNSPR;
 	cub->en[k].img = cub->sprites[NAKED_EN][0];
 	cub->en[k].hbox = 0.3;
+	cub->en[k].time = 0;
 	cub->en[++k].action = -1;
 	cub->map[j][i] = '0';
 }

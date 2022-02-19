@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:10:17 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 13:29:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 15:06:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	init_struct(t_en *en, t_ray *r, t_cub *cub)
 	s.transf_y = s.invdet * (r->cam_plane_y * -1 * s.sprite_x
 			+ r->cam_plane_x * s.sprite_y);
 	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
-	s.sprite_height = abs((int)(WIN_H / s.transf_y));
+	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / 1.5;
 	s.sprite_width = abs((int)(WIN_H / s.transf_y));
-	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2;
+	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(200.0 / s.transf_y);
 	if (s.draw_start < 0)
 		s.draw_start = 0;
-	s.draw_end = s.sprite_height / 2 + WIN_H / 2;
+	s.draw_end = s.sprite_height / 2 + WIN_H / 2 + (int)(200.0 / s.transf_y);
 	if (s.draw_end > WIN_H - 1)
 		s.draw_end = WIN_H - 1;
 	en->s = s;

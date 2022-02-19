@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 12:41:00 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:49:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_en {
 	int		type;
 	int		action;
 	int		life;
+	t_time	time;
 	t_img	img;
 	t_spr	s;
 }				t_en;
