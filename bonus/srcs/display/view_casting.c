@@ -1,104 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_casting.c                                      :+:      :+:    :+:   */
+/*   view_casting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/02 10:14:29 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 17:51:41 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/16 14:09:01 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/19 13:39:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void	recursive_check(t_ray *r, t_cub *cub)
-{
-	t_ray	r2;
-
-	r2 = *r;
-	hit_wall_check(&r2, cub);
-	if (is_door(cub->doors, r->map_y, r->map_x))
-		draw_ray(r, cub);
-	if (is_ennemy(cub->en, r->map_y, r->map_x) != -1)
-		ray_cast_ennemy(r, cub);
-}
-
-void	hit_wall_check(t_ray *r, t_cub *cub)
-{
-	if (r->side_y < r->side_x)
-	{
-		r->side_y += r->delta_y;
-		r->map_y += r->step_y;
-		r->side = SO_NO;
-	}
-	else
-	{
-		r->side_x += r->delta_x;
-		r->map_x += r->step_x;
-		r->side = WE_EA;
-	}
-	if (is_raycast_end(cub, r->map_y, r->map_x))
-		draw_ray(r, cub);
-	else
-		recursive_check(r, cub);
-}
-
-void	side_init(t_ray *r, t_player p)
+void	side_init(t_ray *r, float p_x, float p_y)
 {
 	if (r->dir_x < 0)
 	{
 		r->step_x = -1;
-		r->side_x = (float)(p.x - r->map_x) * r->delta_x;
+		r->side_x = (float)(p_x - r->map_x) * r->delta_x;
 	}
 	else
 	{
 		r->step_x = 1;
-		r->side_x = (float)(p.x - 1 - r->map_x) * (r->delta_x * -1);
+		r->side_x = (float)(p_x - 1 - r->map_x) * r->delta_x * -1;
 	}
-	if (r->dir_y > 0)
+	if (r->dir_y < 0)
 	{
 		r->step_y = -1;
-		r->side_y = (float)(p.y - r->map_y) * r->delta_y ;
+		r->side_y = (float)(p_y - r->map_y) * r->delta_y ;
 	}
 	else
 	{
 		r->step_y = 1;
-		r->side_y = (float)(p.y - 1 - r->map_y) * (r->delta_y * -1);
+		r->side_y = (float)(p_y - 1 - r->map_y) * r->delta_y * -1;
 	}
 }
 
-void	ray_init(t_ray *r, t_player p)
+void	cast_ray(t_ray *r, t_cub *cub)
 {
-	r->ray_r = p.angle;
-	r->plane_x = 0.66 * sin(r->ray_r);
-	r->plane_y = -0.66 * cos(r->ray_r);
-	r->camera_r = (float)(r->pix_x * 2) / WIN_W - 1;
-	r->hit = 0;
-	r->dir_x = cos(r->ray_r) + r->camera_r * r->plane_x;
-	r->dir_y = sin(r->ray_r) + r->camera_r * r->plane_y;
+	r->cam_r = 2 * (float)r->pix_screen_x / (WIN_W - 1) - 1;
+	r->dir_x = cos(r->p_angle) + r->cam_r * r->cam_plane_x;
+	r->dir_y = (sin(r->p_angle) * -1) + r->cam_r * r->cam_plane_y;
+	r->dir = sqrt(r->dir_x * r->dir_x + r->dir_y * r->dir_y);
+	r->map_x = (int)cub->player.x;
+	r->map_y = (int)cub->player.y;
 	r->delta_x = fabsf(1 / r->dir_x);
 	r->delta_y = fabsf(1 / r->dir_y);
-	r->map_x = (int)p.x;
-	r->map_y = (int)p.y;
+	r->hit = 0;
+	r->dist = 0;
+	side_init(r, cub->player.x, cub->player.y);
+	hit_wall_check(r, cub);
 }
 
-void	ray_casting(t_cub *cub)
+void	ray_init(t_ray *r, t_cub *cub)
 {
-	t_ray	r;
-
-	r.pix_x = 0;
-	while (r.pix_x < WIN_W - (OPTIMISATION - 1))
-	{
-		ray_init(&r, cub->player);
-		side_init(&r, cub->player);
-		hit_wall_check(&r, cub);
-		r.pix_x += OPTIMISATION;
-	}
+	r->p_angle = cub->player.angle;
+	r->fov = 0.66;
+	r->cam_plane_x = r->fov * sin(r->p_angle);
+	r->cam_plane_y = r->fov * cos(r->p_angle);
 }
 
 void	view_casting(t_cub *cub)
 {
-	f_c_casting(cub);
-	ray_casting(cub);
+	t_ray	r;
+
+	r.pix_screen_x = 0;
+	ray_init(&r, cub);
+	f_c_casting(&r, cub);
+	sprites_init(&r, cub);
+	while (r.pix_screen_x < WIN_W)
+	{
+		cast_ray(&r, cub);
+		r.pix_screen_x += OPTI;
+	}
 }

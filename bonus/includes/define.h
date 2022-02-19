@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 12:08:49 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 12:27:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WIN_H 1080
 # define WIN_W 1920
 
-# define OPTIMISATION 2
+# define OPTI 2
 
 # define SG_BULLETS 2
 # define MG_BULLETS 50

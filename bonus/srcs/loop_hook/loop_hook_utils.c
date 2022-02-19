@@ -6,39 +6,11 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 12:26:45 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 12:28:28 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/17 13:29:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
-
-int	get_door_index(t_door *d, int y, int x)
-{
-	int	i;
-
-	i = 0;
-	while (d[i].open != -1)
-	{
-		if (d[i].y == y && d[i].x == x)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-int	get_ennemy_index(t_en *en, int y, int x)
-{
-	int	i;
-
-	i = 0;
-	while (en[i].action != -1)
-	{
-		if ((int)en[i].y == y && (int)en[i].x == x)
-			return (i);
-		i++;
-	}
-	return (-1);	
-}
 
 int	check_direction(t_cub *cub, int y, int x)
 {
