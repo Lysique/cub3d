@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop_hook.c                                        :+:      :+:    :+:   */
+/*   ennemy_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 14:46:43 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/19 14:50:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
 
-int	loop_hook(t_cub *cub)
+void	manage_ennemy(t_en *en, t_cub *cub)
 {
-	static t_time	time = 0;
+	(void)cub;
+	(void)en;
+}
 
-	cub->time = get_time() - time;
-	time = get_time();
-	door_manager(cub);
-	player_manager(cub);
-	gun_manager(cub);
-	ennemy_manager(cub);
-	display(cub);
-	return (0);
+void	ennemy_manager(t_cub *cub)
+{
+	int	i;
+
+	i = -1;
+	while (cub->en[++i].action != -1)
+		manage_ennemy(&cub->en[i], cub);
 }
