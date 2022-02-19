@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 17:24:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 12:41:00 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@
 # include <sys/time.h>
 
 typedef unsigned int	t_time;
+
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		 bpp;
+	int		sizel;
+	int		endian;
+	int		w;
+	int		h;
+}				t_img;
 
 typedef struct s_key {
 	int	w;
@@ -48,24 +58,37 @@ typedef struct s_mlx {
 	void	*win;
 }				t_mlx;
 
+typedef struct s_spr {
+	float	sprite_x;
+	float	sprite_y;
+	float	invdet;
+	float	transf_x;
+	float	transf_y;
+	int		sprite_screen_x;
+	int		sprite_height;
+	int		sprite_width;
+	int		tex_x;
+	int		tex_y;
+	int		draw_start;
+	int		draw_end;
+	int		d;
+	t_img	tex;
+}				t_spr;
+
 typedef struct s_en {
 	float	x;
 	float	y;
+	float	hbox;
 	float	angle;
 	int		sprite;
+	int		nb_sprites;
+	int		nb_runspr;
 	int		type;
 	int		action;
+	int		life;
+	t_img	img;
+	t_spr	s;
 }				t_en;
-
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		 bpp;
-	int		sizel;
-	int		endian;
-	int		w;
-	int		h;
-}				t_img;
 
 typedef struct s_player {
 	float	x;
@@ -124,5 +147,6 @@ void		free_my_arr(char **arr);
 void		free_and_exit(t_cub *cub, int error);
 
 int			is_close_char(char c);
+int			get_door_index(t_door *door, int y, int x);
 
 #endif

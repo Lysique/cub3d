@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 17:49:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 12:27:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WIN_H 1080
 # define WIN_W 1920
 
-# define OPTIMISATION 2
+# define OPTI 2
 
 # define SG_BULLETS 2
 # define MG_BULLETS 50
@@ -53,11 +53,16 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 5
+# define NB_SPR 6
 # define MAX_SPR 13
 
 /*#################### ENNEMY SETTINGS ####################*/
 
+		/*ENNEMY NUDE */
+
+# define ENNU_LIFE 100
+# define ENNU_NBSPR 9
+# define ENNU_NBRUNSPR 6
 
 		/* ENNEMIES ACTION */
 

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:41:32 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 12:18:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,5 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/mitrailleuse/mitrailleuse", 13,
 		cub->sprites[MACHINEGUN], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MENUBAR], cub);
+	create_img("sprites/ennemi_nu/en_nu_face_pause", 1, cub->sprites[NAKED_EN], cub);
 }

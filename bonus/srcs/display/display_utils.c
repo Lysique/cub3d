@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:55:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 15:54:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 12:38:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,19 @@ void	optimisation_pixel_put(t_img img, int y, int x, unsigned int color)
 	int	i;
 	int	j;
 
-	i = OPTIMISATION;
+	i = OPTI;
 	while (i--)
 	{
-		j = OPTIMISATION;
+		j = OPTI;
 		while (j--)
 			put_my_pixel(img, y + i, x + j, color);
 	}
 }
 
-int	is_door(t_door *d, int y, int x)
-{	
-	int	i;
-
-	i = 0;
-	while (d[i].open != -1)
-	{
-		if (d[i].y == y && d[i].x == x)
-			return (1);
-		i++;
-	}
+int	is_element_before_wall(t_cub *cub, int y, int x)
+{
+	if (get_door_index(cub->doors, y, x) != -1)
+		return (1);
 	return (0);
 }
 
