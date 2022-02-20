@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:23:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:41:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:15:27 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	gun_init(t_cub *cub)
 	cub->gun[1].nb_sprites = 13;
 	cub->gun[1].nb_spr_shoot = 2;
 	cub->gun[1].status = GS_FREE;
-	cub->gun[1].damage = 1;
+	cub->gun[1].damage = 2;
 }
 
 void	variables_init(t_cub *cub)

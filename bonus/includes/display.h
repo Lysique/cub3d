@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:58:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:36:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int				is_door(t_door *d, int y, int x);
 int				is_ennemy(t_en *en, int y, int x);
 int				is_element_before_wall(t_cub *cub, int y, int x);
 int				is_raycast_end(t_cub *cub, int y, int x);
-void			optimisation_pixel_put(t_img img, int y, int x, unsigned int color);
-void			optimisation_pixel_put2(t_img img, int y, int x, unsigned int color);
+void			optimisation_pixel_put(t_img img,
+					int y, int x, unsigned int color);
+void			optimisation_pixel_put2(t_img img,
+					int y, int x, unsigned int color);
 
 #endif

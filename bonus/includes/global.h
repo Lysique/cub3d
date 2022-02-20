@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:58:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:37:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef unsigned int	t_time;
 typedef struct s_img {
 	void	*img;
 	char	*addr;
-	int		 bpp;
+	int		bpp;
 	int		sizel;
 	int		endian;
 	int		w;

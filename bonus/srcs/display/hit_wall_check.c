@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:12:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 13:37:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:03:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	recursive_check(t_ray *r, t_cub *cub)
 	t_ray		r2;
 
 	if (is_raycast_end(cub, r->map_y, r->map_x))
-	{
 		draw_line(r, cub);
-	}
 	else if (get_door_index(cub->doors, r->map_y, r->map_x) != -1)
 	{
 		r2 = *r;

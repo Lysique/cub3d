@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/19 16:59:56 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/20 13:43:45 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  loop_hook_utils.c gun_manager.c shoot_manager.c \
-				  ennemy_manager.c
+				  ennemy_manager.c hit_manager.c
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
