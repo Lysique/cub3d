@@ -6,11 +6,54 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:46:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:53:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 12:51:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
+
+void	check_if_hit(t_en *en, t_cub *cub, t_gun *gun)
+{
+	float	delta_x;
+	float	delta_y;
+	float	angle;
+	float	dist;
+	float	m;
+	float	x;
+
+	delta_x = (cub->player.x - en->x);
+	delta_y = (cub->player.y - en->y);
+	dist = sqrtf(delta_x * delta_x + delta_y * delta_y);
+	angle = atan(delta_y / delta_x * -1);
+	if (angle < 0)
+		angle += 2 * PI;
+	if (delta_x < 0 && delta_y < 0)
+		angle += PI;
+	if (delta_x < 0 && delta_y > 0)
+		angle -= PI;
+	m = tan(angle - cub->player.angle + PI / 2);
+	x = dist / m;
+	delta_y = fabsf(delta_y);
+	delta_x = fabsf(delta_x);
+	if (delta_y > delta_x && ((sin(angle) > 0 && sin(cub->player.angle) > 0) || (sin(angle) < 0 && sin(cub->player.angle) < 0)))
+		return ;
+	else if (delta_x > delta_y && ((cos(angle) > 0 && cos(cub->player.angle) > 0) || (cos(angle) < 0 && cos(cub->player.angle) < 0)))
+		return ;
+	if (x < 0.3 && x > -0.3)
+		en->life -= gun->damage;
+}
+
+void	hit_manager(t_cub *cub, t_gun *gun)
+{
+	t_ray	r;
+	int		i;
+
+	i = -1;
+	(void)gun;
+	r.p_angle = cub->player.angle;
+	while (cub->en[++i].action != -1)
+		check_if_hit(&cub->en[i], cub, gun);
+}
 
 void	machinegun_shot(t_cub *cub, t_gun *gun)
 {
@@ -24,13 +67,13 @@ void	machinegun_shot(t_cub *cub, t_gun *gun)
 		gun->status = GS_FREE;
 	}
 	else if (gun->status == GS_FREE)
-	{
 		gun->status = GS_SHOT;
-		gun->sprite = 1;
-	}
 	if (gun->status == GS_SHOT && gun->time / MACHINGUN_SPEED > 0)
 	{
-		gun->sprite += gun->sprite % 2 * 2 - 1;
+		if (gun->sprite == 0)
+			gun->sprite = 1;
+		else
+			gun->sprite += gun->sprite % 2 * 2 - 1;
 		gun->time -= MACHINGUN_SPEED;
 		gun->bullets--;
 		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
@@ -45,6 +88,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 		gun->status = GS_SHOT;
 		system("afplay -v 1 music/pompe_feu.mp3 &>/dev/null &");
 		gun->sprite = 1;
+		hit_manager(cub, gun);
 		gun->bullets--;
 	}
 	else if (gun->status == GS_SHOT && gun->time / SHOTGUN_SPEED > 0)

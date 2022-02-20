@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:09:01 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 13:39:32 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:57:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,10 @@ void	cast_ray(t_ray *r, t_cub *cub)
 	r->cam_r = 2 * (float)r->pix_screen_x / (WIN_W - 1) - 1;
 	r->dir_x = cos(r->p_angle) + r->cam_r * r->cam_plane_x;
 	r->dir_y = (sin(r->p_angle) * -1) + r->cam_r * r->cam_plane_y;
-	r->dir = sqrt(r->dir_x * r->dir_x + r->dir_y * r->dir_y);
 	r->map_x = (int)cub->player.x;
 	r->map_y = (int)cub->player.y;
 	r->delta_x = fabsf(1 / r->dir_x);
 	r->delta_y = fabsf(1 / r->dir_y);
-	r->hit = 0;
-	r->dist = 0;
 	side_init(r, cub->player.x, cub->player.y);
 	hit_wall_check(r, cub);
 }

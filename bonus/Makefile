@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/19 15:15:53 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/19 16:59:56 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 OBJDIR = objs/
 MLX_DIR = mlx/
 INCLUDES = includes/
-GLOBAL_INCLUDES = includes/define.h
+GLOBAL_INCLUDES = includes/define.h includes/global.h
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
 C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS) $(LOOP_HOOK_OBJS)
@@ -47,7 +47,7 @@ GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
-GLOBAL_HEADER = $(INCLUDES)global.h $(GLOBAL_INCLUDES)
+GLOBAL_HEADER = $(GLOBAL_INCLUDES)
 
 $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@

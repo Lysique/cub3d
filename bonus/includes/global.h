@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:39:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:58:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef struct s_gun {
 	int		nb_sprites;
 	int		max_bullets;
 	int		bullets;
+	int		damage;
 	t_time	time;
 }				t_gun;
 
@@ -133,6 +134,42 @@ typedef struct s_cub {
 	t_img		textures[7];
 	t_mlx		mlx;
 }				t_cub;
+
+typedef struct s_ray {
+	float	p_angle;
+	float	fov;
+	float	cam_plane_x;
+	float	cam_plane_y;
+	float	cam_r;
+	float	dir_x;
+	float	dir_y;
+	float	delta_x;
+	float	delta_y;
+	float	side_x;
+	float	side_y;
+	float	perp_wall_dist;
+	float	wall_x;
+	float	tex_x;
+	float	tex_y;
+	float	tex_stepy;
+	float	dir2_x;
+	float	dir2_y;
+	float	row_dist;
+	float	tex_stepx;
+	float	floor_x;
+	float	floor_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		pix_screen_x;
+	int		line_h;
+	int		draw_start;
+	int		draw_end;
+	int		p;
+	t_img	tex;
+}				t_ray;
 
 void		my_write(char *str);
 void		wr_and_ex(char *str, int ex);

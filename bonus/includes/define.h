@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 12:27:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 12:53:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 
 		/*ENNEMY NUDE */
 
-# define ENNU_LIFE 100
+# define ENNU_LIFE 15
 # define ENNU_NBSPR 9
 # define ENNU_NBRUNSPR 6
 
