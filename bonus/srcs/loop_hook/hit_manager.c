@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/20 14:33:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:39:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ void	hit_manager(t_cub *cub, t_gun *gun)
 		;
 	while (i--)
 	{
+		if (cub->en[i].life < 0)
+			continue ;
 		checker = check_if_hit(&cub->en[i], cub);
 		if (checker == 1)
 			cub->en[i].life -= gun->damage;
