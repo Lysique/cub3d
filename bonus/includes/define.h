@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 12:27:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 14:36:14 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 
 		/*ENNEMY NUDE */
 
-# define ENNU_LIFE 100
+# define ENNU_LIFE 15
 # define ENNU_NBSPR 9
 # define ENNU_NBRUNSPR 6
 
@@ -84,7 +84,8 @@
 		 */
 		/* MOVING SPEED
 		 *
-		 * Note : These values are multiplied by cub->time (time in ms between 2 loop_hooks).
+		 * Note : These values are multiplied by cub->time
+		 * (time in ms between 2 loop_hooks).
 		 *
 		 * SPEED : Speed when moving with keyboard.
 		 *
@@ -129,11 +130,11 @@
 
 /*#################### GUN DEFINE ####################*/
 
-		 /* SHARED DEFINE
-		  *
-		  * RELOAD_GUN_SPEED : Time between each reload frame in ms.
-		  * 
-		  * SWAP_GUN_BREAK : Time break after swapping gun.
+		/* SHARED DEFINE
+		 *
+		 * RELOAD_GUN_SPEED : Time between each reload frame in ms.
+		 * 
+		 * SWAP_GUN_BREAK : Time break after swapping gun.
 		 */
 
 # define RELOAD_GUN_SPEED 150
@@ -165,14 +166,17 @@
 
 		/* MINIMAP 
 		 *
-		 * MINI_PX_X/Y : Size of the x and y of the minimap in pixel(see PX_INDEX_CONV).
+		 * MINI_PX_X/Y : Size of the x and y of the minimap in pixel
+		 * (see PX_INDEX_CONV).
 		 *
 		 * MINI_SIZE_X/Y : Number of blocks in the x and y of the minimap.
 		 * Should always be an even number(see PX_INDEX_CONV). 
 		 *
-		 * MINI_PX_SPACE_X/Y : The space between the edge of the screen and the minimap
+		 * MINI_PX_SPACE_X/Y : The space between the edge of the screen
+		 * and the minimap
 		 *
-		 * PX_INDEX_CONV_X/Y : Conversion screen pixel to map. (1 / (MINI_PX / MINI_SIZE))  
+		 * PX_INDEX_CONV_X/Y : Conversion screen pixel to map.
+		 * (1 / (MINI_PX / MINI_SIZE)) 
 		 * 		
 		 * 				DEFAULT VALUES :
 		 *
@@ -180,8 +184,8 @@
 		 */
 		/* MINIMAP CHARACTER
 		 *
-		 * CHAR_SIZE : Size of the square representing the character in the minimap in pixel.
-		 * Should always be an even number.
+		 * CHAR_SIZE : Size of the square representing the character in
+		 * the minimap in pixel. Should always be an even number.
 		 *
 		 * CHAR_LINE_SIZE : Size of the line pointing to the direction of the character
 		 * in the minimap in pixel.
@@ -228,7 +232,7 @@
 
 # define CHAR_SIZE 10
 # define CHAR_LINE_SIZE 20
- 
+
 # define CHAR_COLOR BLUE
 # define CHAR_LINE_COLOR RED
 
