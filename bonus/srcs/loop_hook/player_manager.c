@@ -77,6 +77,7 @@ void	rotate_manager(t_cub *cub)
 	else if (cub->player.angle < 0)
 		cub->player.angle += 2 * PI;
 	cub->player.angle -= SENSI_MOUSE * cub->time * (cub->mouse.x - WIN_W / 2);
+	cub->mouse.x = WIN_W / 2;
 }
 
 void	player_manager(t_cub *cub)
