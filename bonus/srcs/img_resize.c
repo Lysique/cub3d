@@ -68,6 +68,10 @@ void	resize_my_imgs(t_cub *cub, t_img *imgs, int h, int w)
 
 void	img_resize(t_cub *cub)
 {
-	resize_my_imgs(cub, cub->sprites[SHOTGUN], cub->sprites[SHOTGUN][0].h * 2,
-		cub->sprites[SHOTGUN][0].w * 2);
+	resize_my_imgs(cub, cub->sprites[SHOTGUN], cub->sprites[SHOTGUN][0].h * 2.5,
+		cub->sprites[SHOTGUN][0].w * 2.5);
+	resize_my_imgs(cub, cub->sprites[MACHINEGUN], cub->sprites[MACHINEGUN][0].h * 2.5,
+		cub->sprites[MACHINEGUN][0].w * 2.5);
+	resize_my_imgs(cub, cub->sprites[MENUBAR], 200, 1690);
+	resize_my_imgs(cub, cub->sprites[MAPBAR], 235, 235);
 }

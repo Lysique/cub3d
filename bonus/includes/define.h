@@ -47,13 +47,15 @@
 # define MACHINEGUN 3
 # define MENUBAR 4
 # define NAKED_EN 5
+# define MAPBAR 6
+# define POLICE 7
 
 		/* NB_SPRITES 
 		   
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 6
+# define NB_SPR 8
 # define MAX_SPR 13
 
 /*#################### ENNEMY SETTINGS ####################*/
@@ -224,8 +226,8 @@
 # define MINI_SIZE_X 10
 # define MINI_SIZE_Y 10
 
-# define MINI_PX_SPACE_X 20
-# define MINI_PX_SPACE_Y 20
+# define MINI_PX_SPACE_X 24
+# define MINI_PX_SPACE_Y 18
 
 # define PX_INDEX_CONV_X 0.05
 # define PX_INDEX_CONV_Y 0.05
@@ -236,17 +238,19 @@
 # define CHAR_COLOR BLUE
 # define CHAR_LINE_COLOR RED
 
-# define MENUBAR_H 200
-# define MENUBAR_W 1690
-
 # define MENUBAR_START_X 230
 # define MENUBAR_START_Y 880
 
-# define POS_GUN_X 960
+# define MAPBAR_START_X 8
+# define MAPBAR_START_Y 848
+
+# define POS_GUN_X 1100
 # define POS_GUN_Y 880
 
-# define SIZE_GUN_X 2
-# define SIZE_GUN_Y 2
+# define POS_NB_BULLET_X 300
+# define POS_NB_BULLET_Y 860
+
+
 
 		/* MINIMAP COLORS */
 

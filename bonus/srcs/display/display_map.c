@@ -77,7 +77,10 @@ void	display_map(t_cub *cub)
 {
 	int		px_start_y;
 	int		px_start_x;
+	t_img		img;
 
+	img = cub->sprites[MAPBAR][0];
+	draw_menu(cub, img, MAPBAR_START_Y, MAPBAR_START_X);
 	px_start_y = WIN_H - (MINI_PX_Y + MINI_PX_SPACE_Y);
 	px_start_x = MINI_PX_SPACE_X;
 	magic_map_displayer(cub, px_start_y, px_start_x);
