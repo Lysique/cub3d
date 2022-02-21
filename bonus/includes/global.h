@@ -34,6 +34,11 @@ typedef struct s_img {
 	int		h;
 }				t_img;
 
+typedef struct s_mouse {
+	int	x;
+	int y;
+}				t_mouse;
+
 typedef struct s_key {
 	int	w;
 	int	s;
@@ -48,10 +53,6 @@ typedef struct s_key {
 	int	reload;
 	int	swap_gun;
 }				t_key;
-
-typedef struct s_mouse {
-	int	x;
-}				t_mouse;
 
 typedef struct s_mlx {
 	void	*mlx;

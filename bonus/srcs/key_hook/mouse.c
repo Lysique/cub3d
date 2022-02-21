@@ -36,10 +36,9 @@ int	mouse_move(int x, int y, void *param)
 
 	cub = (t_cub *)param;
 	(void)y;
-	if (x > WIN_W / 3 + WIN_W / 8 && x < WIN_W / 3 * 2 - WIN_W / 8)
-		cub->mouse.x = WIN_W / 2;
-	else
-		cub->mouse.x = x;
+	cub->mouse.x = x;
+	// mlx_mouse_get_pos(cub->mlx.win, &cub->mouse.x, &cub->mouse.y);
+	mlx_mouse_move(cub->mlx.win, WIN_W / 2, WIN_H / 2);
 	return (0);
 }
 
