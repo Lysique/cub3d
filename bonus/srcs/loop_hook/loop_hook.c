@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 15:48:13 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:46:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	loop_hook(t_cub *cub)
 	door_manager(cub);
 	player_manager(cub);
 	gun_manager(cub);
+	ennemy_manager(cub);
 	display(cub);
 	return (0);
 }

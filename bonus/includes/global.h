@@ -24,6 +24,16 @@
 
 typedef unsigned int	t_time;
 
+typedef struct s_img {
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		sizel;
+	int		endian;
+	int		w;
+	int		h;
+}				t_img;
+
 typedef struct s_key {
 	int	w;
 	int	s;
@@ -48,24 +58,38 @@ typedef struct s_mlx {
 	void	*win;
 }				t_mlx;
 
+typedef struct s_spr {
+	float	sprite_x;
+	float	sprite_y;
+	float	invdet;
+	float	transf_x;
+	float	transf_y;
+	int		sprite_screen_x;
+	int		sprite_height;
+	int		sprite_width;
+	int		tex_x;
+	int		tex_y;
+	int		draw_start;
+	int		draw_end;
+	int		d;
+	t_img	tex;
+}				t_spr;
+
 typedef struct s_en {
 	float	x;
 	float	y;
+	float	hbox;
 	float	angle;
 	int		sprite;
+	int		nb_sprites;
+	int		nb_runspr;
 	int		type;
 	int		action;
+	int		life;
+	t_time	time;
+	t_img	img;
+	t_spr	s;
 }				t_en;
-
-typedef struct s_img {
-	void	*img;
-	char	*addr;
-	int		 bpp;
-	int		sizel;
-	int		endian;
-	int		w;
-	int		h;
-}				t_img;
 
 typedef struct s_player {
 	float	x;
@@ -90,6 +114,7 @@ typedef struct s_gun {
 	int		nb_sprites;
 	int		max_bullets;
 	int		bullets;
+	int		damage;
 	t_time	time;
 }				t_gun;
 
@@ -110,6 +135,42 @@ typedef struct s_cub {
 	t_mlx		mlx;
 }				t_cub;
 
+typedef struct s_ray {
+	float	p_angle;
+	float	fov;
+	float	cam_plane_x;
+	float	cam_plane_y;
+	float	cam_r;
+	float	dir_x;
+	float	dir_y;
+	float	delta_x;
+	float	delta_y;
+	float	side_x;
+	float	side_y;
+	float	perp_wall_dist;
+	float	wall_x;
+	float	tex_x;
+	float	tex_y;
+	float	tex_stepy;
+	float	dir2_x;
+	float	dir2_y;
+	float	row_dist;
+	float	tex_stepx;
+	float	floor_x;
+	float	floor_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+	int		pix_screen_x;
+	int		line_h;
+	int		draw_start;
+	int		draw_end;
+	int		p;
+	t_img	tex;
+}				t_ray;
+
 void		my_write(char *str);
 void		wr_and_ex(char *str, int ex);
 
@@ -124,5 +185,6 @@ void		free_my_arr(char **arr);
 void		free_and_exit(t_cub *cub, int error);
 
 int			is_close_char(char c);
+int			get_door_index(t_door *door, int y, int x);
 
 #endif

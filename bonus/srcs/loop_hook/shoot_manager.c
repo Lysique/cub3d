@@ -32,9 +32,12 @@ void	machinegun_shot(t_cub *cub, t_gun *gun)
 	}
 	if (gun->status == GS_SHOT && gun->time / MACHINGUN_SPEED > 0)
 	{
-		gun->sprite += gun->sprite % 2 * 2 - 1;
+		if (gun->sprite == 0)
+			gun->sprite = 1;
+		else
+			gun->sprite += gun->sprite % 2 * 2 - 1;
 		gun->time -= MACHINGUN_SPEED;
-		gun->bullets--;
+		hit_manager(cub, gun);
 		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
 	}
 }
@@ -47,7 +50,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 		gun->status = GS_SHOT;
 		system("afplay -v 1 music/pompe_feu.mp3 &>/dev/null &");
 		gun->sprite = 1;
-		gun->bullets--;
+		hit_manager(cub, gun);
 	}
 	else if (gun->status == GS_SHOT && gun->time / SHOTGUN_SPEED > 0)
 	{

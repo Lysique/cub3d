@@ -21,12 +21,14 @@ void	gun_init(t_cub *cub)
 	cub->gun[0].nb_spr_shoot = 1;
 	cub->gun[0].time = 0;
 	cub->gun[0].status = GS_FREE;
+	cub->gun[0].damage = 10;
 	cub->gun[1].sprite = 0;
 	cub->gun[1].bullets = MG_BULLETS;
 	cub->gun[1].max_bullets = MG_BULLETS;
 	cub->gun[1].nb_sprites = 13;
 	cub->gun[1].nb_spr_shoot = 2;
 	cub->gun[1].status = GS_FREE;
+	cub->gun[1].damage = 2;
 }
 
 void	variables_init(t_cub *cub)

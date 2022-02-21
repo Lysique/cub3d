@@ -19,7 +19,7 @@ MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 OBJDIR = objs/
 MLX_DIR = mlx/
 INCLUDES = includes/
-GLOBAL_INCLUDES = includes/define.h
+GLOBAL_INCLUDES = includes/define.h includes/global.h
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
 C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS) $(LOOP_HOOK_OBJS)
@@ -47,7 +47,7 @@ GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
-GLOBAL_HEADER = $(INCLUDES)global.h $(GLOBAL_INCLUDES)
+GLOBAL_HEADER = $(GLOBAL_INCLUDES)
 
 $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
@@ -71,9 +71,12 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
 
 ##### DISPLAY FILES ######
 
-DISPLAY_FILES = display.c ray_casting.c f_c_casting.c \
-				draw_ray.c display_map.c display_char.c \
-				display_utils.c display_gun.c display_menu.c
+DISPLAY_FILES = display.c view_casting.c \
+				display_map.c display_char.c \
+				display_utils.c display_gun.c display_menu.c \
+				f_c_casting.c draw_ennemies.c sprites_init.c \
+				hit_wall_check.c draw_line.c
+
 
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
@@ -98,7 +101,9 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 ##### LOOP_HOOK FILES ######
 
 LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
-				  loop_hook_utils.c gun_manager.c shoot_manager.c
+				  loop_hook_utils.c gun_manager.c shoot_manager.c \
+				  ennemy_manager.c hit_manager.c
+
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))

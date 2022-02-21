@@ -6,11 +6,26 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 09:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 13:54:13 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:50:38 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
+
+void display_gun_sight(t_cub *cub)
+{
+	int	x;
+	int	y;
+
+	x = WIN_W / 2 - 2;
+	while (x < WIN_W / 2 + 2)
+	{
+		y = WIN_H / 2 - 2;
+		while (y < WIN_H / 2 + 2)
+			put_my_pixel(cub->display, y++, x, RED);
+		x++;
+	}
+}
 
 void	draw_gun(t_cub *cub, t_img img, int start_y, int start_x)
 {
@@ -44,4 +59,5 @@ void	display_gun(t_cub *cub)
 	start_x = POS_GUN_X - (img.w * SIZE_GUN_X) / 2;
 	start_y = POS_GUN_Y - img.h * SIZE_GUN_Y;
 	draw_gun(cub, img, start_y, start_x);
+	display_gun_sight(cub);
 }

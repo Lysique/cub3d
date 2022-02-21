@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:55:47 by tuytters          #+#    #+#             */
-/*   Updated: 2022/02/12 11:32:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/19 12:41:52 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ t_time	get_time(void)
 	return (time);
 }
 
+int	get_door_index(t_door *d, int y, int x)
+{
+	int	i;
+
+	i = 0;
+	while (d[i].open != -1)
+	{
+		if (d[i].y == y && d[i].x == x)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
 int	ft_strlen(const char *s)
 {
 	int	size;
