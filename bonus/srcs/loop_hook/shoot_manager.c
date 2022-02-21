@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shoot_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:46:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/20 13:38:49 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:31:50 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ void	machinegun_shot(t_cub *cub, t_gun *gun)
 		gun->status = GS_FREE;
 	}
 	else if (gun->status == GS_FREE)
+	{
 		gun->status = GS_SHOT;
+		gun->bullets--;
+		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
+		gun->sprite = 1;
+	}
 	if (gun->status == GS_SHOT && gun->time / MACHINGUN_SPEED > 0)
 	{
 		if (gun->sprite == 0)
@@ -57,7 +62,6 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	{
 		gun->status = GS_FREE;
 		cub->action = FREE_GUN;
-		cub->key.shoot_p = 0;
 		gun->time = 0;
 		if (cub->key.shoot_r == 1)
 			cub->key.shoot_p = 0;

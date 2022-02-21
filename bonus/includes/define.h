@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/20 14:36:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:42:36 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@
 		/* MACHIN GUN 
 		 */
 
-# define MACHINGUN_SPEED 100
+# define MACHINGUN_SPEED 60
 
 		/* GUN ACTION */
 

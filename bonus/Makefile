@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/20 13:43:45 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/14 09:52:17 by tuytters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c variables_init.c
+			 imgs_creator.c variables_init.c img_resize.c
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
@@ -88,7 +88,8 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 ##### KEY_HOOK FILES ######
 
-KEY_HOOK_FILES = key_press.c key_release.c mouse.c
+KEY_HOOK_FILES = key_press.c key_release.c mouse.c \
+				 mouse_release.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))

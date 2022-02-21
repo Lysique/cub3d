@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:30:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:20:19 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	parser_init(t_parser *p, t_cub *cub)
 {
 	p->cub = cub;
 	p->file = 0;
-	p->ptr = 0;
 	set_parserptr(p);
 }
 

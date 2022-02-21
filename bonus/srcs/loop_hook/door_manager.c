@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/12 13:20:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:19:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	animate_door(t_door *d, t_time time)
 {
 	d->time += time;
-	if (d->time / DOOR_FRAME > 1)
+	if (d->time / DOOR_FRAME > 0)
 	{
 		d->time -= DOOR_FRAME;
 		d->sprite += d->is_moving;

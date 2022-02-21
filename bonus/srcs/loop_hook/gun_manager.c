@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:51:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/14 10:48:15 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 void	swap_gun(t_cub *cub)
 {
-	system("afplay -v 0.2 music/change_arme.mp3 &>/dev/null &");
-	if (cub->gun_type == 0)
-		cub->gun_type = 1;
-	else
-		cub->gun_type = 0;
-	cub->action = FREE_GUN;
-	cub->key.swap_gun = 0;
+	static t_time	time = 0;
+
+	if (time == 0)
+	{
+		system("afplay -v 0.2 music/change_arme.mp3 &>/dev/null &");
+		if (cub->gun_type == 0)
+			cub->gun_type = 1;
+		else
+			cub->gun_type = 0;
+	}
+	time += cub->time;
+	if (time > 200)
+	{
+		cub->action = FREE_GUN;
+		cub->key.swap_gun = 0;
+		time = 0;
+	}
 }
 
 void	reload_reset(t_cub *cub, t_gun *gun)
