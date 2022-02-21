@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:01:30 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/21 12:58:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/21 14:53:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	draw_bg(t_cub *cub)
 	{
 		j = -1;
 		while (++j < WIN_W)
-			put_my_pixel(cub->display, i, j, BLACK);
+			put_my_pixel(cub->display, i, j, RED);
 	}
 }
 

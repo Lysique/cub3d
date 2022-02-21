@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:09:01 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 16:57:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/21 13:40:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void	view_casting(t_cub *cub)
 	{
 		cast_ray(&r, cub);
 		r.pix_screen_x += OPTI;
-	}
+	}	
 }
