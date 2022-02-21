@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/18 11:42:36 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/21 13:00:26 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@
 
 # define SPEED 0.0015
 # define ROTATE 0.0015
-# define SENSI_MOUSE 0.000015
+# define SENSI_MOUSE 0.00015
 
 # define STEP_SOUND_FRAME 300
 
