@@ -33,30 +33,6 @@
 // 	}
 // }
 
-void	draw_menu(t_cub *cub, t_img img, int start_y, int start_x)
-{
-	int				pix_x;
-	int				pix_y;
-	float			tex_x;
-	float			tex_y;
-	unsigned int	color;
-
-	pix_x = -1;
-	tex_x = 0;
-	while (++pix_x < img.w)
-	{
-		pix_y = -1;
-		tex_y = 0;
-		while (++pix_y < img.h)
-		{
-			tex_y = (float)pix_y;
-			color = get_texture_color(img, (int)tex_y, (int)tex_x);
-			put_my_pixel(cub->display, pix_y + start_y, pix_x + start_x, color);
-		}
-		tex_x = (float)pix_x;
-	}
-}
-
 void	draw_text(t_cub *cub, int start_y, int start_x, char *text)
 {
 	int	i;
@@ -66,7 +42,7 @@ void	draw_text(t_cub *cub, int start_y, int start_x, char *text)
 	{
 		if (text[i] >= '0' && text[i] <= '9')
 		{
-			draw_menu(cub, cub->sprites[POLICE][text[i] - '0'], start_y, start_x);
+			draw_img(cub, cub->sprites[POLICE][text[i] - '0'], start_y, start_x);
 			start_x += cub->sprites[POLICE][text[i] - '0'].w;
 		}
 		i++;
@@ -78,7 +54,7 @@ void	display_menu(t_cub *cub)
 	t_img		img;
 
 	img = cub->sprites[MENUBAR][0];
-	draw_menu(cub, img, MENUBAR_START_Y, MENUBAR_START_X);
-	// draw_text(cub, POS_NB_BULLET_X, POS_NB_BULLET_Y, itoa(cub->gun[cub->gun_type].bullets));
-	draw_text(cub, POS_NB_BULLET_Y, POS_NB_BULLET_X, "1");
+	draw_img(cub, img, MENUBAR_START_Y, MENUBAR_START_X);
+	draw_text(cub, POS_NB_BULLET_Y, POS_NB_BULLET_X, ft_itoa(cub->gun[cub->gun_type].bullets));
+	//draw_text(cub, POS_NB_BULLET_Y, POS_NB_BULLET_X, "1");
 }

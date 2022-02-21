@@ -110,7 +110,7 @@
 
 # define SPEED 0.0015
 # define ROTATE 0.0015
-# define SENSI_MOUSE 0.00015
+# define SENSI_MOUSE 0.000065
 
 # define STEP_SOUND_FRAME 300
 
@@ -248,7 +248,7 @@
 # define POS_GUN_Y 880
 
 # define POS_NB_BULLET_X 300
-# define POS_NB_BULLET_Y 860
+# define POS_NB_BULLET_Y 910
 
 
 

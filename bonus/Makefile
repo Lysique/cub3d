@@ -75,7 +75,8 @@ DISPLAY_FILES = display.c view_casting.c \
 				display_map.c display_char.c \
 				display_utils.c display_gun.c display_menu.c \
 				f_c_casting.c draw_ennemies.c sprites_init.c \
-				hit_wall_check.c draw_line.c
+				hit_wall_check.c draw_line.c draw_img.c \
+				display_utils2.c
 
 
 DISPLAY_DIR = srcs/display/
