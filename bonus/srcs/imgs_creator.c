@@ -76,4 +76,5 @@ void	imgs_creator(t_cub *cub)
 		cub->sprites[MACHINEGUN], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MENUBAR], cub);
 	create_img("sprites/ennemi_nu/en1_S", 1, cub->sprites[NAKED_EN], cub);
+	img_resize(cub);
 }

@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c variables_init.c
+			 imgs_creator.c variables_init.c img_resize.c
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
