@@ -22,6 +22,7 @@ void			draw_ennemies(t_ray *r, t_cub *cub);
 void			sprites_init(t_ray *r, t_cub *cub);
 void			hit_wall_check(t_ray *r, t_cub *cub);
 void			draw_line(t_ray *r, t_cub *cub);
+void			draw_menu(t_cub *cub, t_img img, int start_y, int start_x);
 
 void			display_map(t_cub *cub);
 void			display_char(t_cub *cub);

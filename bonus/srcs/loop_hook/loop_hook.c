@@ -19,7 +19,7 @@ int	loop_hook(t_cub *cub)
 
 	cub->time = get_time() - time;
 
-	if (++i / 100 == 0)
+	if (++i / 200 == 0)
 		return (0);
 	else
 		i = 0;
