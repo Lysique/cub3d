@@ -6,11 +6,19 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 12:18:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/21 12:09:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
+
+void	srcs_put_my_pixel(t_img img, int y, int x, unsigned int color)
+{
+	char	*dst;
+
+	dst = img.addr + (y * img.sizel + x * (img.bpp / 8));
+	*(unsigned int *)dst = color;
+}
 
 void	fill_img(t_img img, t_img tmp)
 {
@@ -29,7 +37,7 @@ void	fill_img(t_img img, t_img tmp)
 		while (x < tmp.w)
 		{
 			color = get_texture_color(img, (int)tex_y, (int)tex_x);
-			put_my_pixel(tmp, y, x, color);
+			srcs_put_my_pixel(tmp, y, x, color);
 			tex_x += (float)img.w / (float)tmp.w;
 			x++;
 		}
