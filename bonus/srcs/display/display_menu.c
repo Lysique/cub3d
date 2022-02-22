@@ -110,7 +110,7 @@ void	display_menu(t_cub *cub)
 	nbr_max_bullets = ft_strjoin("/", nbr_max_bullets);
 	nbr_bullets = ft_strjoin(nbr_bullets, nbr_max_bullets);
 	draw_text(cub, POS_NB_BULLET_Y, POS_NB_BULLET_X, nbr_bullets);
-	draw_text(cub, TX_ENEMY_Y, TX_ENEMY_X, "enemys");
+	draw_text(cub, TX_ENEMY_Y, TX_ENEMY_X, "enemies");
 	nbr_enemy = ft_itoa(cub->nb_enemy);
 	nbr_max_enemy = ft_itoa(cub->max_enemy);
 	nbr_max_enemy = ft_strjoin("/", nbr_max_enemy);
