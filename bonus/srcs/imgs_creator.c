@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 12:18:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 10:49:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	create_img(char *text, int nb_imgs, t_img *imgs, t_cub *cub)
 	char	*path;
 	int		i;
 
-	i = 0;
-	while (i < nb_imgs)
+	i = -1;
+	while (++i < nb_imgs)
 	{
 		path = imgs_join(text, i + 1, ".xpm");
 		imgs[i].img = mlx_xpm_file_to_image(cub->mlx.mlx,
@@ -55,7 +55,6 @@ void	create_img(char *text, int nb_imgs, t_img *imgs, t_cub *cub)
 			error_manager(IMG_ERROR);
 		imgs[i].addr = mlx_get_data_addr(imgs[i].img, &imgs[i].bpp,
 				&imgs[i].sizel, &imgs[i].endian);
-		i++;
 	}
 	imgs[i].img = 0;
 }
