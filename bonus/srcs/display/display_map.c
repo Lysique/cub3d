@@ -12,26 +12,37 @@
 
 #include "../../includes/display.h"
 
-void	put_pixel_map(t_img img, int pix_y, int pix_x, char c)
+unsigned int	get_map_color(t_cub *cub, float y, float x, char c)
 {
+	int				text_x;
+	int				text_y;
+	unsigned int	color;
+
+	x -= floor(x);
+	x = x / 0.05;
+	text_x = (int)x;
+	y -= floor(y);
+	y = y / 0.05;
+	text_y = (int)y;
 	if (c == '1')
-		put_my_pixel(img, pix_y, pix_x, WALL_COLOR);
-	else if (c == '0')
-		put_my_pixel(img, pix_y, pix_x, IN_COLOR);
-	else if (c == ' ')
-		put_my_pixel(img, pix_y, pix_x, SPACE_COLOR);
+		color = get_texture_color(cub->sprites[IMG_MAP][0], text_y, text_x);
+	else
+		color = get_texture_color(cub->sprites[IMG_MAP][1], text_y, text_x);
+	return (color);
 }
 
 void	map_elements_display(int pix_y, float y, float x, t_cub *cub)
 {
-	int	pix_x;
+	int				pix_x;
+	unsigned int	color;
 
 	pix_x = MINI_PX_SPACE_X;
 	while (x < 0 && ++pix_x)
 		x += (float)PX_INDEX_CONV_X;
 	while (cub->map[(int)y][(int)x] && pix_x < MINI_PX_X + MINI_PX_SPACE_X)
 	{
-		put_pixel_map(cub->display, pix_y, pix_x++, cub->map[(int)y][(int)x]);
+		color = get_map_color(cub, y, x, cub->map[(int)y][(int)x]);
+		put_my_pixel(cub->display, pix_y, pix_x++, color);
 		x += (float)PX_INDEX_CONV_X;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/22 09:41:28 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/22 13:18:07 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,6 @@ DISPLAY_FILES = display.c view_casting.c \
 				display_utils.c display_gun.c display_menu.c \
 				f_c_casting.c draw_ennemies.c sprites_init.c \
 				hit_wall_check.c draw_line.c draw_img.c \
-				display_utils2.c
 
 
 DISPLAY_DIR = srcs/display/
