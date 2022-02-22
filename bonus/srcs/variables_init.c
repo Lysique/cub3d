@@ -51,6 +51,8 @@ void	variables_init(t_cub *cub)
 	cub->mlx.mlx = 0;
 	cub->mlx.win = 0;
 	cub->doors = 0;
+	cub->player.life = 5;
+	cub->nb_enemy = 0;
 	cub->action = FREE_GUN;
 	gun_init(cub);
 }

@@ -48,15 +48,29 @@
 # define MENUBAR 4
 # define NAKED_EN 5
 # define MAPBAR 6
-# define POLICE 7
+# define CHIFFRE 7
+# define ALPHA 8
+# define PONCT 9
+
+		/* PONCT INDEXES */
+
+# define SLASH 0
+# define DOUBLE_D 1
+# define DOT 2
+# define MORE 3
+# define MINDER 4
+# define QUEST_M 5
+# define EXCLA_M 6
+# define L_BRACKET 7
+# define R_BRACKET 8
 
 		/* NB_SPRITES 
 		   
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 8
-# define MAX_SPR 13
+# define NB_SPR 10
+# define MAX_SPR 26
 
 /*#################### ENNEMY SETTINGS ####################*/
 
@@ -241,14 +255,29 @@
 # define MENUBAR_START_X 230
 # define MENUBAR_START_Y 880
 
+# define TX_ENEMY_X 1050
+# define TX_ENEMY_Y 910
+
+# define POS_NB_ENEMY_X 1050
+# define POS_NB_ENEMY_Y 970
+
 # define MAPBAR_START_X 8
 # define MAPBAR_START_Y 848
+
+# define TX_LIFEBAR_X 1450
+# define TX_LIFEBAR_Y 910
+
+# define LIFEBAR_X 1450
+# define LIFEBAR_Y 960
 
 # define POS_GUN_X 1100
 # define POS_GUN_Y 880
 
+# define POS_TX_BULLET_X 300
+# define POS_TX_BULLET_Y 910
+
 # define POS_NB_BULLET_X 300
-# define POS_NB_BULLET_Y 910
+# define POS_NB_BULLET_Y 970
 
 
 

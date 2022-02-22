@@ -72,6 +72,10 @@ void	img_resize(t_cub *cub)
 		cub->sprites[SHOTGUN][0].w * 2.5);
 	resize_my_imgs(cub, cub->sprites[MACHINEGUN], cub->sprites[MACHINEGUN][0].h * 2.5,
 		cub->sprites[MACHINEGUN][0].w * 2.5);
+	resize_my_imgs(cub, cub->sprites[LIFE], 100, 300);
 	resize_my_imgs(cub, cub->sprites[MENUBAR], 200, 1690);
 	resize_my_imgs(cub, cub->sprites[MAPBAR], 235, 235);
+	resize_my_imgs(cub, cub->sprites[CHIFFRE], 75, 75);
+	resize_my_imgs(cub, cub->sprites[ALPHA], 40, 40);
+	resize_my_imgs(cub, cub->sprites[PONCT], 90, 90);
 }
