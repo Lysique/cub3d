@@ -22,7 +22,7 @@ void			draw_ennemies(t_ray *r, t_cub *cub);
 void			sprites_init(t_ray *r, t_cub *cub);
 void			hit_wall_check(t_ray *r, t_cub *cub);
 void			draw_line(t_ray *r, t_cub *cub);
-void			draw_menu(t_cub *cub, t_img img, int start_y, int start_x);
+void			draw_img(t_cub *cub, t_img img, int start_y, int start_x);
 
 void			display_map(t_cub *cub);
 void			display_char(t_cub *cub);
@@ -39,5 +39,7 @@ void			optimisation_pixel_put(t_img img,
 					int y, int x, unsigned int color);
 void			optimisation_pixel_put2(t_img img,
 					int y, int x, unsigned int color);
+char			*ft_itoa(int n);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 #endif

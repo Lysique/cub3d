@@ -68,7 +68,10 @@ void	ennemy_in_struct(t_cub *cub)
 		i = -1;
 		while (map[j][++i])
 			if (is_ennemy_char(map[j][i]))
+			{
+				cub->nb_enemy++;
 				add_ennemy(cub, map[j][i], j, i);
+			}
 	}
 }
 
@@ -82,4 +85,5 @@ void	ennemy_init(t_cub *cub)
 		parser_error(MALLOC_ERROR, 0);
 	cub->en[0].action = -1;
 	ennemy_in_struct(cub);
+	cub->max_enemy = cub->nb_enemy;
 }

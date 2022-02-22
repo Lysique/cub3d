@@ -95,6 +95,7 @@ typedef struct s_en {
 typedef struct s_player {
 	float	x;
 	float	y;
+	int		life;
 	float	angle;
 }				t_player;
 
@@ -124,6 +125,8 @@ typedef struct s_cub {
 	int			**map_dist;
 	int			gun_type;
 	int			action;
+	int			nb_enemy;
+	int			max_enemy;
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;
