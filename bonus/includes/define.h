@@ -286,7 +286,7 @@
 
 		/* MINIMAP COLORS */
 
-# define OUT_COLOR ORANGE
+# define OUT_COLOR BLACK
 # define SPACE_COLOR ORANGE
 # define WALL_COLOR BLACK
 # define IN_COLOR GREEN
