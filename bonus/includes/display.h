@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/20 14:36:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 13:17:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,5 @@ void			optimisation_pixel_put(t_img img,
 					int y, int x, unsigned int color);
 void			optimisation_pixel_put2(t_img img,
 					int y, int x, unsigned int color);
-char			*ft_itoa(int n);
-char			*ft_strjoin(char const *s1, char const *s2);
 
 #endif
