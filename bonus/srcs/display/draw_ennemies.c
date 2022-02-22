@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:06:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 15:05:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 09:33:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	draw_ennemies(t_ray *r, t_cub *cub)
 	while (cub->en[++i].action != -1)
 	{
 		s = cub->en[i].s;
-		if (s.transf_y <= 0 || s.transf_y >= r->perp_wall_dist)
-			continue ;
 		s.tex_x = (int)((256 * (r->pix_screen_x
 						- (s.sprite_width * -1 / 2 + s.sprite_screen_x))
 					* s.tex.w / s.sprite_width) / 256);
+		if (s.transf_y <= 0 || s.transf_y >= r->perp_wall_dist
+			|| s.tex_x < 0 || s.tex_x >= s.tex.w)
+			continue ;
 		while (s.draw_start < s.draw_end)
 		{
 			s.d = (s.draw_start - (int)(200.0 / s.transf_y)) * 256 - WIN_H * 128 + s.sprite_height * 128;

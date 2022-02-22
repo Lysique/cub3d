@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/21 13:31:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 10:46:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,14 @@ void	imgs_init(t_cub *cub)
 	int	j;
 
 	i = 7;
-	j = 0;
 	cub->display.img = 0;
 	while (i != 0)
 		cub->textures[--i].img = 0;
 	while (i < NB_SPR)
 	{
+		j = 0;
 		while (j < MAX_SPR)
 			cub->sprites[i][j++].img = 0;
-		j = 0;
 		i++;
 	}
 }

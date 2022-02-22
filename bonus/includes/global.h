@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:27:07 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:35:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ typedef struct s_gun {
 
 typedef struct s_cub {
 	char		**map;
+	int			**map_dist;
 	int			gun_type;
 	int			action;
 	int			nb_enemy;
