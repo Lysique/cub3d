@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:23:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:11:03 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:49:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ void	variables_init(t_cub *cub)
 	cub->gun_type = 0;
 	cub->mouse.x = WIN_W / 2;
 	cub->map = 0;
+	cub->map_dist = 0;
 	cub->mlx.mlx = 0;
 	cub->mlx.win = 0;
 	cub->doors = 0;
+	cub->en = 0;
 	cub->action = FREE_GUN;
 	gun_init(cub);
 }

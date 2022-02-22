@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:20:19 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:04:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	parser(char *argument, t_cub *cub)
 	player_init(p.cub);
 	doors_init(p.cub);
 	ennemy_init(p.cub);
+	map_dist_init(p.cub);
 	close(p.fd);
 	free_my_arr(p.file);
 }
