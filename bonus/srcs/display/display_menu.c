@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:30:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/13 16:32:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 11:13:32 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ void	display_menu(t_cub *cub)
 	t_img	img;
 	char	*nbr_bullets;
 	char	*nbr_max_bullets;
-	char	*nbr_enemy;
-	char	*nbr_max_enemy;
+	char	*nbr_enemies;
+	char	*nbr_max_enemies;
 
 	img = cub->sprites[MENUBAR][0];
 	draw_img(cub, img, MENUBAR_START_Y, MENUBAR_START_X);
@@ -110,12 +110,13 @@ void	display_menu(t_cub *cub)
 	nbr_max_bullets = ft_strjoin("/", nbr_max_bullets);
 	nbr_bullets = ft_strjoin(nbr_bullets, nbr_max_bullets);
 	draw_text(cub, POS_NB_BULLET_Y, POS_NB_BULLET_X, nbr_bullets);
+	draw_img(cub, cub->sprites[PORTRAIT][cub->player.emotion], 890, 725);
 	draw_text(cub, TX_ENEMY_Y, TX_ENEMY_X, "enemies");
-	nbr_enemy = ft_itoa(cub->nb_enemy);
-	nbr_max_enemy = ft_itoa(cub->max_enemy);
-	nbr_max_enemy = ft_strjoin("/", nbr_max_enemy);
-	nbr_enemy = ft_strjoin(nbr_enemy, nbr_max_enemy);
-	draw_text(cub, POS_NB_ENEMY_Y, POS_NB_ENEMY_X, nbr_enemy);
+	nbr_enemies = ft_itoa(cub->nb_enemies);
+	nbr_max_enemies = ft_itoa(cub->max_enemies);
+	nbr_max_enemies = ft_strjoin("/", nbr_max_enemies);
+	nbr_enemies = ft_strjoin(nbr_enemies, nbr_max_enemies);
+	draw_text(cub, POS_NB_ENEMY_Y, POS_NB_ENEMY_X, nbr_enemies);
 	draw_text(cub, TX_LIFEBAR_Y, TX_LIFEBAR_X, "life");
 	draw_img(cub, cub->sprites[LIFE][cub->player.life], LIFEBAR_Y, LIFEBAR_X);
 }

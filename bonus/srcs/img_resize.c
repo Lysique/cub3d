@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/21 12:09:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 11:01:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,25 @@ void	srcs_put_my_pixel(t_img img, int y, int x, unsigned int color)
 
 void	fill_img(t_img img, t_img tmp)
 {
-	int	y;
-	int	x;
+	int				y;
+	int				x;
 	unsigned int	color;
-	float	tex_x;
-	float	tex_y;
+	float			tex_x;
+	float			tex_y;
 
-	y = 0;
+	y = -1;
 	tex_y = 0;
-	while (y < tmp.h)
+	while (++y < tmp.h)
 	{
-		x = 0;
+		x = -1;
 		tex_x = 0;
-		while (x < tmp.w)
+		while (++x < tmp.w)
 		{
 			color = get_texture_color(img, (int)tex_y, (int)tex_x);
 			srcs_put_my_pixel(tmp, y, x, color);
 			tex_x += (float)img.w / (float)tmp.w;
-			x++;
 		}
 		tex_y += (float)img.h / (float)tmp.h;
-		y++;
 	}
 }
 
@@ -51,10 +49,12 @@ void	resize_my_imgs(t_cub *cub, t_img *imgs, int h, int w)
 	int i;
 	t_img tmp;
 
-	i = 0;
-	while (imgs[i].img)
+	i = -1;
+	while (imgs[++i].img)
 	{
 		tmp.img = mlx_new_image(cub->mlx.mlx, w, h);
+		if (!tmp.img)
+			error_manager(IMG_ERROR);
 		tmp.h = h;
 		tmp.w = w;
 		tmp.addr = mlx_get_data_addr(tmp.img, &tmp.bpp,
@@ -62,7 +62,6 @@ void	resize_my_imgs(t_cub *cub, t_img *imgs, int h, int w)
 		fill_img(imgs[i], tmp);
 		mlx_destroy_image(cub->mlx.mlx, imgs[i].img);
 		imgs[i] = tmp;
-		i++;
 	}
 }
 
@@ -78,4 +77,6 @@ void	img_resize(t_cub *cub)
 	resize_my_imgs(cub, cub->sprites[CHIFFRE], 75, 75);
 	resize_my_imgs(cub, cub->sprites[ALPHA], 40, 40);
 	resize_my_imgs(cub, cub->sprites[PONCT], 90, 90);
+	resize_my_imgs(cub, cub->sprites[PORTRAIT], 175, 175);
+	resize_my_imgs(cub, cub->sprites[IMG_MAP], 20, 20);
 }

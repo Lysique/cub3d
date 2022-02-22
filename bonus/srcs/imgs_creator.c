@@ -79,5 +79,7 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/police/chiffre", 10, cub->sprites[CHIFFRE], cub);
 	create_img("sprites/police/alphabet", 26, cub->sprites[ALPHA], cub);
 	create_img("sprites/police/ponct", 9, cub->sprites[PONCT], cub);
+	create_img("sprites/portrait/portrait", 8, cub->sprites[PORTRAIT], cub);
+	create_img("sprites/mur/Brick", 6, cub->sprites[IMG_MAP], cub);
 	img_resize(cub);
 }

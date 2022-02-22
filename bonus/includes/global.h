@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 10:35:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 11:11:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct s_player {
 	float	x;
 	float	y;
 	int		life;
+	int		emotion;
 	float	angle;
 }				t_player;
 
@@ -125,8 +126,8 @@ typedef struct s_cub {
 	int			**map_dist;
 	int			gun_type;
 	int			action;
-	int			nb_enemy;
-	int			max_enemy;
+	int			nb_enemies;
+	int			max_enemies;
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;
