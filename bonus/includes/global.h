@@ -96,6 +96,7 @@ typedef struct s_player {
 	float	x;
 	float	y;
 	int		life;
+	int		emotion;
 	float	angle;
 }				t_player;
 

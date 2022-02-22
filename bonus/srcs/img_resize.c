@@ -77,4 +77,6 @@ void	img_resize(t_cub *cub)
 	resize_my_imgs(cub, cub->sprites[CHIFFRE], 75, 75);
 	resize_my_imgs(cub, cub->sprites[ALPHA], 40, 40);
 	resize_my_imgs(cub, cub->sprites[PONCT], 90, 90);
+	resize_my_imgs(cub, cub->sprites[PORTRAIT], 175, 175);
+	resize_my_imgs(cub, cub->sprites[IMG_MAP], 20, 20);
 }

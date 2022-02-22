@@ -74,6 +74,7 @@ void	display_menu(t_cub *cub)
 	draw_nb(cub, POS_NB_BULLET_Y, &x, cub->gun[cub->gun_type].bullets);
 	draw_text(cub, POS_NB_BULLET_Y, &x, "/");
 	draw_nb(cub, POS_NB_BULLET_Y, &x, cub->gun[cub->gun_type].max_bullets);
+	draw_img(cub, cub->sprites[PORTRAIT][cub->player.emotion], 890, 725);
 	x = TX_ENEMY_X;
 	draw_text(cub, TX_ENEMY_Y, &x, "enemies");
 	x = POS_NB_ENEMY_X;

@@ -36,6 +36,7 @@ void	machinegun_shot(t_cub *cub, t_gun *gun)
 			gun->sprite = 1;
 		else
 			gun->sprite += gun->sprite % 2 * 2 - 1;
+		cub->player.emotion = 6;
 		gun->time -= MACHINGUN_SPEED;
 		hit_manager(cub, gun);
 		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
@@ -48,6 +49,7 @@ void	shotgun_shot(t_cub *cub, t_gun *gun)
 	if (gun->status == GS_FREE)
 	{
 		gun->status = GS_SHOT;
+		cub->player.emotion = 5;
 		system("afplay -v 1 music/pompe_feu.mp3 &>/dev/null &");
 		gun->sprite = 1;
 		hit_manager(cub, gun);

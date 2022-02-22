@@ -52,6 +52,8 @@
 # define CHIFFRE 7
 # define ALPHA 8
 # define PONCT 9
+# define PORTRAIT 10
+# define IMG_MAP 11
 
 		/* PONCT INDEXES */
 
@@ -70,7 +72,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 10
+# define NB_SPR 12
 # define MAX_SPR 26
 
 /*#################### ENNEMY SETTINGS ####################*/
