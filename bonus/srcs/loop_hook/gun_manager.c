@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:28:43 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:48:15 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:26:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	swap_gun(t_cub *cub)
 	{
 		cub->action = FREE_GUN;
 		cub->key.swap_gun = 0;
+		cub->key.shoot_p = 0;
+		cub->key.reload = 0;
 		time = 0;
 	}
 }
