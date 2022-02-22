@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/19 14:50:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/22 11:11:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,7 @@ void	ennemy_in_struct(t_cub *cub)
 		i = -1;
 		while (map[j][++i])
 			if (is_ennemy_char(map[j][i]))
-			{
-				cub->nb_enemy++;
 				add_ennemy(cub, map[j][i], j, i);
-			}
 	}
 }
 
@@ -85,5 +82,6 @@ void	ennemy_init(t_cub *cub)
 		parser_error(MALLOC_ERROR, 0);
 	cub->en[0].action = -1;
 	ennemy_in_struct(cub);
-	cub->max_enemy = cub->nb_enemy;
+	cub->max_enemies = nb;
+	cub->nb_enemies = nb;
 }
