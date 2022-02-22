@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:46:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:31:50 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:10:50 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ void	machinegun_shot(t_cub *cub, t_gun *gun)
 		gun->status = GS_FREE;
 	}
 	else if (gun->status == GS_FREE)
-	{
 		gun->status = GS_SHOT;
-		gun->bullets--;
-		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
-		gun->sprite = 1;
-	}
 	if (gun->status == GS_SHOT && gun->time / MACHINGUN_SPEED > 0)
 	{
 		if (gun->sprite == 0)
