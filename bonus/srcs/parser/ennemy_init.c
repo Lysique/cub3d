@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:20:15 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:42:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	add_ennemy(t_cub *cub, char c, int j, int i)
 	(void)c;
 	while (cub->en[k].action != -1)
 		k++;
-	cub->en[k].type = NAKED_EN;
+	cub->en[k].type = 1;
 	cub->en[k].x = i + 0.5;
 	cub->en[k].y = j + 0.5;
 	cub->en[k].angle = PI / 2;
@@ -49,7 +49,8 @@ void	add_ennemy(t_cub *cub, char c, int j, int i)
 	cub->en[k].life = ENNU_LIFE;
 	cub->en[k].nb_sprites = ENNU_NBSPR;
 	cub->en[k].nb_runspr = ENNU_NBRUNSPR;
-	cub->en[k].img = cub->sprites[NAKED_EN][0];
+	cub->en[k].img = cub->sprites[EN1_S][6];
+	cub->en[k].img_dir = EN1_S;
 	cub->en[k].hbox = 0.3;
 	cub->en[k].time = 0;
 	cub->en[++k].action = -1;

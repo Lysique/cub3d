@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:43:08 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:42:08 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_en {
 	int		type;
 	int		action;
 	int		life;
+	int		img_dir;
 	t_time	time;
 	t_img	img;
 	t_spr	s;

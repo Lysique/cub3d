@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 14:08:28 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:42:12 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	set_enemy_image(t_en *en, t_cub *cub)
 	{
 		if (en->sprite > 5)
 			en->sprite = 0;
-		en->img = cub->sprites[NAKED_EN][en->sprite];
+		en->img = cub->sprites[en->img_dir][en->sprite];
 		en->sprite++;
 	}
 
@@ -46,6 +46,12 @@ void	enemy_move(t_en *en, t_cub *cub)
 	en->x += cos(en->angle) * 0.05;
 	en->y += sin(en->angle) * -0.05;
 	set_enemy_image(en, cub);
+}
+
+void	set_en_img_angle(t_en *en, t_cub *cub)
+{
+	(void)en;
+	(void)cub;
 }
 
 void	set_en_angle2(t_en *en, t_cub *cub, int y, int x)
@@ -82,12 +88,11 @@ void	set_en_angle(t_en *en, t_cub *cub, int y, int x)
 	}
 	en->angle -= PI;
 	set_en_angle2(en, cub, y, x);
+	set_en_img_angle(en, cub);
 }
 
-void	enemy_take_a_walk(t_en *en, t_cub *cub, int y, int x)
+void	enemy_take_a_walk(t_en *en, t_cub *cub)
 {
-	(void)x;
-	(void)y;
 	if (en->life != ENNU_LIFE)
 	{
 		en->action = E_DAMAGED;
@@ -101,7 +106,7 @@ void	enemy_take_a_walk(t_en *en, t_cub *cub, int y, int x)
 		en->sprite = 7;
 	else
 		en->sprite++;
-	en->img = cub->sprites[NAKED_EN][en->sprite];
+	en->img = cub->sprites[en->img_dir][en->sprite];
 	en->time = 0;
 }
 
@@ -160,7 +165,7 @@ void	manage_ennemy(t_en *en, t_cub *cub)
 		return ;
 	set_en_action(en, cub);
 	if (en->action == E_STILL)
-		enemy_take_a_walk(en, cub, (int)en->y, (int)en->x);
+		enemy_take_a_walk(en, cub);
 	else if (en->action == E_CHASE || en->action == E_DAMAGED)
 	{
 		set_en_angle(en, cub, (int)en->y, (int)en->x);

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:16:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:42:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define SHOTGUN 2
 # define MACHINEGUN 3
 # define MENUBAR 4
-# define NAKED_EN 5
+# define EN1_N 5
 # define MAPBAR 6
 # define CHIFFRE 7
 # define ALPHA 8
@@ -55,6 +55,13 @@
 # define PORTRAIT 10
 # define IMG_MAP 11
 # define EN1_DEAD 12
+# define EN1_S 13
+# define EN1_W 14
+# define EN1_E 15
+# define EN1_SE 16
+# define EN1_SW 17
+# define EN1_NE 18
+# define EN1_NW 19
 
 		/* PONCT INDEXES */
 
@@ -73,7 +80,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 13
+# define NB_SPR 20
 # define MAX_SPR 26
 
 /*#################### ENNEMY SETTINGS ####################*/
