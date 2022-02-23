@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop_hook.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 15:03:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:52:07 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	loop_hook(t_cub *cub)
 	emotion_manager(cub);
 	ennemy_manager(cub);
 	display(cub);
-	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
-		cub->display.img, 0, 0);
+
 	mlx_do_sync(cub->mlx.mlx);
 	return (0);
 }
