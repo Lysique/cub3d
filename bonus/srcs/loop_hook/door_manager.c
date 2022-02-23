@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:19:39 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/22 15:07:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 			cub->doors[i].is_moving = -1;
 			system("afplay -v 0.5 music/fermeture_ascenseur.mp3 &>/dev/null &");
 		}
+		map_dist_manager(cub);
 	}
 	cub->key.door_p = 0;
 }
