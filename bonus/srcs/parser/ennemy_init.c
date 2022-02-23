@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 11:11:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:20:15 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	add_ennemy(t_cub *cub, char c, int j, int i)
 	cub->en[k].angle = PI / 2;
 	cub->en[k].action = E_STILL;
 	cub->en[k].sprite = 0;
+	cub->en[k].offset = 200;
 	cub->en[k].life = ENNU_LIFE;
 	cub->en[k].nb_sprites = ENNU_NBSPR;
 	cub->en[k].nb_runspr = ENNU_NBRUNSPR;
