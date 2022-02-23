@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:33:08 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:40:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,23 @@ void	set_en_angle(t_en *en, t_cub *cub, int y, int x)
 
 void	enemy_take_a_walk(t_en *en, t_cub *cub, int y, int x)
 {
-	static int		life = ENNU_LIFE;
-
-	if (en->life != life)
+	(void)x;
+	(void)y;
+	if (en->life != ENNU_LIFE)
 	{
 		en->action = E_DAMAGED;
-		life = en->life;
+		en->time = 0;
+		return ;
 	}
+	en->time += cub->time;
+	if (en->time < 500)
+		return ;
+	if (en->sprite == 0 || en->sprite == 8)
+		en->sprite = 7;
 	else
-		set_en_angle(en, cub, y, x);
+		en->sprite++;
+	en->img = cub->sprites[NAKED_EN][en->sprite];
+	en->time = 0;
 }
 
 void	enemy_die(t_en *en, t_cub *cub)
