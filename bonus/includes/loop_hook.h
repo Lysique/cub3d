@@ -23,6 +23,7 @@ void	map_dist_manager(t_cub *cub);
 void	gun_manager(t_cub *cub);
 void	shoot_manager(t_cub *cub, t_gun *gun);
 void	hit_manager(t_cub *cub, t_gun *gun);
+void	emotion_manager(t_cub *cub);
 void	ennemy_manager(t_cub *cub);
 
 int		check_p_dir(t_cub *cub, float y, float x);

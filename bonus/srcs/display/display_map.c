@@ -17,15 +17,30 @@ unsigned int	get_map_color(t_cub *cub, float y, float x, char c)
 	int				text_x;
 	int				text_y;
 	unsigned int	color;
+	int				door;
 
+	door = get_door_index(cub->doors, (int)y, (int)x);
 	x -= floor(x);
 	x = x / 0.05;
 	text_x = (int)x;
 	y -= floor(y);
 	y = y / 0.05;
 	text_y = (int)y;
-	if (c == '1')
+	if (door != -1)
+	{
+		if (cub->doors[door].open == 0)
+			color = get_texture_color(cub->sprites[IMG_MAP][2], text_y, text_x);
+		else
+			color = get_texture_color(cub->sprites[IMG_MAP][3], text_y, text_x);
+	}
+	else if (c == '1')
 		color = get_texture_color(cub->sprites[IMG_MAP][0], text_y, text_x);
+	// else if (c == '2')
+	// 	color = get_texture_color(cub->sprites[IMG_MAP][2], text_y, text_x);
+	// else if (c == '3')
+	// 	color = get_texture_color(cub->sprites[IMG_MAP][3], text_y, text_x);
+	else if ( c == ' ')
+		color = OUT_COLOR;
 	else
 		color = get_texture_color(cub->sprites[IMG_MAP][1], text_y, text_x);
 	return (color);

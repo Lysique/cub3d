@@ -18,9 +18,11 @@ int	loop_hook(t_cub *cub)
 
 	cub->time = get_time() - time;
 	time = get_time();
+	door_manager(cub);
 	player_manager(cub);
 	door_manager(cub);
 	gun_manager(cub);
+	emotion_manager(cub);
 	ennemy_manager(cub);
 	display(cub);
 	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,

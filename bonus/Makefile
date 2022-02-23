@@ -102,7 +102,8 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  loop_hook_utils.c gun_manager.c shoot_manager.c \
-				  ennemy_manager.c hit_manager.c map_dist_manager.c \
+				  ennemy_manager.c hit_manager.c emotion_manager.c \
+          map_dist_manager.c
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))

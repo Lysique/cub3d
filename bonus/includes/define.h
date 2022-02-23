@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 09:57:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:15:08 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,7 +286,7 @@
 
 		/* MINIMAP COLORS */
 
-# define OUT_COLOR ORANGE
+# define OUT_COLOR BLACK
 # define SPACE_COLOR ORANGE
 # define WALL_COLOR BLACK
 # define IN_COLOR GREEN
