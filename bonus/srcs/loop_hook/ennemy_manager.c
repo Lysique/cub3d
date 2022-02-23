@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:46:30 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:08:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void	enemy_die(t_en *en, t_cub *cub)
 		en->sprite++;
 		if (en->sprite == 9)
 			en->action = E_DEAD;
+		en->time = 0;
 	}
 	en->time += cub->time;
 }
@@ -131,6 +132,7 @@ void	en_action_reset(t_en *en, int action)
 		return ;
 	en->action = action;
 	en->time = 0;
+	en->sprite = 0;
 }
 
 void	set_en_action(t_en *en, t_cub *cub)
