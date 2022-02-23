@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:47:20 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:43:08 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_en {
 	float	y;
 	float	hbox;
 	float	angle;
+	float	offset;
 	int		sprite;
 	int		nb_sprites;
 	int		nb_runspr;

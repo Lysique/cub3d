@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 12:51:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:46:30 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	set_enemy_image(t_en *en, t_cub *cub)
 {
-	static t_time	time = 0;
-
-	time += cub->time;
-	if (time < 100)
+	en->time += cub->time;
+	if (en->time < 100)
 		return ;
-	time = 0;
+	en->time = 0;
 	if (en->action == E_CHASE || en->action == E_DAMAGED)
 	{
 		if (en->sprite > 5)
@@ -32,17 +30,15 @@ void	set_enemy_image(t_en *en, t_cub *cub)
 
 void	enemy_attack(t_en *en, t_cub *cub)
 {
-	static t_time	time = 0;
-
-	if (cub->player.life > 0 && time == 0)
+	if (cub->player.life > 0 && en->time == 0)
 		cub->player.life -= 1;
-	if (time > 1000)
+	if (en->time > 1000)
 	{
-		time = 0;
+		en->time = 0;
 		en->action = E_STILL;
 	}
 	else
-		time += cub->time;
+		en->time += cub->time;
 }	
 
 void	enemy_move(t_en *en, t_cub *cub)
@@ -90,21 +86,51 @@ void	set_en_angle(t_en *en, t_cub *cub, int y, int x)
 
 void	enemy_take_a_walk(t_en *en, t_cub *cub, int y, int x)
 {
-	static int		life = ENNU_LIFE;
-
-	if (en->life != life)
+	(void)x;
+	(void)y;
+	if (en->life != ENNU_LIFE)
 	{
 		en->action = E_DAMAGED;
-		life = en->life;
+		en->time = 0;
+		return ;
 	}
+	en->time += cub->time;
+	if (en->time < 500)
+		return ;
+	if (en->sprite == 0 || en->sprite == 8)
+		en->sprite = 7;
 	else
-		set_en_angle(en, cub, y, x);
+		en->sprite++;
+	en->img = cub->sprites[NAKED_EN][en->sprite];
+	en->time = 0;
 }
 
 void	enemy_die(t_en *en, t_cub *cub)
 {
-	(void)en;
-	(void)cub;
+	en->time += cub->time;
+	if (en->time > 200)
+	{
+		en->img = cub->sprites[EN1_DEAD][en->sprite];
+		if (en->sprite == 3)
+			en->offset = 300;
+		else if (en->sprite == 4)
+			en->offset = 400;
+		else if (en->sprite == 5)
+			en->offset = 500;
+		en->time = 1;
+		en->sprite++;
+		if (en->sprite == 9)
+			en->action = E_DEAD;
+	}
+	en->time += cub->time;
+}
+
+void	en_action_reset(t_en *en, int action)
+{
+	if (en->action == action)
+		return ;
+	en->action = action;
+	en->time = 0;
 }
 
 void	set_en_action(t_en *en, t_cub *cub)
@@ -115,19 +141,21 @@ void	set_en_action(t_en *en, t_cub *cub)
 	d_x = en->x - cub->player.x;
 	d_y = en->y - cub->player.y;
 	if (en->life <= 0)
-		en->action = E_DIE;
+		en_action_reset(en, E_DIE);
 	else if (en->action == E_ATTACK || sqrtf(d_x * d_x + d_y * d_y) < 1)
-		en->action = E_ATTACK;
+		en_action_reset(en, E_ATTACK);
 	else if (en->action == E_DAMAGED && cub->map_dist[(int)en->y][(int)en->x] != INT_MAX)
-		en->action = E_DAMAGED;
+		en_action_reset(en, E_DAMAGED);
 	else if (cub->map_dist[(int)en->y][(int)en->x] <= 10)
-		en->action = E_CHASE;
+		en_action_reset(en, E_CHASE);
 	else
-		en->action = E_STILL;
+		en_action_reset(en, E_STILL);
 }
 
 void	manage_ennemy(t_en *en, t_cub *cub)
 {
+	if (en->action == E_DEAD)
+		return ;
 	set_en_action(en, cub);
 	if (en->action == E_STILL)
 		enemy_take_a_walk(en, cub, (int)en->y, (int)en->x);
