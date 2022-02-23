@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:15:08 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:23:59 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@
 		/* ENNEMIES ACTION */
 
 # define E_STILL 1
+# define E_CHASE 2
+# define E_ATTACK 3
+# define E_DAMAGED 4
+# define E_DIE 5
 
 /*#################### PLAYER SETTINGS ####################*/
 
