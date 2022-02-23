@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_gun.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 09:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/21 12:04:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:54:44 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	display_gun(t_cub *cub)
 	img = cub->sprites[cub->gun_type + 2][cub->gun[cub->gun_type].sprite];
 	start_x = POS_GUN_X - img.w / 2;
 	start_y = POS_GUN_Y - img.h;
-	draw_img(cub, img, start_y, start_x);
+	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win, img.img, start_x, start_y);
 	display_gun_sight(cub);
 }
