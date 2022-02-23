@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:20:15 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:28:30 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 void	emotion_manager(t_cub *cub)
 {
-	static t_time	time = 0;
 	static t_time	emo = 0;
 
-	cub->time = get_time() - time;
-	time = get_time();
 	if (cub->player.emotion != 1 || cub->player.emotion != 3
 		|| cub->player.emotion != 4)
 		emo += cub->time;
