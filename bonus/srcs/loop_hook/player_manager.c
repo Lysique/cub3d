@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/10 17:26:24 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:17:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,13 @@ void	key_move(float valcos, float valsin, t_cub *cub)
 
 	y = cub->player.y;
 	x = cub->player.x;
-	if (sin(valsin) < 0 && check_direction(cub,
-			(int)(y - HITBOX), (int)x))
+	if (sin(valsin) < 0 && check_p_dir(cub, y - HITBOX, x))
 		cub->player.y += sin(valsin) * SPEED * cub->time;
-	else if (sin(valsin) > 0 && check_direction(cub,
-			(int)(y + HITBOX), (int)x))
+	else if (sin(valsin) > 0 && check_p_dir(cub, y + HITBOX, x))
 		cub->player.y += sin(valsin) * SPEED * cub->time;
-	if (cos(valcos) > 0 && check_direction(cub,
-			(int)y, (int)(x + HITBOX)))
+	if (cos(valcos) > 0 && check_p_dir(cub, y, x + HITBOX))
 		cub->player.x += cos(valcos) * SPEED * cub->time;
-	else if (cos(valcos) < 0 && check_direction(cub,
-			(int)y, (int)(x - HITBOX)))
+	else if (cos(valcos) < 0 && check_p_dir(cub, y, x - HITBOX))
 		cub->player.x += cos(valcos) * SPEED * cub->time;
 }
 
@@ -82,7 +78,18 @@ void	rotate_manager(t_cub *cub)
 
 void	player_manager(t_cub *cub)
 {
+	static t_time	emo = 0;
+
+	if (cub->player.emotion != 0)
+		emo += cub->time;
+	if (emo >= 1000)
+	{
+		cub->player.emotion = 0;
+		emo = 0;
+	}
 	move_manager(cub);
 	rotate_manager(cub);
 	music_manager(cub);
+	if (cub->map_dist[(int)cub->player.y][(int)cub->player.x] != 0)
+		map_dist_manager(cub);
 }
