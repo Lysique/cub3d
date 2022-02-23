@@ -15,20 +15,13 @@
 int	loop_hook(t_cub *cub)
 {
 	static t_time	time = 0;
-	static t_time	emo = 0;
 
 	cub->time = get_time() - time;
 	time = get_time();
-	if (cub->player.emotion != 0)
-		emo += cub->time;
-	if (emo >= 1000)
-	{
-		cub->player.emotion = 0;
-		emo = 0;
-	}
 	door_manager(cub);
 	player_manager(cub);
 	gun_manager(cub);
+	emotion_manager(cub);
 	ennemy_manager(cub);
 	display(cub);
 	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,

@@ -53,7 +53,7 @@ void	variables_init(t_cub *cub)
 	cub->mlx.win = 0;
 	cub->doors = 0;
 	cub->player.life = 5;
-	cub->player.emotion = 0;
+	cub->player.emotion = 1;
 	cub->en = 0;
 	cub->action = FREE_GUN;
 	gun_init(cub);
