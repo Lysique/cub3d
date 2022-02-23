@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:17:49 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 10:26:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,6 @@ void	rotate_manager(t_cub *cub)
 
 void	player_manager(t_cub *cub)
 {
-	static t_time	emo = 0;
-
-	if (cub->player.emotion != 0)
-		emo += cub->time;
-	if (emo >= 1000)
-	{
-		cub->player.emotion = 0;
-		emo = 0;
-	}
 	move_manager(cub);
 	rotate_manager(cub);
 	music_manager(cub);
