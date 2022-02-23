@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:06:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 14:22:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 14:53:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	draw_ennemies(t_ray *r, t_cub *cub)
 		if (s.transf_y <= 1 || s.transf_y >= r->perp_wall_dist
 			|| s.tex_x < 0 || s.tex_x >= s.tex.w)
 			continue ;
-//		printf("I : %d, TRANSF_Y :  %f, TEX_X : %d, WALL_DIST : %f\n", i, s.transf_y, s.tex_x, r->perp_wall_dist);
 		while (s.draw_start < s.draw_end)
 		{
 			s.d = (s.draw_start - (int)(cub->en[i].offset / s.transf_y)) * 256 - WIN_H * 128 + s.sprite_height * 128;
