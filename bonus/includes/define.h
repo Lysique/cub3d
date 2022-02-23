@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 12:23:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 13:16:59 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@
 # define PONCT 9
 # define PORTRAIT 10
 # define IMG_MAP 11
+# define EN1_DEAD 12
 
 		/* PONCT INDEXES */
 
@@ -72,7 +73,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 12
+# define NB_SPR 13
 # define MAX_SPR 26
 
 /*#################### ENNEMY SETTINGS ####################*/
@@ -90,6 +91,7 @@
 # define E_ATTACK 3
 # define E_DAMAGED 4
 # define E_DIE 5
+# define E_DEAD 6
 
 /*#################### PLAYER SETTINGS ####################*/
 
