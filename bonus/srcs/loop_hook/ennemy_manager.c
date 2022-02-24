@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 15:42:12 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/24 10:11:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	set_enemy_image(t_en *en, t_cub *cub)
 {
 	en->time += cub->time;
-	if (en->time < 100)
+	if (en->time < 200)
 		return ;
 	en->time = 0;
 	if (en->action == E_CHASE || en->action == E_DAMAGED)
@@ -32,13 +32,18 @@ void	enemy_attack(t_en *en, t_cub *cub)
 {
 	if (cub->player.life > 0 && en->time == 0)
 		cub->player.life -= 1;
-	if (en->time > 1000)
+	en->time += cub->time;
+	if (en->time / 300 < 1)
+		en->img = cub->sprites[EN1_S][5];
+	else if (en->time / 300 < 2)
+		en->img = cub->sprites[EN1_DEAD][0];
+	else if (en->time / 300 < 3)
+		en->img = cub->sprites[EN1_DEAD][1];
+	else if (en->time / 300 < 5)
 	{
 		en->time = 0;
 		en->action = E_STILL;
 	}
-	else
-		en->time += cub->time;
 }	
 
 void	enemy_move(t_en *en, t_cub *cub)
