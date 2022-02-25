@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:23:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 11:12:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/24 11:22:28 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void	variables_init(t_cub *cub)
 	cub->action = FREE_GUN;
 	gun_init(cub);
 }
-

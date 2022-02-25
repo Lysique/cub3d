@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:20:15 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:36:09 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	count_nb_ennemies(char **map)
 	}
 	return (nb);
 }
-
 
 void	add_ennemy(t_cub *cub, char c, int j, int i)
 {

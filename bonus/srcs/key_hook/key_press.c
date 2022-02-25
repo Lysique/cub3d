@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 09:10:43 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:39:56 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	key_press2(int key, t_cub *cub)
 {
-	if (key == K_UP&& cub->key.shoot_r == 1)
+	if (key == K_UP && cub->key.shoot_r == 1)
 	{
 		cub->key.shoot_r = 0;
 		cub->key.shoot_p = 1;

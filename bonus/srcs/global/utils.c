@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:55:47 by tuytters          #+#    #+#             */
-/*   Updated: 2022/02/19 12:41:52 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/23 15:40:12 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	get_door_index(t_door *d, int y, int x)
 	}
 	return (-1);
 }
+
 int	ft_strlen(const char *s)
 {
 	int	size;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 11:03:10 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:21:31 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ unsigned int	get_map_color(t_cub *cub, float y, float x, char c)
 	}
 	else if (c == '1')
 		color = get_texture_color(cub->sprites[IMG_MAP][0], text_y, text_x);
-	// else if (c == '2')
-	// 	color = get_texture_color(cub->sprites[IMG_MAP][2], text_y, text_x);
-	// else if (c == '3')
-	// 	color = get_texture_color(cub->sprites[IMG_MAP][3], text_y, text_x);
 	else if ( c == ' ')
 		color = OUT_COLOR;
 	else
@@ -103,7 +99,7 @@ void	display_map(t_cub *cub)
 {
 	int		px_start_y;
 	int		px_start_x;
-	t_img		img;
+	t_img	img;
 
 	img = cub->sprites[MAPBAR][0];
 	draw_img(cub, img, MAPBAR_START_Y, MAPBAR_START_X);

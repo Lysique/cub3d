@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   display_gun.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 09:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:54:44 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:20:09 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/display.h"
 
-void display_gun_sight(t_cub *cub)
+void	display_gun_sight(t_cub *cub)
 {
 	int	x;
 	int	y;
@@ -58,6 +58,7 @@ void	display_gun(t_cub *cub)
 	img = cub->sprites[cub->gun_type + 2][cub->gun[cub->gun_type].sprite];
 	start_x = POS_GUN_X - img.w / 2;
 	start_y = POS_GUN_Y - img.h;
-	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win, img.img, start_x, start_y);
+	mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
+		img.img, start_x, start_y);
 	display_gun_sight(cub);
 }

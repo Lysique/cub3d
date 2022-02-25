@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:59:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/14 10:50:19 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:54:31 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	mouse_move(int x, int y, void *param)
 	cub = (t_cub *)param;
 	(void)y;
 	cub->mouse.x = x;
-	// mlx_mouse_get_pos(cub->mlx.win, &cub->mouse.x, &cub->mouse.y);
 	mlx_mouse_move(cub->mlx.win, WIN_W / 2, WIN_H / 2);
 	return (0);
 }

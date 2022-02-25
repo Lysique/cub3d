@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:52:07 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:41:28 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	loop_hook(t_cub *cub)
 	emotion_manager(cub);
 	ennemy_manager(cub);
 	display(cub);
-
 	mlx_do_sync(cub->mlx.mlx);
 	return (0);
 }
