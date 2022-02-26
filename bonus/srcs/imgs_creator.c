@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 15:42:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:40:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,13 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/ennemi_nu/en1_NE", 9, cub->sprites[EN1_NE], cub);
 	create_img("sprites/ennemi_nu/en1_NW", 9, cub->sprites[EN1_NW], cub);
 	create_img("sprites/ennemi_nu/en1_mort", 9, cub->sprites[EN1_DEAD], cub);
+	create_img("sprites/ennemi_nu/en1_atk", 3, cub->sprites[EN1_ATK], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MAPBAR], cub);
 	create_img("sprites/police/chiffre", 10, cub->sprites[CHIFFRE], cub);
 	create_img("sprites/police/alphabet", 26, cub->sprites[ALPHA], cub);
 	create_img("sprites/police/ponct", 9, cub->sprites[PONCT], cub);
 	create_img("sprites/portrait/portrait", 8, cub->sprites[PORTRAIT], cub);
 	create_img("sprites/text_map/text_map", 4, cub->sprites[IMG_MAP], cub);
+	create_img("sprites/barre_menu/menu", 1, cub->sprites[I_MENU], cub);
 	img_resize(cub);
 }

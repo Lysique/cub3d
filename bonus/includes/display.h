@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 13:17:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:45:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			draw_img(t_cub *cub, t_img img, int start_y, int start_x);
 void			display_map(t_cub *cub);
 void			display_char(t_cub *cub);
 void			display_gun(t_cub *cub);
-void			display_menu(t_cub *cub);
+void			display_menubar(t_cub *cub);
 
 void			put_my_pixel(t_img img, int y, int x, unsigned int color);
 unsigned int	get_texture_color(t_img text, int y, int x);

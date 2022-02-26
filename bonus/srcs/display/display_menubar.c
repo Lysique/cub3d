@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_menu.c                                     :+:      :+:    :+:   */
+/*   display_menubar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:30:31 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:58:42 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/26 15:47:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	draw_nb(t_cub *cub, int start_y, int *start_x, int nb)
 	}
 }
 
-void	display_menu(t_cub *cub)
+void	display_menubar(t_cub *cub)
 {
 	t_img	img;
 	int		x;

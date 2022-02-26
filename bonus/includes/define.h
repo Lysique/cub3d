@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 12:28:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:41:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 
 # define SG_BULLETS 2
 # define MG_BULLETS 50
+
+		/* GAME STATE */
+
+# define GAME 1
+# define MENU 2
 
 /*#################### TEXTURES INDEXES ####################*/
 
@@ -62,6 +67,8 @@
 # define EN1_SW 17
 # define EN1_NE 18
 # define EN1_NW 19
+# define EN1_ATK 20
+# define I_MENU 21
 
 		/* PONCT INDEXES */
 
@@ -80,7 +87,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 20
+# define NB_SPR 22
 # define MAX_SPR 26
 
 /*#################### ENEMY SETTINGS ####################*/
@@ -99,7 +106,7 @@
 # define EN1_ATK_RANGE 1
 # define EN1_AGGRO_RANGE 10
 
-# define EN1_RUN_SPEED 0.05
+# define EN1_RUN_SPEED 0.001
 # define EN1_ATK_SPEED 1500
 
 # define EN1_DYING_SPR_SPEED 200
@@ -110,8 +117,9 @@
 # define E_STILL 1
 # define E_CHASE 2
 # define E_ATTACK 3
-# define E_DIE 4
-# define E_DEAD 5
+# define E_HAS_ATK 4
+# define E_DIE 5
+# define E_DEAD 6
 
 /*#################### PLAYER SETTINGS ####################*/
 

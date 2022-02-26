@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 11:08:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:07:30 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct s_en {
 	float	angle;
 	float	run_speed;
 	int		atk_speed;
+	int		run_spr_speed;
 	int		offset;
 	int		sprite;
 	int		type;
@@ -135,6 +136,7 @@ typedef struct s_cub {
 	int			action;
 	int			nb_enemies;
 	int			max_enemies;
+	int			game_state;
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;
