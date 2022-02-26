@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/26 11:07:00 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/26 13:22:26 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,8 @@ LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  loop_hook_utils.c gun_manager.c shoot_manager.c \
 				  enemy_manager.c hit_manager.c emotion_manager.c \
 				  map_dist_manager.c enemy_still.c set_enemy_angle.c \
-
+				  set_enemy_action.c enemy_attack.c enemy_die.c \
+				  enemy_move.c
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
