@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:23:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:02:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:09:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	variables_init(t_cub *cub)
 	cub->player.emotion = 1;
 	cub->en = 0;
 	cub->action = FREE_GUN;
+	cub->game_state = GAME;
 	gun_init(cub);
 }
 

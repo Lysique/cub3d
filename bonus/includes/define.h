@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:15:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:08:22 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 
 # define SG_BULLETS 2
 # define MG_BULLETS 50
+
+		/* GAME STATE */
+
+# define GAME 1
+# define MENU 2
 
 /*#################### TEXTURES INDEXES ####################*/
 
