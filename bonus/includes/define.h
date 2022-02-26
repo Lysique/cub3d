@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:08:22 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:41:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@
 # define EN1_NE 18
 # define EN1_NW 19
 # define EN1_ATK 20
+# define I_MENU 21
 
 		/* PONCT INDEXES */
 
@@ -86,7 +87,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 21
+# define NB_SPR 22
 # define MAX_SPR 26
 
 /*#################### ENEMY SETTINGS ####################*/

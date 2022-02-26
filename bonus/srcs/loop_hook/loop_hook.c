@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:11:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:49:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	game_manager(t_cub *cub)
 	gun_manager(cub);
 	emotion_manager(cub);
 	enemy_manager(cub);
-	display(cub);
 }
 
 int	loop_hook(t_cub *cub)
@@ -32,6 +31,7 @@ int	loop_hook(t_cub *cub)
 	time = get_time();
 	if (cub->game_state == GAME)
 		game_manager(cub);
+	display(cub);
 	mlx_do_sync(cub->mlx.mlx);
 	return (0);
 }
