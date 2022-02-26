@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:16:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 12:28:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define SHOTGUN 2
 # define MACHINEGUN 3
 # define MENUBAR 4
-# define NAKED_EN 5
+# define EN1_N 5
 # define MAPBAR 6
 # define CHIFFRE 7
 # define ALPHA 8
@@ -55,6 +55,13 @@
 # define PORTRAIT 10
 # define IMG_MAP 11
 # define EN1_DEAD 12
+# define EN1_S 13
+# define EN1_W 14
+# define EN1_E 15
+# define EN1_SE 16
+# define EN1_SW 17
+# define EN1_NE 18
+# define EN1_NW 19
 
 		/* PONCT INDEXES */
 
@@ -73,25 +80,38 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 13
+# define NB_SPR 20
 # define MAX_SPR 26
 
-/*#################### ENNEMY SETTINGS ####################*/
+/*#################### ENEMY SETTINGS ####################*/
 
-		/*ENNEMY NUDE */
+		/*ENEMY TYPES */
 
-# define ENNU_LIFE 15
-# define ENNU_NBSPR 9
-# define ENNU_NBRUNSPR 6
+# define NAKED_EN 1
 
-		/* ENNEMIES ACTION */
+		/*NAKED ENEMY */
+
+# define EN1_LIFE 15
+# define EN1_NBSPR 9
+# define EN1_NBRUNSPR 6
+# define EN1_HBOX 0.2
+# define EN1_OFFSET 200
+# define EN1_ATK_RANGE 1
+# define EN1_AGGRO_RANGE 10
+
+# define EN1_RUN_SPEED 0.05
+# define EN1_ATK_SPEED 1500
+
+# define EN1_DYING_SPR_SPEED 200
+# define EN1_RUN_SPR_SPEED 200
+
+		/* ENEMIES ACTION */
 
 # define E_STILL 1
 # define E_CHASE 2
 # define E_ATTACK 3
-# define E_DAMAGED 4
-# define E_DIE 5
-# define E_DEAD 6
+# define E_DIE 4
+# define E_DEAD 5
 
 /*#################### PLAYER SETTINGS ####################*/
 

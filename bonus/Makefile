@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/22 14:32:53 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/26 11:07:00 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 ##### GLOBAL FILES ######
 
 GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
-			   utils.c set_cubptr.c error_manager.c
+			   utils.c set_cubptr.c error_manager.c \
+			   math_utils.c
 
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
@@ -90,6 +91,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 KEY_HOOK_FILES = key_press.c key_release.c mouse.c \
 				 mouse_release.c
+
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
@@ -102,8 +104,9 @@ $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
 
 LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  loop_hook_utils.c gun_manager.c shoot_manager.c \
-				  ennemy_manager.c hit_manager.c emotion_manager.c \
-          map_dist_manager.c
+				  enemy_manager.c hit_manager.c emotion_manager.c \
+				  map_dist_manager.c enemy_still.c set_enemy_angle.c \
+
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))

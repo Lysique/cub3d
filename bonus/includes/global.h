@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:43:08 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/26 11:08:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,19 @@ typedef struct s_en {
 	float	y;
 	float	hbox;
 	float	angle;
-	float	offset;
+	float	run_speed;
+	int		atk_speed;
+	int		offset;
 	int		sprite;
+	int		type;
 	int		nb_sprites;
 	int		nb_runspr;
-	int		type;
+	int		atk_range;
+	int		aggro_range;
 	int		action;
 	int		life;
+	int		max_life;
+	int		img_dir;
 	t_time	time;
 	t_img	img;
 	t_spr	s;
@@ -193,5 +199,7 @@ void		free_and_exit(t_cub *cub, int error);
 
 int			is_close_char(char c);
 int			get_door_index(t_door *door, int y, int x);
+
+float		get_angle(float d_y, float d_x);
 
 #endif

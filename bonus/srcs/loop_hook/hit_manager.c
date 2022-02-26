@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 11:11:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 12:27:51 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	lh_hit_wall_check(t_ray *r, t_cub *cub, float dist)
 		{
 			r->side_y += r->delta_y;
 			r->map_y += r->step_y;
-			r->side = SO_NO;
 			if (r->side_y > dist)
 				return (0);
 		}
@@ -28,7 +27,6 @@ int	lh_hit_wall_check(t_ray *r, t_cub *cub, float dist)
 		{
 			r->side_x += r->delta_x;
 			r->map_x += r->step_x;
-			r->side = WE_EA;
 			if (r->side_x > dist)
 				return (0);
 		}
@@ -57,16 +55,16 @@ int	bad_trajectory_checker(t_cub *cub, float delta_x,
 	delta_x = fabsf(delta_x);
 	if (delta_y > delta_x)
 	{
-		if (sin(angle) > 0 && sin(cub->player.angle) > 0)
+		if (sin(angle) < 0 && sin(cub->player.angle) > 0)
 			return (1);
-		else if (sin(angle) < 0 && sin(cub->player.angle) < 0)
+		else if (sin(angle) > 0 && sin(cub->player.angle) < 0)
 			return (1);
 	}
 	else if (delta_x > delta_y)
 	{
-		if (cos(angle) > 0 && cos(cub->player.angle) > 0)
+		if (cos(angle) < 0 && cos(cub->player.angle) > 0)
 			return (1);
-		else if (cos(angle) < 0 && cos(cub->player.angle) < 0)
+		else if (cos(angle) > 0 && cos(cub->player.angle) < 0)
 			return (1);
 	}
 	return (0);
@@ -80,16 +78,10 @@ int	check_if_hit(t_en *en, t_cub *cub)
 	float	dist;
 	float	m;
 
-	delta_x = (cub->player.x - en->x);
-	delta_y = (cub->player.y - en->y);
+	delta_x = cub->player.x - en->x;
+	delta_y = cub->player.y - en->y;
 	dist = sqrtf(delta_x * delta_x + delta_y * delta_y);
-	angle = atan(delta_y / delta_x * -1);
-	if (angle < 0)
-		angle += 2 * PI;
-	if (delta_x < 0 && delta_y < 0)
-		angle += PI;
-	if (delta_x < 0 && delta_y > 0)
-		angle -= PI;
+	angle = get_angle(delta_y, delta_x);
 	if (bad_trajectory_checker(cub, delta_x, delta_y, angle) == 1)
 		return (0);
 	if (lh_wall_hit_checker(cub, dist) == 1)
