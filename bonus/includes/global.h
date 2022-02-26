@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 11:08:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:12:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct s_en {
 	float	angle;
 	float	run_speed;
 	int		atk_speed;
+	int		run_spr_speed;
 	int		offset;
 	int		sprite;
 	int		type;

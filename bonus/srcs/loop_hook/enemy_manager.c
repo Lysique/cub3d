@@ -6,12 +6,11 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:19:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 13:25:14 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
-
 
 void	manage_ennemy(t_en *en, t_cub *cub)
 {

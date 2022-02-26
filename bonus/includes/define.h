@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:10:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:15:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@
 # define EN1_ATK_RANGE 1
 # define EN1_AGGRO_RANGE 10
 
-# define EN1_RUN_SPEED 0.05
+# define EN1_RUN_SPEED 0.001
 # define EN1_ATK_SPEED 1500
 
 # define EN1_DYING_SPR_SPEED 200

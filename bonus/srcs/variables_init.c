@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:23:24 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 11:12:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:34:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	variables_init(t_cub *cub)
 	cub->key.shoot_r = 1;
 	cub->key.shoot_p = 0;
 	cub->key.swap_gun = 0;
+	cub->time = 0;
 	cub->gun_type = 0;
 	cub->mouse.x = WIN_W / 2;
 	cub->map = 0;

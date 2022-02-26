@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 11:00:00 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:12:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	add_ennemy(t_cub *cub, char c, int j, int i)
 	cub->en[k].atk_range = EN1_ATK_RANGE;
 	cub->en[k].aggro_range = EN1_AGGRO_RANGE;
 	cub->en[k].run_speed = EN1_RUN_SPEED;
+	cub->en[k].run_spr_speed = EN1_RUN_SPR_SPEED;
 	cub->en[k].atk_speed = EN1_ATK_SPEED;
 	cub->en[++k].action = -1;
 	cub->map[j][i] = '0';
