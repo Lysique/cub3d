@@ -6,12 +6,38 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:39:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 12:18:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 17:37:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
+void	add_boss_enemy(t_cub *cub, t_en *en, int j, int i)
+{
+	en->type = BOSS_EN;
+	en->x = i + 0.5;
+	en->y = j + 0.5;
+	en->angle = 3 * PI / 2;
+	en->action = E_STILL;
+	en->sprite = 0;
+	en->life = EN3_LIFE;
+	en->max_life = EN3_LIFE;
+	en->nb_sprites = EN3_NBSPR;
+	en->nb_runspr = EN3_NBRUNSPR;
+	en->img = cub->sprites[EN3_S][0];
+	en->img_dir = EN3_S;
+	en->hbox = EN3_HBOX;
+	en->time = 0;
+	en->time2 = 0;
+	en->atk_range = EN3_ATK_RANGE;
+	en->aggro_range = EN3_AGGRO_RANGE;
+	en->run_speed = EN3_RUN_SPEED;
+	en->run_spr_speed = EN3_RUN_SPR_SPEED;
+	en->atk_speed = EN3_ATK_SPEED;
+	en->offset = EN3_OFFSET;
+	en->div = EN3_DIV;
+	en->miss.active = 0;
+}
 
 void	add_soldier_enemy(t_cub *cub, t_en *en, int j, int i)
 {
@@ -75,6 +101,8 @@ void	add_enemy(t_cub *cub, char c, int j, int i)
 		add_naked_enemy(cub, &cub->en[k], j, i);
 	else if (c == 's')
 		add_soldier_enemy(cub, &cub->en[k], j, i);
+	else if (c == 'b')
+		add_boss_enemy(cub, &cub->en[k], j, i);
 	cub->en[++k].action = -1;
 	cub->map[j][i] = '0';
 }

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 15:01:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 17:43:46 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@
 # define EN2_NW 29
 # define EN2_ATK 30
 # define EN2_DEAD 31
+# define EN3_S 32
+# define EN3_N 33
+# define EN3_E 34
+# define EN3_W 35
+# define EN3_SE 36
+# define EN3_SW 37
+# define EN3_NE 38
+# define EN3_NW 39
 
 		/* PONCT INDEXES */
 
@@ -97,7 +105,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 32
+# define NB_SPR 40
 # define MAX_SPR 26
 
 /*#################### ENEMY SETTINGS ####################*/
@@ -106,6 +114,26 @@
 
 # define NAKED_EN 1
 # define SOLDIER_EN 2
+# define BOSS_EN 3
+
+		/*BOSS ENEMY */
+
+# define EN3_LIFE 1000
+# define EN3_NBSPR 6
+# define EN3_NBRUNSPR 4
+# define EN3_HBOX 0.5
+# define EN3_ATK_RANGE 10
+# define EN3_AGGRO_RANGE 0
+
+# define EN3_OFFSET 0
+# define EN3_DIV 0.7
+
+# define EN3_RUN_SPEED 0.0004
+# define EN3_ATK_SPEED 5000
+
+# define EN3_DYING_SPR_SPEED 200
+# define EN3_RUN_SPR_SPEED 300
+# define EN3_ATK_SPR_SPEED 800
 
 		/*SOLDIER ENEMY */
 
@@ -151,6 +179,8 @@
 # define E_HAS_ATK 4
 # define E_DIE 5
 # define E_DEAD 6
+# define E_AGGRO 7
+# define E_RECHARGE 8
 
 /*#################### PLAYER SETTINGS ####################*/
 

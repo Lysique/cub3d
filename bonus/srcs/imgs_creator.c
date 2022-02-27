@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 12:32:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 16:04:15 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,13 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/ennemi/en_NW", 6, cub->sprites[EN2_NW], cub);
 	create_img("sprites/ennemi/en_mort", 7, cub->sprites[EN2_DEAD], cub);
 	create_img("sprites/ennemi/en_atk", 2, cub->sprites[EN2_ATK], cub);
+	create_img("sprites/robot/rob_S", 6, cub->sprites[EN3_S], cub);
+	create_img("sprites/robot/rob_N", 6, cub->sprites[EN3_N], cub);
+	create_img("sprites/robot/rob_E", 6, cub->sprites[EN3_E], cub);
+	create_img("sprites/robot/rob_W", 6, cub->sprites[EN3_W], cub);
+	create_img("sprites/robot/rob_SE", 6, cub->sprites[EN3_SE], cub);
+	create_img("sprites/robot/rob_SW", 6, cub->sprites[EN3_SW], cub);
+	create_img("sprites/robot/rob_NE", 6, cub->sprites[EN3_NE], cub);
+	create_img("sprites/robot/rob_NW", 6, cub->sprites[EN3_NW], cub);
 	img_resize(cub);
 }

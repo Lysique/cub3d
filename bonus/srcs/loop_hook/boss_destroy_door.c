@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprs_init.c                                        :+:      :+:    :+:   */
+/*   boss_destroy_door.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 10:27:58 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 15:53:12 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/27 16:28:16 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/27 16:44:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parser.h"
+#include "../../includes/loop_hook.h"
 
-void	sprs_init(t_cub *cub)
+void	boss_destroy_door(t_en *en, t_cub *cub)
 {
-	int	i;
-	int	k;
-
-	i = 0;
-	k = -1;
-	while (cub->en[++k].action != -1)
-	{
-		if (cub->en[k].type == BOSS_EN)
-			i += 2;
-		else
-			i++;
-	}
-	cub->sprs = malloc(sizeof(t_spr) * (i + 1));
-	if (!cub->sprs)
-		parser_error(MALLOC_ERROR, 0);
-	cub->sprs[i].to_draw = -1;
+	(void)en;
+	(void)cub;
 }
+
