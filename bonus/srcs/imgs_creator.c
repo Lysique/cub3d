@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:40:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 12:32:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,15 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/portrait/portrait", 8, cub->sprites[PORTRAIT], cub);
 	create_img("sprites/text_map/text_map", 4, cub->sprites[IMG_MAP], cub);
 	create_img("sprites/barre_menu/menu", 1, cub->sprites[I_MENU], cub);
+	create_img("sprites/ennemi/en_S", 6, cub->sprites[EN2_S], cub);
+	create_img("sprites/ennemi/en_N", 6, cub->sprites[EN2_N], cub);
+	create_img("sprites/ennemi/en_E", 6, cub->sprites[EN2_E], cub);
+	create_img("sprites/ennemi/en_W", 6, cub->sprites[EN2_W], cub);
+	create_img("sprites/ennemi/en_SE", 6, cub->sprites[EN2_SE], cub);
+	create_img("sprites/ennemi/en_SW", 6, cub->sprites[EN2_SW], cub);
+	create_img("sprites/ennemi/en_NE", 6, cub->sprites[EN2_NE], cub);
+	create_img("sprites/ennemi/en_NW", 6, cub->sprites[EN2_NW], cub);
+	create_img("sprites/ennemi/en_mort", 7, cub->sprites[EN2_DEAD], cub);
+	create_img("sprites/ennemi/en_atk", 2, cub->sprites[EN2_ATK], cub);
 	img_resize(cub);
 }

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 08:39:34 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:24:50 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 13:25:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	gun_init(t_cub *cub)
 	cub->gun[0].nb_spr_shoot = 1;
 	cub->gun[0].time = 0;
 	cub->gun[0].status = GS_FREE;
-	cub->gun[0].damage = 10;
+	cub->gun[0].damage = 100;
 	cub->gun[1].sprite = 0;
 	cub->gun[1].bullets = MG_BULLETS;
 	cub->gun[1].max_bullets = MG_BULLETS;

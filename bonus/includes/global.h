@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:29:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 14:18:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_en {
 	float	hbox;
 	float	angle;
 	float	run_speed;
+	float	div;
 	int		atk_speed;
 	int		run_spr_speed;
 	int		offset;
@@ -106,6 +107,7 @@ typedef struct s_en {
 typedef struct s_player {
 	float	x;
 	float	y;
+	float	hbox;
 	int		life;
 	int		emotion;
 	float	angle;

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:20:02 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:34:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 12:43:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_en_move_image(t_en *en, t_cub *cub)
 	en->time += cub->time;
 	if (en->time / en->run_spr_speed > 0)
 	{
-		if (en->sprite > en->nb_runspr - 1)
+		if (en->sprite >= en->nb_runspr)
 			en->sprite = 0;
 		en->img = cub->sprites[en->img_dir][en->sprite];
 		en->sprite++;

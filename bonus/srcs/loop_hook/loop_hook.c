@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:49:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 13:31:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	game_manager(t_cub *cub)
 {
 	door_manager(cub);
 	player_manager(cub);
-	door_manager(cub);
 	gun_manager(cub);
 	emotion_manager(cub);
 	enemy_manager(cub);

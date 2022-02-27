@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:10:17 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:59:27 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 11:47:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	init_standard_en_spr(t_cub *cub, int j, t_ray *r, t_en en)
 	s.transf_y = s.invdet * (r->cam_plane_y * -1 * s.sprite_x
 			+ r->cam_plane_x * s.sprite_y);
 	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
-	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / 1.5;
+	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / en.div;
 	s.sprite_width = abs((int)(WIN_H / s.transf_y));
 	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
 	if (s.draw_start < 0)
