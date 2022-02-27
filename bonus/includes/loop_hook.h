@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:18:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 10:44:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	map_dist_manager(t_cub *cub);
 void	gun_manager(t_cub *cub);
 void	shoot_manager(t_cub *cub, t_gun *gun);
 void	hit_manager(t_cub *cub, t_gun *gun);
+void	order_enemies(t_cub *cub);
 void	emotion_manager(t_cub *cub);
 void	enemy_manager(t_cub *cub);
 

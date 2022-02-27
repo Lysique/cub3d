@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 12:27:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 10:43:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	hit_manager(t_cub *cub, t_gun *gun)
 
 	i = -1;
 	gun->bullets--;
+	order_enemies(cub);
 	while (cub->en[++i].action != -1)
 		;
 	while (i--)

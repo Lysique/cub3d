@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:41:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 10:32:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		doors_init(t_cub *cub);
 void		ennemy_init(t_cub *cub);
 void		add_enemy(t_cub *cub, char c, int j, int i);
 void		map_dist_init(t_cub *cub);
+void		sprs_init(t_cub *cub);
 
 int			is_texture_line(char *line);
 char		*go_to_path(char *line, int i);
