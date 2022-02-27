@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:39:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 11:02:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	key_press_game2(int key, t_cub *cub)
 {
-	if (key == K_UP&& cub->key.shoot_r == 1)
+	if (key == K_UP && cub->key.shoot_r == 1)
 	{
 		cub->key.shoot_r = 0;
 		cub->key.shoot_p = 1;
@@ -29,6 +29,7 @@ void	key_press_game(int key, t_cub *cub)
 {
 	if (key == K_ESC)
 	{
+		error_manager(EXOK);
 		mlx_mouse_show();
 		cub->game_state = MENU;
 	}
@@ -60,6 +61,11 @@ void	key_press_menu(int key, t_cub *cub)
 	{
 		mlx_mouse_hide();
 		cub->game_state = GAME;
+	}
+	else if (key == K_SHIFT)
+	{
+		variables_reset(cub);
+		parser("test.cub", cub);
 	}
 }	
 

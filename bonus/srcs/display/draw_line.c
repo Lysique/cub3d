@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:15:48 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/21 14:54:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 10:48:31 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	line_to_screen(t_ray *r, t_cub *cub)
 			r->draw_start, r->pix_screen_x, color);
 		r->draw_start += OPTI;
 	}
-	draw_ennemies(r, cub);
+	draw_sprites(r, cub);
 }
 
 void	line_init(t_ray *r, t_cub *cub)

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:41:21 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 15:01:59 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@
 # define EN1_NW 19
 # define EN1_ATK 20
 # define I_MENU 21
+# define EN2_S 22
+# define EN2_N 23
+# define EN2_E 24
+# define EN2_W 25
+# define EN2_SE 26
+# define EN2_SW 27
+# define EN2_NE 28
+# define EN2_NW 29
+# define EN2_ATK 30
+# define EN2_DEAD 31
 
 		/* PONCT INDEXES */
 
@@ -87,7 +97,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 22
+# define NB_SPR 32
 # define MAX_SPR 26
 
 /*#################### ENEMY SETTINGS ####################*/
@@ -95,6 +105,25 @@
 		/*ENEMY TYPES */
 
 # define NAKED_EN 1
+# define SOLDIER_EN 2
+
+		/*SOLDIER ENEMY */
+
+# define EN2_LIFE 30
+# define EN2_NBSPR 6
+# define EN2_NBRUNSPR 6
+# define EN2_HBOX 0.25
+# define EN2_ATK_RANGE 5
+# define EN2_AGGRO_RANGE 15
+
+# define EN2_OFFSET 0
+# define EN2_DIV 1.
+
+# define EN2_RUN_SPEED 0.0006
+# define EN2_ATK_SPEED 1500
+
+# define EN2_DYING_SPR_SPEED 200
+# define EN2_RUN_SPR_SPEED 200
 
 		/*NAKED ENEMY */
 
@@ -102,9 +131,11 @@
 # define EN1_NBSPR 9
 # define EN1_NBRUNSPR 6
 # define EN1_HBOX 0.2
-# define EN1_OFFSET 200
 # define EN1_ATK_RANGE 1
-# define EN1_AGGRO_RANGE 10
+# define EN1_AGGRO_RANGE 0
+
+# define EN1_OFFSET 200
+# define EN1_DIV 1.5
 
 # define EN1_RUN_SPEED 0.001
 # define EN1_ATK_SPEED 1500

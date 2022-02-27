@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:20:02 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:34:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 14:54:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,20 @@ void	set_en_move_image(t_en *en, t_cub *cub)
 	en->time += cub->time;
 	if (en->time / en->run_spr_speed > 0)
 	{
-		if (en->sprite > en->nb_runspr - 1)
+		if (en->sprite >= en->nb_runspr)
 			en->sprite = 0;
 		en->img = cub->sprites[en->img_dir][en->sprite];
 		en->sprite++;
 		en->time = 0;
 	}
+}
+
+void	set_waiting_image(t_en *en, t_cub *cub)
+{
+	if (en->type == NAKED_EN)
+		en->img = cub->sprites[en->img_dir][7];
+	else if (en->type == SOLDIER_EN)
+		en->img = cub->sprites[en->img_dir][0];
 }
 
 void	check_enemy_path(t_en *en, t_cub *cub, int *y, int *x)
@@ -67,7 +75,7 @@ void	enemy_move(t_en *en, t_cub *cub)
 		en->y += -sin(en->angle) * (en->run_speed * cub->time);
 	if ((!x || (cos(en->angle) > -0.1 && cos(en->angle) < 0.01))
 		&& (!y || (sin(en->angle) > -0.01 && sin(en->angle) < 0.01)))
-		en->img = cub->sprites[en->img_dir][7];
+		set_waiting_image(en, cub);
 	else
 		set_en_move_image(en, cub);
 }

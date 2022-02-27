@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:07:30 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 14:18:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ typedef struct s_mlx {
 }				t_mlx;
 
 typedef struct s_spr {
+	float	x;
+	float	y;
 	float	sprite_x;
 	float	sprite_y;
 	float	invdet;
 	float	transf_x;
 	float	transf_y;
+	float	offset;
 	int		sprite_screen_x;
 	int		sprite_height;
 	int		sprite_width;
@@ -73,6 +76,7 @@ typedef struct s_spr {
 	int		draw_start;
 	int		draw_end;
 	int		d;
+	int		to_draw;
 	t_img	tex;
 }				t_spr;
 
@@ -82,6 +86,7 @@ typedef struct s_en {
 	float	hbox;
 	float	angle;
 	float	run_speed;
+	float	div;
 	int		atk_speed;
 	int		run_spr_speed;
 	int		offset;
@@ -97,12 +102,12 @@ typedef struct s_en {
 	int		img_dir;
 	t_time	time;
 	t_img	img;
-	t_spr	s;
 }				t_en;
 
 typedef struct s_player {
 	float	x;
 	float	y;
+	float	hbox;
 	int		life;
 	int		emotion;
 	float	angle;
@@ -140,6 +145,7 @@ typedef struct s_cub {
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;
+	t_spr		*sprs;
 	t_gun		gun[2];
 	t_key		key;
 	t_mouse		mouse;
@@ -191,6 +197,13 @@ void		wr_and_ex(char *str, int ex);
 
 t_cub		*set_cubptr(t_cub *ptr);
 void		error_manager(int error);
+
+void		variables_init(t_cub *cub);
+void		key_init(t_cub *cub);
+void		gun_init(t_cub *cub);
+void		textures_init(t_cub *cub);
+
+void		variables_reset(t_cub *cub);
 
 int			ft_strlen(const char *s);
 t_time		get_time(void);

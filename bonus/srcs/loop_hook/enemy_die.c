@@ -6,15 +6,15 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:16:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:17:02 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 13:27:15 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
 
-void	en1_die(t_en *en, t_cub *cub)
+void	naked_die(t_en *en, t_cub *cub)
 {
-	if (en->time > EN1_DYING_SPR_SPEED)
+	if (en->time / EN1_DYING_SPR_SPEED > 0)
 	{
 		en->img = cub->sprites[EN1_DEAD][en->sprite];
 		if (en->sprite == 3)
@@ -31,8 +31,23 @@ void	en1_die(t_en *en, t_cub *cub)
 	en->time += cub->time;
 }
 
+void	soldier_die(t_en *en, t_cub *cub)
+{
+	if (en->time / EN2_DYING_SPR_SPEED > 0)
+	{
+		en->img = cub->sprites[EN2_DEAD][en->sprite];
+		en->sprite++;
+		if (en->sprite == 7)
+			en->action = E_DEAD;
+		en->time = 0;
+	}
+	en->time += cub->time;
+}
+
 void	enemy_die(t_en *en, t_cub *cub)
 {
 	if (en->type == NAKED_EN)
-		en1_die(en, cub);
+		naked_die(en, cub);
+	else if (en->type == SOLDIER_EN)
+		soldier_die(en, cub);
 }

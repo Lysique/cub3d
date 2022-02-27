@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/26 15:45:22 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/27 15:06:39 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c variables_init.c img_resize.c
+			 imgs_creator.c img_resize.c
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
@@ -43,7 +43,8 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 
 GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
 			   utils.c set_cubptr.c error_manager.c \
-			   math_utils.c
+			   math_utils.c variables_init.c variables_reset.c \
+
 
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
@@ -60,7 +61,8 @@ PARSER_FILES = parser.c parser_free.c parser_error.c \
 			   fd_to_arr.c parse_map.c parse_textures.c \
 			   player_init.c parser_utils.c parser_utils2.c \
 			   add_texture.c doors_init.c parser_utils3.c \
-			   ennemy_init.c map_dist_init.c add_enemy.c
+			   ennemy_init.c map_dist_init.c add_enemy.c \
+			   sprs_init.c
 
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
@@ -75,9 +77,8 @@ $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
 DISPLAY_FILES = display.c view_casting.c \
 				display_map.c display_char.c \
 				display_utils.c display_gun.c display_menubar.c \
-				f_c_casting.c draw_ennemies.c sprites_init.c \
+				f_c_casting.c draw_sprites.c sprites_init.c \
 				hit_wall_check.c draw_line.c draw_img.c \
-
 
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
@@ -91,6 +92,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 
 KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c \
 				 mouse_release.c mouse_move.c
+
 
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
@@ -107,7 +109,7 @@ LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  enemy_manager.c hit_manager.c emotion_manager.c \
 				  map_dist_manager.c enemy_still.c set_enemy_angle.c \
 				  set_enemy_action.c enemy_attack.c enemy_die.c \
-				  enemy_move.c
+				  enemy_move.c order_enemies.c set_en_img_angle.c \
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))

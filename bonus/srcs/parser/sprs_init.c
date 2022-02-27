@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_free.c                                      :+:      :+:    :+:   */
+/*   sprs_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/01 10:23:09 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 09:35:32 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/27 10:27:58 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/27 10:56:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-void	parser_free(t_parser *p)
+void	sprs_init(t_cub *cub)
 {
-	if (p->fd != -1)
-		close(p->fd);
-	free_my_arr(p->file);
+	int	i;
+	int	k;
+
+	i = 0;
+	k = -1;
+	while (cub->en[++k].action != -1)
+		i++;
+	cub->sprs = malloc(sizeof(t_spr) * (i + 1));
+	if (!cub->sprs)
+		parser_error(MALLOC_ERROR, 0);
+	cub->sprs[i].to_draw = -1;
 }

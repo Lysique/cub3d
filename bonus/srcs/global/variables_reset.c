@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_utils3.c                                    :+:      :+:    :+:   */
+/*   variables_reset.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 17:01:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 11:20:22 by tamighi          ###   ########.fr       */
+/*   Created: 2022/02/27 09:10:39 by tamighi           #+#    #+#             */
+/*   Updated: 2022/02/27 10:26:19 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parser.h"
+#include "../../includes/global.h"
 
-int	is_ennemy_char(char c)
+void	variables_reset(t_cub *cub)
 {
-	if (c == 'n' || c == 's')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (i < 6)
+		mlx_destroy_image(cub->mlx.mlx, cub->textures[i++].img);
+	free(cub->en);
+	free(cub->doors);
+	free(cub->sprs);
+	i = 0;
+	while (cub->map[i])
+	{
+		free(cub->map[i]);
+		free(cub->map_dist[i++]);
+	}
+	free(cub->map);
+	free(cub->map_dist);
+	variables_init(cub);
 }

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:45:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 10:48:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void			view_casting(t_cub *cub);
 void			hit_wall_check(t_ray *r, t_cub *cub);
 void			f_c_casting(t_ray *r, t_cub *cub);
-void			draw_ennemies(t_ray *r, t_cub *cub);
+void			draw_sprites(t_ray *r, t_cub *cub);
 void			sprites_init(t_ray *r, t_cub *cub);
 void			hit_wall_check(t_ray *r, t_cub *cub);
 void			draw_line(t_ray *r, t_cub *cub);

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:53:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 09:54:23 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/27 09:25:02 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "global.h"
 
-void	display_map(t_cub *cub);
+void	parser(char *argument, t_cub *cub);
 
 #endif
