@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:44:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 14:25:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 15:06:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	shoot_player(t_en *en, t_cub *cub)
 		en->sprite = 0;
 	else
 	{
-		if (en_shot_manager(en, cub))
+		if (en_shot_manager(en, cub) && cub->player.life > 0)
 			cub->player.life--;
 		en->sprite = 1;
 		en->time = 0;
