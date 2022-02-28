@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:39:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 17:37:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:45:00 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	add_boss_enemy(t_cub *cub, t_en *en, int j, int i)
 	en->offset = EN3_OFFSET;
 	en->div = EN3_DIV;
 	en->miss.active = 0;
+	en->miss.time = 0;
+	en->miss.div = 1;
+	en->miss.sprite = 0;
 }
 
 void	add_soldier_enemy(t_cub *cub, t_en *en, int j, int i)

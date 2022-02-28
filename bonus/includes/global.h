@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 17:37:29 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:44:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ typedef struct s_miss {
 	float	x_dest;
 	float	y_dest;
 	float	angle;
+	float	dist;
+	float	div;
 	int		active;
+	int		offset;
+	int		sprite;
+	t_time	time;
+	t_img	img;
 }			t_miss;
 
 typedef struct s_key {

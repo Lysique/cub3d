@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 16:28:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:01:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 10:36:29 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	is_door_in_the_way(t_ray *r, t_cub *cub, t_en *en)
 	i = get_door_index(cub->doors, r->map_y, r->map_x);
 	if (i != -1)
 	{
-		en->miss.x_dest = r->map_x;
-		en->miss.y_dest = r->map_y;
+		en->miss.x_dest = r->map_x + 0.5;
+		en->miss.y_dest = r->map_y + 0.5;
 		return (1);
 	}
 	return (0);

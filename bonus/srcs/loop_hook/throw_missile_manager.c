@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 17:01:18 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:10:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:00:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	missile_init(t_en *en, t_cub *cub, float y, float x)
 	en->miss.y = en->y;
 	en->miss.x_dest = x;
 	en->miss.y_dest = y;
+	en->miss.dist = sqrtf((en->miss.x - en->miss.x_dest)
+		* (en->miss.x - en->miss.x_dest)
+		+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
 	en->miss.angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
 }
 
@@ -33,6 +36,7 @@ void	throw_missile(t_en *en, t_cub *cub, float y, float x)
 		{
 			en->time2 = 1;
 			en->sprite = 0;
+			en->img = cub->sprites[en->img_dir][en->sprite];
 			en->action = E_ATTACK;
 			en->time = 0;
 		}

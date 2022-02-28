@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 08:17:36 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:44:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		lh_wall_hit_checker(float angle, float dist, float x,
 		float y);
 
 int		check_p_dir(t_cub *cub, float y, float x);
+int		miss_arrived_at_destination(t_miss miss);
 
 // DISPLAY FCTS
 

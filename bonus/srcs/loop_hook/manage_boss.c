@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 15:58:33 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:10:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:04:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	boss_action_manager(t_en *en, t_cub *cub, int dist)
 		throw_missile_manager(en, cub, dist);
 	else if (en->action == E_CHASE)
 		enemy_move(en, cub);
-	if (en->miss.active == 1)
+	if (en->miss.active != 0)
 		missile_manager(en, cub);
 }
 
@@ -29,7 +29,7 @@ void	set_boss_action(t_en *en, t_cub *cub, int dist)
 	float	angle;
 
 	angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
-	if (en->action == E_LOCK)
+	if (en->action == E_LOCK && dist == INT_MAX)
 		en->action = E_LOCK;
 	else if (en_shot_manager(en, cub, angle) && dist < en->atk_range)
 		en_action_reset(en, E_ATTACK);

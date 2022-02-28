@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:05:16 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 10:10:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@
 # define EN3_SW 37
 # define EN3_NE 38
 # define EN3_NW 39
+# define I_MISS 40
 
 		/* PONCT INDEXES */
 
@@ -105,8 +106,8 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 40
-# define MAX_SPR 26
+# define NB_SPR 41
+# define MAX_SPR 29
 
 /*#################### ENEMY SETTINGS ####################*/
 
@@ -134,6 +135,12 @@
 # define EN3_DYING_SPR_SPEED 200
 # define EN3_RUN_SPR_SPEED 300
 # define EN3_ATK_SPR_SPEED 800
+
+		/*MISSILE */
+
+# define MISS_SPEED 0.0068
+# define MISS_SPR_EXPLODE_SPEED 50
+# define MISS_NB_SPRITES 29
 
 		/*SOLDIER ENEMY */
 
