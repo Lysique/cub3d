@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:33:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 06:57:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:55:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	set_enemy_action(t_en *en, t_cub *cub)
 	dist = sqrtf(d_x * d_x + d_y * d_y);
 	if (en->life <= 0)
 		en_action_reset(en, E_DIE);
+	else if (cub->player.life <= 0)
+		en_action_reset(en, E_STILL);
 	else if (en->action == E_HAS_ATK)
 		en_action_reset(en, E_HAS_ATK);
 	else if (en->action == E_ATTACK || dist <= en->atk_range)

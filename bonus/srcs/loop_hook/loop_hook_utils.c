@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 12:26:45 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:01:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:27:52 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,16 @@ int	check_p_dir(t_cub *cub, float y, float x)
 	if (i != -1 && cub->doors[i].open == 1)
 		return (1);
 	return (0);
+}
+
+void	player_life_manager(t_cub *cub, int life)
+{
+	cub->player.life -= life;
+	if (cub->player.life <= 0)
+	{
+		cub->player.life = 0;
+		cub->game_state = GAME_OVER;
+		reinitialize_map_dist(cub);
+	}
+	cub->shader_index = 10;
 }

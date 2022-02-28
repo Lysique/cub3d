@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 07:36:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:57:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:16:13 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ void	missile_explode(t_en *en, t_cub *cub, int i)
 			destroy_door(cub, i);
 		else if (cub->player.x - 1.5 < en->miss.x && cub->player.x + 1.5 > en->miss.x
 			&& cub->player.y - 1.5 < en->miss.y && cub->player.y + 1.5 > en->miss.y)
-			if (cub->player.life > 0)
-				cub->player.life--;
+			player_life_manager(cub, 4);
 	}
 	en->miss.time += cub->time;
 	if (en->miss.time / MISS_SPR_EXPLODE_SPEED > 0)

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:10:52 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 12:50:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,6 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/robot/rob_NE", 6, cub->sprites[EN3_NE], cub);
 	create_img("sprites/robot/rob_NW", 6, cub->sprites[EN3_NW], cub);
 	create_img("sprites/explosion/explosion", 29, cub->sprites[I_MISS], cub);
+	create_shaders(cub->sprites[I_SHADERS], cub);
 	img_resize(cub);
 }

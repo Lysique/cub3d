@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:39:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:36:55 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,17 @@ int		bad_trajectory_checker(float angle, float dist,
 		float x, float y);
 int		lh_wall_hit_checker(float angle, float dist, float x,
 		float y);
+void	reinitialize_map_dist(t_cub *cub);
 
 int		check_p_dir(t_cub *cub, float y, float x);
 int		miss_arrived_at_destination(t_miss miss);
+void	player_life_manager(t_cub *cub, int life);
 
 // DISPLAY FCTS
 
 void	side_init(t_ray *r, float p_x, float p_y);
 int		is_raycast_end(t_cub *cub, int y, int x);
+
+void	parser(char *argument, t_cub *cub);
 
 #endif

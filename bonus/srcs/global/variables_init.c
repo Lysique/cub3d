@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 08:39:34 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 13:25:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:42:51 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	variables_init(t_cub *cub)
 	cub->player.emotion = 1;
 	cub->en = 0;
 	cub->sprs = 0;
+	cub->shader_index = -1;
 	cub->action = FREE_GUN;
 	cub->game_state = GAME;
 	key_init(cub);

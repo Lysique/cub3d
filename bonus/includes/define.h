@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:56:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:28:25 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 
 # define GAME 1
 # define MENU 2
+# define GAME_OVER 3
 
 /*#################### TEXTURES INDEXES ####################*/
 
@@ -88,6 +89,7 @@
 # define EN3_NE 38
 # define EN3_NW 39
 # define I_MISS 40
+# define I_SHADERS 41
 
 		/* PONCT INDEXES */
 
@@ -106,7 +108,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 41
+# define NB_SPR 42
 # define MAX_SPR 29
 
 /*#################### ENEMY SETTINGS ####################*/
@@ -134,7 +136,7 @@
 
 # define EN3_DYING_SPR_SPEED 200
 # define EN3_RUN_SPR_SPEED 300
-# define EN3_ATK_SPR_SPEED 800
+# define EN3_ATK_SPR_SPEED 600
 
 		/*MISSILE */
 
@@ -148,7 +150,7 @@
 # define EN2_NBSPR 6
 # define EN2_NBRUNSPR 6
 # define EN2_HBOX 0.25
-# define EN2_ATK_RANGE 5
+# define EN2_ATK_RANGE 8
 # define EN2_AGGRO_RANGE 15
 
 # define EN2_OFFSET 0
@@ -167,7 +169,7 @@
 # define EN1_NBRUNSPR 6
 # define EN1_HBOX 0.2
 # define EN1_ATK_RANGE 1
-# define EN1_AGGRO_RANGE 0
+# define EN1_AGGRO_RANGE 13
 
 # define EN1_OFFSET 200
 # define EN1_DIV 1.5

@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/28 07:38:47 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/28 12:52:54 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c img_resize.c
+			 imgs_creator.c img_resize.c create_shaders.c \
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))

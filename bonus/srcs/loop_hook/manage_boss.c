@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 15:58:33 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:39:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 12:42:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	lock_boss_angle(t_en *en, t_cub *cub, int dist)
 	}
 	else
 	{
-		en->miss.x_dest = cub->player.x;
-		en->miss.y_dest = cub->player.y;
 		en->action = E_ATTACK;
 		en->angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
+		en->miss.x_dest = cub->player.x + cos(en->angle) * -0.5;
+		en->miss.y_dest = cub->player.y + sin(en->angle) * 0.5;
 	}
 }
 

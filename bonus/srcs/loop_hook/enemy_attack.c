@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:44:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:39:54 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:14:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	shoot_player(t_en *en, t_cub *cub)
 		en->sprite = 0;
 	else
 	{
-		if (en_shot_manager(en, cub, en->angle) && cub->player.life > 0)
-			cub->player.life--;
+		if (en_shot_manager(en, cub, en->angle))
+			player_life_manager(cub, 1);
 		en->sprite = 1;
 		en->time = 0;
 		en->action = E_STILL;
@@ -69,7 +69,7 @@ void	bite_player(t_en *en, t_cub *cub)
 	if (en->sprite == 2 && en->action != E_HAS_ATK && cub->player.life > 0)
 	{
 		en->action = E_HAS_ATK;
-		cub->player.life -= 1;
+		player_life_manager(cub, 1);
 	}
 	if (en->time / 1500 > 0)
 	{

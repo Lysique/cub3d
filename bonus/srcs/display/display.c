@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:17:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 16:53:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:35:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	display_game(t_cub *cub)
 	display_menubar(cub);
 	display_char(cub);
 	display_gun(cub);
+	if (cub->shader_index != -1)
+		mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
+			cub->sprites[I_SHADERS][cub->shader_index].img, 0, 0);
 }
 
 void	display_menu(t_cub *cub)
@@ -31,7 +34,7 @@ void	display_menu(t_cub *cub)
 
 void	display(t_cub *cub)
 {
-	if (cub->game_state == GAME)
+	if (cub->game_state == GAME || cub->game_state == GAME_OVER)
 		display_game(cub);
 	else if (cub->game_state == MENU)
 		display_menu(cub);
