@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 08:39:34 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:38:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:32:24 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	variables_init(t_cub *cub)
 	cub->sprs = 0;
 	cub->shader_index = -1;
 	cub->action = FREE_GUN;
-	cub->game_state = GAME;
 	key_init(cub);
 	textures_init(cub);
 	gun_init(cub);

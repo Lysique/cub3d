@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:58:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:32:36 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	pre_variables_init(t_cub *cub)
 	cub->mlx.mlx = 0;
 	cub->mlx.win = 0;
 	cub->display.img = 0;
+	cub->game_state = START_MENU;
 	while (i < NB_SPR)
 	{
 		j = 0;

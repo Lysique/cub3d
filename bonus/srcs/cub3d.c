@@ -6,19 +6,32 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:14:47 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:41:10 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
+
+void	level_init(char *argument, t_cub *cub)
+{
+	if (argument)
+	{
+		cub->game_level = -1;
+		parser(argument, cub);
+	}
+	else
+	{
+		cub->game_level = 1;
+		parser("maps/level1.cub", cub);
+	}
+}
 
 void	cub3d(char *argument)
 {
 	t_cub		cub;
 
 	structure_init(&cub);
-	parser(argument, &cub);
-	mlx_mouse_hide();
+	level_init(argument, &cub);
 	mlx_hook(cub.mlx.win, 2, 0, key_press, (void *)&cub);
 	mlx_hook(cub.mlx.win, 3, 0, key_release, (void *)&cub);
 	mlx_hook(cub.mlx.win, 4, 0, mouse_click, (void *)&cub);

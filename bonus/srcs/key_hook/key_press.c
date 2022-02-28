@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 11:02:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:42:28 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	key_press_game(int key, t_cub *cub)
 {
 	if (key == K_ESC)
 	{
-		error_manager(EXOK);
+//		error_manager(EXOK);
 		mlx_mouse_show();
-		cub->game_state = MENU;
+		cub->game_state = START_MENU;
 	}
 	else if (key == K_D)
 		cub->key.d = 1;
@@ -54,9 +54,8 @@ void	key_press_game(int key, t_cub *cub)
 		key_press_game2(key, cub);
 }
 
-void	key_press_menu(int key, t_cub *cub)
+void	key_press_start_menu(int key, t_cub *cub)
 {
-	(void)cub;
 	if (key == K_ESC)
 	{
 		mlx_mouse_hide();
@@ -65,7 +64,7 @@ void	key_press_menu(int key, t_cub *cub)
 	else if (key == K_SHIFT)
 	{
 		variables_reset(cub);
-		parser("test.cub", cub);
+		parser("maps/level1.cub", cub);
 	}
 }	
 
@@ -76,7 +75,7 @@ int	key_press(int key, void *param)
 	cub = (t_cub *)param;
 	if (cub->game_state == GAME)
 		key_press_game(key, cub);
-	else if (cub->game_state == MENU)
-		key_press_menu(key, cub);
+	else if (cub->game_state == START_MENU)
+		key_press_start_menu(key, cub);
 	return (0);
 }

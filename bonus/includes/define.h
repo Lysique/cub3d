@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:28:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:33:09 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 		/* GAME STATE */
 
 # define GAME 1
-# define MENU 2
+# define START_MENU 2
 # define GAME_OVER 3
 
 /*#################### TEXTURES INDEXES ####################*/

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 14:38:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:50:12 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	check_if_hit(t_en *en, t_cub *cub)
 	if (bad_trajectory_checker(angle, delta_x, delta_y, cub->player.angle) == 1)
 		return (0);
 	if (lh_wall_hit_checker(angle, dist, cub->player.x, cub->player.y) == 1)
-		return (-1);
+		return (0);
 	m = tan(angle - cub->player.angle + PI / 2);
 	if (dist / m < en->hbox && dist / m > -en->hbox)
 		return (1);
