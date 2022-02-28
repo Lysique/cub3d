@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:06:38 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 15:07:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:21:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 	i = looking_for_door(cub);
 	if (i != -1 && cub->doors[i].is_moving == 0)
 	{
+		if (is_en_on_door(cub->doors[i], cub->en))
+			return ;
 		if (cub->doors[i].open == 0)
 		{
 			cub->doors[i].open = 1;

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 17:01:18 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:43:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:32:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	missile_init(t_en *en)
 	en->miss.x = en->x;
 	en->miss.y = en->y;
 	en->miss.dist = sqrtf((en->miss.x - en->miss.x_dest)
-		* (en->miss.x - en->miss.x_dest)
-		+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
+			* (en->miss.x - en->miss.x_dest)
+			+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
 	en->miss.angle = get_angle(en->miss.y - en->miss.y_dest,
-		en->miss.x - en->miss.x_dest);
+			en->miss.x - en->miss.x_dest);
 }
 
 void	throw_missile_manager(t_en *en, t_cub *cub)

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 08:39:34 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:42:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:38:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	key_init(t_cub *cub)
 	cub->key.shoot_r = 1;
 	cub->key.shoot_p = 0;
 	cub->key.swap_gun = 0;
-	cub->mouse.x = WIN_W / 2;	
+	cub->mouse.x = WIN_W / 2;
 }
 
 void	variables_init(t_cub *cub)

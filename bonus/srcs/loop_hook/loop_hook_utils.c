@@ -6,11 +6,20 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 12:26:45 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:27:52 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:30:52 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
+
+int	missile_hit_player(t_cub *cub, t_en *en)
+{
+	if (cub->player.x - 1.5 < en->miss.x && cub->player.x + 1.5 > en->miss.x
+		&& cub->player.y - 1.5 < en->miss.y
+		&& cub->player.y + 1.5 > en->miss.y)
+		return (1);
+	return (0);
+}
 
 int	miss_arrived_at_destination(t_miss miss)
 {
@@ -58,4 +67,17 @@ void	player_life_manager(t_cub *cub, int life)
 		reinitialize_map_dist(cub);
 	}
 	cub->shader_index = 10;
+}
+
+int	is_en_on_door(t_door door, t_en *en)
+{
+	int	i;
+
+	i = -1;
+	while (en[++i].action != -1)
+	{
+		if ((int)en[i].x == door.x && (int)en[i].y == door.y)
+			return (1);
+	}
+	return (0);
 }

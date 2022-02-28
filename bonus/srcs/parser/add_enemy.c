@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 14:39:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:45:00 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:36:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	add_boss_enemy(t_cub *cub, t_en *en, int j, int i)
 {
 	en->type = BOSS_EN;
-	en->x = i + 0.5;
-	en->y = j + 0.5;
 	en->angle = 3 * PI / 2;
 	en->action = E_STILL;
 	en->sprite = 0;
@@ -45,8 +43,6 @@ void	add_boss_enemy(t_cub *cub, t_en *en, int j, int i)
 void	add_soldier_enemy(t_cub *cub, t_en *en, int j, int i)
 {
 	en->type = SOLDIER_EN;
-	en->x = i + 0.5;
-	en->y = j + 0.5;
 	en->angle = PI;
 	en->action = E_STILL;
 	en->sprite = 0;
@@ -67,12 +63,9 @@ void	add_soldier_enemy(t_cub *cub, t_en *en, int j, int i)
 	en->div = EN2_DIV;
 }
 
-
 void	add_naked_enemy(t_cub *cub, t_en *en, int j, int i)
 {
 	en->type = NAKED_EN;
-	en->x = i + 0.5;
-	en->y = j + 0.5;
 	en->angle = PI;
 	en->action = E_STILL;
 	en->sprite = 0;
@@ -100,6 +93,8 @@ void	add_enemy(t_cub *cub, char c, int j, int i)
 	k = 0;
 	while (cub->en[k].action != -1)
 		k++;
+	cub->en[k].x = i + 0.5;
+	cub->en[k].y = j + 0.5;
 	if (c == 'n')
 		add_naked_enemy(cub, &cub->en[k], j, i);
 	else if (c == 's')

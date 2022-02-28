@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:36:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:31:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	reinitialize_map_dist(t_cub *cub);
 
 int		check_p_dir(t_cub *cub, float y, float x);
 int		miss_arrived_at_destination(t_miss miss);
+int		is_en_on_door(t_door door, t_en *en);
 void	player_life_manager(t_cub *cub, int life);
+int		missile_hit_player(t_cub *cub, t_en *en);
 
 // DISPLAY FCTS
 
