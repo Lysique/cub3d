@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:26:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:57:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,18 @@ void	game_manager(t_cub *cub)
 void	game_over_manager(t_cub *cub)
 {
 	static t_time	time = 0;
-	static int		incr = 1;
 
 	time += cub->time;
 	game_manager(cub);
 	if (time / 300 > 0)
 	{
-		cub->shader_index += incr;
+		cub->shader_index++;
 		if (cub->shader_index == 9)
 		{
 			variables_reset(cub);
 			parser("maps/level1.cub", cub);
-			cub->game_state = GAME_OVER;
-			cub->shader_index = 9;
-			incr = -1;
-		}
-		if (cub->shader_index == -1)
-		{
-			incr = 1;
-			cub->game_state = GAME;
+			mlx_mouse_show();
+			cub->game_state = START_MENU;
 		}
 		time = 0;
 	}
