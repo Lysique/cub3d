@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 15:59:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:11:45 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	add_rgb(char *texture, t_cub *cub, int index)
 	while (texture[i] && !cub3d_isspace(texture[i]))
 	{
 		if (commas == 3)
-			return ;
+			parser_error(BAD_RGB, texture);
 		if (add_rgb_part(texture, &i, &color, commas) == -1)
-			return ;
+			parser_error(BAD_RGB, texture);
 		commas++;
 	}
 	img.img = mlx_new_image(cub->mlx.mlx, 1, 1);
@@ -81,7 +81,8 @@ void	add_rgb(char *texture, t_cub *cub, int index)
 
 void	add_texture(char *texture, t_cub *cub, int index)
 {
-	add_rgb(texture, cub, index);
-	if (!cub->textures[index].img)
+	if (index == F || index == C)
+		add_rgb(texture, cub, index);
+	else
 		add_img(texture, cub, index);
 }

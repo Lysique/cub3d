@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 15:42:54 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:48:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:17:27 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,25 @@
 
 void	draw_walls(t_cub *cub, t_ray *r)
 {
-	int		color;
+	unsigned int	color;
+	int				i;
 
+	i = 0;
+	while (i < r->draw_start)
+	{
+		color = get_texture_color(cub->textures[C], 0, 0);
+		put_my_pixel(cub->display, i++, r->pix_x, color);
+	}
 	while (r->draw_start < r->draw_end)
 	{
 		r->tex_y = (int)r->tex_pos;
 		r->tex_pos += r->tex_stepy;
 		color = get_texture_color(cub->textures[r->tex], r->tex_x, r->tex_y);
+		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
+	}
+	while (r->draw_start < WIN_H)
+	{
+		color = get_texture_color(cub->textures[F], 0, 0);
 		put_my_pixel(cub->display, r->draw_start++, r->pix_x, color);
 	}
 }

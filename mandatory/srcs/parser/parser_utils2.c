@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
-/*   Updated: 2022/01/22 16:25:51 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:09:12 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,12 @@ int	is_line_empty(char *line)
 	while (line[i])
 		if (!cub3d_isspace(line[i++]))
 			return (0);
+	return (1);
+}
+
+int	is_close_char(char c)
+{
+	if (c == '0' || is_player_char(c))
+		return (0);
 	return (1);
 }
