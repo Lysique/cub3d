@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 17:43:46 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 09:05:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,14 +122,14 @@
 # define EN3_NBSPR 6
 # define EN3_NBRUNSPR 4
 # define EN3_HBOX 0.5
-# define EN3_ATK_RANGE 10
-# define EN3_AGGRO_RANGE 0
+# define EN3_ATK_RANGE 15
+# define EN3_AGGRO_RANGE 20
 
 # define EN3_OFFSET 0
 # define EN3_DIV 0.7
 
 # define EN3_RUN_SPEED 0.0004
-# define EN3_ATK_SPEED 5000
+# define EN3_ATK_SPEED 2000
 
 # define EN3_DYING_SPR_SPEED 200
 # define EN3_RUN_SPR_SPEED 300
@@ -179,8 +179,7 @@
 # define E_HAS_ATK 4
 # define E_DIE 5
 # define E_DEAD 6
-# define E_AGGRO 7
-# define E_RECHARGE 8
+# define E_LOCK 7
 
 /*#################### PLAYER SETTINGS ####################*/
 
