@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:06:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 11:03:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:44:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	draw_sprites(t_ray *r, t_cub *cub)
 			continue ;
 		while (s.draw_start < s.draw_end)
 		{
-			s.d = (s.draw_start - (int)(s.offset / s.transf_y)) * 256 - WIN_H * 128 + s.sprite_height * 128;
+			s.d = (s.draw_start - (int)(s.offset / s.transf_y))
+				* 256 - WIN_H * 128 + s.sprite_height * 128;
 			s.tex_y = ((s.d * s.tex.h) / s.sprite_height) / 256;
 			color = get_texture_color(s.tex, s.tex_y, s.tex_x);
 			optimisation_pixel_put(cub->display,

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:10:17 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:24:42 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:53:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	order_sprites(t_cub *cub)
 	dist = -1;
 	while (cub->sprs[++i].to_draw != -1)
 	{
-		dist2 = (cub->player.x - cub->sprs[i].x) * (cub->player.x - cub->sprs[i].x)
-			+ (cub->player.y - cub->sprs[i].y) * (cub->player.y - cub->sprs[i].y);
+		dist2 = (cub->player.x - cub->sprs[i].x)
+			* (cub->player.x - cub->sprs[i].x)
+			+ (cub->player.y - cub->sprs[i].y)
+			* (cub->player.y - cub->sprs[i].y);
 		if (dist != -1 && dist2 > dist)
 		{
 			dist = -1;
@@ -36,6 +38,18 @@ void	order_sprites(t_cub *cub)
 		else
 			dist = dist2;
 	}
+}
+
+void	s_draw_start_end_fct(t_spr *s)
+{
+	s->draw_start = -s->sprite_height / 2 + WIN_H / 2
+		+ (int)(s->offset / s->transf_y);
+	if (s->draw_start < 0)
+		s->draw_start = 0;
+	s->draw_end = s->sprite_height / 2 + WIN_H / 2
+		+ (int)(s->offset / s->transf_y);
+	if (s->draw_end > WIN_H - 1)
+		s->draw_end = WIN_H - 1;
 }
 
 void	init_miss_spr(t_cub *cub, int j, t_ray *r, t_miss miss)
@@ -58,15 +72,9 @@ void	init_miss_spr(t_cub *cub, int j, t_ray *r, t_miss miss)
 	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
 	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / miss.div;
 	s.sprite_width = abs((int)(WIN_H / s.transf_y)) / miss.div;
-	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
-	if (s.draw_start < 0)
-		s.draw_start = 0;
-	s.draw_end = s.sprite_height / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
-	if (s.draw_end > WIN_H - 1)
-		s.draw_end = WIN_H - 1;
+	s_draw_start_end_fct(&s);
 	cub->sprs[j] = s;
 }
-
 
 void	init_standard_en_spr(t_cub *cub, int j, t_ray *r, t_en en)
 {
@@ -88,12 +96,7 @@ void	init_standard_en_spr(t_cub *cub, int j, t_ray *r, t_en en)
 	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
 	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / en.div;
 	s.sprite_width = abs((int)(WIN_H / s.transf_y)) / en.div;
-	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
-	if (s.draw_start < 0)
-		s.draw_start = 0;
-	s.draw_end = s.sprite_height / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
-	if (s.draw_end > WIN_H - 1)
-		s.draw_end = WIN_H - 1;
+	s_draw_start_end_fct(&s);
 	cub->sprs[j] = s;
 }
 

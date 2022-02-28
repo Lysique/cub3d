@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 11:03:10 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:58:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,27 @@
 
 unsigned int	get_map_color(t_cub *cub, float y, float x, char c)
 {
-	int				text_x;
-	int				text_y;
 	unsigned int	color;
 	int				door;
 
 	door = get_door_index(cub->doors, (int)y, (int)x);
 	x -= floor(x);
 	x = x / 0.05;
-	text_x = (int)x;
 	y -= floor(y);
 	y = y / 0.05;
-	text_y = (int)y;
 	if (door != -1)
 	{
 		if (cub->doors[door].open == 0)
-			color = get_texture_color(cub->sprites[IMG_MAP][2], text_y, text_x);
+			color = get_texture_color(cub->sprites[IMG_MAP][2], (int)y, (int)x);
 		else
-			color = get_texture_color(cub->sprites[IMG_MAP][3], text_y, text_x);
+			color = get_texture_color(cub->sprites[IMG_MAP][3], (int)y, (int)x);
 	}
 	else if (c == '1')
-		color = get_texture_color(cub->sprites[IMG_MAP][0], text_y, text_x);
-	// else if (c == '2')
-	// 	color = get_texture_color(cub->sprites[IMG_MAP][2], text_y, text_x);
-	// else if (c == '3')
-	// 	color = get_texture_color(cub->sprites[IMG_MAP][3], text_y, text_x);
-	else if ( c == ' ')
+		color = get_texture_color(cub->sprites[IMG_MAP][0], (int)y, (int)x);
+	else if (c == ' ')
 		color = OUT_COLOR;
 	else
-		color = get_texture_color(cub->sprites[IMG_MAP][1], text_y, text_x);
+		color = get_texture_color(cub->sprites[IMG_MAP][1], (int)y, (int)x);
 	return (color);
 }
 
@@ -103,7 +95,7 @@ void	display_map(t_cub *cub)
 {
 	int		px_start_y;
 	int		px_start_x;
-	t_img		img;
+	t_img	img;
 
 	img = cub->sprites[MAPBAR][0];
 	draw_img(cub, img, MAPBAR_START_Y, MAPBAR_START_X);

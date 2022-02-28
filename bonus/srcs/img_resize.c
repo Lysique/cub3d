@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:41:56 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:59:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	fill_img(t_img img, t_img tmp)
 
 void	resize_my_imgs(t_cub *cub, t_img *imgs, int h, int w)
 {
-	int i;
-	t_img tmp;
+	int		i;
+	t_img	tmp;
 
 	i = -1;
 	while (imgs[++i].img)
@@ -69,7 +69,8 @@ void	img_resize(t_cub *cub)
 {
 	resize_my_imgs(cub, cub->sprites[SHOTGUN], cub->sprites[SHOTGUN][0].h * 2.5,
 		cub->sprites[SHOTGUN][0].w * 2.5);
-	resize_my_imgs(cub, cub->sprites[MACHINEGUN], cub->sprites[MACHINEGUN][0].h * 2.5,
+	resize_my_imgs(cub, cub->sprites[MACHINEGUN],
+		cub->sprites[MACHINEGUN][0].h * 2.5,
 		cub->sprites[MACHINEGUN][0].w * 2.5);
 	resize_my_imgs(cub, cub->sprites[LIFE], 100, 300);
 	resize_my_imgs(cub, cub->sprites[MENUBAR], 200, 1690);
