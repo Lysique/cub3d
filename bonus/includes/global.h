@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 09:44:53 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 13:06:16 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,8 @@ typedef struct s_cub {
 	int			nb_enemies;
 	int			max_enemies;
 	int			game_state;
+	int			game_level;
+	int			shader_index;
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;

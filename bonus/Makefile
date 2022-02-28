@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/28 07:38:47 by tamighi          ###   ########.fr        #
+#    Updated: 2022/02/28 14:27:41 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 ##### SRCS FILES ######
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
-			 imgs_creator.c img_resize.c
+			 imgs_creator.c img_resize.c create_shaders.c \
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
@@ -110,7 +110,7 @@ LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  map_dist_manager.c enemy_still.c set_enemy_angle.c \
 				  set_enemy_action.c enemy_attack.c enemy_die.c \
 				  enemy_move.c order_enemies.c set_en_img_angle.c \
-				  manage_boss.c boss_destroy_door.c throw_missile_manager.c \
+				  manage_boss.c boss_found_door.c throw_missile_manager.c \
 				  missile_manager.c
 
 LOOP_HOOK_DIR = srcs/loop_hook/

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 15:58:33 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:39:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 14:40:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	lock_boss_angle(t_en *en, t_cub *cub, int dist)
 	}
 	else
 	{
-		en->miss.x_dest = cub->player.x;
-		en->miss.y_dest = cub->player.y;
 		en->action = E_ATTACK;
 		en->angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
+		en->miss.x_dest = cub->player.x + cos(en->angle) * -0.5;
+		en->miss.y_dest = cub->player.y + sin(en->angle) * 0.5;
 	}
 }
 
@@ -47,7 +47,9 @@ void	set_boss_action(t_en *en, t_cub *cub, int dist)
 	float	angle;
 
 	angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
-	if (en->time2 / en->atk_speed < 1)
+	if (cub->game_state != GAME)
+		en_action_reset(en, E_STILL);
+	else if (en->time2 / en->atk_speed < 1)
 	{
 		en->time2 += cub->time;
 		if (dist == INT_MAX && en->action != E_STILL)
