@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 07:36:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:26:52 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:57:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,15 @@ void	destroy_door(t_cub *cub, int i)
 	map_dist_manager(cub);
 }
 
-void	missile_explode(t_en *en, t_cub *cub)
+void	missile_explode(t_en *en, t_cub *cub, int i)
 {
-	int	i;
-
 	if (en->miss.active == 2)
 	{
 		en->miss.active = 3;
-		i = get_door_index(cub->doors, (int)en->miss.y_dest, (int)en->miss.x_dest);
 		if (i != -1)
 			destroy_door(cub, i);
-		else if (cub->player.x - 1. < en->miss.x && cub->player.x + 1. > en->miss.x
-			&& cub->player.y - 1. < en->miss.y && cub->player.y + 1. > en->miss.y)
+		else if (cub->player.x - 1.5 < en->miss.x && cub->player.x + 1.5 > en->miss.x
+			&& cub->player.y - 1.5 < en->miss.y && cub->player.y + 1.5 > en->miss.y)
 			if (cub->player.life > 0)
 				cub->player.life--;
 	}
@@ -52,10 +49,13 @@ void	missile_explode(t_en *en, t_cub *cub)
 	{
 		en->miss.img = cub->sprites[I_MISS][en->miss.sprite];
 		en->miss.sprite++;
+		en->miss.div -= 0.02;
+		en->miss.offset -= 10;
 		if (en->miss.sprite == MISS_NB_SPRITES)
 		{
 			en->miss.sprite = 0;
 			en->miss.active = 0;
+			en->miss.div = 1;
 		}
 		en->miss.time = 0;
 	}
@@ -64,9 +64,11 @@ void	missile_explode(t_en *en, t_cub *cub)
 void	missile_keep_going(t_en *en, t_cub *cub)
 {
 	float	dist;
+	int		i;
 
 	en->miss.x += cos(en->miss.angle) * MISS_SPEED * cub->time;
 	en->miss.y += sin(en->miss.angle) * -1  * MISS_SPEED * cub->time;
+	i = get_door_index(cub->doors, (int)en->miss.y, (int)en->miss.x);
 	en->miss.img = cub->sprites[I_MISS][0];
 	if (miss_arrived_at_destination(en->miss))
 	{
@@ -77,12 +79,17 @@ void	missile_keep_going(t_en *en, t_cub *cub)
 	dist = sqrtf((en->miss.x - en->miss.x_dest) * (en->miss.x - en->miss.x_dest)
 		+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
 	en->miss.offset = (int)((1. - (float)(dist / en->miss.dist)) * 400);
+	if (i != -1 && cub->doors[i].open == 0 && cub->doors[i].is_moving == 0)
+		en->miss.active = 2;
 }
 
 void	missile_manager(t_en *en, t_cub *cub)
 {
+	int	i;
+
 	if (en->miss.active == 1)
 		missile_keep_going(en, cub);
+	i = get_door_index(cub->doors, (int)en->miss.y, (int)en->miss.x);
 	if (en->miss.active >= 2)
-		missile_explode(en, cub);
+		missile_explode(en, cub, i);
 }

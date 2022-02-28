@@ -6,26 +6,25 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 17:01:18 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 11:00:09 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:43:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
 
-void	missile_init(t_en *en, t_cub *cub, float y, float x)
+void	missile_init(t_en *en)
 {
 	en->miss.active = 1;
 	en->miss.x = en->x;
 	en->miss.y = en->y;
-	en->miss.x_dest = x;
-	en->miss.y_dest = y;
 	en->miss.dist = sqrtf((en->miss.x - en->miss.x_dest)
 		* (en->miss.x - en->miss.x_dest)
 		+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
-	en->miss.angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
+	en->miss.angle = get_angle(en->miss.y - en->miss.y_dest,
+		en->miss.x - en->miss.x_dest);
 }
 
-void	throw_missile(t_en *en, t_cub *cub, float y, float x)
+void	throw_missile_manager(t_en *en, t_cub *cub)
 {
 	en->time += cub->time;
 	if (en->time / EN3_ATK_SPR_SPEED > 0)
@@ -34,10 +33,10 @@ void	throw_missile(t_en *en, t_cub *cub, float y, float x)
 			en->sprite = en->nb_runspr;
 		if (en->sprite == en->nb_sprites)
 		{
-			en->time2 = 1;
+			en->time2 = 0;
 			en->sprite = 0;
 			en->img = cub->sprites[en->img_dir][en->sprite];
-			en->action = E_ATTACK;
+			en->action = E_HAS_ATK;
 			en->time = 0;
 		}
 		else
@@ -47,22 +46,6 @@ void	throw_missile(t_en *en, t_cub *cub, float y, float x)
 			en->time = 0;
 		}
 		if (en->sprite == en->nb_sprites)
-			missile_init(en, cub, y, x);
+			missile_init(en);
 	}
-}
-
-void	throw_missile_manager(t_en *en, t_cub *cub, int dist)
-{
-	if (en->time2 / en->atk_speed < 1)
-	{
-		en->time2 += cub->time;
-		if (dist > 3)
-			enemy_move(en, cub);
-		else
-			en->img = cub->sprites[en->img_dir][0];
-	}
-	else if (en->miss.active == 0)
-		throw_missile(en, cub, cub->player.y, cub->player.x);
-	else if (dist >= 2)
-		enemy_move(en, cub);
 }

@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 16:28:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:36:29 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:29:40 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,4 @@ int	boss_found_door(t_en *en, t_cub *cub)
 	r.map_y = (int)en->y;
 	side_init(&r, en->x, en->y);
 	return (is_door_in_the_way(&r, cub, en));
-}
-
-void	boss_destroy_door(t_en *en, t_cub *cub)
-{
-	if (en->action != E_LOCK)
-	{
-		if (boss_found_door(en, cub))
-			en->action = E_LOCK;
-		else
-			en->action = E_STILL;
-	}
-	if (en->action == E_LOCK)
-	{
-		if (en->time2 / en->atk_speed < 1)
-			en->time2 += cub->time;
-		else
-			throw_missile(en, cub, en->miss.y_dest, en->miss.x_dest);
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 10:10:44 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:56:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,8 @@
 # define EN3_NBSPR 6
 # define EN3_NBRUNSPR 4
 # define EN3_HBOX 0.5
-# define EN3_ATK_RANGE 15
-# define EN3_AGGRO_RANGE 20
+# define EN3_ATK_RANGE 20
+# define EN3_AGGRO_RANGE 30
 
 # define EN3_OFFSET 0
 # define EN3_DIV 0.7
@@ -138,7 +138,7 @@
 
 		/*MISSILE */
 
-# define MISS_SPEED 0.0068
+# define MISS_SPEED 0.018
 # define MISS_SPR_EXPLODE_SPEED 50
 # define MISS_NB_SPRITES 29
 
