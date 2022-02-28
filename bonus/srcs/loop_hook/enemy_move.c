@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:20:02 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 14:54:34 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 17:36:34 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	set_waiting_image(t_en *en, t_cub *cub)
 		en->img = cub->sprites[en->img_dir][7];
 	else if (en->type == SOLDIER_EN)
 		en->img = cub->sprites[en->img_dir][0];
+	else
+		en->img = cub->sprites[en->img_dir][4];
 }
 
 void	check_enemy_path(t_en *en, t_cub *cub, int *y, int *x)

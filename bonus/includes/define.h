@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 15:01:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:56:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,15 @@
 # define EN2_NW 29
 # define EN2_ATK 30
 # define EN2_DEAD 31
+# define EN3_S 32
+# define EN3_N 33
+# define EN3_E 34
+# define EN3_W 35
+# define EN3_SE 36
+# define EN3_SW 37
+# define EN3_NE 38
+# define EN3_NW 39
+# define I_MISS 40
 
 		/* PONCT INDEXES */
 
@@ -97,8 +106,8 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 32
-# define MAX_SPR 26
+# define NB_SPR 41
+# define MAX_SPR 29
 
 /*#################### ENEMY SETTINGS ####################*/
 
@@ -106,6 +115,32 @@
 
 # define NAKED_EN 1
 # define SOLDIER_EN 2
+# define BOSS_EN 3
+
+		/*BOSS ENEMY */
+
+# define EN3_LIFE 1000
+# define EN3_NBSPR 6
+# define EN3_NBRUNSPR 4
+# define EN3_HBOX 0.5
+# define EN3_ATK_RANGE 20
+# define EN3_AGGRO_RANGE 30
+
+# define EN3_OFFSET 0
+# define EN3_DIV 0.7
+
+# define EN3_RUN_SPEED 0.0004
+# define EN3_ATK_SPEED 2000
+
+# define EN3_DYING_SPR_SPEED 200
+# define EN3_RUN_SPR_SPEED 300
+# define EN3_ATK_SPR_SPEED 800
+
+		/*MISSILE */
+
+# define MISS_SPEED 0.018
+# define MISS_SPR_EXPLODE_SPEED 50
+# define MISS_NB_SPRITES 29
 
 		/*SOLDIER ENEMY */
 
@@ -151,6 +186,7 @@
 # define E_HAS_ATK 4
 # define E_DIE 5
 # define E_DEAD 6
+# define E_LOCK 7
 
 /*#################### PLAYER SETTINGS ####################*/
 

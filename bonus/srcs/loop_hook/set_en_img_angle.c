@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 11:35:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 12:33:57 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 16:10:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,26 @@ void	set_soldier_img_angle(t_en *en, float d_angle)
 		en->img_dir = EN2_NE;
 }
 
+void	set_boss_img_angle(t_en *en, float d_angle)
+{
+	if (d_angle >= 15 * PI / 8 || d_angle < PI / 8)
+		en->img_dir = EN3_E;
+	else if (d_angle >= 13 * PI / 8 && d_angle < 15 * PI / 8)
+		en->img_dir = EN3_SE;
+	else if (d_angle >= 11 * PI / 8 && d_angle < 13 * PI / 8)
+		en->img_dir = EN3_S;
+	else if (d_angle >= 9 * PI / 8 && d_angle < 11 * PI / 8)
+		en->img_dir = EN3_SW;
+	else if (d_angle >= 7 * PI / 8 && d_angle < 9 * PI / 8)
+		en->img_dir = EN3_W;
+	else if (d_angle >= 5 * PI / 8 && d_angle < 7 * PI / 8)
+		en->img_dir = EN3_NW;
+	else if (d_angle >= 3 * PI / 8 && d_angle < 5 * PI / 8)
+		en->img_dir = EN3_N;
+	else if (d_angle >= 1 * PI / 8 && d_angle < 3 * PI / 8)
+		en->img_dir = EN3_NE;
+}
+
 void	set_en_img_angle(t_en *en, t_cub *cub)
 {
 	float	angle;
@@ -65,4 +85,6 @@ void	set_en_img_angle(t_en *en, t_cub *cub)
 		set_soldier_img_angle(en, d_angle);
 	else if (en->type == NAKED_EN)
 		set_naked_img_angle(en, d_angle);
+	else if (en->type == BOSS_EN)
+		set_boss_img_angle(en, d_angle);
 }

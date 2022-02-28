@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:25:14 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/27 15:58:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	enemy_manager(t_cub *cub)
 	{
 		if (cub->en[i].action == E_DEAD)
 			continue ;
-		manage_ennemy(&cub->en[i], cub);
+		if (cub->en[i].type == BOSS_EN)
+			manage_boss(&cub->en[i], cub);
+		else
+			manage_ennemy(&cub->en[i], cub);
 	}
 }

@@ -6,11 +6,35 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 12:26:45 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:16:55 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 10:01:33 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/loop_hook.h"
+
+int	miss_arrived_at_destination(t_miss miss)
+{
+	float	d_x;
+	float	d_y;
+	int		x;
+	int		y;
+
+	d_x = miss.x - miss.x_dest;
+	d_y = miss.y - miss.y_dest;
+	y = 0;
+	x = 0;
+	if (cos(miss.angle) > 0 && d_x >= 0)
+		x = 1;
+	if (cos(miss.angle) < 0 && d_x <= 0)
+		x = 1;
+	if (sin(miss.angle) < 0 && d_y >= 0)
+		y = 1;
+	if (sin(miss.angle) > 0 && d_y <= 0)
+		y = 1;
+	if (y && x)
+		return (1);
+	return (0);
+}
 
 int	check_p_dir(t_cub *cub, float y, float x)
 {

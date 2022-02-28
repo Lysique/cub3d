@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 14:10:35 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 11:39:18 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,18 @@ void	enemy_manager(t_cub *cub);
 
 void	enemy_still(t_en *en, t_cub *cub);
 void	enemy_attack(t_en *en, t_cub *cub);
+int		en_shot_manager(t_en *en, t_cub *cub, float angle);
 void	enemy_die(t_en *en, t_cub *cub);
 void	enemy_move(t_en *en, t_cub *cub);
 
+void	manage_boss(t_en *en, t_cub *cub);
+int		boss_found_door(t_en *en, t_cub *cub);
+void	throw_missile_manager(t_en *en, t_cub *cub);
+void	throw_missile(t_en *en, t_cub *cub);
+void	missile_manager(t_en *en, t_cub *cub);
+
 void	set_enemy_action(t_en *en, t_cub *cub);
+void	en_action_reset(t_en *en, int action);
 void	set_enemy_angle(t_en *en, t_cub *cub);
 void	set_en_img_angle(t_en *en, t_cub *cub);
 
@@ -42,6 +50,7 @@ int		lh_wall_hit_checker(float angle, float dist, float x,
 		float y);
 
 int		check_p_dir(t_cub *cub, float y, float x);
+int		miss_arrived_at_destination(t_miss miss);
 
 // DISPLAY FCTS
 

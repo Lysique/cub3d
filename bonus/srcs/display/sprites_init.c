@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:10:17 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 11:47:45 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 10:24:42 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,36 @@ void	order_sprites(t_cub *cub)
 	}
 }
 
+void	init_miss_spr(t_cub *cub, int j, t_ray *r, t_miss miss)
+{
+	t_spr	s;
+
+	s.tex = miss.img;
+	s.offset = (float)miss.offset;
+	s.to_draw = 1;
+	s.x = miss.x;
+	s.y = miss.y;
+	s.sprite_x = s.x - cub->player.x;
+	s.sprite_y = s.y - cub->player.y;
+	s.invdet = 1 / (sin(r->p_angle) * -1 * r->cam_plane_x
+			- cos(r->p_angle) * r->cam_plane_y);
+	s.transf_x = s.invdet * (sin(r->p_angle) * -1 * s.sprite_x
+			- cos(r->p_angle) * s.sprite_y);
+	s.transf_y = s.invdet * (r->cam_plane_y * -1 * s.sprite_x
+			+ r->cam_plane_x * s.sprite_y);
+	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
+	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / miss.div;
+	s.sprite_width = abs((int)(WIN_H / s.transf_y)) / miss.div;
+	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
+	if (s.draw_start < 0)
+		s.draw_start = 0;
+	s.draw_end = s.sprite_height / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
+	if (s.draw_end > WIN_H - 1)
+		s.draw_end = WIN_H - 1;
+	cub->sprs[j] = s;
+}
+
+
 void	init_standard_en_spr(t_cub *cub, int j, t_ray *r, t_en en)
 {
 	t_spr	s;
@@ -57,7 +87,7 @@ void	init_standard_en_spr(t_cub *cub, int j, t_ray *r, t_en en)
 			+ r->cam_plane_x * s.sprite_y);
 	s.sprite_screen_x = (int)(WIN_W / 2) *(1 + s.transf_x / s.transf_y);
 	s.sprite_height = abs((int)(WIN_H / s.transf_y)) / en.div;
-	s.sprite_width = abs((int)(WIN_H / s.transf_y));
+	s.sprite_width = abs((int)(WIN_H / s.transf_y)) / en.div;
 	s.draw_start = s.sprite_height * -1 / 2 + WIN_H / 2 + (int)(s.offset / s.transf_y);
 	if (s.draw_start < 0)
 		s.draw_start = 0;
@@ -77,7 +107,10 @@ void	sprites_init(t_ray *r, t_cub *cub)
 	while (cub->en[++i].action != -1)
 	{
 		init_standard_en_spr(cub, j, r, cub->en[i]);
+		if (cub->en[i].type == BOSS_EN && cub->en[i].miss.active != 0)
+			init_miss_spr(cub, ++j, r, cub->en[i].miss);
 		j++;
 	}
+	cub->sprs[j].to_draw = -1;
 	order_sprites(cub);
 }
