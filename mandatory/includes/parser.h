@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 12:57:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:12:43 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define MISSING_FILE_NAME 14
 # define MISSING_SPACE 15
 # define XPM_ERROR 16
+# define BAD_RGB 17
 
 # define MAP_ERROR 2
 # define MISSING_NL 21
@@ -77,6 +78,7 @@ char		*cub3d_cpy(char *line, void *ptr);
 int			is_line_empty(char *line);
 int			is_player_char(char c);
 int			is_known_char(char c);
+int			is_close_char(char c);
 
 void		parser_error(int error, void *ptr);
 void		map_error(int error, char **map, t_coord *c);

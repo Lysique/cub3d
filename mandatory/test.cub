@@ -4,8 +4,8 @@ SO ./sprites/mur/mur2.xpm
 WE ./sprites/mur/mur3.xpm
 EA ./sprites/mur/mur4.xpm
 
-F ./sprites/sol/sol5.xpm
-C ./sprites/sol/sol12.xpm
+F 0,0,0 
+C 255,1,255
 
 
         1111111111111111111111111

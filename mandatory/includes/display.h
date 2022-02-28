@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/05 14:51:41 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/28 15:15:05 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ typedef struct s_ray {
 }			t_ray;
 
 void			ray_casting(t_cub *cub);
-void			f_c_casting(t_cub *cub, t_ray *r);
 void			draw_ray(t_ray *r, t_cub *cub);
 
 void			display_map(t_cub *cub);
