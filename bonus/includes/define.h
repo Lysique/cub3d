@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 14:28:48 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:57:17 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@
 # define I_MISS 40
 # define I_SHADERS 41
 # define BUTTONS 42
+# define MEDKIT 43
 
 		/* PONCT INDEXES */
 
@@ -113,7 +114,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 43
+# define NB_SPR 44
 # define MAX_SPR 29
 
 /*#################### ENEMY SETTINGS ####################*/

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:05:14 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:03:40 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:33:30 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_player_char(char c)
 
 int	is_known_char(char c)
 {
-	if (c == ' ' || c == '1' || c == '0'
+	if (c == ' ' || c == '1' || c == '0' || c == 'm'
 		|| is_player_char(c) || is_door_char(c)
 		|| is_ennemy_char(c))
 		return (c);
@@ -38,7 +38,7 @@ int	is_known_char(char c)
 int	is_close_char(char c)
 {
 	if (c == '2' || is_player_char(c) || c == '3' || c == '0'
-		|| is_ennemy_char(c))
+		|| c == 'm' || is_ennemy_char(c))
 		return (0);
 	return (1);
 }

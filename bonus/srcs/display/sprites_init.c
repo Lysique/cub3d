@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:10:17 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:53:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:46:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	sprites_init(t_ray *r, t_cub *cub)
 			init_miss_spr(cub, ++j, r, cub->en[i].miss);
 		j++;
 	}
+	mkits_in_sprites(cub, &j, r);
 	cub->sprs[j].to_draw = -1;
 	order_sprites(cub);
 }

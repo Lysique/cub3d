@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:02:22 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:27:52 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:33:57 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	parser(char *argument, t_cub *cub)
 	player_init(p.cub);
 	doors_init(p.cub);
 	ennemy_init(p.cub);
+	medikit_init(p.cub);
 	map_dist_init(p.cub);
 	sprs_init(p.cub);
 	close(p.fd);

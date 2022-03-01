@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/03/01 12:55:41 by tamighi          ###   ########.fr        #
+#    Updated: 2022/03/01 16:01:31 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ PARSER_FILES = parser.c parser_free.c parser_error.c \
 			   player_init.c parser_utils.c parser_utils2.c \
 			   add_texture.c doors_init.c parser_utils3.c \
 			   ennemy_init.c map_dist_init.c add_enemy.c \
-			   sprs_init.c
+			   sprs_init.c medikit_init.c
 
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
@@ -80,6 +80,7 @@ DISPLAY_FILES = display.c view_casting.c \
 				display_utils.c display_gun.c display_menubar.c \
 				f_c_casting.c draw_sprites.c sprites_init.c \
 				hit_wall_check.c draw_line.c draw_img.c \
+				mkits_in_sprites.c
 
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
@@ -112,7 +113,7 @@ LOOP_HOOK_FILES = loop_hook.c player_manager.c door_manager.c \
 				  set_enemy_action.c enemy_attack.c enemy_die.c \
 				  enemy_move.c order_enemies.c set_en_img_angle.c \
 				  manage_boss.c boss_found_door.c throw_missile_manager.c \
-				  missile_manager.c
+				  missile_manager.c mkits_manager.c
 
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))

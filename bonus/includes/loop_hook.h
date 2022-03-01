@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 14:29:13 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:02:07 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	display(t_cub *cub);
 
 void	player_manager(t_cub *cub);
 void	door_manager(t_cub *cub);
+void	mkits_manager(t_cub *cub);
 void	map_dist_manager(t_cub *cub);
 void	gun_manager(t_cub *cub);
 void	shoot_manager(t_cub *cub, t_gun *gun);
