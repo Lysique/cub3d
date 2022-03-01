@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 10:03:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:32:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:37:49 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void		player_init(t_cub *cub);
 void		doors_init(t_cub *cub);
 void		ennemy_init(t_cub *cub);
 void		add_enemy(t_cub *cub, char c, int j, int i);
+void		medikit_init(t_cub *cub);
 void		map_dist_init(t_cub *cub);
 void		sprs_init(t_cub *cub);
 

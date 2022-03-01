@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:11:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 12:52:02 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:58:24 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	free_rest_of_struct(t_cub *cub)
 		free(cub->en);
 	if (cub->sprs)
 		free(cub->sprs);
+	if (cub->mkits)
+		free(cub->mkits);
 	while (cub->map_dist && cub->map_dist[++i])
 		free(cub->map_dist[i]);
 	if (cub->map_dist)

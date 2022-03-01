@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 14:24:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:00:26 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	game_manager(t_cub *cub)
 		cub->shader_index = -1;
 	door_manager(cub);
 	player_manager(cub);
+	mkits_manager(cub);
 	gun_manager(cub);
 	emotion_manager(cub);
 	enemy_manager(cub);

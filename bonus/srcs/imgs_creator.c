@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 13:28:31 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:56:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	imgs_creator3(t_cub *cub)
 	create_img("sprites/ennemi_nu/en1_atk", 3, cub->sprites[EN1_ATK], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MAPBAR], cub);
 	create_img("sprites/bouton/bouton", 5, cub->sprites[BUTTONS], cub);
+	create_img("sprites/medkit/Medkit", 1, cub->sprites[MEDKIT], cub);
 }
 
 void	imgs_creator2(t_cub *cub)

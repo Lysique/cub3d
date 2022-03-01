@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 09:10:39 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:26:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:42:44 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	variables_reset(t_cub *cub)
 		mlx_destroy_image(cub->mlx.mlx, cub->textures[i++].img);
 	free(cub->en);
 	free(cub->doors);
+	free(cub->mkits);
 	free(cub->sprs);
 	i = 0;
 	while (cub->map[i])

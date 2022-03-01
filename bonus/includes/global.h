@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 14:29:01 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:04:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,13 @@ typedef struct s_gun {
 	t_time	time;
 }				t_gun;
 
+typedef struct s_mkit {
+	float	x;
+	float	y;
+	int		active;
+	t_img	img;
+}				t_mkit;
+
 typedef struct s_cub {
 	char		**map;
 	int			**map_dist;
@@ -163,6 +170,7 @@ typedef struct s_cub {
 	int			previous_state;
 	int			game_level;
 	int			shader_index;
+	t_mkit		*mkits;
 	t_player	player;
 	t_en		*en;
 	t_door		*doors;
