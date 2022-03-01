@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:31:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:29:13 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	set_enemy_angle(t_en *en, t_cub *cub);
 void	set_en_img_angle(t_en *en, t_cub *cub);
 
 int		bad_trajectory_checker(float angle, float dist,
-		float x, float y);
+			float x, float y);
 int		lh_wall_hit_checker(float angle, float dist, float x,
-		float y);
+			float y);
 void	reinitialize_map_dist(t_cub *cub);
 
 int		check_p_dir(t_cub *cub, float y, float x);

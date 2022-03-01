@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 13:37:49 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 15:50:12 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 12:59:35 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,4 +117,6 @@ void	hit_manager(t_cub *cub, t_gun *gun)
 	}
 	if (i != -1 && cub->en[i].life <= 0)
 		cub->nb_enemies--;
+	if (cub->nb_enemies == 0 && cub->game_level != -1)
+		game_state_manager(cub, WIN);
 }

@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:48:28 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 15:35:04 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:29:01 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_img {
 
 typedef struct s_mouse {
 	int	x;
-	int y;
+	int	y;
 }				t_mouse;
 
 typedef struct s_miss {
@@ -160,6 +160,7 @@ typedef struct s_cub {
 	int			nb_enemies;
 	int			max_enemies;
 	int			game_state;
+	int			previous_state;
 	int			game_level;
 	int			shader_index;
 	t_player	player;
@@ -236,5 +237,7 @@ int			is_close_char(char c);
 int			get_door_index(t_door *door, int y, int x);
 
 float		get_angle(float d_y, float d_x);
+
+void		game_state_manager(t_cub *cub, int state);
 
 #endif

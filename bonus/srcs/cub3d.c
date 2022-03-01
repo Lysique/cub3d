@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:46:06 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 15:41:10 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 13:24:39 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	level_init(char *argument, t_cub *cub)
 		cub->game_level = 1;
 		parser("maps/level1.cub", cub);
 	}
+	cub->file = argument;
 }
 
 void	cub3d(char *argument)

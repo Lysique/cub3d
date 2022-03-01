@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:59:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 10:49:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	img_resize(t_cub *cub)
 	resize_my_imgs(cub, cub->sprites[PORTRAIT], 175, 175);
 	resize_my_imgs(cub, cub->sprites[IMG_MAP], 20, 20);
 	resize_my_imgs(cub, cub->sprites[I_MENU], WIN_H, WIN_W);
+	resize_my_imgs(cub, cub->sprites[BUTTONS], BUTTONS_H, BUTTONS_W);
 }
