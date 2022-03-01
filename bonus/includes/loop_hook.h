@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:06:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:02:07 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:31:41 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		boss_found_door(t_en *en, t_cub *cub);
 void	throw_missile_manager(t_en *en, t_cub *cub);
 void	throw_missile(t_en *en, t_cub *cub);
 void	missile_manager(t_en *en, t_cub *cub);
+void	dying_boss(t_en *en, t_cub *cub);
 
 void	set_enemy_action(t_en *en, t_cub *cub);
 void	en_action_reset(t_en *en, int action);

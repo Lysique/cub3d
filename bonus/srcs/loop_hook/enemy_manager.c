@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 15:58:18 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:37:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	enemy_manager(t_cub *cub)
 	i = -1;
 	while (cub->en[++i].action != -1)
 	{
+		if (cub->en[i].type == BOSS_EN)
+			if (cub->en[i].miss.active != 0)
+				missile_manager(&cub->en[i], cub);
 		if (cub->en[i].action == E_DEAD)
 			continue ;
 		if (cub->en[i].type == BOSS_EN)

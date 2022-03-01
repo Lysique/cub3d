@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 15:57:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:53:58 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@
 
 		/*BOSS ENEMY */
 
-# define EN3_LIFE 1000
+# define EN3_LIFE 108
 # define EN3_NBSPR 6
 # define EN3_NBRUNSPR 4
 # define EN3_HBOX 0.5
@@ -137,8 +137,8 @@
 # define EN3_OFFSET 0
 # define EN3_DIV 0.7
 
-# define EN3_RUN_SPEED 0.0004
-# define EN3_ATK_SPEED 2000
+# define EN3_RUN_SPEED 0.0008
+# define EN3_ATK_SPEED 3000
 
 # define EN3_DYING_SPR_SPEED 200
 # define EN3_RUN_SPR_SPEED 300
@@ -146,31 +146,31 @@
 
 		/*MISSILE */
 
-# define MISS_SPEED 0.018
+# define MISS_SPEED 0.025
 # define MISS_SPR_EXPLODE_SPEED 50
 # define MISS_NB_SPRITES 29
 
 		/*SOLDIER ENEMY */
 
-# define EN2_LIFE 30
+# define EN2_LIFE 16
 # define EN2_NBSPR 6
 # define EN2_NBRUNSPR 6
 # define EN2_HBOX 0.25
-# define EN2_ATK_RANGE 8
-# define EN2_AGGRO_RANGE 15
+# define EN2_ATK_RANGE 12
+# define EN2_AGGRO_RANGE 18
 
 # define EN2_OFFSET 0
 # define EN2_DIV 1.
 
-# define EN2_RUN_SPEED 0.0006
-# define EN2_ATK_SPEED 1500
+# define EN2_RUN_SPEED 0.001
+# define EN2_ATK_SPEED 1200
 
 # define EN2_DYING_SPR_SPEED 200
 # define EN2_RUN_SPR_SPEED 200
 
 		/*NAKED ENEMY */
 
-# define EN1_LIFE 15
+# define EN1_LIFE 8
 # define EN1_NBSPR 9
 # define EN1_NBRUNSPR 6
 # define EN1_HBOX 0.2
@@ -180,7 +180,7 @@
 # define EN1_OFFSET 200
 # define EN1_DIV 1.5
 
-# define EN1_RUN_SPEED 0.001
+# define EN1_RUN_SPEED 0.0013
 # define EN1_ATK_SPEED 1500
 
 # define EN1_DYING_SPR_SPEED 200
@@ -234,7 +234,7 @@
 # define HITBOX 0.3
 # define DOOR_REACH 1.7
 
-# define SPEED 0.0015
+# define SPEED 0.0023
 # define ROTATE 0.0015
 # define SENSI_MOUSE 0.000065
 
@@ -274,10 +274,14 @@
 # define SHOTGUN_SPEED 100
 # define SHOTGUN_WAIT_TIME 500
 
+# define SG_DAMAGE 9
+
 		/* MACHIN GUN 
 		 */
 
-# define MACHINGUN_SPEED 60
+# define MACHINGUN_SPEED 90
+
+# define MG_DAMAGE 1
 
 		/* GUN ACTION */
 

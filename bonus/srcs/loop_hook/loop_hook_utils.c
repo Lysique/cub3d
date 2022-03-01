@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 12:26:45 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 15:29:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:50:53 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	player_life_manager(t_cub *cub, int life)
 		cub->player.life = 0;
 		game_state_manager(cub, LOSE);
 	}
-	cub->shader_index = 20;
+	if (cub->game_state == GAME)
+		cub->shader_index = 20;
 }
 
 int	is_en_on_door(t_door door, t_en *en)
