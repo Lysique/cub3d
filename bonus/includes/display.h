@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 09:19:37 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/27 10:48:11 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:11:21 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void			optimisation_pixel_put(t_img img,
 					int y, int x, unsigned int color);
 void			optimisation_pixel_put2(t_img img,
 					int y, int x, unsigned int color);
+
+void			draw_text(t_cub *cub, int start_y, int *start_x, char *str);
+void			draw_nb(t_cub *cub, int start_y, int *start_x, int nb);
 
 #endif

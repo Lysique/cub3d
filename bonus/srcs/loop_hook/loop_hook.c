@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:26:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:24:20 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	game_manager(t_cub *cub)
 {
-	if (cub->shader_index == 10)
+	if (cub->shader_index == 20)
 		cub->shader_index = -1;
 	door_manager(cub);
 	player_manager(cub);
@@ -23,28 +23,23 @@ void	game_manager(t_cub *cub)
 	enemy_manager(cub);
 }
 
-void	game_over_manager(t_cub *cub)
+void	fade_out_to_menu(t_cub *cub)
 {
 	static t_time	time = 0;
-	static int		incr = 1;
 
 	time += cub->time;
 	game_manager(cub);
-	if (time / 300 > 0)
+	if (time / 80 > 0)
 	{
-		cub->shader_index += incr;
-		if (cub->shader_index == 9)
+		cub->shader_index++;
+		if (cub->shader_index == 20)
 		{
-			variables_reset(cub);
-			parser("maps/level1.cub", cub);
-			cub->game_state = GAME_OVER;
-			cub->shader_index = 9;
-			incr = -1;
-		}
-		if (cub->shader_index == -1)
-		{
-			incr = 1;
-			cub->game_state = GAME;
+			cub->shader_index = -1;
+			mlx_mouse_show();
+			if (cub->game_state == WIN)
+				game_state_manager(cub, WIN_MENU);
+			else
+				game_state_manager(cub, LOSE_MENU);
 		}
 		time = 0;
 	}
@@ -59,8 +54,9 @@ int	loop_hook(t_cub *cub)
 	time = get_time();
 	if (cub->game_state == GAME)
 		game_manager(cub);
-	else if (cub->game_state == GAME_OVER)
-		game_over_manager(cub);
+	else if (cub->game_state == LOSE
+		|| cub->game_state == WIN)
+		fade_out_to_menu(cub);
 	display(cub);
 	mlx_do_sync(cub->mlx.mlx);
 	return (0);

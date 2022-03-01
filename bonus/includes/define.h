@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:28:25 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:28:48 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@
 		/* GAME STATE */
 
 # define GAME 1
-# define MENU 2
-# define GAME_OVER 3
+# define MAIN_MENU 2
+# define LOSE 3
+# define WIN 4
+# define LOSE_MENU 5
+# define WIN_MENU 6
+# define BREAK_MENU 7
 
 /*#################### TEXTURES INDEXES ####################*/
 
@@ -90,6 +94,7 @@
 # define EN3_NW 39
 # define I_MISS 40
 # define I_SHADERS 41
+# define BUTTONS 42
 
 		/* PONCT INDEXES */
 
@@ -108,7 +113,7 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 42
+# define NB_SPR 43
 # define MAX_SPR 29
 
 /*#################### ENEMY SETTINGS ####################*/
@@ -280,6 +285,56 @@
 # define GS_WAIT 2
 # define GS_RELOAD 3
 
+/*#################### MENU SETTINGS ####################*/
+
+# define BUTTONS_H 200
+# define BUTTONS_W 400
+
+		/* MENU INDEXES */
+
+# define M_MAIN 0
+# define M_LOSE 1
+# define M_WIN 2
+# define M_BREAK 3
+
+		/* BUTTONS INDEXES */
+
+# define B_PLAY 0
+# define B_EXIT 1
+# define B_MMENU 2
+# define B_CONTINUE 3
+# define B_RETRY 4
+
+		/* BUTTONS COORDINATES */
+
+# define MM_PLAY_X 300
+# define MM_PLAY_Y 400
+# define MM_EXIT_X 1200
+# define MM_EXIT_Y 400
+
+# define LM_RETRY_X 300
+# define LM_RETRY_Y 300
+# define LM_EXIT_X 1200
+# define LM_EXIT_Y 300
+# define LM_MMENU_X 800
+# define LM_MMENU_Y 600
+
+# define WM_CONTINUE_X 300
+# define WM_CONTINUE_Y 350
+# define WM_EXIT_X 1200
+# define WM_EXIT_Y 350
+# define WM_MMENU_X 800
+# define WM_MMENU_Y 650
+
+# define BM_CONTINUE_X 300
+# define BM_CONTINUE_Y 300
+# define BM_RETRY_X 1200
+# define BM_RETRY_Y 300
+# define BM_EXIT_X 300
+# define BM_EXIT_Y 600
+# define BM_MMENU_X 1200
+# define BM_MMENU_Y 600
+
 /*#################### DISPLAY DEFINE ####################*/
 
 				/* Note : Be carefull to not exceed WIN_H and WIN_W 
@@ -384,8 +439,6 @@
 
 # define POS_NB_BULLET_X 300
 # define POS_NB_BULLET_Y 970
-
-
 
 		/* MINIMAP COLORS */
 

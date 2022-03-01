@@ -6,7 +6,7 @@
 #    By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/01 08:18:53 by tamighi           #+#    #+#              #
-#    Updated: 2022/02/28 14:27:41 by tamighi          ###   ########.fr        #
+#    Updated: 2022/03/01 12:55:41 by tamighi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ C_FILES = $(SRCS) $(GLOBAL_SRCS) $(PARSER_SRCS) $(KEY_HOOK_SRCS) $(DISPLAY_SRCS)
 
 SRCS_FILES = main.c cub3d.c structure_init.c \
 			 imgs_creator.c img_resize.c create_shaders.c \
+			 create_menu_imgs.c
 
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
@@ -44,7 +45,7 @@ $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c \
 			   utils.c set_cubptr.c error_manager.c \
 			   math_utils.c variables_init.c variables_reset.c \
-
+			   game_state_manager.c
 
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
@@ -91,7 +92,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 ##### KEY_HOOK FILES ######
 
 KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c \
-				 mouse_release.c mouse_move.c
+				 mouse_release.c mouse_move.c mouse_click_menu.c
 
 
 KEY_HOOK_DIR = srcs/key_hook/

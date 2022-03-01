@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 12:51:57 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:05:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:21:37 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,25 @@ void	create_shaders(t_img *img, t_cub *cub)
 	int	i;
 
 	i = 0;
+	create_shader(&img[i++], cub, 0xE7000000);
 	create_shader(&img[i++], cub, 0xE0000000);
+	create_shader(&img[i++], cub, 0xD7000000);
 	create_shader(&img[i++], cub, 0xD0000000);
+	create_shader(&img[i++], cub, 0xC7000000);
 	create_shader(&img[i++], cub, 0xC0000000);
+	create_shader(&img[i++], cub, 0xB7000000);
 	create_shader(&img[i++], cub, 0xB0000000);
+	create_shader(&img[i++], cub, 0xA7000000);
 	create_shader(&img[i++], cub, 0xA0000000);
+	create_shader(&img[i++], cub, 0x97000000);
 	create_shader(&img[i++], cub, 0x90000000);
+	create_shader(&img[i++], cub, 0x87000000);
 	create_shader(&img[i++], cub, 0x80000000);
+	create_shader(&img[i++], cub, 0x77000000);
 	create_shader(&img[i++], cub, 0x70000000);
+	create_shader(&img[i++], cub, 0x67000000);
 	create_shader(&img[i++], cub, 0x60000000);
+	create_shader(&img[i++], cub, 0x57000000);
 	create_shader(&img[i++], cub, 0x50000000);
 	create_shader(&img[i++], cub, 0xE0FF0000);
 }

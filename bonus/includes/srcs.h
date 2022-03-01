@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 12:57:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 11:07:06 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void			structure_init(t_cub *cub);
 void			imgs_creator(t_cub *cub);
 void			img_resize(t_cub *cub);
 void			create_shaders(t_img *img, t_cub *cub);
+void			create_menu_imgs(t_img *img, t_cub *cub);
 
 void			parser(char *argument, t_cub *cub);
 int				key_press(int key, void *param);
