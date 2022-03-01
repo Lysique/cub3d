@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 15:58:33 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:40:33 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:35:56 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	boss_action_manager(t_en *en, t_cub *cub, int dist)
 		throw_missile_manager(en, cub);
 	else if (en->action == E_CHASE)
 		enemy_move(en, cub);
-	if (en->miss.active != 0)
-		missile_manager(en, cub);
+	else if (en->action == E_DIE)
+		dying_boss(en, cub);
 }
 
 void	set_boss_action(t_en *en, t_cub *cub, int dist)
@@ -47,7 +47,9 @@ void	set_boss_action(t_en *en, t_cub *cub, int dist)
 	float	angle;
 
 	angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
-	if (cub->game_state != GAME)
+	if (en->life <= 0)
+		en_action_reset(en, E_DIE);
+	else if (cub->game_state != GAME)
 		en_action_reset(en, E_STILL);
 	else if (en->time2 / en->atk_speed < 1)
 	{
@@ -69,8 +71,6 @@ void	set_boss_action(t_en *en, t_cub *cub, int dist)
 
 void	manage_boss(t_en *en, t_cub *cub)
 {
-	if (en->life <= 0)
-		return ;
 	set_boss_action(en, cub, cub->map_dist[(int)en->y][(int)en->x]);
 	boss_action_manager(en, cub, cub->map_dist[(int)en->y][(int)en->x]);
 }

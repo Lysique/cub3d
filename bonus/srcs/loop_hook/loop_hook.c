@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:35 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:00:26 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:50:23 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	loop_hook(t_cub *cub)
 	time = get_time();
 	if (cub->game_state == GAME)
 		game_manager(cub);
-	else if (cub->game_state == LOSE
+	if (cub->game_state == LOSE
 		|| cub->game_state == WIN)
 		fade_out_to_menu(cub);
 	display(cub);
