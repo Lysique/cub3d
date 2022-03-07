@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:53:58 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 10:13:46 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,14 +156,14 @@
 # define EN2_NBSPR 6
 # define EN2_NBRUNSPR 6
 # define EN2_HBOX 0.25
-# define EN2_ATK_RANGE 12
-# define EN2_AGGRO_RANGE 18
+# define EN2_ATK_RANGE 7
+# define EN2_AGGRO_RANGE 15
 
 # define EN2_OFFSET 0
 # define EN2_DIV 1.
 
 # define EN2_RUN_SPEED 0.001
-# define EN2_ATK_SPEED 1200
+# define EN2_ATK_SPEED 2000
 
 # define EN2_DYING_SPR_SPEED 200
 # define EN2_RUN_SPR_SPEED 200
