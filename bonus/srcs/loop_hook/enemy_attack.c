@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:44:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 13:14:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 10:52:03 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,36 @@ int	en_shot_manager(t_en *en, t_cub *cub, float en_angle)
 	return (0);
 }
 
+int	check_shot_walls(t_en *en, t_cub *cub, float angle)
+{
+	float	x;
+	float	y;
+	float	dist;
+	float	d_x;
+	float	d_y;
+
+	d_x = en->x - cub->player.x;
+	d_y = en->y - cub->player.y;
+	dist = sqrtf(d_x * d_x + d_y * d_y);
+	x = en->x + (cos(angle) * 0.2);
+	y = en->y - (sin(angle) * 0.2);
+	if (lh_wall_hit_checker(angle, dist, x, y))
+		return (0);
+	x = en->x - (cos(angle) * 0.2);
+	y = en->y + (sin(angle) * 0.2);
+	if (lh_wall_hit_checker(angle, dist, x, y))
+		return (0);
+	return (1);
+}
+
 void	shoot_player(t_en *en, t_cub *cub)
 {
 	en->time += cub->time;
 	if (en->action == E_ATTACK)
 	{
 		en->angle = get_angle(en->y - cub->player.y, en->x - cub->player.x);
-		if (en_shot_manager(en, cub, en->angle) == 0)
+		if (en_shot_manager(en, cub, en->angle) == 0
+			|| check_shot_walls(en, cub, en->angle) == 0)
 		{
 			enemy_move(en, cub);
 			return ;
