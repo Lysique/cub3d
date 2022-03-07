@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:16:59 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/25 14:37:15 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,8 +287,6 @@
 
 # define POS_NB_BULLET_X 300
 # define POS_NB_BULLET_Y 970
-
-
 
 		/* MINIMAP COLORS */
 

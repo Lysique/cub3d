@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/24 11:21:31 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/25 14:33:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ unsigned int	get_map_color(t_cub *cub, float y, float x, char c)
 	}
 	else if (c == '1')
 		color = get_texture_color(cub->sprites[IMG_MAP][0], text_y, text_x);
-	else if ( c == ' ')
+	else if (c == ' ')
 		color = OUT_COLOR;
 	else
 		color = get_texture_color(cub->sprites[IMG_MAP][1], text_y, text_x);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ennemies.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 13:06:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/24 11:45:59 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/02/25 14:33:04 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	color_ennemies(t_spr *s, t_cub *cub, t_ray *r, int i)
 
 void	draw_ennemies(t_ray *r, t_cub *cub)
 {
-	//unsigned int	color;
 	t_spr			s;
 	int				i;
 
@@ -44,15 +43,6 @@ void	draw_ennemies(t_ray *r, t_cub *cub)
 		if (s.sprite_screen_x > 1920 || s.sprite_screen_x < 0)
 			continue ;
 		while (s.draw_start < s.draw_end)
-		{
 			color_ennemies(&s, cub, r, i);
-			// s.d = (s.draw_start - (int)(cub->en[i].offset / s.transf_y))
-			// 	* 256 - WIN_H * 128 + s.sprite_height * 128;
-			// s.tex_y = ((s.d * s.tex.h) / s.sprite_height) / 256;
-			// color = get_texture_color(s.tex, s.tex_y, s.tex_x);
-			// optimisation_pixel_put(cub->display,
-			// 	s.draw_start, r->pix_screen_x, color);
-			// s.draw_start += OPTI;
-		}
 	}
 }

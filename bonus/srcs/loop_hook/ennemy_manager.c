@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ennemy_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:46:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 14:08:28 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/25 15:13:08 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ void	set_enemy_image(t_en *en, t_cub *cub)
 void	enemy_attack(t_en *en, t_cub *cub)
 {
 	if (cub->player.life > 0 && en->time == 0)
+	{
+		system("afplay music/en1_attaque.mp3 &>/dev/null &");
 		cub->player.life -= 1;
+		system("afplay -v 0.2 music/perso_degat.mp3 &>/dev/null &");
+	}
 	if (en->time > 1000)
 	{
 		en->time = 0;
@@ -111,7 +115,9 @@ void	enemy_die(t_en *en, t_cub *cub)
 	if (en->time > 200)
 	{
 		en->img = cub->sprites[EN1_DEAD][en->sprite];
-		if (en->sprite == 3)
+		if (en->sprite == 1)
+			system("afplay -t 1 -v 0.5 music/enemy_die.mp3 &>/dev/null &");
+		else if (en->sprite == 3)
 			en->offset = 300;
 		else if (en->sprite == 4)
 			en->offset = 400;
