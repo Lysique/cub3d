@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:44:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/07 12:24:29 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 12:38:04 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,14 @@ int	check_shot_walls(t_en *en, t_cub *cub, float angle)
 	dist = sqrtf(d_x * d_x + d_y * d_y);
 	x = en->x + (cos(angle) * 0.2);
 	y = en->y - (sin(angle) * 0.2);
+	if (cub->map[(int)y][(int)x] == '1' && get_door_index(cub->doors, (int)y, (int)x) == -1)
+		return (0);
 	if (lh_wall_hit_checker(angle, dist, x, y))
 		return (0);
 	x = en->x - (cos(angle) * 0.2);
 	y = en->y + (sin(angle) * 0.2);
+	if (cub->map[(int)y][(int)x] == '1' && get_door_index(cub->doors, (int)y, (int)x) == -1)
+		return (0);
 	if (lh_wall_hit_checker(angle, dist, x, y))
 		return (0);
 	return (1);
