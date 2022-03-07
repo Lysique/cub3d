@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:53:12 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/02 09:54:23 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:46:47 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include "global.h"
 
-void	display_map(t_cub *cub);
+void	parser(char *argument, t_cub *cub);
+void	key_init(t_cub *cub);
+void	mouse_click_main_menu(t_cub *cub, int x, int y);
+void	mouse_click_lose_menu(t_cub *cub, int x, int y);
+void	mouse_click_win_menu(t_cub *cub, int x, int y);
+void	mouse_click_break_menu(t_cub *cub, int x, int y);
 
 #endif

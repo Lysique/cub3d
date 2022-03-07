@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 17:04:21 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 15:36:09 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:43:21 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,6 @@ int	count_nb_ennemies(char **map)
 	return (nb);
 }
 
-void	add_ennemy(t_cub *cub, char c, int j, int i)
-{
-	int	k;
-
-	k = 0;
-	(void)c;
-	while (cub->en[k].action != -1)
-		k++;
-	cub->en[k].type = NAKED_EN;
-	cub->en[k].x = i + 0.5;
-	cub->en[k].y = j + 0.5;
-	cub->en[k].angle = PI / 2;
-	cub->en[k].action = E_STILL;
-	cub->en[k].sprite = 0;
-	cub->en[k].offset = 200;
-	cub->en[k].life = ENNU_LIFE;
-	cub->en[k].nb_sprites = ENNU_NBSPR;
-	cub->en[k].nb_runspr = ENNU_NBRUNSPR;
-	cub->en[k].img = cub->sprites[NAKED_EN][0];
-	cub->en[k].hbox = 0.3;
-	cub->en[k].time = 0;
-	cub->en[++k].action = -1;
-	cub->map[j][i] = '0';
-}
-
 void	ennemy_in_struct(t_cub *cub)
 {
 	int		i;
@@ -68,7 +43,7 @@ void	ennemy_in_struct(t_cub *cub)
 		i = -1;
 		while (map[j][++i])
 			if (is_ennemy_char(map[j][i]))
-				add_ennemy(cub, map[j][i], j, i);
+				add_enemy(cub, map[j][i], j, i);
 	}
 }
 

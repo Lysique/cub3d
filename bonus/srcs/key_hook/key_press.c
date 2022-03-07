@@ -6,13 +6,13 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 16:48:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 15:39:56 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:40:47 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/key_hook.h"
 
-void	key_press2(int key, t_cub *cub)
+void	key_press_game2(int key, t_cub *cub)
 {
 	if (key == K_UP && cub->key.shoot_r == 1)
 	{
@@ -25,13 +25,10 @@ void	key_press2(int key, t_cub *cub)
 		cub->key.reload = 1;
 }
 
-int	key_press(int key, void *param)
+void	key_press_game(int key, t_cub *cub)
 {
-	t_cub	*cub;
-
-	cub = (t_cub *)param;
 	if (key == K_ESC)
-		error_manager(EXOK);
+		game_state_manager(cub, BREAK_MENU);
 	else if (key == K_D)
 		cub->key.d = 1;
 	else if (key == K_A)
@@ -50,6 +47,27 @@ int	key_press(int key, void *param)
 		cub->key.door_p = 1;
 	}
 	else
-		key_press2(key, cub);
+		key_press_game2(key, cub);
+}
+
+void	key_press_menu(int key)
+{
+	if (key == K_ESC)
+		error_manager(EXOK);
+}	
+
+int	key_press(int key, void *param)
+{
+	t_cub	*cub;
+
+	cub = (t_cub *)param;
+	if (cub->game_state == GAME)
+		key_press_game(key, cub);
+	else if ((cub->game_state == WIN || cub->game_state == LOSE)
+		&& key == K_ESC)
+		game_state_manager(cub, BREAK_MENU);
+	else if (cub->game_state == MAIN_MENU || cub->game_state == BREAK_MENU
+		|| cub->game_state == LOSE_MENU || cub->game_state == WIN_MENU)
+		key_press_menu(key);
 	return (0);
 }

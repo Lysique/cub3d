@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:21:16 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/25 15:30:16 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:42:00 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@ void	mlx_variables_init(t_cub *cub)
 		error_manager(MLX_ERROR);
 }
 
-void	imgs_init(t_cub *cub)
+void	pre_variables_init(t_cub *cub)
 {
 	int	i;
 	int	j;
 
-	i = 7;
+	i = 0;
+	cub->mlx.mlx = 0;
+	cub->mlx.win = 0;
 	cub->display.img = 0;
-	while (i != 0)
-		cub->textures[--i].img = 0;
+	cub->game_state = MAIN_MENU;
 	while (i < NB_SPR)
 	{
 		j = 0;
@@ -43,11 +44,10 @@ void	imgs_init(t_cub *cub)
 void	structure_init(t_cub *cub)
 {
 	set_cubptr(cub);
+	pre_variables_init(cub);
 	variables_init(cub);
-	imgs_init(cub);
 	if (access("music/son_ambiance.mp3", F_OK) < 0)
 		error_manager(MUSIC_NOT_FOUND);
-	system("afplay music/son_ambiance.mp3 &>/dev/null &");
 	mlx_variables_init(cub);
 	imgs_creator(cub);
 }

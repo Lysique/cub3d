@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 14:30:56 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 15:38:39 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:47:54 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,4 @@ void	map_dist_manager(t_cub *cub)
 	reinitialize_map_dist(cub);
 	cub->map_dist[(int)cub->player.y][(int)cub->player.x] = 0;
 	water_fill(cub, (int)cub->player.y, (int)cub->player.x);
-	/*
-	int	i = -1;
-	int	j = -1;
-	while (cub->map[++j])
-	{
-		while (cub->map[j][++i])
-			printf("%d", cub->map_dist[j][i]);
-		printf("\n");
-		i = -1;
-	}
-	*/
 }

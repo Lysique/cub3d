@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 10:14:23 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/25 14:37:15 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:38:15 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@
 # define SG_BULLETS 2
 # define MG_BULLETS 50
 
+		/* GAME STATE */
+
+# define GAME 1
+# define MAIN_MENU 2
+# define LOSE 3
+# define WIN 4
+# define LOSE_MENU 5
+# define WIN_MENU 6
+# define BREAK_MENU 7
+
 /*#################### TEXTURES INDEXES ####################*/
 
 		/* TEXTURES INDEXES */
@@ -47,7 +57,7 @@
 # define SHOTGUN 2
 # define MACHINEGUN 3
 # define MENUBAR 4
-# define NAKED_EN 5
+# define EN1_N 5
 # define MAPBAR 6
 # define CHIFFRE 7
 # define ALPHA 8
@@ -55,6 +65,37 @@
 # define PORTRAIT 10
 # define IMG_MAP 11
 # define EN1_DEAD 12
+# define EN1_S 13
+# define EN1_W 14
+# define EN1_E 15
+# define EN1_SE 16
+# define EN1_SW 17
+# define EN1_NE 18
+# define EN1_NW 19
+# define EN1_ATK 20
+# define I_MENU 21
+# define EN2_S 22
+# define EN2_N 23
+# define EN2_E 24
+# define EN2_W 25
+# define EN2_SE 26
+# define EN2_SW 27
+# define EN2_NE 28
+# define EN2_NW 29
+# define EN2_ATK 30
+# define EN2_DEAD 31
+# define EN3_S 32
+# define EN3_N 33
+# define EN3_E 34
+# define EN3_W 35
+# define EN3_SE 36
+# define EN3_SW 37
+# define EN3_NE 38
+# define EN3_NW 39
+# define I_MISS 40
+# define I_SHADERS 41
+# define BUTTONS 42
+# define MEDKIT 43
 
 		/* PONCT INDEXES */
 
@@ -73,25 +114,87 @@
 		   NB_SPR : NUMBER OF SPRITES CATEGORIES
 		   MAX_SPR : MAXIMUM NUMBER OF SPRITES IN A CATEGORY. */
 
-# define NB_SPR 13
-# define MAX_SPR 26
+# define NB_SPR 44
+# define MAX_SPR 29
 
-/*#################### ENNEMY SETTINGS ####################*/
+/*#################### ENEMY SETTINGS ####################*/
 
-		/*ENNEMY NUDE */
+		/*ENEMY TYPES */
 
-# define ENNU_LIFE 15
-# define ENNU_NBSPR 9
-# define ENNU_NBRUNSPR 6
+# define NAKED_EN 1
+# define SOLDIER_EN 2
+# define BOSS_EN 3
 
-		/* ENNEMIES ACTION */
+		/*BOSS ENEMY */
+
+# define EN3_LIFE 108
+# define EN3_NBSPR 6
+# define EN3_NBRUNSPR 4
+# define EN3_HBOX 0.5
+# define EN3_ATK_RANGE 20
+# define EN3_AGGRO_RANGE 30
+
+# define EN3_OFFSET 0
+# define EN3_DIV 0.7
+
+# define EN3_RUN_SPEED 0.0008
+# define EN3_ATK_SPEED 3000
+
+# define EN3_DYING_SPR_SPEED 200
+# define EN3_RUN_SPR_SPEED 300
+# define EN3_ATK_SPR_SPEED 600
+
+		/*MISSILE */
+
+# define MISS_SPEED 0.025
+# define MISS_SPR_EXPLODE_SPEED 50
+# define MISS_NB_SPRITES 29
+
+		/*SOLDIER ENEMY */
+
+# define EN2_LIFE 16
+# define EN2_NBSPR 6
+# define EN2_NBRUNSPR 6
+# define EN2_HBOX 0.25
+# define EN2_ATK_RANGE 12
+# define EN2_AGGRO_RANGE 18
+
+# define EN2_OFFSET 0
+# define EN2_DIV 1.
+
+# define EN2_RUN_SPEED 0.001
+# define EN2_ATK_SPEED 1200
+
+# define EN2_DYING_SPR_SPEED 200
+# define EN2_RUN_SPR_SPEED 200
+
+		/*NAKED ENEMY */
+
+# define EN1_LIFE 8
+# define EN1_NBSPR 9
+# define EN1_NBRUNSPR 6
+# define EN1_HBOX 0.2
+# define EN1_ATK_RANGE 1
+# define EN1_AGGRO_RANGE 13
+
+# define EN1_OFFSET 200
+# define EN1_DIV 1.5
+
+# define EN1_RUN_SPEED 0.0013
+# define EN1_ATK_SPEED 1500
+
+# define EN1_DYING_SPR_SPEED 200
+# define EN1_RUN_SPR_SPEED 200
+
+		/* ENEMIES ACTION */
 
 # define E_STILL 1
 # define E_CHASE 2
 # define E_ATTACK 3
-# define E_DAMAGED 4
+# define E_HAS_ATK 4
 # define E_DIE 5
 # define E_DEAD 6
+# define E_LOCK 7
 
 /*#################### PLAYER SETTINGS ####################*/
 
@@ -131,7 +234,7 @@
 # define HITBOX 0.3
 # define DOOR_REACH 1.7
 
-# define SPEED 0.0015
+# define SPEED 0.0023
 # define ROTATE 0.0015
 # define SENSI_MOUSE 0.000065
 
@@ -171,10 +274,14 @@
 # define SHOTGUN_SPEED 100
 # define SHOTGUN_WAIT_TIME 500
 
+# define SG_DAMAGE 9
+
 		/* MACHIN GUN 
 		 */
 
-# define MACHINGUN_SPEED 60
+# define MACHINGUN_SPEED 90
+
+# define MG_DAMAGE 1
 
 		/* GUN ACTION */
 
@@ -182,6 +289,56 @@
 # define GS_SHOT 1
 # define GS_WAIT 2
 # define GS_RELOAD 3
+
+/*#################### MENU SETTINGS ####################*/
+
+# define BUTTONS_H 200
+# define BUTTONS_W 400
+
+		/* MENU INDEXES */
+
+# define M_MAIN 0
+# define M_LOSE 1
+# define M_WIN 2
+# define M_BREAK 3
+
+		/* BUTTONS INDEXES */
+
+# define B_PLAY 0
+# define B_EXIT 1
+# define B_MMENU 2
+# define B_CONTINUE 3
+# define B_RETRY 4
+
+		/* BUTTONS COORDINATES */
+
+# define MM_PLAY_X 300
+# define MM_PLAY_Y 400
+# define MM_EXIT_X 1200
+# define MM_EXIT_Y 400
+
+# define LM_RETRY_X 300
+# define LM_RETRY_Y 300
+# define LM_EXIT_X 1200
+# define LM_EXIT_Y 300
+# define LM_MMENU_X 800
+# define LM_MMENU_Y 600
+
+# define WM_CONTINUE_X 300
+# define WM_CONTINUE_Y 350
+# define WM_EXIT_X 1200
+# define WM_EXIT_Y 350
+# define WM_MMENU_X 800
+# define WM_MMENU_Y 650
+
+# define BM_CONTINUE_X 300
+# define BM_CONTINUE_Y 300
+# define BM_RETRY_X 1200
+# define BM_RETRY_Y 300
+# define BM_EXIT_X 300
+# define BM_EXIT_Y 600
+# define BM_MMENU_X 1200
+# define BM_MMENU_Y 600
 
 /*#################### DISPLAY DEFINE ####################*/
 

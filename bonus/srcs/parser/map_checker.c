@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:41:26 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 15:50:05 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:03:26 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int	check_open_map(char **map, int i, int j)
 {
 	int	k;
 
-	if (j == 0 || i == 0)
+	if (j == 0 || i == 0 || map[j][i - 1] == ' ' || map[j][i + 1] == ' ')
 		return (1);
 	if (!map[j + 1] || !map[j][i + 1])
 		return (1);
 	k = 0;
 	while (map[j - 1][k] && k != i)
 		k++;
-	if (k != i || !map[j - 1][k])
+	if (k != i || !map[j - 1][k] || map[j - 1][k] == ' ')
 		return (1);
 	k = 0;
 	while (map[j + 1][k] && k != i)
 		k++;
-	if (k != i || !map[j + 1][k])
+	if (k != i || !map[j + 1][k] || map[j + 1][k] == ' ')
 		return (1);
 	return (0);
 }
@@ -38,13 +38,11 @@ void	door_checker(char **map, int i, int j)
 	int	error;
 
 	error = 1;
-	if (map[j - 1][i] == '1' && map[j + 1][i] == '1' && (map[j][i - 1] == '0'
-			|| is_player_char(map[j][i - 1])) && (map[j][i + 1] == '0'
-			|| is_player_char(map[j][i + 1])))
+	if (map[j - 1][i] == '1' && map[j + 1][i] == '1'
+			&& !is_close_char(map[j][i - 1]) && !is_close_char(map[j][i + 1]))
 		error = 0;
-	if (map[j][i - 1] == '1' && map[j][i + 1] == '1' && (map[j - 1][i] == '0'
-			|| is_player_char(map[j - 1][i])) && (map[j + 1][i] == '0'
-			|| is_player_char(map[j + 1][i])))
+	if (map[j][i - 1] == '1' && map[j][i + 1] == '1'
+			&& !is_close_char(map[j - 1][i]) && !is_close_char(map[j + 1][i]))
 		error = 0;
 	if (error)
 		map_error_caller(DOOR_ERROR, i, j);

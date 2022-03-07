@@ -6,7 +6,7 @@
 /*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 13:15:22 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:56:54 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,45 @@ void	create_img(char *text, int nb_imgs, t_img *imgs, t_cub *cub)
 	imgs[i].img = 0;
 }
 
+void	imgs_creator3(t_cub *cub)
+{
+	create_img("sprites/ennemi_nu/en1_NW", 9, cub->sprites[EN1_NW], cub);
+	create_img("sprites/ennemi_nu/en1_mort", 9, cub->sprites[EN1_DEAD], cub);
+	create_img("sprites/ennemi_nu/en1_atk", 3, cub->sprites[EN1_ATK], cub);
+	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MAPBAR], cub);
+	create_img("sprites/bouton/bouton", 5, cub->sprites[BUTTONS], cub);
+	create_img("sprites/medkit/Medkit", 1, cub->sprites[MEDKIT], cub);
+}
+
+void	imgs_creator2(t_cub *cub)
+{
+	create_img("sprites/police/chiffre", 10, cub->sprites[CHIFFRE], cub);
+	create_img("sprites/police/alphabet", 26, cub->sprites[ALPHA], cub);
+	create_img("sprites/police/ponct", 9, cub->sprites[PONCT], cub);
+	create_img("sprites/portrait/portrait", 8, cub->sprites[PORTRAIT], cub);
+	create_img("sprites/text_map/text_map", 4, cub->sprites[IMG_MAP], cub);
+	create_img("sprites/ennemi/en_S", 6, cub->sprites[EN2_S], cub);
+	create_img("sprites/ennemi/en_N", 6, cub->sprites[EN2_N], cub);
+	create_img("sprites/ennemi/en_E", 6, cub->sprites[EN2_E], cub);
+	create_img("sprites/ennemi/en_W", 6, cub->sprites[EN2_W], cub);
+	create_img("sprites/ennemi/en_SE", 6, cub->sprites[EN2_SE], cub);
+	create_img("sprites/ennemi/en_SW", 6, cub->sprites[EN2_SW], cub);
+	create_img("sprites/ennemi/en_NE", 6, cub->sprites[EN2_NE], cub);
+	create_img("sprites/ennemi/en_NW", 6, cub->sprites[EN2_NW], cub);
+	create_img("sprites/ennemi/en_mort", 7, cub->sprites[EN2_DEAD], cub);
+	create_img("sprites/ennemi/en_atk", 2, cub->sprites[EN2_ATK], cub);
+	create_img("sprites/robot/rob_S", 6, cub->sprites[EN3_S], cub);
+	create_img("sprites/robot/rob_N", 6, cub->sprites[EN3_N], cub);
+	create_img("sprites/robot/rob_E", 6, cub->sprites[EN3_E], cub);
+	create_img("sprites/robot/rob_W", 6, cub->sprites[EN3_W], cub);
+	create_img("sprites/robot/rob_SE", 6, cub->sprites[EN3_SE], cub);
+	create_img("sprites/robot/rob_SW", 6, cub->sprites[EN3_SW], cub);
+	create_img("sprites/robot/rob_NE", 6, cub->sprites[EN3_NE], cub);
+	create_img("sprites/robot/rob_NW", 6, cub->sprites[EN3_NW], cub);
+	create_img("sprites/explosion/explosion", 29, cub->sprites[I_MISS], cub);
+	create_img("sprites/barre_menu/menu", 4, cub->sprites[I_MENU], cub);
+}
+
 void	imgs_creator(t_cub *cub)
 {
 	cub->display.img = mlx_new_image(cub->mlx.mlx, WIN_W, WIN_H);
@@ -74,13 +113,16 @@ void	imgs_creator(t_cub *cub)
 	create_img("sprites/mitrailleuse/mitrailleuse", 13,
 		cub->sprites[MACHINEGUN], cub);
 	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MENUBAR], cub);
-	create_img("sprites/ennemi_nu/en1_S", 9, cub->sprites[NAKED_EN], cub);
-	create_img("sprites/ennemi_nu/en1_mort", 9, cub->sprites[EN1_DEAD], cub);
-	create_img("sprites/barre_menu/menubar", 1, cub->sprites[MAPBAR], cub);
-	create_img("sprites/police/chiffre", 10, cub->sprites[CHIFFRE], cub);
-	create_img("sprites/police/alphabet", 26, cub->sprites[ALPHA], cub);
-	create_img("sprites/police/ponct", 9, cub->sprites[PONCT], cub);
-	create_img("sprites/portrait/portrait", 8, cub->sprites[PORTRAIT], cub);
-	create_img("sprites/text_map/text_map", 4, cub->sprites[IMG_MAP], cub);
+	create_img("sprites/ennemi_nu/en1_S", 9, cub->sprites[EN1_S], cub);
+	create_img("sprites/ennemi_nu/en1_N", 9, cub->sprites[EN1_N], cub);
+	create_img("sprites/ennemi_nu/en1_E", 9, cub->sprites[EN1_E], cub);
+	create_img("sprites/ennemi_nu/en1_W", 9, cub->sprites[EN1_W], cub);
+	create_img("sprites/ennemi_nu/en1_SE", 9, cub->sprites[EN1_SE], cub);
+	create_img("sprites/ennemi_nu/en1_SW", 9, cub->sprites[EN1_SW], cub);
+	create_img("sprites/ennemi_nu/en1_NE", 9, cub->sprites[EN1_NE], cub);
+	imgs_creator2(cub);
+	imgs_creator3(cub);
 	img_resize(cub);
+	create_menu_imgs(cub->sprites[I_MENU], cub);
+	create_shaders(cub->sprites[I_SHADERS], cub);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   img_resize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 11:02:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/24 11:22:07 by tuytters         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:42:47 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,6 @@ void	img_resize(t_cub *cub)
 	resize_my_imgs(cub, cub->sprites[PONCT], 90, 90);
 	resize_my_imgs(cub, cub->sprites[PORTRAIT], 175, 175);
 	resize_my_imgs(cub, cub->sprites[IMG_MAP], 20, 20);
+	resize_my_imgs(cub, cub->sprites[I_MENU], WIN_H, WIN_W);
+	resize_my_imgs(cub, cub->sprites[BUTTONS], BUTTONS_H, BUTTONS_W);
 }

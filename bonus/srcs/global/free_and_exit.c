@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:11:00 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/22 10:52:39 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/01 15:58:24 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	free_rest_of_struct(t_cub *cub)
 		free(cub->doors);
 	if (cub->en)
 		free(cub->en);
+	if (cub->sprs)
+		free(cub->sprs);
+	if (cub->mkits)
+		free(cub->mkits);
 	while (cub->map_dist && cub->map_dist[++i])
 		free(cub->map_dist[i]);
 	if (cub->map_dist)
@@ -62,7 +66,6 @@ void	free_rest_of_struct(t_cub *cub)
 
 void	free_and_exit(t_cub *cub, int error)
 {
-	system("killall afplay");
 	free_my_arr(cub->map);
 	free_all_imgs(cub);
 	free_rest_of_struct(cub);
