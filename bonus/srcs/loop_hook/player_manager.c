@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_manager.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:30:59 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/23 10:26:49 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 12:57:12 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	music_manager(t_cub *cub)
 		if (time / STEP_SOUND_FRAME > 0 && i % 2)
 			system("afplay -v 0.5 -t 2 music/bruit_pas1.mp3 &>/dev/null &");
 		else if (time / STEP_SOUND_FRAME > 0)
-		{
 			i = 0;
-			system("afplay -v 0.5 -t 2 bonus/sounds/step2.mp3 &>/dev/null &");
-		}
 		if (time / STEP_SOUND_FRAME > 0 && ++i)
 			time -= STEP_SOUND_FRAME;
 	}

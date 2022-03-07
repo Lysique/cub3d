@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   srcs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 08:38:11 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 11:07:06 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 13:05:11 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SRCS_H
 
 # include "global.h"
-# include <stdio.h>
 
 void			cub3d(char *argument);
 void			structure_init(t_cub *cub);
