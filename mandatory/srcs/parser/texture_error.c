@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 08:37:07 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 15:12:20 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 13:44:32 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	texture_error(int error, char *line)
 	else if (error == MISSING_SPACE)
 		my_write("Missing space between texture id and image file or RGB.\n");
 	else if (error == XPM_ERROR)
-		my_write("Path to XPM image or RGB format invalid.\n");
+		my_write("Path to XPM image invalid.\n");
 	else if (error == BAD_RGB)
-		my_write("Bad rgb format..\n");
+		my_write("Bad rgb format.\n");
 	if (line)
 	{
 		my_write("|\033[0;31m");
