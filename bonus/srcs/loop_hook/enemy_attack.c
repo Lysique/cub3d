@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_attack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 12:44:20 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/07 10:52:03 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 12:24:29 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	shoot_player(t_en *en, t_cub *cub)
 		en->sprite = 0;
 	else
 	{
+		system("afplay -v 1 -t 1 music/mitrailleuse_tir.mp3 &>/dev/null &");
 		if (en_shot_manager(en, cub, en->angle))
 			player_life_manager(cub, 1);
 		en->sprite = 1;
@@ -91,6 +92,7 @@ void	bite_player(t_en *en, t_cub *cub)
 		en->img = cub->sprites[EN1_ATK][en->sprite];
 	if (en->sprite == 2 && en->action != E_HAS_ATK && cub->player.life > 0)
 	{
+		system("afplay -v 1 -t 1 music/ennemi_mord.mp3 &>/dev/null &");
 		en->action = E_HAS_ATK;
 		player_life_manager(cub, 1);
 	}
