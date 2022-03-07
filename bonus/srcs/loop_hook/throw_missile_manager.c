@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   throw_missile_manager.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 17:01:18 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:32:23 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 12:21:41 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	throw_missile_manager(t_en *en, t_cub *cub)
 			en->time = 0;
 		}
 		if (en->sprite == en->nb_sprites)
+		{
+			system("afplay -v 1 music/missile_launch.mp3 &>/dev/null &");
 			missile_init(en);
+		}
 	}
 }

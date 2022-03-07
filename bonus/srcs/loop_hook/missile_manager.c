@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   missile_manager.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tamighi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 07:36:51 by tamighi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:41:19 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 12:10:18 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	destroy_door(t_cub *cub, int i)
 	int	j;
 
 	j = 0;
+	system("afplay -v 1 -t 1 music/explo_door.mp3 &>/dev/null &");
 	cub->map[cub->doors[i].y][cub->doors[i].x] = '0';
 	cub->map_dist[cub->doors[i].y][cub->doors[i].x] = INT_MAX;
 	while (cub->doors[j].open != -1)
@@ -36,10 +37,11 @@ void	missile_explode(t_en *en, t_cub *cub, int i)
 {
 	if (en->miss.active == 2)
 	{
+		system("afplay -v 1 music/missile_explo.mp3 &>/dev/null &");
 		en->miss.active = 3;
 		if (i != -1)
 			destroy_door(cub, i);
-		else if (missile_hit_player(cub, en))
+		if (missile_hit_player(cub, en))
 			player_life_manager(cub, 4);
 	}
 	en->miss.time += cub->time;
@@ -77,7 +79,7 @@ void	missile_keep_going(t_en *en, t_cub *cub)
 	dist = sqrtf((en->miss.x - en->miss.x_dest) * (en->miss.x - en->miss.x_dest)
 			+ (en->miss.y - en->miss.y_dest) * (en->miss.y - en->miss.y_dest));
 	en->miss.offset = (int)((1. - (float)(dist / en->miss.dist)) * 400);
-	if (i != -1 && cub->doors[i].open == 0 && cub->doors[i].is_moving == 0)
+	if (i != -1 && (cub->doors[i].open == 0 || cub->doors[i].is_moving == 1))
 		en->miss.active = 2;
 }
 
