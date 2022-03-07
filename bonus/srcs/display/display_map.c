@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 12:34:19 by tamighi           #+#    #+#             */
-/*   Updated: 2022/02/28 14:58:17 by tamighi          ###   ########.fr       */
+/*   Updated: 2022/03/07 11:25:11 by tamighi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,14 @@ void	map_elements_display(int pix_y, float y, float x, t_cub *cub)
 {
 	int				pix_x;
 	unsigned int	color;
+	float			start_x;
 
 	pix_x = MINI_PX_SPACE_X;
+	start_x = 0;
+	while (start_x < x && cub->map[(int)y][(int)start_x])
+		start_x += (float)PX_INDEX_CONV_X;
+	if (start_x < x)
+		return ;
 	while (x < 0 && ++pix_x)
 		x += (float)PX_INDEX_CONV_X;
 	while (cub->map[(int)y][(int)x] && pix_x < MINI_PX_X + MINI_PX_SPACE_X)
