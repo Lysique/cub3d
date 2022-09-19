@@ -12,3 +12,4 @@ Use `Make` in the bonus or mandatory folder and `./cub3d <file_name?>` to launch
 
 ## Examples
 
+![Screenshot](readme_files/screenshot_game.png)
