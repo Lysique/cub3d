@@ -11,5 +11,14 @@ The RayCasting is a solid and fast technique used for 3d rendering.
 Use `Make` in the bonus or mandatory folder and `./cub3d <file_name?>` to launch the program.
 
 ## Examples
+### Game
+<img src="readme_files/screenshot_game.png" width="600"></img>
 
-![Screenshot](readme_files/screenshot_game.png)
+### Menu
+<img src="readme_files/menu_example.png" width="600"></img>
+
+### File parsing example
+<img src="readme_files/map_example.png" width="350"></img>
+
+### Video
+![Alt Text](https://github.com/Lysique/clean_cub3d/blob/master/readme_files/cub3d_vid_example.gif)
