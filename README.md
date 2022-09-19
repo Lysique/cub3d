@@ -1,4 +1,4 @@
-# clean_cub3d
+# cub3d
 
 ## About
 This project is inspired from the game Wolfenstein3D, using a rendering technique called the RayCasting.  
