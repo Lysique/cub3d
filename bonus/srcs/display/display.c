@@ -21,9 +21,6 @@ void	display_game(t_cub *cub)
 	display_menubar(cub);
 	display_char(cub);
 	display_gun(cub);
-	if (cub->shader_index != -1)
-		mlx_put_image_to_window(cub->mlx.mlx, cub->mlx.win,
-			cub->sprites[I_SHADERS][cub->shader_index].img, 0, 0);
 }
 
 void	display_win_menu(t_cub *cub)
