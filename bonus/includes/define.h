@@ -459,21 +459,21 @@
 
 /*##################### KEYS DEFINE ####################*/
 
-# define K_ESC 53
+# define K_ESC 65307
 
-# define K_D 2
-# define K_A 0
-# define K_S 1
-# define K_W 13
+# define K_D 100
+# define K_A 97
+# define K_S 115
+# define K_W 119
 
-# define K_LEFT 123
-# define K_RIGHT 124
-# define K_UP 126
-# define K_DOWN 125
+# define K_LEFT 65361
+# define K_RIGHT 65363
+# define K_UP 65362
+# define K_DOWN 65364
 
-# define K_SHIFT 258
+# define K_SHIFT 65506
 
-# define K_SPACE 49
+# define K_SPACE 32
 
 /*#################### COLORS ####################*/
 
@@ -491,7 +491,6 @@
 # define MALLOC_ERROR 2
 # define IMG_ERROR 3
 # define MLX_ERROR 4
-# define MUSIC_NOT_FOUND 5
 
 /*#################### PARSER_ERROR DEFINE #####################*/
 

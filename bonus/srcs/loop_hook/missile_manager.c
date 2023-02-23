@@ -17,7 +17,6 @@ void	destroy_door(t_cub *cub, int i)
 	int	j;
 
 	j = 0;
-	system("afplay -v 1 -t 1 music/explo_door.mp3 &>/dev/null &");
 	cub->map[cub->doors[i].y][cub->doors[i].x] = '0';
 	cub->map_dist[cub->doors[i].y][cub->doors[i].x] = INT_MAX;
 	while (cub->doors[j].open != -1)
@@ -37,7 +36,6 @@ void	missile_explode(t_en *en, t_cub *cub, int i)
 {
 	if (en->miss.active == 2)
 	{
-		system("afplay -v 1 music/missile_explo.mp3 &>/dev/null &");
 		en->miss.active = 3;
 		if (i != -1)
 			destroy_door(cub, i);

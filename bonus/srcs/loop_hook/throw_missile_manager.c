@@ -46,9 +46,6 @@ void	throw_missile_manager(t_en *en, t_cub *cub)
 			en->time = 0;
 		}
 		if (en->sprite == en->nb_sprites)
-		{
-			system("afplay -v 1 music/missile_launch.mp3 &>/dev/null &");
 			missile_init(en);
-		}
 	}
 }

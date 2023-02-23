@@ -12,24 +12,6 @@
 
 #include "../../includes/loop_hook.h"
 
-void	music_manager(t_cub *cub)
-{
-	static t_time	time = 0;
-	static int		i = 0;
-
-	if (cub->key.w == 1 || cub->key.s == 1
-		|| cub->key.a == 1 || cub->key.d == 1)
-	{
-		time += cub->time;
-		if (time / STEP_SOUND_FRAME > 0 && i % 2)
-			system("afplay -v 0.5 -t 2 music/bruit_pas1.mp3 &>/dev/null &");
-		else if (time / STEP_SOUND_FRAME > 0)
-			i = 0;
-		if (time / STEP_SOUND_FRAME > 0 && ++i)
-			time -= STEP_SOUND_FRAME;
-	}
-}
-
 void	key_move(float valcos, float valsin, t_cub *cub)
 {
 	float			y;
@@ -77,7 +59,6 @@ void	player_manager(t_cub *cub)
 {
 	move_manager(cub);
 	rotate_manager(cub);
-	music_manager(cub);
 	if (cub->map_dist[(int)cub->player.y][(int)cub->player.x] != 0)
 		map_dist_manager(cub);
 }

@@ -16,8 +16,6 @@ void	naked_die(t_en *en, t_cub *cub)
 {
 	if (en->time / EN1_DYING_SPR_SPEED > 0)
 	{
-		if (en->sprite == 0)
-			system("afplay -v 0.6 -t 1 music/enemy_die.mp3 &>/dev/null &");
 		en->img = cub->sprites[EN1_DEAD][en->sprite];
 		if (en->sprite == 3)
 			en->offset += 100;
@@ -37,8 +35,6 @@ void	soldier_die(t_en *en, t_cub *cub)
 {
 	if (en->time / EN2_DYING_SPR_SPEED > 0)
 	{
-		if (en->sprite == 0)
-			system("afplay -v 1 -t 1 music/soldat_die.mp3 &>/dev/null &");
 		en->img = cub->sprites[EN2_DEAD][en->sprite];
 		en->sprite++;
 		if (en->sprite == 7)

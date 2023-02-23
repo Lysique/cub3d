@@ -18,7 +18,6 @@ void	swap_gun(t_cub *cub)
 
 	if (time == 0)
 	{
-		system("afplay -v 0.2 music/change_arme.mp3 &>/dev/null &");
 		if (cub->gun_type == 0)
 			cub->gun_type = 1;
 		else
@@ -54,15 +53,9 @@ void	reload_gun(t_cub *cub, t_gun *gun)
 	{
 		gun->sprite = gun->nb_spr_shoot + 1;
 		gun->status = GS_RELOAD;
-		if (cub->gun_type == 0)
-			system("afplay -v 0.5 music/recharge_pompe.mp3 &>/dev/null &");
-		else
-			system("afplay -v 0.5 music/mitrailleuse_rech1.mp3 &>/dev/null &");
 	}
 	if (gun->time / RELOAD_GUN_SPEED > 0 && gun->status == GS_RELOAD)
 	{
-		if (cub->gun_type == 1 && gun->sprite == 4)
-			system("afplay -v 0.5 music/mitrailleuse_rech2.mp3 &>/dev/null &");
 		gun->time -= RELOAD_GUN_SPEED;
 		gun->sprite += 1;
 		if (gun->sprite == gun->nb_sprites)

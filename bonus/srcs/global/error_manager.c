@@ -23,8 +23,6 @@ void	error_writer(int error)
 		my_write("Mlx didn't initiate properly.\n");
 	else if (error == IMG_ERROR)
 		my_write("Couldn't create the game images.\n");
-	else if (error == MUSIC_NOT_FOUND)
-		my_write("Sounds are missing in music folder\n");
 	my_write("\nExit\n");
 }
 
@@ -39,7 +37,5 @@ void	error_manager(int error)
 		free_and_exit(cub, 0);
 	}
 	error_writer(error);
-	if (error == MUSIC_NOT_FOUND)
-		exit(1);
 	free_and_exit(cub, 1);
 }

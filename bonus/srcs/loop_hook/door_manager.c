@@ -75,13 +75,11 @@ void	ft_gardian_of_the_keys(t_cub *cub)
 		{
 			cub->doors[i].open = 1;
 			cub->doors[i].is_moving = 1;
-			system("afplay -v 0.5 music/ouverture_ascenseur.mp3 &>/dev/null &");
 		}
 		else
 		{
 			cub->doors[i].open = 0;
 			cub->doors[i].is_moving = -1;
-			system("afplay -v 0.5 music/fermeture_ascenseur.mp3 &>/dev/null &");
 		}
 		map_dist_manager(cub);
 	}

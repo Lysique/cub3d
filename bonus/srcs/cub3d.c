@@ -33,11 +33,11 @@ void	cub3d(char *argument)
 
 	structure_init(&cub);
 	level_init(argument, &cub);
-	mlx_hook(cub.mlx.win, 2, 0, key_press, (void *)&cub);
-	mlx_hook(cub.mlx.win, 3, 0, key_release, (void *)&cub);
-	mlx_hook(cub.mlx.win, 4, 0, mouse_click, (void *)&cub);
-	mlx_hook(cub.mlx.win, 5, 0, mouse_release, (void *)&cub);
-	mlx_hook(cub.mlx.win, 6, 0, mouse_move, (void *)&cub);
+	mlx_hook(cub.mlx.win, 2, 1L<<0, key_press, (void *)&cub);
+	mlx_hook(cub.mlx.win, 3, 1L<<1, key_release, (void *)&cub);
+	mlx_hook(cub.mlx.win, 4, 1L<<2, mouse_click, (void *)&cub);
+	mlx_hook(cub.mlx.win, 5, 1L<<3, mouse_release, (void *)&cub);
+	mlx_hook(cub.mlx.win, 6, 1L<<6, mouse_move, (void *)&cub);
 	mlx_hook(cub.mlx.win, 17, 0, mouse_press, (void *)&cub);
 	mlx_loop_hook(cub.mlx.mlx, loop_hook, &cub);
 	mlx_loop(cub.mlx.mlx);

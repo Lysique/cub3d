@@ -26,8 +26,6 @@ void	texture_error(int error, char *line)
 		my_write("Missing space between texture id and image name.\n");
 	else if (error == XPM_ERROR)
 		my_write("Path to XPM image or RGB format invalid.\n");
-	else if (error == MUSIC_NOT_FOUND)
-		my_write("Music file does not exist.\n");
 	if (line)
 	{
 		my_write("|\033[0;31m");

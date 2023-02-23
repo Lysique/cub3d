@@ -46,8 +46,6 @@ void	structure_init(t_cub *cub)
 	set_cubptr(cub);
 	pre_variables_init(cub);
 	variables_init(cub);
-	if (access("music/son_ambiance.mp3", F_OK) < 0)
-		error_manager(MUSIC_NOT_FOUND);
 	mlx_variables_init(cub);
 	imgs_creator(cub);
 }
