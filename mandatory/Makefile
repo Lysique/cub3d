@@ -15,11 +15,16 @@ CC = gcc
 SANITIZEFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 NORMALFLAGS = -Wall -Wextra -Werror
 CFLAGS = $(NORMALFLAGS)
-MLX_FLAGS = -Lmlx -lmlx -lGL -lX11 -lm -lXext
+DEP_FLAGS = -Lmlx -lmlx -lGL -lX11 -lm -lXext
+
+MLX_DIR = mlx
+MLX_LIB = $(MLX_DIR)/libmlx.a
+
 OBJDIR = objs/
-MLX_DIR = mlx/
-INCLUDES = includes/
+INC_DIR = includes/
+INCLUDES = -I $(INC_DIR) -I $(MLX_DIR)/
 GLOBAL_INCLUDES = includes/define.h includes/
+
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
 C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS) $(LOOP_HOOK_OBJS)
@@ -31,11 +36,11 @@ SRCS_FILES = main.c cub3d.c structure_init.c
 SRCS_DIR = srcs/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS = $(addprefix $(OBJDIR)srcs_, $(SRCS_FILES:.c=.o))
-SRCS_HEADER = $(INCLUDES)srcs.h $(GLOBAL_INCLUDES)
+SRCS_HEADER = $(INC_DIR)srcs.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)srcs_%.o: $(SRCS_DIR)%.c $(SRCS_HEADER)
 	$(MK_OBJDIR)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### GLOBAL FILES ######
 
@@ -43,10 +48,10 @@ GLOBAL_FILES = my_write.c wr_and_ex.c free_and_exit.c
 GLOBAL_DIR = srcs/global/
 GLOBAL_SRCS = $(addprefix $(GLOBAL_DIR), $(GLOBAL_FILES))
 GLOBAL_OBJS = $(addprefix $(OBJDIR)global_, $(GLOBAL_FILES:.c=.o))
-GLOBAL_HEADER = $(INCLUDES)global.h $(GLOBAL_INCLUDES)
+GLOBAL_HEADER = $(INC_DIR)global.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)global_%.o: $(GLOBAL_DIR)%.c $(GLOBAL_HEADER)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### PARSER FILES ######
 
@@ -54,10 +59,10 @@ PARSER_FILES = parser.c parser_free.c parser_error.c map_error.c map_checker.c t
 PARSER_DIR = srcs/parser/
 PARSER_SRCS = $(addprefix $(PARSER_DIR), $(PARSER_FILES))
 PARSER_OBJS = $(addprefix $(OBJDIR)parser_, $(PARSER_FILES:.c=.o))
-PARSER_HEADER = $(INCLUDES)parser.h $(GLOBAL_INCLUDES)
+PARSER_HEADER = $(INC_DIR)parser.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)parser_%.o: $(PARSER_DIR)%.c $(PARSER_HEADER)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### DISPLAY FILES ######
 
@@ -65,10 +70,10 @@ DISPLAY_FILES = display.c ray_casting.c draw_ray.c display_map.c put_my_pixel.c 
 DISPLAY_DIR = srcs/display/
 DISPLAY_SRCS = $(addprefix $(DISPLAY_DIR), $(DISPLAY_FILES))
 DISPLAY_OBJS = $(addprefix $(OBJDIR)display_, $(DISPLAY_FILES:.c=.o))
-DISPLAY_HEADER = $(INCLUDES)display.h $(GLOBAL_INCLUDES)
+DISPLAY_HEADER = $(INC_DIR)display.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### KEY_HOOK FILES ######
 
@@ -76,10 +81,10 @@ KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c
 KEY_HOOK_DIR = srcs/key_hook/
 KEY_HOOK_SRCS = $(addprefix $(KEY_HOOK_DIR), $(KEY_HOOK_FILES))
 KEY_HOOK_OBJS = $(addprefix $(OBJDIR)key_hook_, $(KEY_HOOK_FILES:.c=.o))
-KEY_HOOK_HEADER = $(INCLUDES)key_hook.h $(GLOBAL_INCLUDES)
+KEY_HOOK_HEADER = $(INC_DIR)key_hook.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)key_hook_%.o: $(KEY_HOOK_DIR)%.c $(KEY_HOOK_HEADER)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### LOOP_HOOK FILES ######
 
@@ -87,11 +92,11 @@ LOOP_HOOK_FILES = loop_hook.c key_manager.c key_init.c
 LOOP_HOOK_DIR = srcs/loop_hook/
 LOOP_HOOK_SRCS = $(addprefix $(LOOP_HOOK_DIR), $(LOOP_HOOK_FILES))
 LOOP_HOOK_OBJS = $(addprefix $(OBJDIR)loop_hook_, $(LOOP_HOOK_FILES:.c=.o))
-LOOP_HOOK_HEADER = $(INCLUDES)loop_hook.h $(GLOBAL_INCLUDES)
+LOOP_HOOK_HEADER = $(INC_DIR)loop_hook.h $(GLOBAL_INCLUDES)
 
 $(OBJDIR)loop_hook_%.o: $(LOOP_HOOK_DIR)%.c $(LOOP_HOOK_HEADER)
 	$(MK_OBJDIR)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ##### RULES #####
 
@@ -99,7 +104,7 @@ all: $(NAME)
 
 $(NAME): $(C_OBJS)
 	make -C $(MLX_DIR)
-	$(CC) -I $(INCLUDES) $(C_OBJS) -o $(NAME) $(MLX_FLAGS) mlx/libmlx.a
+	$(CC) $(C_OBJS) -o $(NAME) $(DEP_FLAGS) $(MLX_LIB)
 
 mk_objdir:
 	mkdir -p $(OBJDIR)
