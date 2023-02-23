@@ -17,12 +17,12 @@ NORMALFLAGS = -Wall -Wextra -Werror
 CFLAGS = $(NORMALFLAGS)
 DEP_FLAGS = -Lmlx -lmlx -lGL -lX11 -lm -lXext
 
-MLX_DIR = ../mlx
-MLX_LIB = $(MLX_DIR)/libmlx.a
+MLX_DIR = ../mlx/
+MLX_LIB = $(MLX_DIR)libmlx.a
 
 OBJDIR = objs/
 INC_DIR = includes/
-INCLUDES = -I $(INC_DIR) -I $(MLX_DIR)/
+INCLUDES = -I $(INC_DIR) -I $(MLX_DIR)
 
 GLOBAL_INCLUDES = includes/define.h includes/
 

@@ -36,7 +36,7 @@ void	fade_out_to_menu(t_cub *cub)
 		if (cub->shader_index == 20)
 		{
 			cub->shader_index = -1;
-			mlx_mouse_show();
+			mlx_mouse_show(cub->mlx.mlx, cub->mlx.win);
 			if (cub->game_state == WIN)
 				game_state_manager(cub, WIN_MENU);
 			else

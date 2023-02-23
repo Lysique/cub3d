@@ -14,9 +14,7 @@
 
 int	mouse_press(void *param)
 {
-	t_cub	*cub;
-
-	cub = (t_cub *)param;
+    (void)param;
 	error_manager(EXOK);
 	return (0);
 }

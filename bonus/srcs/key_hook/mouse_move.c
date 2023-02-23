@@ -21,7 +21,7 @@ int	mouse_move(int x, int y, void *param)
 	if (cub->game_state == GAME)
 	{
 		cub->mouse.x = x;
-		mlx_mouse_move(cub->mlx.win, WIN_W / 2, WIN_H / 2);
+		mlx_mouse_move(cub->mlx.mlx, cub->mlx.win, WIN_W / 2, WIN_H / 2);
 	}
 	return (0);
 }

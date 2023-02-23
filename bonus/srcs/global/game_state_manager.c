@@ -18,7 +18,7 @@ void	menu_state_manager(t_cub *cub, int state)
 		|| cub->game_state == WIN)
 	{
 		system("killall afplay");
-		mlx_mouse_show();
+		mlx_mouse_show(cub->mlx.mlx, cub->mlx.win);
 	}
 	if (state == WIN_MENU && cub->game_level == 5)
 		error_manager(EXOK);
@@ -33,15 +33,15 @@ void	game_state_manager(t_cub *cub, int state)
 	{
 		system("afplay music/son_ambiance.mp3 &>/dev/null &");
 		cub->game_state = state;
-		mlx_mouse_move(cub->mlx.win, WIN_W / 2, WIN_H / 2);
+		mlx_mouse_move(cub->mlx.mlx, cub->mlx.win, WIN_W / 2, WIN_H / 2);
 		key_init(cub);
-		mlx_mouse_hide();
+		mlx_mouse_hide(cub->mlx.mlx, cub->mlx.win);
 	}
 	else if (state == WIN || state == LOSE)
 	{
 		if (cub->game_state != GAME)
 		{
-			mlx_mouse_hide();
+			mlx_mouse_hide(cub->mlx.mlx, cub->mlx.win);
 			system("afplay music/son_ambiance.mp3 &>/dev/null &");
 		}
 		cub->game_state = state;
