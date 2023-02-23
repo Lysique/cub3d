@@ -236,7 +236,6 @@
 
 # define SPEED 0.0023
 # define ROTATE 0.0015
-# define SENSI_MOUSE 0.000065
 
 # define STEP_SOUND_FRAME 300
 

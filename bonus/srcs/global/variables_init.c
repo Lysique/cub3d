@@ -54,7 +54,6 @@ void	key_init(t_cub *cub)
 	cub->key.shoot_r = 1;
 	cub->key.shoot_p = 0;
 	cub->key.swap_gun = 0;
-	cub->mouse.x = WIN_W / 2;
 }
 
 void	variables_init(t_cub *cub)

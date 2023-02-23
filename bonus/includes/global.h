@@ -34,11 +34,6 @@ typedef struct s_img {
 	int		h;
 }				t_img;
 
-typedef struct s_mouse {
-	int	x;
-	int	y;
-}				t_mouse;
-
 typedef struct s_miss {
 	float	x;
 	float	y;
@@ -177,7 +172,6 @@ typedef struct s_cub {
 	t_spr		*sprs;
 	t_gun		gun[2];
 	t_key		key;
-	t_mouse		mouse;
 	t_time		time;
 	t_img		display;
 	t_img		sprites[NB_SPR][MAX_SPR + 1];
