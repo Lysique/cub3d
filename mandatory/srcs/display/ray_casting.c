@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/display.h"
+#include "display.h"
 
 void	hit_wall_check(t_ray *r, t_cub *cub)
 {

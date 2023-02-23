@@ -19,17 +19,17 @@ int	key_press(int key, void *param)
 	cub = (t_cub *)param;
 	if (key == 53)
 		free_and_exit((t_cub *)param, "Exit\n", 0);
-	else if (key == 2)
+	else if (key == 100)
 		cub->key.d = 1;
-	else if (key == 0)
+	else if (key == 97)
 		cub->key.a = 1;
-	else if (key == 1)
+	else if (key == 115)
 		cub->key.s = 1;
-	else if (key == 13)
+	else if (key == 119)
 		cub->key.w = 1;
-	else if (key == 123)
+	else if (key == 65361)
 		cub->key.left = 1;
-	else if (key == 124)
+	else if (key == 65363)
 		cub->key.right = 1;
 	return (0);
 }

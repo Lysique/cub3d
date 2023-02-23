@@ -66,9 +66,6 @@ void	init_draywing_variables(t_ray *r, t_cub *cub)
 
 void	draw_ray(t_ray *r, t_cub *cub)
 {
-	int	y;
-
-	y = 0;
 	init_draywing_variables(r, cub);
 	draw_walls(cub, r);
 }

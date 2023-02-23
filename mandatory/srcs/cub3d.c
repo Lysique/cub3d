@@ -20,8 +20,8 @@ void	cub3d(char *argument)
 
 	structure_init(&cub);
 	parser(argument, &cub);
-	mlx_hook(cub.mlx.win, 2, 0, key_press, (void *)&cub);
-	mlx_hook(cub.mlx.win, 3, 0, key_release, (void *)&cub);
+	mlx_hook(cub.mlx.win, 2, 1L<<0, key_press, (void *)&cub);
+	mlx_hook(cub.mlx.win, 3, 1L<<1, key_release, (void *)&cub);
 	mlx_hook(cub.mlx.win, 17, 0, mouse_press, (void *)&cub);
 	mlx_loop_hook(cub.mlx.mlx, loop_hook, &cub);
 	mlx_loop(cub.mlx.mlx);

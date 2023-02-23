@@ -17,17 +17,17 @@ int	key_release(int key, void *param)
 	t_cub	*cub;
 
 	cub = (t_cub *)param;
-	if (key == 2)
+	if (key == 100)
 		cub->key.d = 0;
-	else if (key == 0)
+	else if (key == 97)
 		cub->key.a = 0;
-	else if (key == 1)
+	else if (key == 115)
 		cub->key.s = 0;
-	else if (key == 13)
+	else if (key == 119)
 		cub->key.w = 0;
-	else if (key == 123)
+	else if (key == 65361)
 		cub->key.left = 0;
-	else if (key == 124)
+	else if (key == 65363)
 		cub->key.right = 0;
 	return (0);
 }

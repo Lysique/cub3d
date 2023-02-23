@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
-# include <mlx.h>
+# include "../mlx/mlx.h"
 # include <stdarg.h>
 # include "define.h"
 

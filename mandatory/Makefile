@@ -15,11 +15,11 @@ CC = gcc
 SANITIZEFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 NORMALFLAGS = -Wall -Wextra -Werror
 CFLAGS = $(NORMALFLAGS)
-MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -Lmlx -lmlx -lGL -lX11 -lm -lXext
 OBJDIR = objs/
 MLX_DIR = mlx/
 INCLUDES = includes/
-GLOBAL_INCLUDES = includes/define.h
+GLOBAL_INCLUDES = includes/define.h includes/
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
 
 C_OBJS = $(OBJS) $(GLOBAL_OBJS) $(PARSER_OBJS) $(KEY_HOOK_OBJS) $(DISPLAY_OBJS) $(LOOP_HOOK_OBJS)
@@ -99,7 +99,7 @@ all: $(NAME)
 
 $(NAME): $(C_OBJS)
 	make -C $(MLX_DIR)
-	$(CC) $(MLX_FLAGS) -I $(INCLUDES) $(C_FILES) $(CFLAGS) -o $(NAME)
+	$(CC) -I $(INCLUDES) $(C_OBJS) -o $(NAME) $(MLX_FLAGS) mlx/libmlx.a
 
 mk_objdir:
 	mkdir -p $(OBJDIR)
