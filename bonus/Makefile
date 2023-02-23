@@ -98,7 +98,7 @@ $(OBJDIR)display_%.o: $(DISPLAY_DIR)%.c $(DISPLAY_HEADER)
 ##### KEY_HOOK FILES ######
 
 KEY_HOOK_FILES = key_press.c key_release.c mouse_press.c \
-				 mouse_release.c mouse_move.c mouse_click_menu.c
+				 mouse_release.c mouse_click_menu.c
 
 
 KEY_HOOK_DIR = srcs/key_hook/

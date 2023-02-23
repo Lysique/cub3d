@@ -36,7 +36,6 @@ void	display_gun(t_cub *cub)
 	img = cub->sprites[cub->gun_type + 2][cub->gun[cub->gun_type].sprite];
 	start_x = POS_GUN_X - img.w / 2;
 	start_y = POS_GUN_Y - img.h;
-	mlx_put_image_to_window(cub->mlx.mlx,
-		cub->mlx.win, img.img, start_x, start_y);
+    draw_img(cub, img, start_y, start_x);
 	display_gun_sight(cub);
 }

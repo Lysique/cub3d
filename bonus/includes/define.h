@@ -24,7 +24,7 @@
 # define WIN_H 1080
 # define WIN_W 1920
 
-# define OPTI 2
+# define OPTI 1
 
 # define SG_BULLETS 2
 # define MG_BULLETS 50

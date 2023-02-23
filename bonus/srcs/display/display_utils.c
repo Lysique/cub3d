@@ -14,6 +14,9 @@
 
 void	optimisation_pixel_put(t_img img, int y, int x, unsigned int color)
 {
+    if (OPTI == 1) {
+        return put_my_pixel(img, y, x, color);
+    }
 	int	i;
 	int	j;
 
