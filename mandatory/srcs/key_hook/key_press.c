@@ -17,7 +17,7 @@ int	key_press(int key, void *param)
 	t_cub	*cub;
 
 	cub = (t_cub *)param;
-	if (key == 53)
+	if (key == 65307)
 		free_and_exit((t_cub *)param, "Exit\n", 0);
 	else if (key == 100)
 		cub->key.d = 1;

@@ -17,12 +17,13 @@ NORMALFLAGS = -Wall -Wextra -Werror
 CFLAGS = $(NORMALFLAGS)
 DEP_FLAGS = -Lmlx -lmlx -lGL -lX11 -lm -lXext
 
-MLX_DIR = mlx
+MLX_DIR = ../mlx
 MLX_LIB = $(MLX_DIR)/libmlx.a
 
 OBJDIR = objs/
 INC_DIR = includes/
 INCLUDES = -I $(INC_DIR) -I $(MLX_DIR)/
+
 GLOBAL_INCLUDES = includes/define.h includes/
 
 MK_OBJDIR = $(shell mkdir -p $(OBJDIR))
@@ -104,7 +105,7 @@ all: $(NAME)
 
 $(NAME): $(C_OBJS)
 	make -C $(MLX_DIR)
-	$(CC) $(C_OBJS) -o $(NAME) $(DEP_FLAGS) $(MLX_LIB)
+	$(CC) $(C_OBJS) -o $(NAME) -L$(MLX_DIR) $(DEP_FLAGS) $(MLX_LIB)
 
 mk_objdir:
 	mkdir -p $(OBJDIR)
