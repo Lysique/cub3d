@@ -8,6 +8,19 @@ The program reads a file given in parameter (or look for specific files if no fi
 The RayCasting is a solid and fast technique used for 3d rendering.
 
 ## Installation
+```sh
+git clone https://github.com/Lysique/cub3d.git --recurse-submodules
+
+```
+
+```sh
+## Dependencies: libxext (X11), libgl1 (lGL)
+sudo apt-get update
+sudo apt-get install -y \
+  libxext-dev \
+  libgl1-mesa-dev
+```
+
 Use `make` in the bonus or mandatory folder and `./cub3d <file_name?>` to launch the program.
 
 ## Examples
